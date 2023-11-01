@@ -9,19 +9,19 @@ boolean GuzzlrShouldTakeQuest()
 {
 	if ( GuzzlrHasQuest() )	// Already on guzzlr quest
 		return false;
-	if ( get_property_int("_guzzlrDeliveries")>=get_property_int("Guzzlr.deliveryLimit") )	// Enough for today
+	if ( get_property("_guzzlrDeliveries").to_int()>=get_property("Guzzlr.deliveryLimit").to_int() )	// Enough for today
 		return false;
  
-	if ( get_property_int("_guzzlrPlatinumDeliveries") < 1								// always take platinum quests
-		|| !get_property_bool("_guzzlrQuestAbandoned")										// OR take bronze/gold quests iff we can ditch the location
-			&& get_property_int("_guzzlrGoldDeliveries") < 3 ) 									// AND if we haven't run out of gold quests for the day (prioritize bronze while charging the tablet, then gold for bucks)
+	if ( get_property("_guzzlrPlatinumDeliveries").to_int() < 1								// always take platinum quests
+		|| !get_property("_guzzlrQuestAbandoned").to_boolean()										// OR take bronze/gold quests iff we can ditch the location
+			&& get_property("_guzzlrGoldDeliveries").to_int() < 3 ) 									// AND if we haven't run out of gold quests for the day (prioritize bronze while charging the tablet, then gold for bucks)
 		return true;
 	return false;
 }
  
 void GuzzlrAbandonQuest() 
 {
-	if ( !get_property_bool("_guzzlrQuestAbandoned") && GuzzlrHasQuest() ) 
+	if ( !get_property("_guzzlrQuestAbandoned").to_boolean() && GuzzlrHasQuest() ) 
     {
 		set_property("choiceAdventure1412",1);
 		use(1,$item[guzzlr tablet]);
@@ -30,15 +30,15 @@ void GuzzlrAbandonQuest()
  
 boolean GuzzlrKeepLocation() 
 {	
-	location GuzzlrLocation = get_property_loc("guzzlrQuestLocation");
+	location GuzzlrLocation = get_property("guzzlrQuestLocation").to_location();
 	if ( !($locations[The Oasis,Cobb's Knob Treasury] contains GuzzlrLocation) // Doesn't play nice with wanderers
 		&& GuzzlrLocation.wanderers
 		&& can_adv(GuzzlrLocation) 
 		&& ( GuzzlrLocation.zone != "underwater"
 			|| has_effect($effect[fishy])
-			|| available_amount($item[fishy pipe])>0 && !get_property_bool("_fishyPipeUsed")
-			|| get_property("skateParkStatus") == "ice" && !get_property_bool("_skateBuff1") 
-			|| get_property_int("guzzlrDeliveryProgress") >= 66 ) )
+			|| available_amount($item[fishy pipe])>0 && !get_property("_fishyPipeUsed").to_boolean()
+			|| get_property("skateParkStatus") == "ice" && !get_property("_skateBuff1") .to_boolean()
+			|| get_property("guzzlrDeliveryProgress").to_int() >= 66 ) )
 		return true;
 	else
 		return false;
@@ -94,12 +94,12 @@ boolean GuzzlrHasBooze()
  */
 void GuzzlrTakeQuest() 
 {
-	if ( !GuzzlrKeepLocation() && !get_property_bool("_guzzlrQuestAbandoned") )
+	if ( !GuzzlrKeepLocation() && !get_property("_guzzlrQuestAbandoned").to_boolean() )
 		GuzzlrAbandonQuest();
 	while ( GuzzlrShouldTakeQuest() ) {
 		print("Starting guzzlr quest...","blue");
 		use(1,$item[guzzlr tablet]);
-		if ( !GuzzlrKeepLocation() && !get_property_bool("_guzzlrQuestAbandoned") )
+		if ( !GuzzlrKeepLocation() && !get_property("_guzzlrQuestAbandoned").to_boolean() )
 			GuzzlrAbandonQuest();
 	}
 	if ( GuzzlrHasQuest() )
