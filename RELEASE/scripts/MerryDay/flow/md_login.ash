@@ -1,3 +1,4 @@
+import md_library;
 import md_iotm2019;
 import md_iotm2020;
 
@@ -17,7 +18,7 @@ void main()
 
 	//switchClan(homeClanId);
 	cli_execute("breakfast");
-	if (have_skill($skill[canticle of carboloading]) && !get_property_bool("_carboLoaded") )
+	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
 		use_skill(1,$skill[canticle of carboloading]);
 
 
@@ -59,7 +60,7 @@ void main()
 	//getChateauStuff();
 	if ( item_amount($item[BittyCar MeatCar]) > 0)
 		use(1, $item[BittyCar MeatCar]);
-	while ( get_property_int("_feelDisappointedUsed") < 3 )
+	while ( get_property("_feelDisappointedUsed").to_int() < 3 )
 		use_skill(1,$skill[Feel Disappointed]);
 	//birdBuff();
 }

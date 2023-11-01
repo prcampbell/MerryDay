@@ -33,7 +33,7 @@ boolean GuzzlrKeepLocation()
 	location GuzzlrLocation = get_property("guzzlrQuestLocation").to_location();
 	if ( !($locations[The Oasis,Cobb's Knob Treasury] contains GuzzlrLocation) // Doesn't play nice with wanderers
 		&& GuzzlrLocation.wanderers
-		&& can_adv(GuzzlrLocation) 
+		&& can_adventure(GuzzlrLocation) 
 		&& ( GuzzlrLocation.zone != "underwater"
 			|| has_effect($effect[fishy])
 			|| available_amount($item[fishy pipe])>0 && !get_property("_fishyPipeUsed").to_boolean()
@@ -42,6 +42,12 @@ boolean GuzzlrKeepLocation()
 		return true;
 	else
 		return false;
+}
+
+
+boolean GuzzlrHasBooze() 
+{
+    return false;
 }
 
 /*
