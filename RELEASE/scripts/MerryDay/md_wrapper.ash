@@ -21,7 +21,20 @@ void main()
 
 
 
-  maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+  
+  //Broad Spectrum Vaccine
+  //Telescope Look High
+  //cross streams
+  //cast BIG
+  //cast song of Bravado
+  //cast Shanty of Superiority
+  //monorail buff
+  //cast feel excited
+  //ballpit
+maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+
+
+
   //use PYEC
   //manaburn
   //cast Aug. 15
@@ -29,18 +42,18 @@ void main()
   //eat upto 23 magic sausages
   //mood up
 
-  //Disco Leer
+  //Disco Leer (60)
   //Bind Lasagmbie
   //Polka
-  //Singers Faithful Ocelot
-  //Spirit of Taking
-  //Leash of Linguine
+  //Singers Faithful Ocelot (60)
+  //Spirit of Taking (60)
+  //Leash of Linguine (60)
   //Empathy
-  //Blood Bond
+  //Blood Bond (60)
   //Pride
   //Drescher's
-  //Curiosity
-  //Ruthless Efficiency
+  //Curiosity (60)
+  //Ruthless Efficiency (30)
 
   //check for Tunnel duplication
 
