@@ -31,7 +31,11 @@ void main()
   //monorail buff
   //cast feel excited
   //ballpit
-maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+  //Blood Sugar Sauce Magic
+  //beachhead myst
+  //Quiet Judgement
+  //Daycare Mysticality
+//maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
 
 
 
@@ -74,18 +78,3 @@ maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand ma
   cli_execute("familiar left-hand man");
   cli_execute("maximize adv");
 }
-
-Aria +30
-Pride +10
-Dreschers +10
-MCD +10
-Astral Belt +20
-Red Lettered +15
-
-parka +33
-backup camera +33
-Toiletbrush Mustache +25
-Yapping Pal +20
-Fedora Mounted Fountain +20
-
-Frosty +25
