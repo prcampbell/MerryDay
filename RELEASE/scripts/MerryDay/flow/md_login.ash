@@ -23,7 +23,7 @@ void main()
 
 
 	//Glaciest();
-	Guzzlr();
+	//Guzzlr();
 	if ( can_interact() ) 
 	{
 		/*
