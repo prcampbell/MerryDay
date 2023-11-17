@@ -2,9 +2,9 @@ import md_library;
 import md_iotm2019;
 import md_iotm2020;
 
-void main() 
+void startDay()
 {
-	buyRaffle(11);
+buyRaffle(11);
 	if ( available_amount($item[raffle prize box])>0 )
 		use(available_amount($item[raffle prize box]),$item[raffle prize box]);
 	if ( my_level() > 10 && get_property("questS01OldGuy") == "unstarted" )
@@ -57,4 +57,9 @@ void main()
 	while ( get_property("_feelDisappointedUsed").to_int() < 3 )
 		use_skill(1,$skill[Feel Disappointed]);
 	//birdBuff();
+}
+
+void main() 
+{
+	startDay();
 }
