@@ -28,9 +28,9 @@ void main()
   if (get_campground() contains $item[discount telescope warehouse gift certificate] && get_property("telescopeUpgrades").to_int() > 0 && 
     get_property("telescopeLookedHigh") == "false") 
     cli_execute("telescope high");
-  if(!get_property("_streamsCrossed").to_boolean)
+  if(!get_property("_streamsCrossed").to_boolean())
     cli_execute("crossstreams");
-  if(!get_property(" _ballpit").to_boolean)
+  if(!get_property(" _ballpit").to_boolean())
     cli_execute("ballpit");
   ensure_effect($effect[Broad-Spectrum Vaccine]);
   ensure_effect($effect[Feeling Excited]);
