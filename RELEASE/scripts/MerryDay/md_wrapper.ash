@@ -1,3 +1,6 @@
+import md_library;
+import Librams;
+
 void main() 
 {
 
@@ -14,6 +17,8 @@ void main()
 
 
   */
+  switchClan(84165);
+
   if(!get_property('breakfastCompleted').to_boolean())
   {
     cli_execute("breakfast");
@@ -22,26 +27,41 @@ void main()
 
 
   
-  //Broad Spectrum Vaccine
-  //Telescope Look High
-  //cross streams
-  //cast BIG
-  //cast song of Bravado
-  //cast Shanty of Superiority
+  //Slotless All Stats
+  //Telescope
+  if (get_campground() contains $item[discount telescope warehouse gift certificate] && get_property("telescopeUpgrades").to_int() > 0 && 
+    get_property("telescopeLookedHigh") == "false") 
+    cli_execute("telescope high");
+
+  cli_execute("crossstreams");
+  cli_execute("ballpit");
+  ensure_effect($effect[Broad-Spectrum Vaccine]);
+  ensure_effect($effect[Feeling Excited]);
+
   //monorail buff
-  //cast feel excited
-  //ballpit
-  //Blood Sugar Sauce Magic
-  //beachhead myst
-  //Quiet Judgement
-  //Daycare Mysticality
-//maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+  if (!get_property('_lyleFavored').to_boolean()) 
+  {
+    ensure_effect($effect[Favored by Lyle]);
+  }
 
-
+  //Myst Buffs
+  ensure_effect($effect[Blood Sugar Sauce Magic]);
+  ensure_effect($effect[We're All Made of Starfish]); //'
+  ensure_effect($effect[Quiet Judgement]);
+  ensure_effect($effect[Song of Bravado]);
+  ensure_effect($effect[Big]);
+  ensure_song($effect[The Magical Mojomuscular Melody]);
+  ensure_song($effect[Stevedave's Shanty of Superiority]); //'
+  ensure_effect($effect[Uncucumbered]);
+  maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+  LibramBurn(true);
+  if(have_skill($skill[Aug. 15th: Relaxation Day!]))
+  {
+    use_skill($skill[Aug. 15th: Relaxation Day!]);
+  }
+  LibramBurn(true);
 
   //use PYEC
-  //manaburn
-  //cast Aug. 15
   //manaburn
   //eat upto 23 magic sausages
   //mood up
@@ -64,7 +84,7 @@ void main()
   //mayfly bait
 
   //smoke monster (polar vortex, mild evil, XO Skeleton, FLUDA)
-
+abort();
 
     cli_execute("garbo");
     cli_execute("familiar stooper");

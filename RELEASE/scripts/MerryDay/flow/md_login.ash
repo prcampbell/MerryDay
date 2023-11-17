@@ -2,12 +2,6 @@ import md_library;
 import md_iotm2019;
 import md_iotm2020;
 
-boolean buyRaffle(int ticket_qty) {
-	if(available_amount($item[raffle ticket]) < ticket_qty && visit_url("main.php").contains_text("map7beach.gif") && my_path() != "Zombie Slayer")
-		cli_execute("raffle " + (ticket_qty-available_amount($item[raffle ticket])) + (can_interact() ? " inventory": " storage"));
-	return(available_amount($item[raffle ticket]) >= ticket_qty);
-}
-
 void main() 
 {
 	buyRaffle(11);
@@ -16,7 +10,7 @@ void main()
 	if ( my_level() > 10 && get_property("questS01OldGuy") == "unstarted" )
 		visit_url("place.php?whichplace=sea_oldman&action=oldman_oldman",false);
 
-	//switchClan(homeClanId);
+	switchClan(84165);
 	cli_execute("breakfast");
 	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
 		use_skill(1,$skill[canticle of carboloading]);
@@ -45,7 +39,7 @@ void main()
 
 
 		if ( available_amount($item[fisherman's sack])>0 )
-			use(available_amount($item[fisherman's sack]),$item[fisherman's sack]);
+			use(available_amount($item[fisherman's sack]),$item[fisherman's sack]); //'
 		//StockUpList();
 		//cli_execute("call briefcase unlock");
 		//cli_execute("call briefcase collect");
