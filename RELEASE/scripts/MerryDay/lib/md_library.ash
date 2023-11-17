@@ -1,5 +1,12 @@
 script md_library;
 
+void error(string message) 
+{
+    // Clean up saved properties.
+    //set_property('autoSatisfyWithNPCs', get_property('_saved_autoSatisfyWithNPCs'));
+    //set_property('autoSatisfyWithCoinmasters', get_property('_saved_autoSatisfyWithCoinmasters'));
+    abort(message);
+}
 
 boolean has_effect( effect ef ) 
 {
