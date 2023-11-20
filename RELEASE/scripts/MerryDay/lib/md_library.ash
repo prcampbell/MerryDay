@@ -1,5 +1,8 @@
 script md_library;
 
+int VIPClan = 84165;
+int TrampClan = 2046989819;
+
 void error(string message) 
 {
     // Clean up saved properties.

@@ -4,13 +4,13 @@ import md_iotm2020;
 
 void startDay()
 {
-buyRaffle(11);
+	buyRaffle(11);
 	if ( available_amount($item[raffle prize box])>0 )
 		use(available_amount($item[raffle prize box]),$item[raffle prize box]);
 	if ( my_level() > 10 && get_property("questS01OldGuy") == "unstarted" )
 		visit_url("place.php?whichplace=sea_oldman&action=oldman_oldman",false);
 
-	switchClan(84165);
+	switchClan(VIPClan);
 	cli_execute("breakfast");
 	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
 		use_skill(1,$skill[canticle of carboloading]);
@@ -38,7 +38,7 @@ buyRaffle(11);
 		*/
 
 
-		if ( available_amount($item[fisherman's sack])>0 )
+		if ( available_amount($item[fisherman's sack]) > 0 )
 			use(available_amount($item[fisherman's sack]),$item[fisherman's sack]); //'
 		//StockUpList();
 		//cli_execute("call briefcase unlock");

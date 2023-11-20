@@ -1,5 +1,6 @@
 import md_library;
 import Librams;
+import md_login.ash;
 
 void main() 
 {
@@ -17,12 +18,8 @@ void main()
 
 
   */
-  switchClan(84165);
+  startDay();
 
-  if(!get_property('breakfastCompleted').to_boolean())
-  {
-    cli_execute("breakfast");
-  }
   //Slotless All Stats
   //Telescope
   if (get_campground() contains $item[discount telescope warehouse gift certificate] && get_property("telescopeUpgrades").to_int() > 0 && 
@@ -58,9 +55,15 @@ void main()
     use_skill($skill[Aug. 15th: Relaxation Day!]);
   }
   LibramBurn(true);
+  if (!(to_boolean(get_property("expressCardUsed"))) && (take_stash(1 , $item[Platinum Yendorian Express Card])||item_amount($item[Platinum Yendorian Express Card]) > 0)) 
+  {
+      use(1, $item[Platinum Yendorian Express Card]);
+      put_stash(1 , $item[Platinum Yendorian Express Card]);
+  }
+  LibramBurn(true);
 
-  //use PYEC
-  //manaburn
+//Hot shower
+//Nuns
   //eat upto 23 magic sausages
   //mood up
 
