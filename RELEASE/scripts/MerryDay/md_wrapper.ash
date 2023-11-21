@@ -85,17 +85,14 @@ void main()
   //mayfly bait
 
   //smoke monster (polar vortex, mild evil, XO Skeleton, FLUDA)
-abort();
+//abort();
 
-    cli_execute("garbo");
-    cli_execute("familiar stooper");
-    cli_execute("drink stillsuit distillate");
-    cli_execute("CONSUME NIGHTCAP");
+    cli_execute("garbo;familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;familiar left-hand man;maximize adv");
+
 
   if(have_skill($skill[Aug. 13th: Left/Off Hander's Day!]))
   {
     use_skill($skill[Aug. 13th: Left/Off Hander's Day!]);
   }
-  cli_execute("familiar left-hand man");
-  cli_execute("maximize adv");
+
 }
