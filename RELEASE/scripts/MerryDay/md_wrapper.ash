@@ -59,7 +59,7 @@ void PYEC()
 
 void ClanShower() 
 {
-	if ( !get_property_bool("_aprilShower") && switchClan(84165) ) {  //AfHeck
+	if ( !get_property("_aprilShower").to_boolean() && switchClan(84165) ) {  //AfHeck
 		mpRestored = 1000;
 		if ( mpRestored < my_maxmp()-my_mp() ) 
     {
@@ -71,7 +71,7 @@ void ClanShower()
 
 void FratNuns() 
 {
-	while ( get_property("sidequestNunsCompleted")=="fratboy" && get_property_int("nunsVisits") < 3) {
+	while ( get_property("sidequestNunsCompleted")=="fratboy" && get_property("nunsVisits").to_int() < 3) {
 		if ( mpRestored < my_maxmp()-my_mp() ) 
     {
 			cli_execute("nuns");
@@ -110,8 +110,6 @@ void main()
     FratNuns();
   }
 
-//Hot shower
-//Nuns
   //eat upto 23 magic sausages
   //mood up
 
