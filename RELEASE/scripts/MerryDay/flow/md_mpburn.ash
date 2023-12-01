@@ -52,7 +52,7 @@ void MPPrep() {
 	if ( !get_property_bool("_ballpit") && !has_effect($effect[Having a Ball!]) && (get_clan_rumpus()["Awesome Ball Pit"] >= 10000 || switchClan(84165)) ) // AfHeck
 		cli_execute("ballpit;");
 	if ( !has_effect($effect[Stevedave's Shanty of Superiority]) && have_skill($skill[Stevedave's Shanty of Superiority]) && makeRoomSong() )
-		use_skill(1,$skill[Stevedave's Shanty of Superiority]);
+		use_skill(1,$skill[Stevedave's Shanty of Superiority]); //'
 	if ( !has_effect($effect[Song of Bravado]) && have_skill($skill[Song of Bravado]) )
 		use_skill(1,$skill[Song of Bravado]);
 	if ( !has_effect($effect[Triple-Sized]) && available_amount($item[Powerful Glove])>0 && $skill[CHEAT CODE: Triple Size].dailylimit > 0 && equip($item[Powerful Glove]) )
@@ -214,6 +214,11 @@ void mpBurn() {
 	FreeRests();
 	NeverendingSoda();
 	EternalCarBattery();
+}
+
+void mpBreakfastBurn()
+{
+	
 }
  
 void main() 

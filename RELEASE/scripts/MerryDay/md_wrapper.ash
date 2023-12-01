@@ -2,24 +2,8 @@ import md_library;
 import Librams;
 import md_login.ash;
 
-void main() 
+void mpBuff()
 {
-
-  /* Day Plan
-
-  Breakfast
-  Day Prep
-  Fork:
-    - Garbo Day?
-    - Shell Day? (Don't need +MEAT part of mood, don't run turns, do free fights, so something manual can be done)
-  Loop
-  Garbo prep
-  Nightcap
-
-
-  */
-  startDay();
-
   //Slotless All Stats
   //Telescope
   if (get_campground() contains $item[discount telescope warehouse gift certificate] && get_property("telescopeUpgrades").to_int() > 0 && 
@@ -49,18 +33,82 @@ void main()
   ensure_song($effect[Stevedave's Shanty of Superiority]); //'
   ensure_effect($effect[Uncucumbered]);
   maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
-  LibramBurn(true);
-  if(have_skill($skill[Aug. 15th: Relaxation Day!]))
+}
+
+void Aug15() 
+{
+   
+    if(have_skill($skill[Aug. 15th: Relaxation Day!]))
+    { 
+      LibramBurn(true);
+      use_skill($skill[Aug. 15th: Relaxation Day!]);
+      LibramBurn();
+    }
+    
+}
+
+void PYEC() 
+{
+	if ( !(to_boolean(get_property("expressCardUsed"))) && (take_stash(1 , $item[Platinum Yendorian Express Card])||item_amount($item[Platinum Yendorian Express Card]) > 0) ) 
   {
-    use_skill($skill[Aug. 15th: Relaxation Day!]);
-  }
-  LibramBurn(true);
-  if (!(to_boolean(get_property("expressCardUsed"))) && (take_stash(1 , $item[Platinum Yendorian Express Card])||item_amount($item[Platinum Yendorian Express Card]) > 0)) 
+		LibramBurn(true);
+		use(1,$item[Platinum Yendorian Express Card]);
+		LibramBurn(false);
+	}
+}
+
+void ClanShower() 
+{
+	if ( !get_property_bool("_aprilShower") && switchClan(84165) ) {  //AfHeck
+		mpRestored = 1000;
+		if ( mpRestored < my_maxmp()-my_mp() ) 
+    {
+			cli_execute("shower hot");
+			LibramBurn();
+		}
+	}
+}
+
+void FratNuns() 
+{
+	while ( get_property("sidequestNunsCompleted")=="fratboy" && get_property_int("nunsVisits") < 3) {
+		if ( mpRestored < my_maxmp()-my_mp() ) 
+    {
+			cli_execute("nuns");
+			LibramBurn();
+		}
+		else
+			break;
+	}
+}
+
+
+
+void main() 
+{
+
+  /* Day Plan
+
+  Breakfast
+  Day Prep
+  Fork:
+    - Garbo Day?
+    - Shell Day? (Don't need +MEAT part of mood, don't run turns, do free fights, so something manual can be done)
+  Loop
+  Garbo prep
+  Nightcap
+
+
+  */
+  if(!get_property('breakfastCompleted').to_boolean())
   {
-      use(1, $item[Platinum Yendorian Express Card]);
-      put_stash(1 , $item[Platinum Yendorian Express Card]);
+    startDay(); 
+    mpBuff();
+    Aug15(); 
+    PYEC();
+    ClanShower();
+    FratNuns();
   }
-  LibramBurn(true);
 
 //Hot shower
 //Nuns
