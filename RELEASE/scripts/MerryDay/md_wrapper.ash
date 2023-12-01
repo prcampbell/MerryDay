@@ -2,6 +2,8 @@ import md_library;
 import Librams;
 import md_login.ash;
 
+int mpRestored;
+
 void mpBuff()
 {
   //Slotless All Stats
