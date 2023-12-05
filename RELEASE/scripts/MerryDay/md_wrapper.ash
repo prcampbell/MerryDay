@@ -55,8 +55,8 @@ void PYEC()
   {
 		LibramBurn(true);
 		use(1,$item[Platinum Yendorian Express Card]);
-		LibramBurn(false);
     put_stash(1, $item[Platinum Yendorian Express Card]);
+    LibramBurn(false);
 	}
 }
 
