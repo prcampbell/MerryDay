@@ -55,7 +55,7 @@ void main()
   //smoke monster (polar vortex, mild evil, XO Skeleton, FLUDA)
 //abort();
 
-    cli_execute("garbo;familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;familiar left-hand man;maximize adv");
+    cli_execute("garbo;familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;familiar left-hand man;maximize adv;");
 
 
   if(have_skill($skill[Aug. 13th: Left/Off Hander's Day!]))
