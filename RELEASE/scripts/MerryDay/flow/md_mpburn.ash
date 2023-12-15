@@ -304,8 +304,12 @@ void mpBreakfastBurn()
 {
 	
 }
- 
+*/ 
 void main() 
 {
-	mpBurn();
-}*/
+	mpBuff();
+    Aug15(); 
+    PYEC();
+    ClanShower();
+    FratNuns();
+}
