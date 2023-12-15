@@ -1,5 +1,8 @@
 script mpBurn
 import Librams.ash
+import md_library;
+import md_iotm2019;
+import md_iotm2020;
  
 string MPMaximizerString = "mp, -mana cost, -buddybjorn, -crownofthrones, -equip hewn moon-rune spoon, switch tot, switch disembodied hand, switch left-hand man";
 boolean maximizedMP = false;
