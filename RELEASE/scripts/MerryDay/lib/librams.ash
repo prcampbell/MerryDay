@@ -1,7 +1,28 @@
 script Librams;
 
 
-	// requires averageValue (and itemValue)
+int recent_price(item it) {
+	if ( !it.tradeable )								// untradeable items don't have mall value
+		return 0;
+	else if ( historical_age(it) < 7.0 )				// 1 week sounds about right
+		return historical_price(it);
+	else if (mall_price(it)>0)
+		return mall_price(it);
+	else if (mall_price(it)<=0 && my_hash() != "")	{ 	// items that are not in the mall return -1
+		if ( is_npc_item(it) || is_coinmaster_item(it) )// Includes items such as lucky lindy, which are marked tradable, but can never be owned
+			return 0;
+		else if ( historical_age(it) < 4015 )			// historical age returns infinite for items that have never been seen before: 11 years should do it
+			return historical_price(it);
+		else
+			return 1000000000;
+	}
+	else {
+		abort("No idea how to price item: "+it);
+		return -1;
+	}
+}
+
+int coinmasterValue (item it);
 
 int averageValue ( boolean [item] itemList );
 
@@ -112,8 +133,23 @@ int totalValue ( boolean [item] itemList ) {
 		total += itemValue(it);
 	return total;
 }
+
+int coinmasterValue(item check) {
+	boolean dummy = false;
+	foreach c in $coinmasters[]
+		if ( check == c.item )
+			dummy = true;
+	if ( dummy && !check.tradeable )
+		return tokenItemValue(check);
  
-boolean useInRun = get_property_bool("Librams.InRun");
+	if ( check != $item[Merc Core deployment orders] )
+		foreach c, direction, price, it, row in cm_txt
+			if ( direction == "buy" && check == it )
+				return ItemValue(c.item)*price;
+	return 0;
+}
+ 
+boolean useInRun = get_property("Librams.InRun").to_boolean();
 boolean simulate = false;
 boolean valuesInitialized = false;
  
@@ -198,7 +234,7 @@ void UpdateLibramList( skill Libram ) {
 int numLibrams;
 foreach s,L in LibramList {
 	if ( get_property("Librams.Use"+L.name) != "" )
-		L.useLibram = (have_skill(s) && get_property_bool("Librams.Use"+L.name));
+		L.useLibram = (have_skill(s) && get_property("Librams.Use"+L.name).to_boolean());
 	else
 		L.useLibram = have_skill(s);
 	if ( L.useLibram )
