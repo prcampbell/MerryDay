@@ -56,21 +56,21 @@ void Aug15()
 void PYEC() 
 {
 	if ( !(to_boolean(get_property("expressCardUsed"))) && (take_stash(1 , $item[Platinum Yendorian Express Card])||item_amount($item[Platinum Yendorian Express Card]) > 0) ) 
-  {
+  	{
 		LibramBurn(true);
 		use(1,$item[Platinum Yendorian Express Card]);
-    put_stash(1, $item[Platinum Yendorian Express Card]);
-    LibramBurn(false);
+		put_stash(1, $item[Platinum Yendorian Express Card]);
+		LibramBurn(false);
 	}
 }
 
 void ClanShower() 
 {
 	if ( !get_property("_aprilShower").to_boolean() && switchClan(84165) )   //AfHeck
-  {
+	{
 		mpRestored = 1000;
 		if ( mpRestored < my_maxmp()-my_mp() ) 
-    {
+		{
 			cli_execute("shower hot");
 			LibramBurn();
 		}
@@ -82,13 +82,13 @@ void FratNuns()
 	while ( get_property("sidequestNunsCompleted")=="fratboy" && get_property("nunsVisits").to_int() < 3) 
   {
     mpRestored = 1000;
-		if ( mpRestored < my_maxmp()-my_mp() ) 
-    {
-			cli_execute("nuns");
-			LibramBurn();
-		}
-		else
-			break;
+	if ( mpRestored < my_maxmp()-my_mp() ) 
+	{
+		cli_execute("nuns");
+		LibramBurn();
+	}
+	else
+		break;
 	}
 }
  
