@@ -121,7 +121,7 @@ int tokenItemValue(item check) {
 	}
 	return to_int(bestValue);
 }
- 
+
 int averageValue ( boolean [item] itemList ) {
 	int total;
 	if ( count(itemList) == 0 )
@@ -232,7 +232,7 @@ void UpdateLibramList( skill Libram ) {
 			break;
 		case $skill[Summon Party Favor]:
 			LibramList[Libram].rareChance1	= 1.0/2.0**(1+get_property("_favorRareSummons").to_int());
-			LibramList[Libram].castLimit 	= min( 200 , 2**(get_property("_favorRareSummons")-1).to_int() );
+			LibramList[Libram].castLimit 	= min( 200 , 2**(get_property("_favorRareSummons").to_int()-1) );
 			break;
 		case $skill[Summon BRICKOs]:
 			LibramList[Libram].rareChance1	= ( get_property("_brickoEyeSummons").to_int() <= 1 ? 0.5 : (get_property("_brickoEyeSummons").to_int() >= 3 ? 0 : 0.3333333) );
