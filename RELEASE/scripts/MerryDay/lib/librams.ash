@@ -47,7 +47,7 @@ int itemValue ( item it ) {
 			case $item[colossal free-range mushroom]:
 				return itemValue($item[immense free-range mushroom])+itemValue($item[house-sized mushroom]);
 			case $item[magical sausage casing]:
-				return get_property_int("valueOfAdventure") - (available_amount($item[magical sausage casing])+get_property_int("_sausagesMade")-get_property_int("_sausageFights"))/5*111;
+				return get_property("valueOfAdventure").to_int() - (available_amount($item[magical sausage casing])+get_property("_sausagesMade").to_int()-get_property("_sausageFights").to_int())/5*111;
 			default:
 				if ( npc_price(it) > 0 )
 					return npc_price(it);
@@ -170,22 +170,22 @@ void UpdateLibramList( skill Libram ) {
 			LibramList[Libram].castLimit 	= 200;
 			break;
 		case $skill[Summon Party Favor]:
-			LibramList[Libram].rareChance1	= 1.0/2.0**(1+get_property_int("_favorRareSummons"));
-			LibramList[Libram].castLimit 	= min( 200 , 2**(get_property_int("_favorRareSummons")-1) );
+			LibramList[Libram].rareChance1	= 1.0/2.0**(1+get_property("_favorRareSummons").to_int());
+			LibramList[Libram].castLimit 	= min( 200 , 2**(get_property("_favorRareSummons")-1).to_int() );
 			break;
 		case $skill[Summon BRICKOs]:
-			LibramList[Libram].rareChance1	= ( get_property_int("_brickoEyeSummons") <= 1 ? 0.5 : (get_property_int("_brickoEyeSummons") >= 3 ? 0 : 0.3333333) );
-			LibramList[Libram].castLimit 	= ( get_property_int("_brickoEyeSummons") >= 3 ? 200 : 3-get_property_int("_brickoEyeSummons") );
+			LibramList[Libram].rareChance1	= ( get_property("_brickoEyeSummons").to_int() <= 1 ? 0.5 : (get_property("_brickoEyeSummons").to_int() >= 3 ? 0 : 0.3333333) );
+			LibramList[Libram].castLimit 	= ( get_property("_brickoEyeSummons").to_int() >= 3 ? 200 : 3-get_property("_brickoEyeSummons").to_int() );
 			LibramList[Libram].castValue 	+= 2*itemValue($item[BRICKO brick]);
 			break;
 		case $skill[Summon Resolutions]:
-			LibramList[Libram].rareChance1	= ( get_property_int("_resolutionRareSummons") < 3 ? 0.14 : 0.02 );
-			LibramList[Libram].castLimit	= ( get_property_int("_resolutionRareSummons") >= 3 ? 200 : (3-get_property_int("_resolutionRareSummons")) );
+			LibramList[Libram].rareChance1	= ( get_property("_resolutionRareSummons").to_int() < 3 ? 0.14 : 0.02 );
+			LibramList[Libram].castLimit	= ( get_property("_resolutionRareSummons").to_int() >= 3 ? 200 : (3-get_property("_resolutionRareSummons").to_int()) );
 			break;
 		case $skill[Summon Taffy]:
-			LibramList[Libram].rareChance1	= ( get_property_int("_taffyRareSummons")-get_property_int("_taffyYellowSummons") < 3 ? 0.2 : 0 );
-			LibramList[Libram].rareChance2	= ( get_property_int("_taffyYellowSummons") < 1 ? 0.1 : 0 );
-			LibramList[Libram].castLimit 	= ( get_property_int("_taffyYellowSummons")<1 ? 1 : get_property_int("_taffyRareSummons") >= 4 ? 200 : (4-get_property_int("_taffyRareSummons")) );
+			LibramList[Libram].rareChance1	= ( get_property("_taffyRareSummons").to_int()-get_property("_taffyYellowSummons").to_int() < 3 ? 0.2 : 0 );
+			LibramList[Libram].rareChance2	= ( get_property("_taffyYellowSummons").to_int() < 1 ? 0.1 : 0 );
+			LibramList[Libram].castLimit 	= ( get_property("_taffyYellowSummons").to_int()<1 ? 1 : get_property("_taffyRareSummons").to_int() >= 4 ? 200 : (4-get_property("_taffyRareSummons").to_int()) );
 			break;
 	}
  
@@ -233,7 +233,7 @@ int nextLibramCost() {
 }
  
 int maxCasts(boolean burnAllMP) {
-	int x = get_property_int("libramSummons");
+	int x = get_property("libramSummons").to_int();
 	int y = x;
 	int total = 0;
 	repeat {
@@ -269,7 +269,7 @@ void LibramBurn( boolean burnAllMP ) {
 						use_skill(casts, libramSkill);
  
 					if ( libramSkill == $skill[Summon Resolutions] ) {
-						int resolutionRares = get_property_int("_resolutionRareSummons");
+						int resolutionRares = get_property("_resolutionRareSummons").to_int();
 						foreach it in LibramList[libramSkill].rareItems1
 							resolutionRares += item_amount(it)-resolutionInventory[it];
 						set_property("_resolutionRareSummons",resolutionRares);
@@ -280,7 +280,7 @@ void LibramBurn( boolean burnAllMP ) {
 				}
 			}
 			else {
-				print_html("<font color=\"blue\">Libram summon #"+ (get_property_int("libramSummons")+1) + " when MP > "+(nextLibramCost() + minMPLibram)+"</font>");
+				print_html("<font color=\"blue\">Libram summon #"+ (get_property("libramSummons").to_int()+1) + " when MP > "+(nextLibramCost() + minMPLibram)+"</font>");
 			//	print_html("Libram summon #"+ (get_property("libramSummons").to_int()+1) + " when MP > " + int_to_string(ceil(next_summon_mp() + minmp - 1)) + ".", "blue", 3);
 			}
 		}
