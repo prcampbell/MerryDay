@@ -1,5 +1,11 @@
 script Librams;
 
+int minMP = max(0,my_maxmp()*to_float(get_property("mpAutoRecoveryTarget")));
+
+static {
+	string[coinmaster,string,int,item] cm_txt;
+	file_to_map( "data/coinmasters.txt", cm_txt );
+}
 
 int recent_price(item it) {
 	if ( !it.tradeable )								// untradeable items don't have mall value
@@ -20,6 +26,23 @@ int recent_price(item it) {
 		abort("No idea how to price item: "+it);
 		return -1;
 	}
+}
+
+int tokenItemValue(item check) {
+	item best;
+	float pc,bestValue;
+	foreach c, direction, price, it, row in cm_txt {
+		if ( c.item == check && check != $item[none] && direction == "buy" && it.tradeable ) {
+			pc = to_float(itemValue(it))/to_float(price);
+			if ( false )
+				print(price+" "+check+" can be traded for "+it+" for "+to_string(pc,"%,.2f")+" meat per token");
+			if ( pc > bestValue ) {
+				bestValue = pc; 
+				best = it;
+			}	
+		}
+	}
+	return to_int(bestValue);
 }
 
 int coinmasterValue (item it);
