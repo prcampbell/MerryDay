@@ -32,7 +32,6 @@ void main()
     FratNuns();
   }
 
-  //eat upto 23 magic sausages
   //mood up
 
   //Disco Leer (60)
@@ -53,7 +52,7 @@ void main()
   //mayfly bait
 
   //smoke monster (polar vortex, mild evil, XO Skeleton, FLUDA)
-//abort();
+  //abort();
 
     cli_execute("garbo;familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;familiar left-hand man;maximize adv;");
 
