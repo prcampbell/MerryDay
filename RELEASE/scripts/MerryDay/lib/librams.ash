@@ -28,22 +28,7 @@ int recent_price(item it) {
 	}
 }
 
-int tokenItemValue(item check) {
-	item best;
-	float pc,bestValue;
-	foreach c, direction, price, it, row in cm_txt {
-		if ( c.item == check && check != $item[none] && direction == "buy" && it.tradeable ) {
-			pc = to_float(itemValue(it))/to_float(price);
-			if ( false )
-				print(price+" "+check+" can be traded for "+it+" for "+to_string(pc,"%,.2f")+" meat per token");
-			if ( pc > bestValue ) {
-				bestValue = pc; 
-				best = it;
-			}	
-		}
-	}
-	return to_int(bestValue);
-}
+
 
 int coinmasterValue (item it);
 
@@ -118,6 +103,23 @@ int itemValue ( item it ) {
 			maxValue = min( maxValue, singularValue(j) );
 */	
 	return maxValue;
+}
+ 
+int tokenItemValue(item check) {
+	item best;
+	float pc,bestValue;
+	foreach c, direction, price, it, row in cm_txt {
+		if ( c.item == check && check != $item[none] && direction == "buy" && it.tradeable ) {
+			pc = to_float(itemValue(it))/to_float(price);
+			if ( false )
+				print(price+" "+check+" can be traded for "+it+" for "+to_string(pc,"%,.2f")+" meat per token");
+			if ( pc > bestValue ) {
+				bestValue = pc; 
+				best = it;
+			}	
+		}
+	}
+	return to_int(bestValue);
 }
  
 int averageValue ( boolean [item] itemList ) {
