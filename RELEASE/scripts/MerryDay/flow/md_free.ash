@@ -9,12 +9,15 @@ equip($slot[shirt], $item[jurassic parka]);
 equip($slot[acc1], $item[lucky gold ring]);
 equip($slot[acc2], $item[Mr. Cheeng's Spectacles]);
 equip($slot[acc3], $item[Mr. Screege's Spectacles]);
+
 cli_execute('parka dilophosaur;enthrone garbage fire;terminal educate duplicate');
 cli_execute('autoattack StealEverything');
 cli_execute('reminisce Smoke Monster');
 
-//Fight Smoke Monster
-//hugs and kisses, 10x polar vortex, 3xMild Evil, duplicate, spit jurassic acid
+equip($slot[weapon], $item[staff of hatred]);
+cli_execute('familiar god lobster');
+
+
 //Fight GodLobster
 //Nostalgia, envy, kill
 //Fight GodLobster
