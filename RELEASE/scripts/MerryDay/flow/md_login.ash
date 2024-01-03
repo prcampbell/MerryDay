@@ -57,6 +57,7 @@ void startDay()
 	while ( get_property("_feelDisappointedUsed").to_int() < 3 )
 		use_skill(1,$skill[Feel Disappointed]);
 	//birdBuff();
+	use(1, $item[wardrobe-o-matic]);
 }
 
 void main() 

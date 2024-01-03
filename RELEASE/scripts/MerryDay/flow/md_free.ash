@@ -16,7 +16,7 @@ cli_execute('reminisce Smoke Monster');
 
 equip($slot[weapon], $item[staff of hatred]);
 cli_execute('familiar god lobster');
-
+cli_execute('autoattack NostalgiaKill');
 
 //Fight GodLobster
 //Nostalgia, envy, kill
