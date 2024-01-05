@@ -29,7 +29,7 @@ void smokepatches()
     cli_execute('autoattack StealEverything');
     cli_execute('reminisce Smoke Monster');
 
-    equip($slot[weapon], $item[staff of hatred]);
+    equip($slot[weapon], $item[Staff of Simmering Hatred]);
     cli_execute('familiar god lobster');
     cli_execute('autoattack NostalgiaKill');
     while (get_property('_godLobsterFights') < 2) {
@@ -41,7 +41,7 @@ void smokepatches()
         if (handling_choice()) run_choice(2);
     }
 
-    equip($slot[weapon], $item[The Jokester's Gune]);//'
+    equip($slot[weapon], $item[The Jokester's Gun]);//'
     cli_execute('reminisce swarm of scarab beatles');    
 }
 
