@@ -26,8 +26,5 @@ while (get_property('_godLobsterFights') < 2) {
     if (handling_choice()) run_choice(2);
 }
 
-
-//equip($slot[weapon], $item[The Jokester's Gune]);//'
-//equip($slot[acc1], $item[pro skateboard]);
-//Fight swarm of beatles
-//Nostalgia, envy, mctwist, spit jurassic acid
+equip($slot[weapon], $item[The Jokester's Gune]);//'
+cli_execute('reminisce swarm of scarab beatles');
