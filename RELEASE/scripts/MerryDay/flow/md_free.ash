@@ -17,11 +17,17 @@ cli_execute('reminisce Smoke Monster');
 equip($slot[weapon], $item[staff of hatred]);
 cli_execute('familiar god lobster');
 cli_execute('autoattack NostalgiaKill');
+while (get_property('_godLobsterFights') < 2) {
+    // Get equipment from the fight.
+    set_property('choiceAdventure1310', '2');
+    try_equip($item[God Lobster's Scepter]); //'
+    visit_url('main.php?fightgodlobster=1');
+    run_combat();
+    visit_url('choice.php');
+    if (handling_choice()) run_choice(2);
+}
 
-//Fight GodLobster
-//Nostalgia, envy, kill
-//Fight GodLobster
-//Nostalgia, envy, kill
+
 //equip($slot[weapon], $item[The Jokester's Gune]);//'
 //equip($slot[acc1], $item[pro skateboard]);
 //Fight swarm of beatles
