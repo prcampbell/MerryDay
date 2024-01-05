@@ -1,6 +1,7 @@
 import md_library;
 import md_login.ash;
 import md_mpburn.ash;
+import md_free.ash;
 
 
 
@@ -51,7 +52,8 @@ void main()
 
   //mayfly bait
 
-  //smoke monster (polar vortex, mild evil, XO Skeleton, FLUDA)
+  if(smokepatches_can())
+    smokepatches();  
   //abort();
 
     cli_execute("garbo;familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;familiar left-hand man;maximize adv;");
