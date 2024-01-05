@@ -2,7 +2,7 @@ boolean smokepatches_can()
 {
     if(get_property('_fireExtinguisherCharge').to_int() >=10
         && have_effect($effect[Everything Looks Yellow]) == 0
-        && get_property('_locketMonstersFought') = ''
+        && get_property('_locketMonstersFought') == ''
     )
     {
         return true;
