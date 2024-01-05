@@ -20,7 +20,6 @@ cli_execute('autoattack NostalgiaKill');
 while (get_property('_godLobsterFights') < 2) {
     // Get equipment from the fight.
     set_property('choiceAdventure1310', '2');
-    try_equip($item[God Lobster's Scepter]); //'
     visit_url('main.php?fightgodlobster=1');
     run_combat();
     visit_url('choice.php');
