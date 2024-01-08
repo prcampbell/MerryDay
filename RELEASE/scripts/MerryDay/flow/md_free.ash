@@ -42,7 +42,8 @@ void smokepatches()
     }
 
     equip($slot[weapon], $item[The Jokester's Gun]);//'
-    cli_execute('reminisce swarm of scarab beatles');    
+    cli_execute('reminisce swarm of scarab beatles');
+    cli_execute('autoattack 0');    
 }
 
 
