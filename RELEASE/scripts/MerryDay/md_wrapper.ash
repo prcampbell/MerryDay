@@ -56,12 +56,14 @@ void main()
     smokepatches();  
   //abort();
 
-    cli_execute("garbo;familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;familiar left-hand man;maximize adv;");
+  cli_execute("garbo;familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;");
 
 
   if(have_skill($skill[Aug. 13th: Left/Off Hander's Day!]))
   {
     use_skill($skill[Aug. 13th: Left/Off Hander's Day!]);
   }
+
+  cli_execute("familiar left-hand man;maximize adv;");
 
 }
