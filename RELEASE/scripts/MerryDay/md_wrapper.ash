@@ -64,6 +64,6 @@ void main()
     use_skill($skill[Aug. 13th: Left/Off Hander's Day!]);
   }
 
-  cli_execute("familiar left-hand man;maximize adv;");
+  cli_execute("familiar left-hand man;maximize adv;fold tinsel tights");
 
 }
