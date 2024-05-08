@@ -31,6 +31,7 @@ void main()
     PYEC();
     ClanShower();
     FratNuns();
+    Sausages();
   }
 
   //mood up
