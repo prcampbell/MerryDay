@@ -56,6 +56,7 @@ void startDay()
 		use(1, $item[BittyCar MeatCar]);
 	while ( get_property("_feelDisappointedUsed").to_int() < 3 )
 		use_skill(1,$skill[Feel Disappointed]);
+	cli_execute('witchess buff');
 	//birdBuff();
 	use(1, $item[wardrobe-o-matic]);
 	if(have_skill($skill[Lock Picking]))
