@@ -61,19 +61,19 @@ void startDay()
 	use(1, $item[wardrobe-o-matic]);
 	if(have_skill($skill[Lock Picking]))
 	{
-		if(item_amount($item[Boris's key lime pie]) > item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Boris's key lime pie]) > item_amount($item[Jarlsberg's key lime pie]))
+		if(item_amount($item[Boris's key lime pie]) <= item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Boris's key lime pie]) <= item_amount($item[Jarlsberg's key lime pie]))
 		{
 			set_property('choiceAdventure1414', '1');
 			use_skill($skill[Lock Picking]);
 			cli_execute('make boris key lime pie');
 		}
-		if(item_amount($item[Jarlsberg's key lime pie]) > item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Jarlsberg's key lime pie]) > item_amount($item[Boris's key lime pie]))
+		else if(item_amount($item[Jarlsberg's key lime pie]) <= item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Jarlsberg's key lime pie]) <= item_amount($item[Boris's key lime pie]))
 		{
 			set_property('choiceAdventure1414', '2');
 			use_skill($skill[Lock Picking]);
 			cli_execute('make jarlsberg key lime pie');
 		}
-		if(item_amount($item[Sneaky Pete's key lime pie]) > item_amount($item[Boris's key lime pie]) && item_amount($item[Sneaky Pete's key lime pie]) > item_amount($item[Jarlsberg's key lime pie]))
+		else if(item_amount($item[Sneaky Pete's key lime pie]) <= item_amount($item[Boris's key lime pie]) && item_amount($item[Sneaky Pete's key lime pie]) <= item_amount($item[Jarlsberg's key lime pie]))
 		{
 			set_property('choiceAdventure1414', '3');
 			use_skill($skill[Lock Picking]);
