@@ -1,6 +1,8 @@
 void endDay()
 {
+  set_property('autoBuyPriceLimit', 150000);
   cli_execute("familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;");
+  set_property('autoBuyPriceLimit', 100000);
 
 
   if(have_skill($skill[Aug. 13th: Left/Off Hander's Day!]))
