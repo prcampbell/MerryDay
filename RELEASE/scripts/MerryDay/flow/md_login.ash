@@ -5,6 +5,10 @@ import md_iotm2020;
 void startDay()
 {
 	buyRaffle(11);
+	if(!get_property('moonTuned').to_boolean())
+	{
+		cli_execute('spoon wombat');
+	}
 	if ( available_amount($item[raffle prize box])>0 )
 		use(available_amount($item[raffle prize box]),$item[raffle prize box]);
 	if ( my_level() > 10 && get_property("questS01OldGuy") == "unstarted" )
