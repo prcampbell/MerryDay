@@ -1,5 +1,6 @@
 import md_library;
 import md_login.ash;
+import md_logout.ash;
 import md_mpburn.ash;
 import md_free.ash;
 
@@ -56,15 +57,7 @@ void main()
   if(smokepatches_can())
     smokepatches();  
   //abort();
-
-  cli_execute("garbo;familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;");
-
-
-  if(have_skill($skill[Aug. 13th: Left/Off Hander's Day!]))
-  {
-    use_skill($skill[Aug. 13th: Left/Off Hander's Day!]);
-  }
-
-  cli_execute("familiar left-hand man;maximize adv;fold tinsel tights");
+  
+  endDay();
 
 }
