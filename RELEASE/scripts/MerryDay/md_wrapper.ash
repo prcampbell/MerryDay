@@ -57,7 +57,7 @@ void main()
   if(smokepatches_can())
     smokepatches();  
   //abort();
-  
+  cli_execute('garbo');
   endDay();
 
 }
