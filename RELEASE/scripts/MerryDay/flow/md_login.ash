@@ -63,7 +63,7 @@ void startDay()
 	cli_execute('witchess buff');
 	//birdBuff();
 	use(1, $item[wardrobe-o-matic]);
-	if(have_skill($skill[Lock Picking]))
+	if(!get_property('lockPicked').to_boolean())
 	{
 		if(item_amount($item[Boris's key lime pie]) <= item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Boris's key lime pie]) <= item_amount($item[Jarlsberg's key lime pie]))
 		{
