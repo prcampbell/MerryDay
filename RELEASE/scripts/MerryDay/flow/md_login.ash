@@ -5,7 +5,7 @@ import md_iotm2020;
 void startDay()
 {
 	buyRaffle(11);
-	if(!get_property('moonTuned').to_boolean())
+	if(!get_property('moonTuned').to_boolean() && my_sign() != "Wombat")
 	{
 		cli_execute('spoon wombat');
 	}
