@@ -4,6 +4,16 @@ import md_iotm2020;
 
 void startDay()
 {
+	if(my_id() != '1787271')
+	{
+		abort('You aren''t me >:(');
+	}
+	
+	if(get_property('valueOfAdventure') != '7000')
+	{
+		set_property('valueOfAdventure', '7000');
+	}
+
 	buyRaffle(11);
 	if(!get_property('moonTuned').to_boolean() && my_sign() != "Wombat")
 	{
