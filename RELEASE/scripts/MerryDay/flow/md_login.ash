@@ -6,7 +6,7 @@ void startDay()
 {
 	if(my_id() != '1787271')
 	{
-		abort('You aren''t me');
+		abort();
 	}
 	
 	if(get_property('valueOfAdventure') != '7000')
