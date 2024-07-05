@@ -10,7 +10,7 @@ import md_free.ash;
 
 void main() 
 {
-
+  cli_execute('refresh all');
   /* Day Plan
 
   Breakfast

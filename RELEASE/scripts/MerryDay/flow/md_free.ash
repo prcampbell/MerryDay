@@ -42,12 +42,34 @@ void smokepatches()
     }
 
     equip($slot[weapon], $item[The Jokester's Gun]);//'
+    equip($slot[acc3], $item[pro skateboard]);
     cli_execute('reminisce swarm of scarab beatles');
     cli_execute('autoattack 0');    
 }
 
+boolean saber_can()
+{
+    return get_property('_saberForceUses').to_int() == 0;
+}
+
+void saber_run()
+{
+    equip($slot[weapon], [Fourth of May Cosplay Saber]);
+    set_auto_attack('UseTheForce');
+    //set 1387 = 3
+    while(get_property('_saberForceUses').to_int() < 5)
+    {
+        //hunt 3 sundae
+        //grab 2 of whatever
+    }
+    set_auto_attack(0);
+    //set mappingMonsters = false
+}
 
 void main()
 {
-    smokepatches();
+    if(saber_can())
+    {
+        saber_run();
+    }
 }

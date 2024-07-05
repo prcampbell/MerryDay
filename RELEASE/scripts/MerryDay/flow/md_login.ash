@@ -24,6 +24,9 @@ void startDay()
 		set_property('garbo_stashClan', '2046989819');
 	}
 
+	if(get_property('puzzleChampBonus') != 20)
+		set_property('puzzleChampBonus', 20);
+
 	buyRaffle(11);
 	if(!get_property('moonTuned').to_boolean() && my_sign() != "Wombat")
 	{
