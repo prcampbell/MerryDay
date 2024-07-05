@@ -27,6 +27,9 @@ void startDay()
 	if(get_property('puzzleChampBonus') != 20)
 		set_property('puzzleChampBonus', 20);
 
+	if(get_property('skillLevel144') != 3)
+		set_property('skillLevel144', 3);
+
 	buyRaffle(11);
 	if(!get_property('moonTuned').to_boolean() && my_sign() != "Wombat")
 	{
