@@ -19,7 +19,8 @@ void mpBuff()
     cli_execute("crossstreams");
   if(!get_property(" _ballpit").to_boolean())
     cli_execute("ballpit");
-  ensure_effect($effect[Broad-Spectrum Vaccine]);
+  if(!get_property("_spacegateVaccine").to_boolean())
+  	ensure_effect($effect[Broad-Spectrum Vaccine]);
   ensure_effect($effect[Feeling Excited]);
 
   //monorail buff
@@ -37,7 +38,8 @@ void mpBuff()
   ensure_effect($effect[Big]);
   ensure_song($effect[The Magical Mojomuscular Melody]);
   ensure_song($effect[Stevedave's Shanty of Superiority]); //'
-  ensure_effect($effect[Uncucumbered]);
+  if(!get_property("_daycareSpa").to_boolean())
+	ensure_effect($effect[Uncucumbered]);
   maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
 }
 

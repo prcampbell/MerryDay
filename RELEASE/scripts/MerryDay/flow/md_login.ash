@@ -14,6 +14,16 @@ void startDay()
 		set_property('valueOfAdventure', '7000');
 	}
 
+	if(get_property('choiceAdventure1065') != 6)
+	{
+		set_property('choiceAdventure1065', '6');
+	}
+
+	if(get_property('garbo_stashClan') != 2046989819)
+	{
+		set_property('garbo_stashClan', '2046989819');
+	}
+
 	buyRaffle(11);
 	if(!get_property('moonTuned').to_boolean() && my_sign() != "Wombat")
 	{
