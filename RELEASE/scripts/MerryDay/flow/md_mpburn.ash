@@ -96,7 +96,7 @@ void FratNuns()
  
 void Sausages() 
 {
-	while ( get_property("_sausagesEaten").to_int() > 23 && available_amount($item[magical sausage casing]) > 0) 
+	while ( get_property("_sausagesEaten").to_int() < 23 && available_amount($item[magical sausage casing]) > 0) 
 	{
 		mpRestored = 1000;
 		if ( mpRestored < my_maxmp()-my_mp() ) 
@@ -182,68 +182,6 @@ void LicenseToChill() {
 		LibramBurn(false);
 	}
 }
- 
-void PYEC() {
-	if ( !get_property_bool("expressCardUsed") && available_amount($item[Platinum Yendorian Express Card])>0 ) {
-		MaybeMaximizeMP(-1);
-		LibramBurn(true);
-		use(1,$item[Platinum Yendorian Express Card]);
-		LibramBurn(false);
-	}
-}
- 
-void MakeSausages() {
-	if ( !get_property_bool("_Dic.sausagesCreated") ) {
-		int createSausages = 0;
-		createSausages = min(available_amount($item[magical sausage casing]),max(11,min(30,(available_amount($item[magical sausage casing])+get_property_int("_sausagesMade"))/5))-get_property_int("_sausagesMade"));
-		if ( createSausages > 0 ) {
-			create(createSausages,$item[magical sausage]);
-		}
-		set_property("_Dic.sausagesCreated","true");
-	}
-}
- 
-void EatSausages( int amount ) {
-	if ( bossKilling ) {
-		print("Bosskilling mode, skipping kramco sausage eating","blue");
-		return;
-	}
-	amount = max(amount,0);
-	amount = min(amount,23-get_property_int("_sausagesEaten"));
-	tryNumberology();
-	while ( amount > 0 ) {
-		MaybeMaximizeMP(999);
-		if ( eat($item[magical sausage]) )
-			amount -= 1;
-		LibramBurn();
-		tryNumberology();
-	}
-}
- 
-void FratNuns() {
-	while ( get_property("sidequestNunsCompleted")=="fratboy" && get_property_int("nunsVisits") < 3) {
-		mpRestored = 1000;
-		MaybeMaximizeMP(mpRestored);
-		if ( mpRestored < my_maxmp()-my_mp() ) {
-			cli_execute("nuns");
-			LibramBurn();
-		}
-		else
-			break;
-	}
-}
- 
-void ClanShower() {
-	if ( !get_property_bool("_aprilShower") && switchClan(84165) ) {  //AfHeck
-		mpRestored = 1000;
-		MaybeMaximizeMP(mpRestored);
-		if ( mpRestored < my_maxmp()-my_mp() ) {
-			cli_execute("shower hot");
-			LibramBurn();
-		}
-	}
-}
- 
 void FreeRests() {
 	item previousPants;
  
@@ -305,23 +243,6 @@ void EternalCarBattery() {
 	}
 }
  
-void mpBurn() {
-	LibramBurn(false);
-	LicenseToChill();
-	PYEC();
-	MakeSausages();
-	EatSausages(available_amount($item[magical sausage])-23*11);
-	FratNuns();
-	ClanShower();
-	FreeRests();
-	NeverendingSoda();
-	EternalCarBattery();
-}
-
-void mpBreakfastBurn()
-{
-	
-}
 */ 
 void main() 
 {
