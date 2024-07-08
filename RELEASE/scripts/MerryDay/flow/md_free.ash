@@ -69,7 +69,7 @@ void saber_run()
         while(get_property('_monstersMapped').to_int() < 3)
         {
             //hunt 3 sundae
-            c3t_cartographyHunt($location[Sloppy Seconds Diner], $monster[Sloppy Seconds Sundae]);
+            c2t_cartographyHunt($location[Sloppy Seconds Diner], $monster[Sloppy Seconds Sundae]);
         }
         
         adv1($location[Sloppy Seconds Diner], -1, '');
