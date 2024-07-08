@@ -34,7 +34,8 @@ void smokepatches()
     equip($slot[weapon], $item[Staff of Simmering Hatred]);
     cli_execute('familiar god lobster');
     cli_execute('autoattack NostalgiaKill');
-    while (get_property('_godLobsterFights') < 2) {
+    while (get_property('_godLobsterFights') < 2) 
+    {
         // Get equipment from the fight.
         set_property('choiceAdventure1310', '2');
         visit_url('main.php?fightgodlobster=1');
@@ -46,9 +47,9 @@ void smokepatches()
     equip($slot[acc3], $item[pro skateboard]);
     equip($slot[weapon], $item[The Jokester's Gun]);//'
 
-    cli_execute('autoattack NostalgiaKill');
+    set_auto_attack('NostalgiaKill');
     cli_execute('reminisce swarm of scarab beatles');
-    cli_execute('autoattack 0');    
+    set_auto_attack(0);   
 }
 
 boolean saber_can()
