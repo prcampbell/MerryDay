@@ -1,3 +1,5 @@
+import c2t_cartographyHunt.ash
+
 boolean smokepatches_can()
 {
     if(get_property('_fireExtinguisherCharge').to_int() >=10
@@ -43,6 +45,7 @@ void smokepatches()
 
     equip($slot[weapon], $item[The Jokester's Gun]);//'
     equip($slot[acc3], $item[pro skateboard]);
+    cli_execute('autoattack NostalgiaKill');
     cli_execute('reminisce swarm of scarab beatles');
     cli_execute('autoattack 0');    
 }
@@ -56,13 +59,21 @@ void saber_run()
 {
     equip($slot[weapon], [Fourth of May Cosplay Saber]);
     set_auto_attack('UseTheForce');
-    //set 1387 = 3
+    if(get_property('choiceAdventure1387').to_int() != 3)
+        set_property('choiceAdventure1387', '3');
+
     while(get_property('_saberForceUses').to_int() < 5)
     {
-        //hunt 3 sundae
-        //grab 2 of whatever
+        while(get_property('_monstersMapped').to_int() < 3)
+        {
+            //hunt 3 sundae
+            c3t_cartographyHunt($location[Sloppy Seconds Diner], $monster[Sloppy Seconds Sundae]);
+        }
+        
+        adv1($location[Sloppy Seconds Diner], -1, '');
     }
     set_auto_attack(0);
+    set_property('mappingMonsters', 'false');
     //set mappingMonsters = false
 }
 
