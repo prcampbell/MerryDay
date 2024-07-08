@@ -42,9 +42,10 @@ void smokepatches()
         visit_url('choice.php');
         if (handling_choice()) run_choice(2);
     }
-
-    equip($slot[weapon], $item[The Jokester's Gun]);//'
+    set_auto_attack(0);
     equip($slot[acc3], $item[pro skateboard]);
+    equip($slot[weapon], $item[The Jokester's Gun]);//'
+
     cli_execute('autoattack NostalgiaKill');
     cli_execute('reminisce swarm of scarab beatles');
     cli_execute('autoattack 0');    
@@ -79,6 +80,9 @@ void saber_run()
 
 void main()
 {
+    if(smokepatches_can())
+        smokepatches();
+
     if(saber_can())
     {
         saber_run();
