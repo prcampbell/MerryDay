@@ -68,12 +68,13 @@ void saber_run()
     {
         while(get_property('_monstersMapped').to_int() < 3)
         {
+            buffer buf;
             //hunt 3 sundae
             use_skill(1,$skill[Map the Monsters]);
 
             buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
             if (!buf.contains_text('name="whichchoice" value="1435"') || !buf.contains_text("Leading Yourself Right to Them"))
-                abort("Wrong thing came up when using Map the Monsters at "+loc+" with "+mon);
+                abort("Wrong thing came up when using Map the Monsters at Sloppy Seconds Diner with Sloppy Seconds Sunday");
 
             //select choice
             buf = visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
