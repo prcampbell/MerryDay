@@ -110,6 +110,7 @@ void startDay()
 			cli_execute('make sneaky pete key lime pie');
 		}
 	}
+	cli_execute('farfuture drink');
 }
 
 void main() 
