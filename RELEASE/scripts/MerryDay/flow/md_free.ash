@@ -78,6 +78,7 @@ void saber_run()
 
             //select choice
             buf = visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
+            run_choice(3);
 
             set_property('mappingMonsters', 'false');
         }
