@@ -54,7 +54,7 @@ void smokepatches()
 
 boolean saber_can()
 {
-    return get_property('_saberForceUses').to_int() == 0;
+    return get_property('_saberForceUses').to_int() < 5 && !get_property('mappingMonsters').to_boolean() && get_property('_monstersMapped').to_int() < 3;
 }
 
 void saber_run()
