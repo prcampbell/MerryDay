@@ -59,6 +59,7 @@ boolean saber_can()
 
 void saber_run()
 {
+    set_property('battleAction', 'custom combat script');
     equip($slot[weapon], $item[Fourth of May Cosplay Saber]);
     set_auto_attack('UseTheForce');
     if(get_property('choiceAdventure1387').to_int() != 3)
