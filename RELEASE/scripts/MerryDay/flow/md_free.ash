@@ -73,6 +73,8 @@ void saber_run()
             use_skill(1,$skill[Map the Monsters]);
 
             buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
+            if(buf.contains_text("Nothing Could Be Finer"))
+                continue;
             if (!buf.contains_text('name="whichchoice" value="1435"') || !buf.contains_text("Leading Yourself Right to Them"))
                 abort("Wrong thing came up when using Map the Monsters at Sloppy Seconds Diner with Sloppy Seconds Sunday");
 
@@ -83,7 +85,7 @@ void saber_run()
             set_property('mappingMonsters', 'false');
         }
         
-        adv1($location[Sloppy Seconds Diner], -1, '');
+        adv1($location[Sloppy Seconds Diner]  , -1, '');
     }
     set_auto_attack(0);
     set_property('mappingMonsters', 'false');
