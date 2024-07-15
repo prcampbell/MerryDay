@@ -34,7 +34,7 @@ void startDay()
 
 	if(available_amount($item[can of rain-doh]) > 0)
 	{
-		use(1, $item[can of rain-doh]));
+		use(1, $item[can of rain-doh]);
 	}
 
 	if(!get_property('moonTuned').to_boolean() && my_sign() != "Wombat")
