@@ -55,7 +55,9 @@ void main()
   //mayfly bait
 
   if(smokepatches_can())
-    smokepatches();  
+    smokepatches();
+  if(saber_can())
+      saber_run();
   //abort();
   cli_execute('garbo');
   endDay();
