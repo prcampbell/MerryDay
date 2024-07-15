@@ -67,7 +67,7 @@ void saber_run()
 
     while(get_property('_saberForceUses').to_int() < 5)
     {
-        while(get_property('_monstersMapped').to_int() < 3)
+        while(get_property('_monstersMapped').to_int() < 3 && !get_property('mappingMonsters').to_boolean())
         {
             buffer buf;
             //hunt 3 sundae
