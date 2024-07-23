@@ -38,17 +38,17 @@ void main()
   //mood up
 
   //Disco Leer (60)
-  //Bind Lasagmbie
-  //Polka
   //Singers Faithful Ocelot (60)
   //Spirit of Taking (60)
   //Leash of Linguine (60)
-  //Empathy
+  //Empathy (60)
   //Blood Bond (60)
-  //Pride
-  //Drescher's
+  //Pride (60)
+  //Drescher's (30)
   //Curiosity (60)
   //Ruthless Efficiency (30)
+  
+  //?? Bind Lasagmbie
 
   //check for Tunnel duplication
 
