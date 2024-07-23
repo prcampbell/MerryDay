@@ -1,7 +1,15 @@
 void endDay()
 {
   set_property('autoBuyPriceLimit', 150000);
-  cli_execute("familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;");
+  if(mall_price($item[vintage smart drink]) < mall_price($item[emergency margarita]))
+    acquire(1, $item[vintage smart drink]));
+  else
+    acquire(1, $item[emergency margarita]));
+
+  if(available_amount($item[vintage smart drink]) > 0)
+    cli_execute("familiar stooper;drink stillsuit distillate;drinksilent vintage smart drink;");
+  else
+    cli_execute("familiar stooper;drink stillsuit distillate;drinksilent emergency margarita;");
   set_property('autoBuyPriceLimit', 100000);
 
 
