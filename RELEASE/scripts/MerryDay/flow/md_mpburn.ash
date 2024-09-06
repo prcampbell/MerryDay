@@ -74,6 +74,24 @@ void ClanShower()
 		if ( mpRestored < my_maxmp()-my_mp() ) 
 		{
 			cli_execute("shower hot");
+
+			while(have_effect($effect[Leash of Linguine]) < 600)
+			{
+				use_skill(1, $skill[Leash of Linguine]);
+			}
+			while(have_effect($effect[Disco Leer]) < 600)
+			{
+				use_skill(1, $skill[Disco Leer]);
+			}
+			while(have_effect($effect[Ruthlessly Efficient]) < 600)
+			{
+				use_skill(1, $skill[Ruthless Efficiency]);
+			}
+			while(have_effect($effect[Curiosity of Br'er Tarrypin]) < 600)
+			{
+				use_skill(1, $skill[Curiosity of Br'er Tarrypin]);
+			}
+
 			LibramBurn();
 		}
 	}
