@@ -37,18 +37,25 @@ void main()
 
   //mood up
 
-  //Disco Leer (60)
-  //Singers Faithful Ocelot (60)
-  //Spirit of Taking (60)
-  //Leash of Linguine (60)
-  //Empathy (60)
-  //Blood Bond (60)
-  //Pride (60)
-  //Drescher's (30)
-  //Curiosity (60)
-  //Ruthless Efficiency (30)
+  //familiar
+  //720 MP - Leash of Linguine (60)
+  //600 MP - Empathy (60)
+  //18000 HP - Blood Bond (60)
+  //600 MP - Curiosity (60)
   
-  //?? Bind Lasagmbie
+  //600 MP - Disco Leer (60)
+  
+  //900 MP - Singers Faithful Ocelot (60)
+  //3000 MP - Spirit of Taking (60)
+  
+  //300 MP - Ruthless Efficiency (30)
+  
+  //Songs (4)
+  //600 MP - Polka of Plenty (60)
+  //600 MP - Phat Leons (60)
+  //Richie Thingfinder - Need Recordings
+  //Chorale - Need Recordings
+
 
   //check for Tunnel duplication
 
@@ -58,7 +65,7 @@ void main()
     smokepatches();
   if(saber_can())
       saber_run();
-  //abort();
+  abort();
   cli_execute('garbo');
   endDay();
 

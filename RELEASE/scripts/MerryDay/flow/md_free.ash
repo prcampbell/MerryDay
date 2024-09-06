@@ -80,7 +80,7 @@ void saber_run()
                 abort("Wrong thing came up when using Map the Monsters at Sloppy Seconds Diner with Sloppy Seconds Sunday");
 
             //select choice
-            buf = visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
+            visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
             run_choice(3);
 
             set_property('mappingMonsters', 'false');
