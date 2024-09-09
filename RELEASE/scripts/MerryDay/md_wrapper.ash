@@ -26,7 +26,8 @@ void main()
   */
   if(!get_property('breakfastCompleted').to_boolean())
   {
-    startDay(); 
+    startDay();
+    cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
     mpBuff();
     Aug15(); 
     PYEC();
@@ -37,25 +38,24 @@ void main()
 
   //mood up
 
-  //familiar
-  //720 MP - Leash of Linguine (60)
-  //600 MP - Empathy (60)
-  //18000 HP - Blood Bond (60)
-  //600 MP - Curiosity (60)
+  //buffbot request:
+
+  /*
+
+
+
   
-  //600 MP - Disco Leer (60)
   
-  //900 MP - Singers Faithful Ocelot (60)
-  //3000 MP - Spirit of Taking (60)
-  
-  //300 MP - Ruthless Efficiency (30)
+  */
+
+  //900 MP - Singers Faithful Ocelot (60) [420 MP]
+  //3000 MP - Spirit of Taking (60) [2520 MP]
   
   //Songs (4)
-  //600 MP - Polka of Plenty (60)
-  //600 MP - Phat Leons (60)
   //Richie Thingfinder - Need Recordings
   //Chorale - Need Recordings
 
+//18000 HP - Blood Bond (60)
 
   //check for Tunnel duplication
 

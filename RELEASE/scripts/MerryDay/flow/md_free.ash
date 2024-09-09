@@ -97,9 +97,14 @@ void main()
 {
     if(smokepatches_can())
         smokepatches();
-
     if(saber_can())
     {
         saber_run();
     }
+
+    //Set up model train & fight 1 Witchess Knight to load diner
+
+    //Plant fights (tear away for more adventures)
+    //Burning Leaves
+    //Mushroom Garden
 }
