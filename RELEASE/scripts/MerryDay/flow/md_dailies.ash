@@ -69,7 +69,11 @@ import "VotingBooth.ash";
 
 void Morning()
 {
+    cli_execute('closet put * meat');
+	cli_execute('closet take 5000000 meat');
     set_property('hpAutoRecovery', '0.8');
+	set_property("hpAutoRecoveryTarget", "1.0");
+    
     if (get_property("_internetPrintScreenButtonBought") == "false"
 	&& $item[BACON].item_amount() > 111)
     {
@@ -99,6 +103,8 @@ void Morning()
 
     if(get_property('_timeSpinnerMinutesUsed').to_int() == 0)
         cli_execute('FarFuture drink');
+    
+    cli_execute('horsery dark');
 
     set_auto_attack(0);
 }
