@@ -95,7 +95,7 @@ void Morning()
     if (have_effect($effect[That's Just Cloud-Talk, Man]) == 0) { //'
             visit_url('place.php?whichplace=campaway&action=campaway_sky');
         }   
-    cli_execute('bastille myst brutalist gesture');
+    cli_execute('bastille myst draftsman gesture');
 
     if(get_property('_timeSpinnerMinutesUsed').to_int() == 0)
         cli_execute('FarFuture drink');
