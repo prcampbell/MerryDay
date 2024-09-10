@@ -100,10 +100,6 @@ void Morning()
     if(get_property('_timeSpinnerMinutesUsed').to_int() == 0)
         cli_execute('FarFuture drink');
 
-    
-    
-    cli_execute('breakfast');
-    
     set_auto_attack(0);
 }
 
