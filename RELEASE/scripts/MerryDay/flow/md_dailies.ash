@@ -195,6 +195,45 @@ void Morning()
         use(1, $item[moveable feast]);
     }
 
+    if(!contains_text(get_property('_mayamSymbolsUsed'), 'yam1')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'meat')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'eyepatch')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'yam4'))
+    
+    {
+        cli_execute('mayam resonance yamtility belt');
+    }
+    if(!contains_text(get_property('_mayamSymbolsUsed'), 'chair')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'yam2')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'cheese')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'explosion'))
+    
+    {
+        cli_execute('mayam rings chair yam cheese explosion');
+    }
+    if(!contains_text(get_property('_mayamSymbolsUsed'), 'fur')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'bottle')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'yam3')
+     && !contains_text(get_property('_mayamSymbolsUsed'), 'clock'))
+    
+    {
+        if($familiar[Pocket Professor].experience < 400)
+        {
+            use_familiar($familiar[Pocket Professor]);
+        }
+        else if($familiar[Chest Mimic].experience < 550)
+        {
+            use_familiar($familiar[Chest Mimic]);
+        }
+        else 
+        {
+            use_familiar($familiar[Grey Goose]);
+        }
+        cli_execute('mayam rings fur bottle yam clock');
+    }
+
+    
+
 /*
     if(!get_property('_candyCaneSwordOvergrownShrine').to_boolean())
     {

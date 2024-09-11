@@ -34,6 +34,8 @@ void main()
     ClanShower();
     FratNuns();
     Sausages();
+
+    cli_execute('uneffect Mojomuscular Melody');
   }
 
   //mood up
