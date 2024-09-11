@@ -30,7 +30,11 @@ void startDay()
 	if(get_property('skillLevel144') != 3)
 		set_property('skillLevel144', 3);
 
-	buyRaffle(11);
+	if($item[raffle ticket].item_amount() < 11)
+	{
+		buyRaffle(11);
+	}
+	
 
 	if(available_amount($item[can of rain-doh]) > 0)
 	{
@@ -47,13 +51,15 @@ void startDay()
 		visit_url("place.php?whichplace=sea_oldman&action=oldman_oldman",false);
 
 	switchClan(VIPClan);
-	cli_execute("breakfast");
+	if(!get_property('breakfastCompleted').to_boolean())
+	{
+		cli_execute("breakfast");
+	}
+	
 	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
 		use_skill(1,$skill[canticle of carboloading]);
 
 
-	//Glaciest();
-	//Guzzlr();
 	if ( can_interact() ) 
 	{
 		/*
@@ -73,50 +79,17 @@ void startDay()
 		}
 		*/
 
-
-		if ( available_amount($item[fisherman's sack]) > 0 )
-			use(available_amount($item[fisherman's sack]),$item[fisherman's sack]); //'
-		//StockUpList();
 		//cli_execute("call briefcase unlock");
 		//cli_execute("call briefcase collect");
-		//voteInVotingBooth();
-		//horsery();
-		MaySaber(4);
-		//selfEsteem(false);
+
+
+
 	}
 
 
-	//if ( Pick() ) cli_execute("garden pick");
-	//getChateauStuff();
-	if ( item_amount($item[BittyCar MeatCar]) > 0)
-		use(1, $item[BittyCar MeatCar]);
-	while ( get_property("_feelDisappointedUsed").to_int() < 3 )
-		use_skill(1,$skill[Feel Disappointed]);
-	cli_execute('witchess buff');
-	//birdBuff();
-	use(1, $item[wardrobe-o-matic]);
-	if(!get_property('lockPicked').to_boolean())
-	{
-		if(item_amount($item[Boris's key lime pie]) <= item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Boris's key lime pie]) <= item_amount($item[Jarlsberg's key lime pie]))
-		{
-			set_property('choiceAdventure1414', '1');
-			use_skill($skill[Lock Picking]);
-			cli_execute('make boris key lime pie');
-		}
-		else if(item_amount($item[Jarlsberg's key lime pie]) <= item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Jarlsberg's key lime pie]) <= item_amount($item[Boris's key lime pie]))
-		{
-			set_property('choiceAdventure1414', '2');
-			use_skill($skill[Lock Picking]);
-			cli_execute('make jarlsberg key lime pie');
-		}
-		else if(item_amount($item[Sneaky Pete's key lime pie]) <= item_amount($item[Boris's key lime pie]) && item_amount($item[Sneaky Pete's key lime pie]) <= item_amount($item[Jarlsberg's key lime pie]))
-		{
-			set_property('choiceAdventure1414', '3');
-			use_skill($skill[Lock Picking]);
-			cli_execute('make sneaky pete key lime pie');
-		}
-	}
-	cli_execute('farfuture drink');
+
+	
+
 }
 
 void main() 

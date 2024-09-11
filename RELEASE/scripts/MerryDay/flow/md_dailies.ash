@@ -51,122 +51,22 @@ Amulet Coin?
 
 import "VotingBooth.ash";
 
-int gnome() {
-	// Ensure that you have body parts with the following priority. Otherwise snag the kgnee
-	foreach i in $items[gnomish housemaid's kgnee, gnomish coal miner's lung, gnomish athlete's foot, gnomish swimmer's ears, gnomish tennis elbow]
-		if(available_amount(i) < 1) return (to_int(i) - 5767);
-	return 4;
-}
-
-void gravitate() 
+void dailyEffects()
 {
-    int rainbowLeft;
-    boolean noSummonsLeft() {
-        rainbowLeft = 3 - get_property("prismaticSummons").to_int();
-        return rainbowLeft < 1;
-    }
-    if(!have_skill($skill[Rainbow Gravitation]) || noSummonsLeft()) return;
-    foreach key in $items[twinkly wad, hot wad, cold wad, spooky wad, stench wad, sleaze wad]
-        retrieve_item(rainbowLeft, key);
-    use_skill(rainbowLeft, $skill[rainbow gravitation]);
-}
+    while (get_property('_campAwayCloudBuffs') < 3) 
+    { 
+        visit_url('place.php?whichplace=campaway&action=campaway_sky');
+    } 
 
-void Morning()
-{
-    cli_execute('closet put * meat');
-	cli_execute('closet take 5000000 meat');
-    set_property('hpAutoRecovery', '0.8');
-	set_property("hpAutoRecoveryTarget", "1.0");
-
-    cli_execute('swim item');
-
-    if (get_property("_internetPrintScreenButtonBought") == "false"
-	&& $item[BACON].item_amount() > 111)
+    if($item[Draftsman's driving gloves].item_amount() == 0 &&
+       $item[Nouveau nosering].item_amount() == 0 &&
+       $item[Brutal brogues].item_amount() == 0)
     {
-        cli_execute("coinmaster buy bacon print screen button");
+        cli_execute('bastille myst draftsman gesture');
     }
-
-
-    /*Get Guzzlr cocktail set*/
-                visit_url("inventory.php?tap=guzzlr", false);
-                run_choice(4); // take platinum quest
-                wait(1); // mafia's tracking breaks occasionally if you go too fast.
-                visit_url("inventory.php?tap=guzzlr", false);
-                run_choice(1); // abandon
-                run_choice(5); // leave the choice.
-    /*End Guzzlr*/
-
-    voteInVotingBooth();
-    use(1, $item[bird-a-day calendar]);
-    //Chateau juice bar
-    visit_url('place.php?whichplace=chateau&action=chateau_desk2');
-
-    /*Default buffs*/
-    if (have_effect($effect[That's Just Cloud-Talk, Man]) == 0) { //'
-            visit_url('place.php?whichplace=campaway&action=campaway_sky');
-        }   
-    cli_execute('bastille myst draftsman gesture');
-
-    if(get_property('_timeSpinnerMinutesUsed').to_int() == 0)
-        cli_execute('FarFuture drink');
     
-    cli_execute('horsery dark');
-
-    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Island')) { cli_execute('cheat Island');}
-    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Ancestral Recall')) { cli_execute('cheat Ancestral Recall');}
-    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Gift Card')) { cli_execute('cheat Gift Card');}
-
-    while(get_property('_sourceTerminalExtrudes').to_int() < 3) { cli_execute('terminal extrude booze.ext'); }
-    if(get_property('_clipartSummons').to_int() < 3)
-    {
-        cli_execute('make box of familiar jacks');
-    }
-    if(get_property('_clipartSummons').to_int() < 2)
-    {
-        cli_execute('make bucket of wine');
-    }
-    if(get_property('_clipartSummons').to_int() < 1)
-    {
-        cli_execute('make borrowed time');
-    }
-
-    cli_execute('teatree shake');
-    gravitate();
-    
-    
-    if(have_familiar($familiar[Reagnimated Gnome])) 
-    {
-        familiar f = my_familiar();
-        use_familiar($familiar[Reagnimated Gnome]);
-        visit_url("arena.php");
-        visit_url("choice.php?pwd&whichchoice=597&option="+gnome());
-        /*
-        if(equipped_item($slot[familiar]) == $item[none])
-            equip($item[gnomish housemaid's kgnee]);
-        use_familiar(f); // Restore original familiar
-        */
-    }
-
+        
     if(!contains_text(get_property('boomBoxSong'), 'Total Eclipse of Your Meat')) {cli_execute('boombox meat');}
-    if(item_amount($item[blue plate]) > 0)
-    {
-        use_familiar($familiar[Shorter-Order Cook ]);
-        equip($slot[familiar], ($item[blue plate]));
-    }
-    if(item_amount($item[tiny stillsuit]) > 0)
-    {
-        use_familiar($familiar[slimeling]);
-        equip($slot[familiar], ($item[tiny stillsuit]));
-    }
-
-    if(get_property('_aprilBandInstruments') < 2 && item_amount($item[Apriling band saxophone]) == 0)
-    {
-        cli_execute('aprilband item saxophone');
-    }
-    if(get_property('_aprilBandInstruments') < 2 && item_amount($item[Apriling band tuba]) == 0)
-    {
-        cli_execute('aprilband item tuba');
-    }
 
     if(!contains_text(get_property('_mummeryUses'), '1') && !contains_text(get_property('_mummeryMods'), 'Meat Drop'))
     {
@@ -193,6 +93,153 @@ void Morning()
     {
         use_familiar($familiar[jill-of-all-trades]);
         use(1, $item[moveable feast]);
+    }
+
+    if(!get_property('_witchessBuff').to_boolean())
+    {
+        cli_execute('witchess buff');
+    }
+
+    while ( get_property("_feelDisappointedUsed").to_int() < 3 )
+		use_skill(1,$skill[Feel Disappointed]);
+}
+
+int gnome() {
+	// Ensure that you have body parts with the following priority. Otherwise snag the kgnee
+	foreach i in $items[gnomish housemaid's kgnee, gnomish coal miner's lung, gnomish athlete's foot, gnomish swimmer's ears, gnomish tennis elbow]
+		if(available_amount(i) < 1) return (to_int(i) - 5767);
+	return 4;
+}
+
+void gravitate() 
+{
+    int rainbowLeft;
+    boolean noSummonsLeft() {
+        rainbowLeft = 3 - get_property("prismaticSummons").to_int();
+        return rainbowLeft < 1;
+    }
+    if(!have_skill($skill[Rainbow Gravitation]) || noSummonsLeft()) return;
+    foreach key in $items[twinkly wad, hot wad, cold wad, spooky wad, stench wad, sleaze wad]
+        retrieve_item(rainbowLeft, key);
+    use_skill(rainbowLeft, $skill[rainbow gravitation]);
+}
+
+void dailyItems()
+{
+    cli_execute('closet put * meat');
+	cli_execute('closet take 5000000 meat');
+    set_property('hpAutoRecovery', '0.8');
+	set_property("hpAutoRecoveryTarget", "1.0");
+
+    if(!get_property('_olympicSwimmingPoolItemFound').to_boolean())
+    {
+        cli_execute('swim item');
+    }
+    
+    if(get_property('_saberMod') == 0)
+    {
+        MaySaber(4);
+    }
+
+    if (get_property("_internetPrintScreenButtonBought") == "false"
+	&& $item[BACON].item_amount() > 111)
+    {
+        cli_execute("coinmaster buy bacon print screen button");
+    }
+    if(!get_property('_internetGallonOfMilkBought').to_boolean() && $item[BACON].item_amount() > 100)
+    {
+        cli_execute("coinmaster buy bacon gallon of milk");
+    }
+
+
+    /*Get Guzzlr cocktail set*/
+    if(get_property('_guzzlrPlatinumDeliveries') == 0
+    && !get_property('_guzzlrQuestAbandoned').to_boolean())
+    {
+        visit_url("inventory.php?tap=guzzlr", false);
+        run_choice(4); // take platinum quest
+        wait(1); // mafia's tracking breaks occasionally if you go too fast.
+        visit_url("inventory.php?tap=guzzlr", false);
+        run_choice(1); // abandon
+        run_choice(5); // leave the choice.
+    }
+
+    /*End Guzzlr*/
+
+    voteInVotingBooth();
+    if(get_property('_birdOfTheDay') == '')
+    {
+        use(1, $item[bird-a-day calendar]);
+    }
+    
+    //Chateau juice bar
+    if(!get_property('_chateauDeskHarvested').to_boolean())
+    {
+        visit_url('place.php?whichplace=chateau&action=chateau_desk2');
+    }
+    
+
+    if(!get_property('_timeSpinnerReplicatorUsed').to_boolean())
+        cli_execute('FarFuture drink');
+    if(get_property('_horsery') == '')
+    {
+        cli_execute('horsery dark');
+    }
+    if($item[futuristic hat].available_amount() == 0)
+    {
+        use(1, $item[wardrobe-o-matic]);
+    }
+    
+    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Island')) { cli_execute('cheat Island');}
+    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Ancestral Recall')) { cli_execute('cheat Ancestral Recall');}
+    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Gift Card')) { cli_execute('cheat Gift Card');}
+
+    while(get_property('_sourceTerminalExtrudes').to_int() < 3) { cli_execute('terminal extrude booze.ext'); }
+    if(get_property('_clipartSummons').to_int() < 1)
+    {
+        cli_execute('make box of familiar jacks');
+    }
+    if(get_property('_clipartSummons').to_int() < 2)
+    {
+        cli_execute('make bucket of wine');
+    }
+    if(get_property('_clipartSummons').to_int() < 3)
+    {
+        cli_execute('make borrowed time');
+    }
+
+    cli_execute('teatree shake');
+    gravitate();
+    
+    
+    if(have_familiar($familiar[Reagnimated Gnome])) 
+    {
+        familiar f = my_familiar();
+        use_familiar($familiar[Reagnimated Gnome]);
+        visit_url("arena.php");
+        visit_url("choice.php?pwd&whichchoice=597&option="+gnome());
+    }
+
+		if ( available_amount($item[fisherman's sack]) > 0 )
+			use(available_amount($item[fisherman's sack]),$item[fisherman's sack]); //'
+    if(item_amount($item[blue plate]) > 0)
+    {
+        use_familiar($familiar[Shorter-Order Cook ]);
+        equip($slot[familiar], ($item[blue plate]));
+    }
+    if(item_amount($item[tiny stillsuit]) > 0)
+    {
+        use_familiar($familiar[slimeling]);
+        equip($slot[familiar], ($item[tiny stillsuit]));
+    }
+
+    if(get_property('_aprilBandInstruments') < 2 && item_amount($item[Apriling band saxophone]) == 0)
+    {
+        cli_execute('aprilband item saxophone');
+    }
+    if(get_property('_aprilBandInstruments') < 2 && item_amount($item[Apriling band tuba]) == 0)
+    {
+        cli_execute('aprilband item tuba');
     }
 
     if(!contains_text(get_property('_mayamSymbolsUsed'), 'yam1')
@@ -246,6 +293,28 @@ void Morning()
         cli_execute('leaves lit leaf lasso');
     }
 
+    if(!get_property('lockPicked').to_boolean())
+	{
+		if(item_amount($item[Boris's key lime pie]) <= item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Boris's key lime pie]) <= item_amount($item[Jarlsberg's key lime pie]))
+		{
+			set_property('choiceAdventure1414', '1');
+			use_skill($skill[Lock Picking]);
+			cli_execute('make boris key lime pie');
+		}
+		else if(item_amount($item[Jarlsberg's key lime pie]) <= item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Jarlsberg's key lime pie]) <= item_amount($item[Boris's key lime pie]))
+		{
+			set_property('choiceAdventure1414', '2');
+			use_skill($skill[Lock Picking]);
+			cli_execute('make jarlsberg key lime pie');
+		}
+		else if(item_amount($item[Sneaky Pete's key lime pie]) <= item_amount($item[Boris's key lime pie]) && item_amount($item[Sneaky Pete's key lime pie]) <= item_amount($item[Jarlsberg's key lime pie]))
+		{
+			set_property('choiceAdventure1414', '3');
+			use_skill($skill[Lock Picking]);
+			cli_execute('make sneaky pete key lime pie');
+		}
+	}
+
 /*
     if(!get_property('_candyCaneSwordOvergrownShrine').to_boolean())
     {
@@ -263,5 +332,6 @@ void Morning()
 
 void main()
 {
-    Morning();
+    dailyEffects()
+    dailyItems();
 }

@@ -3,6 +3,7 @@ import md_login.ash;
 import md_logout.ash;
 import md_mpburn.ash;
 import md_free.ash;
+import md_dailies.ash;
 
 
 
@@ -24,6 +25,8 @@ void main()
 
 
   */
+  dailyEffects();
+  
   if(!get_property('breakfastCompleted').to_boolean())
   {
     startDay();
@@ -34,21 +37,9 @@ void main()
     ClanShower();
     FratNuns();
     Sausages();
-
-    cli_execute('uneffect Mojomuscular Melody');
+    if($effect[Mojomuscular Melody].have_effect() > 0)
+      cli_execute('uneffect Mojomuscular Melody');
   }
-
-  //mood up
-
-  //buffbot request:
-
-  /*
-
-
-
-  
-  
-  */
 
   //900 MP - Singers Faithful Ocelot (60) [420 MP]
   //3000 MP - Spirit of Taking (60) [2520 MP]
