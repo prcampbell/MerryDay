@@ -1,9 +1,7 @@
 /*
-Pantogram
+
 ChibiBuddy
 Refresh Latte
-Free Goofballs
-Beach Comb
 Clan Fortunes
 Glenn's Golden Dice
 Clan Pool Table
@@ -23,21 +21,23 @@ SongBoom - Meat (Food Vibrations if drunk)
 MCD
 Implement glitch
 BittyCar MeatCar
-Check NEP Quest
-Check Barf Quest
+Lodestone
+
 */
 
 /*
 AugustScepter Summons
-Mayam Calendar
+Pantogram
 Pick Cargo Pocket
 Mr. Store Catalogue
 Kremlin's Briefcase
-
+Free Goofballs
+Beach Comb
 Internet Meme Shop
 
 Fantasy Realm Hat
-Lodestone
+Check NEP Quest
+Check Barf Quest
 SIT Bugs
 Rake Leaves
 -Lit Lasso
@@ -232,17 +232,27 @@ void Morning()
         cli_execute('mayam rings fur bottle yam clock');
     }
 
-    
+    if(!get_property('_leafDayShortenerCrafted').to_boolean() && item_amount($item[inflammable leaf]) > 222)
+    {
+        cli_execute('leaves day shortener');
+    }
+
+    if(!get_property('_leafDayShortenerCrafted').to_boolean() && item_amount($item[inflammable leaf]) > 222)
+    {
+        cli_execute('leaves day shortener');
+    }
+    while(get_property('_leafLassosCrafted').to_int() < 3 && item_amount($item[inflammable leaf]) > 69)
+    {
+        cli_execute('leaves lit leaf lasso');
+    }
 
 /*
     if(!get_property('_candyCaneSwordOvergrownShrine').to_boolean())
     {
-
         equip($slot[weapon], $item[candy cane sword cane]);
         adv1($location[An Overgrown Shrine (Northeast)], -1, '');
         run_choice(4);
         run_choice(6);
-
     }
 */
     
