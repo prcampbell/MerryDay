@@ -3,7 +3,6 @@ Pantogram
 ChibiBuddy
 Refresh Latte
 Free Goofballs
-Horsery
 Beach Comb
 Clan Fortunes
 Glenn's Golden Dice
@@ -30,19 +29,13 @@ Check Barf Quest
 
 /*
 AugustScepter Summons
-April Instrument
 Mayam Calendar
-Cheat Cards
-Extrude Items
 Pick Cargo Pocket
-Clip Art
 Mr. Store Catalogue
-Chateau Desk
 Kremlin's Briefcase
-Swimming Pool Item
+
 Internet Meme Shop
-Rainbow Gravitation
-Tea Trea
+
 Fantasy Realm Hat
 Lodestone
 SIT Bugs
@@ -54,18 +47,29 @@ CandyCane Meat Shrine
 
 /*
 Amulet Coin?
-Equip Shorter Order Cook with Blue Plate
-Mummery Meat - Jill
-Mummery Item - Tot
-Moveable Feast
-    - Pocket Professor
-    - Bandersnatch
-    - Jill
-tiny stillsuit - Slimeling
 */
 
 import "VotingBooth.ash";
 
+int gnome() {
+	// Ensure that you have body parts with the following priority. Otherwise snag the kgnee
+	foreach i in $items[gnomish housemaid's kgnee, gnomish coal miner's lung, gnomish athlete's foot, gnomish swimmer's ears, gnomish tennis elbow]
+		if(available_amount(i) < 1) return (to_int(i) - 5767);
+	return 4;
+}
+
+void gravitate() 
+{
+    int rainbowLeft;
+    boolean noSummonsLeft() {
+        rainbowLeft = 3 - get_property("prismaticSummons").to_int();
+        return rainbowLeft < 1;
+    }
+    if(!have_skill($skill[Rainbow Gravitation]) || noSummonsLeft()) return;
+    foreach key in $items[twinkly wad, hot wad, cold wad, spooky wad, stench wad, sleaze wad]
+        retrieve_item(rainbowLeft, key);
+    use_skill(rainbowLeft, $skill[rainbow gravitation]);
+}
 
 void Morning()
 {
@@ -73,7 +77,9 @@ void Morning()
 	cli_execute('closet take 5000000 meat');
     set_property('hpAutoRecovery', '0.8');
 	set_property("hpAutoRecoveryTarget", "1.0");
-    
+
+    cli_execute('swim item');
+
     if (get_property("_internetPrintScreenButtonBought") == "false"
 	&& $item[BACON].item_amount() > 111)
     {
@@ -105,6 +111,102 @@ void Morning()
         cli_execute('FarFuture drink');
     
     cli_execute('horsery dark');
+
+    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Island')) { cli_execute('cheat Island');}
+    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Ancestral Recall')) { cli_execute('cheat Ancestral Recall');}
+    if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Gift Card')) { cli_execute('cheat Gift Card');}
+
+    while(get_property('_sourceTerminalExtrudes').to_int() < 3) { cli_execute('terminal extrude booze.ext'); }
+    if(get_property('_clipartSummons').to_int() < 3)
+    {
+        cli_execute('make box of familiar jacks');
+    }
+    if(get_property('_clipartSummons').to_int() < 2)
+    {
+        cli_execute('make bucket of wine');
+    }
+    if(get_property('_clipartSummons').to_int() < 1)
+    {
+        cli_execute('make borrowed time');
+    }
+
+    cli_execute('teatree shake');
+    gravitate();
+    
+    
+    if(have_familiar($familiar[Reagnimated Gnome])) 
+    {
+        familiar f = my_familiar();
+        use_familiar($familiar[Reagnimated Gnome]);
+        visit_url("arena.php");
+        visit_url("choice.php?pwd&whichchoice=597&option="+gnome());
+        /*
+        if(equipped_item($slot[familiar]) == $item[none])
+            equip($item[gnomish housemaid's kgnee]);
+        use_familiar(f); // Restore original familiar
+        */
+    }
+
+    if(!contains_text(get_property('boomBoxSong'), 'Total Eclipse of Your Meat')) {cli_execute('boombox meat');}
+    if(item_amount($item[blue plate]) > 0)
+    {
+        use_familiar($familiar[Shorter-Order Cook ]);
+        equip($slot[familiar], ($item[blue plate]));
+    }
+    if(item_amount($item[tiny stillsuit]) > 0)
+    {
+        use_familiar($familiar[slimeling]);
+        equip($slot[familiar], ($item[tiny stillsuit]));
+    }
+
+    if(get_property('_aprilBandInstruments') < 2 && item_amount($item[Apriling band saxophone]) == 0)
+    {
+        cli_execute('aprilband item saxophone');
+    }
+    if(get_property('_aprilBandInstruments') < 2 && item_amount($item[Apriling band tuba]) == 0)
+    {
+        cli_execute('aprilband item tuba');
+    }
+
+    if(!contains_text(get_property('_mummeryUses'), '1') && !contains_text(get_property('_mummeryMods'), 'Meat Drop'))
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        cli_execute('mummery meat');
+    }
+    if(!contains_text(get_property('_mummeryUses'), '4') && !contains_text(get_property('_mummeryMods'), 'Item Drop'))
+    {
+        use_familiar($familiar[trick-or-treating tot]);
+        cli_execute('mummery item');
+    }
+
+    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Frumious Bandersnatch'))
+    {
+        use_familiar($familiar[frumious bandersnatch]);
+        use(1, $item[moveable feast]);
+    }
+    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Pocket Professor'))
+    {
+        use_familiar($familiar[pocket professor]);
+        use(1, $item[moveable feast]);
+    }
+    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Jill-of-All-Trades'))
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        use(1, $item[moveable feast]);
+    }
+
+/*
+    if(!get_property('_candyCaneSwordOvergrownShrine').to_boolean())
+    {
+
+        equip($slot[weapon], $item[candy cane sword cane]);
+        adv1($location[An Overgrown Shrine (Northeast)], -1, '');
+        run_choice(4);
+        run_choice(6);
+
+    }
+*/
+    
 
     set_auto_attack(0);
 }
