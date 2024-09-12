@@ -29,7 +29,7 @@ void main()
   startDay();
   dailyEffects();
 
-  if($effect[Jingle Bells].have_effect() < 600)
+  if($effect[Jingle Jangle Jingle].have_effect() < 600)
   {
     cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
   }
