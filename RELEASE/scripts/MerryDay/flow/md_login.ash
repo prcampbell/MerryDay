@@ -35,7 +35,6 @@ void startDay()
 		buyRaffle(11);
 	}
 	
-
 	if(available_amount($item[can of rain-doh]) > 0)
 	{
 		use(1, $item[can of rain-doh]);

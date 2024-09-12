@@ -25,11 +25,13 @@ void main()
 
 
   */
+      
+  startDay();
   dailyEffects();
   
   if(!get_property('breakfastCompleted').to_boolean())
   {
-    startDay();
+
     cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
     mpBuff();
     Aug15(); 
@@ -59,6 +61,33 @@ void main()
   if(saber_can())
       saber_run();
   abort();
+
+/*
+Pure Meat
+
+Apriling Band Helmet
+Buddy Bjorn w Happy Medium
+Jurassic Parka
+Fourth of May Cosplay Saber
+Fully charged Latte
+Repaid Diaper
+Yamtility Belt
+Wormwood Wedding Ring
+Ring of the Skeleton Lord
+
+
+while($effect[shadow waters].have_effect() < my_turns())
+{
+  call rufus - Get Item Quest
+  call rufus - Get Lodestone
+  adv1 shadow rift
+
+
+}
+
+*/
+
+
   cli_execute('garbo');
   endDay();
 

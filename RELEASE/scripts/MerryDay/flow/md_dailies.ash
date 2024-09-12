@@ -53,6 +53,17 @@ import "VotingBooth.ash";
 
 void dailyEffects()
 {
+
+    if(!get_property('friarsBlessingReceived').to_boolean())
+    {
+        cli_execute('friars blessing familiar');
+    }
+    if(!get_property('_defectiveTokenUsed').to_boolean() && $item[defective game grid token].item_amount() > 0)
+    {
+        use(1, $item[defective game grid token]);
+    }
+    
+
     while (get_property('_campAwayCloudBuffs') < 3) 
     { 
         visit_url('place.php?whichplace=campaway&action=campaway_sky');
@@ -64,7 +75,6 @@ void dailyEffects()
     {
         cli_execute('bastille myst draftsman gesture');
     }
-    
         
     if(!contains_text(get_property('boomBoxSong'), 'Total Eclipse of Your Meat')) {cli_execute('boombox meat');}
 
@@ -332,6 +342,6 @@ void dailyItems()
 
 void main()
 {
-    dailyEffects()
+    dailyEffects();
     dailyItems();
 }
