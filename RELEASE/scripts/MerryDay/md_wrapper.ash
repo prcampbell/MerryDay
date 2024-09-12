@@ -25,23 +25,24 @@ void main()
 
 
   */
-      
+
   startDay();
   dailyEffects();
-  
-  if(!get_property('breakfastCompleted').to_boolean())
-  {
 
+  if($effect[Jingle Bells].have_effect() < 600)
+  {
     cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
+  }
+
     mpBuff();
     Aug15(); 
     PYEC();
     ClanShower();
     FratNuns();
     Sausages();
-    if($effect[Mojomuscular Melody].have_effect() > 0)
+    if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
       cli_execute('uneffect Mojomuscular Melody');
-  }
+  
 
   //900 MP - Singers Faithful Ocelot (60) [420 MP]
   //3000 MP - Spirit of Taking (60) [2520 MP]
