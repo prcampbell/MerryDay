@@ -24,7 +24,7 @@ Head to Sea
 
 
 use_familiar($familiar[Blavious Kloop]);
-equip($slot[off-hand], $item[latte lover's membership mug]);
+equip($slot[off-hand], $item[latte lovers member's mug]);
 
 if(get_property('choiceAdventure1204') != 1)
 {
