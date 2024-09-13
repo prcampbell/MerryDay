@@ -10,37 +10,60 @@ int mpRestored;
 
 void mpBuff()
 {
-  //Slotless All Stats
-  //Telescope
-  if (get_campground() contains $item[discount telescope warehouse gift certificate] && get_property("telescopeUpgrades").to_int() > 0 && 
-    get_property("telescopeLookedHigh") == "false") 
-    cli_execute("telescope high");
-  if(!get_property("_streamsCrossed").to_boolean())
-    cli_execute("crossstreams");
-  if(!get_property(" _ballpit").to_boolean())
-    cli_execute("ballpit");
-  if(!get_property("_spacegateVaccine").to_boolean())
-  	ensure_effect($effect[Broad-Spectrum Vaccine]);
-  ensure_effect($effect[Feeling Excited]);
+	maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+	//Slotless All Stats
+	//Telescope
+	if (get_campground() contains $item[discount telescope warehouse gift certificate] 
+		&& get_property("telescopeUpgrades").to_int() > 0 
+		&& get_property("telescopeLookedHigh") == "false") 
+	{
+		cli_execute("telescope high");
+	}
+	if(!get_property("_streamsCrossed").to_boolean())
+	{
+		cli_execute("crossstreams");
+	}
+	
+	if(!get_property(" _ballpit").to_boolean())
+	{
+		cli_execute("ballpit");
+	}
+	
+	if(!get_property("_spacegateVaccine").to_boolean())
+	{
+		ensure_effect($effect[Broad-Spectrum Vaccine]);
+	}
+	
+	ensure_effect($effect[Feeling Excited]);
+	if(!get_property("_daycareSpa").to_boolean())
+	{
+		ensure_effect($effect[Uncucumbered]);
+	}
 
-  //monorail buff
-  if (!get_property('_lyleFavored').to_boolean()) 
-  {
-    ensure_effect($effect[Favored by Lyle]);
-  }
+	//monorail buff
+	if (!get_property('_lyleFavored').to_boolean()) 
+	{
+		ensure_effect($effect[Favored by Lyle]);
+	}
 
-  //Myst Buffs
-  if(have_effect($effect[[1457]blood sugar sauce magic]) == 0)
-    use_skill($skill[Blood Sugar Sauce Magic]);
-  ensure_effect($effect[We're All Made of Starfish]); //'
-  ensure_effect($effect[Quiet Judgement]);
-  ensure_effect($effect[Song of Bravado]);
-  ensure_effect($effect[Big]);
-  ensure_song($effect[The Magical Mojomuscular Melody]);
-  ensure_song($effect[Stevedave's Shanty of Superiority]); //'
-  if(!get_property("_daycareSpa").to_boolean())
-	ensure_effect($effect[Uncucumbered]);
-  maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+	//Myst Buffs
+	if(have_effect($effect[[1457]blood sugar sauce magic]) == 0)
+	use_skill($skill[Blood Sugar Sauce Magic]);
+	ensure_effect($effect[We're All Made of Starfish]); //'
+
+	if(my_mp() < 200 && !get_property('oscusSodaUsed').to_boolean())
+	{
+		use(1, $item[Oscus's neverending soda]);
+	}
+
+	ensure_effect($effect[Quiet Judgement]);
+	ensure_effect($effect[Song of Bravado]);
+	ensure_effect($effect[Big]);
+	ensure_song($effect[The Magical Mojomuscular Melody]);
+	ensure_song($effect[Stevedave's Shanty of Superiority]); //'
+
+	
+  
 }
 
 void Aug15() 
