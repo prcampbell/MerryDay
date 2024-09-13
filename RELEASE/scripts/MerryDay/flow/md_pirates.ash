@@ -38,7 +38,7 @@ if(!(to_boolean(get_property("_gingerbreadClockAdvanced"))))
     visit_url('adventure.php?snarfblat=477');
     run_choice(1);
 }
-adv1($location[Gingerbread Train Station]], -1, 'skill gulp latte; skill throw latte;');
+adv1($location[Gingerbread Train Station], -1, 'skill gulp latte; skill throw latte;');
 
 /*
 while(to_int(get_property("_gingerbreadCityTurns")) < 5)
