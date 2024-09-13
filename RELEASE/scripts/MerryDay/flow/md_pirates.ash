@@ -23,26 +23,6 @@ Head to Sea
 */
 
 
-use_familiar($familiar[Blavious Kloop]);
-equip($slot[off-hand], $item[latte lovers member's mug]);
-
-if(get_property('choiceAdventure1204') != 1)
-{
-    //string tmp = get_property('choiceAdventure1204')
-}
-
-set_property('choiceAdventure1204', '1');
-
-if(!(to_boolean(get_property("_gingerbreadClockAdvanced"))))
-{
-    visit_url('adventure.php?snarfblat=477');
-    run_choice(1);
-}
-while(to_int(get_property("_gingerbreadCityTurns")) < 5)
-{
-    adv1($location[Gingerbread Train Station], -1, 'skill gulp latte; skill throw latte;');
-    cli_execute('Librams; latte refill cajun rawhide carrot');
-}
 
 /*
 while(to_int(get_property("_gingerbreadCityTurns")) < 5)

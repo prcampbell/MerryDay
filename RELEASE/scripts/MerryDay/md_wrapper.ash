@@ -35,15 +35,16 @@ void main()
     cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
   }
 
-    mpBuff();
-    Aug15(); 
-    PYEC();
-    ClanShower();
-    FratNuns();
-    Sausages();
+  mpBuff();
+  Aug15(); 
+  PYEC();
+  ClanShower();
+  FratNuns();
+  Sausages();
+  GingerLatte();
 
-    if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
-      cli_execute('uneffect Mojomuscular Melody');
+  if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
+    cli_execute('uneffect Mojomuscular Melody');
   
 
   //900 MP - Singers Faithful Ocelot (60) [420 MP]
