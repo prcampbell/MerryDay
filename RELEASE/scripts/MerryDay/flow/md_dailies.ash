@@ -68,7 +68,7 @@ void dailyEffects()
     }
     
 
-    while (get_property('_campAwayCloudBuffs') < 3) 
+    while (get_property('_campAwaySmileBuffs') < 3) 
     { 
         visit_url('place.php?whichplace=campaway&action=campaway_sky');
     } 
