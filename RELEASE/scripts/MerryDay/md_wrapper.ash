@@ -42,23 +42,6 @@ void main()
     FratNuns();
     Sausages();
 
-
-/*
-  use_familiar($familiar[Blavious Kloop]);
-  equip($slot[off-hand], $item[latte lover's membership mug]);
-  set_property to advance the clock
-  set_property to check cushions
-  adv1($location[City Center], -1, '');
-  adv1($location[City Center], -1, 'gulp latte; throw latte;');
-  cli_execute('Librams; latte refill cajun rawhide carrot');
-  adv1($location[City Center], -1, 'gulp latte; throw latte;');
-  cli_execute('Librams; latte refill cajun rawhide carrot');
-  adv1($location[City Center], -1, 'gulp latte; throw latte;');
-  cli_execute('Librams; latte refill cajun rawhide carrot');
-  adv1($location[City Center], -1, '');
-
-*/
-
     if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
       cli_execute('uneffect Mojomuscular Melody');
   
