@@ -9,9 +9,9 @@ void startDay()
 		abort();
 	}
 	
-	if(get_property('valueOfAdventure') != '7000')
+	if(get_property('valueOfAdventure') != '6000')
 	{
-		set_property('valueOfAdventure', '7000');
+		set_property('valueOfAdventure', '6000');
 	}
 
 	if(get_property('choiceAdventure1065') != 6)

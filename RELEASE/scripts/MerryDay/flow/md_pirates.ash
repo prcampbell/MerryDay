@@ -23,20 +23,22 @@ Head to Sea
 */
 
 
+ash 
+set_property('choiceAdventure1497',3);
 
-/*
-while(to_int(get_property("_gingerbreadCityTurns")) < 5)
+while(have_effect($effect[shadow waters]) < 600)
 {
-    adv1($location[Gingerbread Train Station], -1, "");
+    use(1, $item[closed-circuit pay phone]);
+
+    if(item_amount(get_property('rufusQuestTarget').to_item()) >= 3)
+    {
+        use(1, $item[closed-circuit pay phone]);
+        adv1($location[Shadow Rift (The Distant Woods)], -1, "");
+    }
+    else
+    {
+        break;
+    }
 }
 
-  
-
-  cli_execute('Librams; latte refill cajun rawhide carrot');
-  adv1($location[Train Station], -1, 'gulp latte; throw latte;');
-  cli_execute('Librams; latte refill cajun rawhide carrot');
-  adv1($location[Train Station], -1, 'gulp latte; throw latte;');
-  cli_execute('Librams; latte refill cajun rawhide carrot');
-  adv1($location[Train Station], -1, '');
-*/
 

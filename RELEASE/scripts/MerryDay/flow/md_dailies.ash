@@ -66,6 +66,72 @@ void dailyEffects()
     {
         use(1, $item[defective game grid token]);
     }
+    if(!get_property('_legendaryBeat').to_boolean() && $item[The Legendary Beat].item_amount() > 0)
+    {
+        use(1, $item[The Legendary Beat]);
+    }
+    if(!get_property('_redwoodRainStickUsed').to_boolean() && $item[redwood rain stick].item_amount() > 0)
+    {
+        use(1, $item[redwood rain stick]);
+    }
+    if(!get_property('_redwoodRainStickUsed').to_boolean() && $item[redwood rain stick].item_amount() > 0)
+    {
+        use(1, $item[redwood rain stick]);
+    }
+    if(!get_property('_glennGoldenDiceUsed').to_boolean() && $item[glenn's golden dice].item_amount() > 0)
+    {
+        use(1, $item[glenn's golden dice]);
+    }
+    if(!get_property('_lodestoneUsed').to_boolean() && $item[lodestone].item_amount() > 0)
+    {
+        use(1, $item[lodestone]);
+    }
+    if(!get_property('_favoriteBirdVisited').to_boolean() && have_skill($skill[visit your favorite bird]))
+    {
+        use_skill(1, $skill[visit your favorite bird]);
+    }
+    if(!get_property('_clanFortuneBuffUsed').to_boolean())
+    {
+        cli_execute('fortune buff meat');
+    }
+    while(get_property('_sourceTerminalEnhanceUses').to_int() < 3)
+    {
+        cli_execute('terminal enhance meat');
+    }
+    if(!get_property('demonSummoned').to_boolean())
+    {
+        cli_execute('summon 2');
+    }
+    if(!get_property('concertVisited').to_boolean() && get_property('sidequestArenaCompleted') == 'fratboy')
+    {
+        cli_execute('concert w');
+    }
+    if(!get_property('_madTeaParty').to_boolean() )
+    {
+        cli_execute('hatter 22');
+    }
+    if(contains_text(get_property('_birdOfTheDayMods'), 'Meat Drop') && my_mp() >= 425)
+    {
+        while(get_property('_birdsSoughtToday') < 6)
+        {
+            use_skill(1, $skill[Seek out a Bird]);
+        }
+    }
+    if(get_property('_augSkillsCast') < 4 && !get_property('_aug7Cast').to_boolean())
+    {
+        use_skill(1, $skill[Aug. 7th: Lighthouse Day!]);
+    }
+    while(get_property('_poolGames').to_int() < 3)
+    {
+        cli_execute('pool 1');
+    }
+
+    if(!contains_text(get_property('_beachHeadsUsed'), '10'))
+    {
+        cli_execute('beach head familiar');
+    }
+    
+    
     
 
     while (get_property('_campAwaySmileBuffs') < 3) 
