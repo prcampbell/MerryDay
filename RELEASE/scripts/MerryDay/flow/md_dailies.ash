@@ -288,7 +288,11 @@ void dailyItems()
         cli_execute('make borrowed time');
     }
 
-    cli_execute('teatree shake');
+    if(!get_property('_pottedTeaTreeUsed').to_boolean())
+    {
+        cli_execute('teatree shake');
+    }
+    
     gravitate();
     
     
