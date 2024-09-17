@@ -152,7 +152,16 @@ void Sausages()
 
 void GingerLatte()
 {
+	if(get_property("_gingerbreadCityTurns") >= 5)
+		return;
 	if(get_property("_gingerbreadCityTurns") == 0 && get_property("_latteRefillsUsed") != 0)
+	{
+		return;
+	}
+	if(!contains_text(get_property('latteUnlocks'), 'cajun') 
+		&& !contains_text(get_property('latteUnlocks'), 'carrot')
+		&& !contains_text(get_property('latteUnlocks'), 'rawhide')
+	)
 	{
 		return;
 	}
