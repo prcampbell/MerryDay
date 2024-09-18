@@ -98,9 +98,9 @@ void ClanShower()
 		{
 			cli_execute("shower hot");
 
-			while(have_effect($effect[Leash of Linguine]) < 600)
+			while(have_effect($effect[Leash of Linguini]) < 600)
 			{
-				use_skill(1, $skill[Leash of Linguine]);
+				use_skill(1, $skill[Leash of Linguini]);
 			}
 			while(have_effect($effect[Disco Leer]) < 600)
 			{
