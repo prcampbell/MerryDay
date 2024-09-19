@@ -92,7 +92,7 @@ while($effect[shadow waters].have_effect() < my_turns())
 */
 
 
-  cli_execute('garbo');
+  cli_execute('garbo quick');
   endDay();
 
 }
