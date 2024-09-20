@@ -332,11 +332,13 @@ void unlockLatte()
 	}
 	while(!contains_text(get_property('latteUnlocks'), 'cajun'))
 	{
+		set_property('choiceAdventure923', '1');
 		if(get_property('blackForestProgress').to_int() == 0)
 		{
 			return;
 		}
 		use_familiar($familiar[frumious bandersnatch]);
+		equip($slot[off-hand], $item[latte lovers member's mug]);
 		ensure_song($effect[Ode To Booze]);
 		adv1($location[The Black Forest], -1, 'run away');
 	}	
