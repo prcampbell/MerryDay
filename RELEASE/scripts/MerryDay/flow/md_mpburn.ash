@@ -330,15 +330,15 @@ void unlockLatte()
 	{
 		return;
 	}
-	while(!contains_text(get_property('latteUnlocks'), 'cajun')
+	while(!contains_text(get_property('latteUnlocks'), 'cajun'))
 	{
 		if(get_property('blackForestProgress').to_int() == 0)
 		{
 			return;
 		}
 		use_familiar($familiar[frumious bandersnatch]);
-		ensure_song($effect[The Ode To Booze]);
-		adv1($location[Black Forest], -1, 'run away');
+		ensure_song($effect[Ode To Booze]);
+		adv1($location[The Black Forest], -1, 'run away');
 	}	
 }
 void main() 
