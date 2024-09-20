@@ -340,21 +340,21 @@ void unlockLatte()
 		use_familiar($familiar[frumious bandersnatch]);
 		equip($slot[off-hand], $item[latte lovers member's mug]);
 		ensure_song($effect[Ode To Booze]);
-		adv1($location[The Black Forest], -1, 'run away');
+		adv1($location[The Black Forest], -1, 'runaway;');
 	}
 	while(!contains_text(get_property('latteUnlocks'), 'rawhide'))
 	{
 		use_familiar($familiar[frumious bandersnatch]);
 		equip($slot[off-hand], $item[latte lovers member's mug]);
 		ensure_song($effect[Ode To Booze]);
-		adv1($location[The Spooky Forest], -1, 'run away');
+		adv1($location[The Spooky Forest], -1, 'runaway;');
 	}	
 	while(!contains_text(get_property('latteUnlocks'), 'carrot'))
 	{
 		use_familiar($familiar[frumious bandersnatch]);
 		equip($slot[off-hand], $item[latte lovers member's mug]);
 		ensure_song($effect[Ode To Booze]);
-		adv1($location[The Dire Warren], -1, 'run away');
+		adv1($location[The Dire Warren], -1, 'runaway;');
 	}
 }
 void main() 
@@ -366,5 +366,5 @@ void main()
     //FratNuns();
 	//Sausages();
 	unlockLatte();
-	GingerLatte();
+
 }
