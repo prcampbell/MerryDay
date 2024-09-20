@@ -317,14 +317,37 @@ void EternalCarBattery() {
 		}
 	}
 }
+
  
-*/ 
+*/
+
+void unlockLatte()
+{
+	if(contains_text(get_property('latteUnlocks'), 'cajun') 
+		&& contains_text(get_property('latteUnlocks'), 'carrot')
+		&& contains_text(get_property('latteUnlocks'), 'rawhide')
+	)
+	{
+		return;
+	}
+	while(!contains_text(get_property('latteUnlocks'), 'cajun')
+	{
+		if(get_property('blackForestProgress').to_int() == 0)
+		{
+			return;
+		}
+		use_familiar($familiar[frumious bandersnatch]);
+		ensure_song($effect[The Ode To Booze]);
+		adv1($location[Black Forest], -1, 'run away');
+	}	
+}
 void main() 
 {
-	mpBuff();
-    Aug15(); 
-    PYEC();
-    ClanShower();
-    FratNuns();
-	Sausages();
+	//mpBuff();
+    //Aug15(); 
+    //PYEC();
+    //ClanShower();
+    //FratNuns();
+	//Sausages();
+	unlockLatte();
 }
