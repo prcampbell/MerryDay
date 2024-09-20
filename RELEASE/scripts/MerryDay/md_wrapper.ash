@@ -34,7 +34,7 @@ void main()
   {
     cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
   }
-
+  unlockLatte();
   mpBuff();
   Aug15(); 
   PYEC();
