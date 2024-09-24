@@ -74,7 +74,7 @@ void saber_run()
 
             buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
             if(buf.contains_text("Nothing Could Be Finer"))
-                continue;
+                buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
             
             visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
             run_choice(3);
