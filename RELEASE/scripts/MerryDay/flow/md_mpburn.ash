@@ -344,6 +344,8 @@ void unlockLatte()
 	}
 	while(!contains_text(get_property('latteUnlocks'), 'rawhide'))
 	{
+		set_property('choiceAdventure505', '2');
+		set_property('choiceAdventure505', '3');
 		use_familiar($familiar[frumious bandersnatch]);
 		equip($slot[off-hand], $item[latte lovers member's mug]);
 		ensure_song($effect[Ode To Booze]);
