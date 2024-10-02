@@ -48,7 +48,7 @@ void mpBuff()
 
 	//Myst Buffs
 	if(have_effect($effect[[1457]blood sugar sauce magic]) == 0)
-	use_skill($skill[Blood Sugar Sauce Magic]);
+		use_skill($skill[Blood Sugar Sauce Magic]);
 	ensure_effect($effect[We're All Made of Starfish]); //'
 
 	if(my_mp() < 200 && !get_property('oscusSodaUsed').to_boolean())
