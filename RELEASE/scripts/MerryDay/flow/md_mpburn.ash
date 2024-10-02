@@ -10,7 +10,18 @@ int mpRestored;
 
 void mpBuff()
 {
-	maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+	//maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+	use_familiar($familiar[left-hand man]);
+	equip($slot[hat], $item[intimidating coiffure]);
+	equip($slot[weapon], $item[frying brainpan]);
+	equip($slot[off-hand], $item[wand of oscus]);
+	equip($slot[back], $item[balsam barrel]);
+	equip($slot[shirt], $item[sea salt scrubs]);
+	equip($slot[pants], $item[oscus's dumpster waders]);
+	equip($slot[acc1], $item[brimstone bracelet]);
+	equip($slot[acc2], $item[wormwood wedding ring]);
+	equip($slot[acc3], $item[oscus's pelt]);
+	equip($slot[familiar], $item[complicated device]);
 	//Slotless All Stats
 	//Telescope
 	if (get_campground() contains $item[discount telescope warehouse gift certificate] 
