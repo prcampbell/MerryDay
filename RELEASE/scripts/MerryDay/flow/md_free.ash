@@ -54,7 +54,7 @@ void smokepatches()
 
 boolean saber_can()
 {
-    return get_property('_saberForceUses').to_int() < 5 && !get_property('mappingMonsters').to_boolean() && get_property('_monstersMapped').to_int() < 3;
+    return get_property('_saberForceUses').to_int() < 5;
 }
 
 void saber_run()
@@ -77,12 +77,17 @@ void saber_run()
                 buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
             
             visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
-            run_choice(3);
 
             set_property('mappingMonsters', 'false');
         }
-        
-        adv1($location[Sloppy Seconds Diner]  , -1, '');
+        if(get_property('mappingMonsters').to_boolean())
+        {
+            visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
+        }
+        else 
+        {
+            adv1($location[Sloppy Seconds Diner]  , -1, '');
+        }    
     }
     set_auto_attack(0);
     set_property('mappingMonsters', 'false');
