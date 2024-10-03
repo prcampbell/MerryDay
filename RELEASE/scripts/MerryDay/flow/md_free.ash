@@ -13,6 +13,89 @@ boolean smokepatches_can()
     return false;
 }
 
+
+boolean smokepatch1_can()
+{
+    if(!contains_text(get_property('_locketMonstersFought'), 'Smoke Monster')
+        && get_property('').to_int() < 3
+        && get_property('_fireExtinguisherCharge').to_int() >=10
+        && have_effect($effect[Everything Looks Yellow]) == 0)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+boolean smokepatch2_can()
+{
+    if(
+        
+        /*
+        Is your nostalgic monster a Smoke Monster
+        Do you have 1 or more Nostagia casts
+        Do you have 1 or more Envy casts
+        */
+        get_property('') == 'Smoke Monster'
+        &&get_property('') >)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+boolean smokepatch3_can()
+{
+    if(
+        
+        /*
+        Is your nostalgic monster a Smoke Monster
+        Do you have 1 or more Nostagia casts
+        Do you have 1 or more Envy casts
+        */
+        get_property('') == 'Smoke Monster'
+        &&get_property('') >)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+boolean smokepatchFinal_can()
+{
+    if(
+        
+        /*
+        Is your nostalgic monster a Smoke Monster
+        Do you have 1 or more Nostagia casts
+        Do you have 1 or more Envy casts
+
+        Do we need those checks, or do we just check these:
+        Can we reminisce a swarm of beatles
+        Do we have a Free Kill
+        Do we have a Duplicate
+        Do we have an Envy
+        */
+        get_property('') == 'Smoke Monster'
+        &&get_property('') >)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+
 void smokepatches()
 {
     //Get Dressed
