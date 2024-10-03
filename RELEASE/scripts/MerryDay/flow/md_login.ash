@@ -58,6 +58,11 @@ void startDay()
 	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
 		use_skill(1,$skill[canticle of carboloading]);
 
+	if(!get_property('_chateauDeskHarvested').to_boolean())
+	{
+		visit_url("place.php?whichplace=chateau&action=chateau_desk1", false);
+	}
+
 
 	if ( can_interact() ) 
 	{
