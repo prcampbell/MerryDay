@@ -17,7 +17,7 @@ boolean smokepatches_can()
 boolean smokepatch1_can()
 {
     if(!contains_text(get_property('_locketMonstersFought'), 'Smoke Monster')
-        && get_property('').to_int() < 3
+        && split_string(get_property('_locketMonstersFought'), ',').count() < 3
         && get_property('_fireExtinguisherCharge').to_int() >=10
         && have_effect($effect[Everything Looks Yellow]) == 0)
     {
@@ -38,8 +38,9 @@ boolean smokepatch2_can()
         Do you have 1 or more Nostagia casts
         Do you have 1 or more Envy casts
         */
-        get_property('') == 'Smoke Monster'
-        &&get_property('') >)
+        get_property('lastCopyableMonster') == 'Smoke Monster'
+        && get_property('_feelNostalgicUsed').to_int() != 0
+        && get_property('_feelEnvyUsed').to_int() != 0)
     {
         return true;
     }
@@ -58,8 +59,9 @@ boolean smokepatch3_can()
         Do you have 1 or more Nostagia casts
         Do you have 1 or more Envy casts
         */
-        get_property('') == 'Smoke Monster'
-        &&get_property('') >)
+        get_property('lastCopyableMonster') == 'Smoke Monster'
+        && get_property('_feelNostalgicUsed').to_int() != 0
+        && get_property('_feelEnvyUsed').to_int() != 0)
     {
         return true;
     }
@@ -84,8 +86,11 @@ boolean smokepatchFinal_can()
         Do we have a Duplicate
         Do we have an Envy
         */
-        get_property('') == 'Smoke Monster'
-        &&get_property('') >)
+        get_property('lastCopyableMonster') == 'Smoke Monster'
+        && get_property('_feelNostalgicUsed').to_int() != 0
+        && get_property('_feelEnvyUsed').to_int() != 0
+        && !get_property('_epicMcTwistUsed').to_boolean() 
+        && !get_property('_firedJokestersGun').to_boolean() )
     {
         return true;
     }
