@@ -334,6 +334,8 @@ void unlockLatte()
 	while(!contains_text(get_property('latteUnlocks'), 'cajun'))
 	{
 		set_property('choiceAdventure923', '1');
+		set_property('choiceAdventure461', '1');
+		
 		if(get_property('blackForestProgress').to_int() == 0)
 		{
 			return;

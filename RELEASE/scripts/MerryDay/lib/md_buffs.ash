@@ -37,3 +37,18 @@ flask of porquoise juice
 vial of proquoise juice
 
 */
+
+
+/*
+
+Garbo uses Monkey's Paw from 150 turns of Braaaaaains (+200% Meat, -50% Item)
+=> change to 
+1xRefined palate (saves a Pocket Wish)
+1xFrosty
+1xBraaaaaains
+1xSinuses For Miles
+1xCovetous Robbery (ensure all of our Free Fights give a tiny bit of value)(More cute than good, probably)
+
+
+
+*/
