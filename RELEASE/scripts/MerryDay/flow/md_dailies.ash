@@ -182,6 +182,31 @@ void dailyEffects()
 
     while ( get_property("_feelDisappointedUsed").to_int() < 3 )
 		use_skill(1,$skill[Feel Disappointed]);
+
+    if(get_property('_monkeyPawWishesUsed').to_int() == 0 && my_inebriety() < 10 && have_effect($effect[refined palate]) == 0)
+    {
+        cli_execute('monkeypaw effect Refined Palate');
+    }
+    else
+    {
+        cli_execute('monkeypaw effect Braaaaaains');
+    }
+    if(get_property('_monkeyPawWishesUsed').to_int() == 1)
+    {
+        cli_execute('monkeypaw effect Covetous Robbery');
+    }
+    if(get_property('_monkeyPawWishesUsed').to_int() == 2)
+    {
+        cli_execute('monkeypaw effect Sinuses For Miles');
+    }
+    if(get_property('_monkeyPawWishesUsed').to_int() == 3)
+    {
+        cli_execute('monkeypaw effect Frosty');
+    }
+    if(get_property('_monkeyPawWishesUsed').to_int() == 3)
+    {
+        cli_execute('monkeypaw effect Braaaaaains');
+    }
 }
 
 int gnome() {
