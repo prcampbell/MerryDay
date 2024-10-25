@@ -18,23 +18,23 @@ boolean fillInitialStomach()
     {
         eat(1, $item[blueberry muffin]);
     }
-    if(item_amount($item[boris's bread]) == 0)
+    if(item_amount($item[boris's bread]) == 0 && shop_amount($item[yeast of boris]) > 1) 
     {
-        cli_execute('acquire 1 boris bread');
+        refresh_shop(); 
+        take_shop(2, $item[yeast of boris]);
     }
     eat(1, $item[boris's bread]);
 
-    if(item_amount($item[jumping horseradish]) == 0)
+    if(item_amount($item[jumping horseradish]) == 0 && shop_amount($item[jumping horseradish]) > 1)
     {
-        cli_execute('acquire 1 jumping horseradish');
+        refresh_shop(); 
+        take_shop(1, $item[jumping horseradish]);
     }
     eat(1, $item[jumping horseradish]);
     if(item_amount($item[glass of raw eggs]) > 0)
     {
         eat(1, $item[glass of raw eggs]);
     }
-
-
 
     return true;
 }
@@ -43,6 +43,11 @@ boolean fillInitialLiver()
 {
     if(item_amount($item[mime army shotglass]) != 0 && !get_property('_mimeArmyShotglassUsed').to_boolean())
     {
+        if(item_amount($item[splendid martini]) == 0 && shop_amount($item[splendid martini]) > 0) 
+        {
+            refresh_shop(); 
+            take_shop(1, $item[splendid martini]);
+        }
         drink(1, $item[splendid martini]);
     }
     if(have_effect($effect[ode to booze]) == 0)
@@ -53,7 +58,7 @@ boolean fillInitialLiver()
     {
         drink(1, $item[dirt julep]);
     }
-    if(shop_amount($item[ambitious turkey]) > 0) 
+    if(item_amount($item[ambitious turkey]) == 0 && shop_amount($item[ambitious turkey]) > 0) 
     {
         refresh_shop(); 
         take_shop(1, $item[ambitious turkey]);
