@@ -1,7 +1,7 @@
 
 boolean fillInitialStomach()
 {
-    if(my_fullness() <> 0)
+    if(my_fullness() != 0)
     {
         return false;
     }
@@ -41,7 +41,7 @@ boolean fillInitialStomach()
 
 boolean fillInitialLiver()
 {
-    if(item_amount($item[mime army shotglass]) <> 0 && !get_property('_mimeArmyShotglassUsed').to_boolean())
+    if(item_amount($item[mime army shotglass]) != 0 && !get_property('_mimeArmyShotglassUsed').to_boolean())
     {
         drink(1, $item[splendid martini]);
     }
