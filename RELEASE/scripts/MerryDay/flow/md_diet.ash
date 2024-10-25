@@ -1,4 +1,110 @@
 
+boolean fillInitialStomach()
+{
+    if(my_fullness <> 0)
+    {
+        return false;
+    }
+    if(item_amount($item[whet stone]) > 1)
+    {
+        use(1, $item[whet stone]);
+    }
+    
+    cli_execute('acquire 1 milk of magnesium');
+    use(1, $item[milk of magnesium]);
+    eat(1, $item[spaghetti breakfast]);
+
+    if(item_amount($item[blueberry muffin]) > 0)
+    {
+        eat(1, $item[blueberry muffin]);
+    }
+    if(item_amount($item[boris's bread]) == 0)
+    {
+        cli_execute('acquire 1 boris bread');
+    }
+    eat(1, $item[boris's bread]);
+
+    if(item_amount($item[jumping horseradish]) == 0)
+    {
+        cli_execute('acquire 1 jumping horseradish');
+    }
+    eat(1, $item[jumping horseradish]);
+    if(item_amount($item[glass of raw eggs]) > 0)
+    {
+        eat(1, $item[glass of raw eggs]);
+    }
+
+
+
+    return true;
+}
+
+boolean fillInitialLiver()
+{
+    if(item_amount($item[mime army shotglass]) && !get_property('_mimeArmyShotglassUsed').to_boolean())
+    {
+        drink(1, $item[splendid martini]);
+    }
+    if(have_effect($effect[the ode to booze]) == 0)
+    {
+        use_skill(1, $skill[the ode to booze]);
+    }
+    if(item_amount($item[dirt julep]) > 0)
+    {
+        drink(1, $item[dirt julep]);
+    }
+    if(shop_amount($item[ambitious turkey] > 0) {refresh_shop(); take_shop(1, $item[ambitious turkey])}
+    if(item_amount($item[ambitious turkey]) > 0)
+    {
+        drink(1, $item[ambitious turkey]);
+    }
+    if(item_amount($item[High-end ginger wine]) > 0)
+    {
+        drink(1, $item[High-end ginger wine]);
+    }
+    
+}
+
+boolean fillSpleen()
+{
+    if(item_amount($item[body spradium]) > 0)
+    {
+        chew(1, $item[body spradium]);
+    }
+    if(item_amount($item[beggin' cologne]) > 0)
+    {
+        chew(1, $item[beggin' cologne]);
+    }
+    while(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 600)
+    {
+        cli_execute('synthesize greed');
+    }
+    cli_execute('acquire 3 mojo filter; use 3 mojo filter;');
+    if(shop_amount($item[transdermal smokepatch]) > 2)
+    {
+        refresh_shop(); 
+        take_shop(3, $item[transdermal smokepatch]);
+    }
+    if(item_amount($item[transdermal smokepatch]) > 0)
+    {
+        while(my_spleen_use() < spleen_limit() && item_amount($item[transdermal smokepatch]) > 0)
+        {
+            chew(1, $item[transdermal smokepatch]);
+        }
+    }
+
+}
+
+
+void main()
+{
+    fillSpleen();
+    fillInitialStomach();
+    fillInitialLiver();
+}
+
+
+/*
 use 1 LOV Extraterrestrial Chocolate
 
 use 1 chocolate seal-clubbing club
@@ -31,7 +137,28 @@ drink 1 splendid martini
 To consider:
 
 Spaghetti Breakfast
+if(shop_amount($item[ambitious turkey] > 0) {refresh_shop(); take_shop(1, $item[ambitious turkey])}
 Ambitious Turkey
 Dirt Julep
 
-Boris's Bread
+Boris''s Bread
+
+
+
+Food
+
+Drink
+Dirt Julep
+High-end ginger wine
+Ambitious Turkey
+
+Spleen
+if have - body spradium
+if have - beggin' col
+Synthesis-Greed
+
+
+
+*/
+
+
