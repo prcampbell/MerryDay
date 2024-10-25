@@ -53,7 +53,11 @@ boolean fillInitialLiver()
     {
         drink(1, $item[dirt julep]);
     }
-    if(shop_amount($item[ambitious turkey]) > 0) {refresh_shop(); take_shop(1, $item[ambitious turkey])}
+    if(shop_amount($item[ambitious turkey]) > 0) 
+    {
+        refresh_shop(); 
+        take_shop(1, $item[ambitious turkey]);
+    }
     if(item_amount($item[ambitious turkey]) > 0)
     {
         drink(1, $item[ambitious turkey]);
