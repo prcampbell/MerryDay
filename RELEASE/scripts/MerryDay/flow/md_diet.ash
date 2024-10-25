@@ -1,7 +1,7 @@
 
 boolean fillInitialStomach()
 {
-    if(my_fullness <> 0)
+    if(my_fullness() <> 0)
     {
         return false;
     }
@@ -41,11 +41,11 @@ boolean fillInitialStomach()
 
 boolean fillInitialLiver()
 {
-    if(item_amount($item[mime army shotglass]) && !get_property('_mimeArmyShotglassUsed').to_boolean())
+    if(item_amount($item[mime army shotglass]) <> 0 && !get_property('_mimeArmyShotglassUsed').to_boolean())
     {
         drink(1, $item[splendid martini]);
     }
-    if(have_effect($effect[the ode to booze]) == 0)
+    if(have_effect($effect[ode to booze]) == 0)
     {
         use_skill(1, $skill[the ode to booze]);
     }
@@ -53,7 +53,7 @@ boolean fillInitialLiver()
     {
         drink(1, $item[dirt julep]);
     }
-    if(shop_amount($item[ambitious turkey] > 0) {refresh_shop(); take_shop(1, $item[ambitious turkey])}
+    if(shop_amount($item[ambitious turkey]) > 0) {refresh_shop(); take_shop(1, $item[ambitious turkey])}
     if(item_amount($item[ambitious turkey]) > 0)
     {
         drink(1, $item[ambitious turkey]);
@@ -62,7 +62,7 @@ boolean fillInitialLiver()
     {
         drink(1, $item[High-end ginger wine]);
     }
-    
+    return true;
 }
 
 boolean fillSpleen()
@@ -80,19 +80,19 @@ boolean fillSpleen()
         cli_execute('synthesize greed');
     }
     cli_execute('acquire 3 mojo filter; use 3 mojo filter;');
-    if(shop_amount($item[transdermal smokepatch]) > 2)
+    if(shop_amount($item[transdermal smoke patch]) > 2)
     {
         refresh_shop(); 
-        take_shop(3, $item[transdermal smokepatch]);
+        take_shop(3, $item[transdermal smoke patch]);
     }
-    if(item_amount($item[transdermal smokepatch]) > 0)
+    if(item_amount($item[transdermal smoke patch]) > 0)
     {
-        while(my_spleen_use() < spleen_limit() && item_amount($item[transdermal smokepatch]) > 0)
+        while(my_spleen_use() < spleen_limit() && item_amount($item[transdermal smoke patch]) > 0)
         {
-            chew(1, $item[transdermal smokepatch]);
+            chew(1, $item[transdermal smoke patch]);
         }
     }
-
+    return true;
 }
 
 
