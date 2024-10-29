@@ -4,6 +4,8 @@ import md_logout.ash;
 import md_mpburn.ash;
 import md_free.ash;
 import md_dailies.ash;
+import md_diet.ash;
+import md_buffs.ash;
 
 
 
@@ -64,6 +66,15 @@ void main()
     smokepatches();
   if(saber_can())
       saber_run();
+
+
+  /*To hell with Garbo's diet.*/
+  fillSpleen();
+  fillInitialStomach();
+  fillInitialLiver();
+  meat_potions();
+  use_familiar($familiar[jill-of-all-trades]);
+  maximize('meat drop', false);
   abort();
 
 /*

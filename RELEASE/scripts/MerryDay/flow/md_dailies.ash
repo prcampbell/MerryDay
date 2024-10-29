@@ -203,7 +203,7 @@ void dailyEffects()
     {
         cli_execute('monkeypaw effect Frosty');
     }
-    if(get_property('_monkeyPawWishesUsed').to_int() == 3)
+    if(get_property('_monkeyPawWishesUsed').to_int() == 4)
     {
         cli_execute('monkeypaw effect Braaaaaains');
     }

@@ -76,11 +76,16 @@ boolean fillInitialLiver()
 
 boolean fillSpleen()
 {
-    if(item_amount($item[body spradium]) > 0)
+    if(my_spleen_use() == spleen_limit())
+    {
+        return false;
+    }
+    
+    if(item_amount($item[body spradium]) > 0 && spleen_limit()-my_spleen_use() >= 1)
     {
         chew(1, $item[body spradium]);
     }
-    if(item_amount($item[beggin' cologne]) > 0)
+    if(item_amount($item[beggin' cologne]) > 0 && spleen_limit()-my_spleen_use() >= 1)
     {
         chew(1, $item[beggin' cologne]);
     }
