@@ -13,6 +13,7 @@ boolean shadowrifts_run()
     //adventure in a shadow rift
     //NC => Add 3 turns of 3 random effects
     //Lodestone => Forest
+    return true;
 }
 
 boolean smokepatches_can()
