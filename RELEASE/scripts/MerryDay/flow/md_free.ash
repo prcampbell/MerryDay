@@ -1,5 +1,20 @@
 import c2t_cartographyHunt.ash
 
+boolean shadowrifts_can()
+{
+    return !get_property('_shadowAffinityToday').to_boolean();
+}
+
+boolean shadowrifts_run()
+{
+    //set prefrence to items
+    use(1, $item[closed-circuit pay phone]);
+    //dress up for free fights
+    //adventure in a shadow rift
+    //NC => Add 3 turns of 3 random effects
+    //Lodestone => Forest
+}
+
 boolean smokepatches_can()
 {
     if(get_property('_fireExtinguisherCharge').to_int() >=10

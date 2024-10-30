@@ -189,7 +189,11 @@ void dailyEffects()
     }
     else
     {
-        cli_execute('monkeypaw effect Braaaaaains');
+        if(get_property('_monkeyPawWishesUsed').to_int() == 0)
+        {
+            cli_execute('monkeypaw effect Braaaaaains');
+        }
+        
     }
     if(get_property('_monkeyPawWishesUsed').to_int() == 1)
     {
@@ -408,18 +412,21 @@ void dailyItems()
 		{
 			set_property('choiceAdventure1414', '1');
 			use_skill($skill[Lock Picking]);
+            if(item_amount($item[Boris's key]) > 0);
 			cli_execute('make boris key lime pie');
 		}
 		else if(item_amount($item[Jarlsberg's key lime pie]) <= item_amount($item[Sneaky Pete's key lime pie]) && item_amount($item[Jarlsberg's key lime pie]) <= item_amount($item[Boris's key lime pie]))
 		{
 			set_property('choiceAdventure1414', '2');
 			use_skill($skill[Lock Picking]);
+            if(item_amount($item[jarlsberg's key]) > 0);
 			cli_execute('make jarlsberg key lime pie');
 		}
 		else if(item_amount($item[Sneaky Pete's key lime pie]) <= item_amount($item[Boris's key lime pie]) && item_amount($item[Sneaky Pete's key lime pie]) <= item_amount($item[Jarlsberg's key lime pie]))
 		{
 			set_property('choiceAdventure1414', '3');
 			use_skill($skill[Lock Picking]);
+            if(item_amount($item[Sneaky Pete's key]) > 0);
 			cli_execute('make sneaky pete key lime pie');
 		}
 	}
