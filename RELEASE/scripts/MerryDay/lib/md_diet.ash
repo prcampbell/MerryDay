@@ -22,6 +22,7 @@ boolean fillInitialStomach()
     {
         refresh_shop(); 
         take_shop(2, $item[yeast of boris]);
+        cli_execute('make 1 boris bread');
     }
     eat(1, $item[boris's bread]);
 
