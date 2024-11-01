@@ -1,5 +1,20 @@
 import c2t_cartographyHunt.ash
 
+
+boolean thesis_can()
+{
+    return !get_property('_thesisDelivered').to_boolean() && get_property('_sausageFights').to_int() == 0 && $familiar[Pocket Professor].experience >= 400;
+}
+
+boolean thesis_run()
+{
+    set_auto_attack('Thesis');
+    use_familiar($familiar[pocket professor]);
+    maximize('mus, equip kramco', false);
+    adv1($location[noob cave], -1, 'skill 7316;');
+    set_auto_attack(0);
+}
+
 boolean shadowrifts_can()
 {
     return !get_property('_shadowAffinityToday').to_boolean();
