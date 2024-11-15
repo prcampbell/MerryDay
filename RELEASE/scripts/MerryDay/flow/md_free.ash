@@ -13,6 +13,7 @@ boolean thesis_run()
     maximize('mus, equip kramco', false);
     adv1($location[noob cave], -1, 'skill 7316;');
     set_auto_attack(0);
+    return true;
 }
 
 boolean shadowrifts_can()
