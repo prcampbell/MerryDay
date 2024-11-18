@@ -334,6 +334,7 @@ void unlockLatte()
 	while(!contains_text(get_property('latteUnlocks'), 'cajun'))
 	{
 		set_property('choiceAdventure923', '1');
+		set_property('choiceAdventure924', '1');
 		set_property('choiceAdventure461', '1');
 		
 		if(get_property('blackForestProgress').to_int() == 0)
@@ -347,6 +348,7 @@ void unlockLatte()
 	}
 	while(!contains_text(get_property('latteUnlocks'), 'rawhide'))
 	{
+		set_property('choiceAdventure502', '2');
 		set_property('choiceAdventure505', '2');
 		set_property('choiceAdventure505', '3');
 		use_familiar($familiar[frumious bandersnatch]);

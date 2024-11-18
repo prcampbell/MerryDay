@@ -66,6 +66,8 @@ void main()
     smokepatches();
   if(saber_can())
       saber_run();
+  if(thesis_can())
+    thesis_run();
 
 
   /*To hell with Garbo's diet.*/
