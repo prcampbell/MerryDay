@@ -47,5 +47,10 @@ boolean embezzlers_run()
         sax_run();
     if(hotdog_can())
         hotdog_run();
-    set_auto_attack(0);
+    return set_auto_attack(0);
+}
+
+void main()
+{
+    embezzlers_run();
 }
