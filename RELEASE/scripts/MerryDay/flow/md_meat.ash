@@ -1,7 +1,7 @@
 boolean august_can()
 {
     if(!get_property('_aug2Cast').to_boolean() 
-        && get_property('_augTodayCast').to_int() < 5)
+        && get_property('_augSkillsCast').to_int() < 5)
         return true;
     else 
         return false;
@@ -27,14 +27,21 @@ boolean sax_run()
 
 boolean hotdog_can()
 {
-    return item_amount($item[tattered scrap of paper]) > 25;
+    return item_amount($item[tattered scrap of paper]) > 25 && get_clan_id() == 84165;
 }
 
 boolean hotdog_run()
 {
     visit_url('clan_viplounge.php?preaction=hotdogsupply&whichdog=-102&quantity=25');
-    cli_execute('eat 1 optimal dog');
-    return adv1($location[Cobb's Knob Treasury], -1, '');
+    visit_url('clan_viplounge.php?preaction=eathotdog&whichdog=-102');
+    if(have_effect($effect[Lucky!]) > 0)
+    {
+        return adv1($location[Cobb's Knob Treasury], -1, '');
+    }
+    else
+    {
+        return false;
+    }
 }
 
 
