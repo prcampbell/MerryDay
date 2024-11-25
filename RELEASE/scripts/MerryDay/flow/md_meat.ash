@@ -131,7 +131,7 @@ boolean hotdog_run()
 
 boolean embezzlers_run()
 {
-    meat_potions();
+    embezzler_potions();
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop', false);
     set_auto_attack('BackupMeat');
