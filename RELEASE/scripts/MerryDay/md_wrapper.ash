@@ -6,7 +6,7 @@ import md_free.ash;
 import md_dailies.ash;
 import md_diet.ash;
 import md_buffs.ash;
-
+import md_meat.ash;
 
 
 
@@ -47,16 +47,6 @@ void main()
 
   if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
     cli_execute('uneffect Mojomuscular Melody');
-  
-
-  //900 MP - Singers Faithful Ocelot (60) [420 MP]
-  //3000 MP - Spirit of Taking (60) [2520 MP]
-  
-  //Songs (4)
-  //Richie Thingfinder - Need Recordings
-  //Chorale - Need Recordings
-
-//18000 HP - Blood Bond (60)
 
   //check for Tunnel duplication
 
@@ -74,9 +64,10 @@ void main()
   fillSpleen();
   fillInitialStomach();
   fillInitialLiver();
-  meat_potions();
-  use_familiar($familiar[jill-of-all-trades]);
-  maximize('meat drop', false);
+  
+  if(embezzlers_can())
+    embezzlers_run();
+
   abort();
 
 /*

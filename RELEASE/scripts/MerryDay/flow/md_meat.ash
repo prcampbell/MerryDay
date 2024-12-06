@@ -128,6 +128,11 @@ boolean hotdog_run()
     }
 }
 
+boolean embezzlers_can()
+{
+    return august_can() && sax_can() && hotdog_can();
+}
+
 
 boolean embezzlers_run()
 {
