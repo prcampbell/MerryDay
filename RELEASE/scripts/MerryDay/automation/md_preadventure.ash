@@ -1,7 +1,10 @@
 void main()
 {
+    if(get_property('_batWingsFreeFights').to_int() < 5 && !have_equipped($item[bat wings]))
+        equip($slot[back], $item[bat wings]);
+    else if(!have_equipped($item[buddy bjorn]))
+        equip($slot[back], $item[buddy bjorn]);
 
-    printf('BetweenBattleScript', 'purple');
     if(have_effect($effect[everything looks yellow]) == 0 && !have_equipped($item[jurassic parka]))
         equip($slot[shirt], $item[jurassic parka]);
     else if(!have_equipped($item[hodgman's disgusting technicolor overcoat]))
