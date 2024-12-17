@@ -1,5 +1,7 @@
 void main()
 {
+
+    printf('BetweenBattleScript', 'purple');
     if(have_effect($effect[everything looks yellow]) == 0 && !have_equipped($item[jurassic parka]))
         equip($slot[shirt], $item[jurassic parka]);
     else if(!have_equipped($item[hodgman's disgusting technicolor overcoat]))
