@@ -1,8 +1,8 @@
 void main()
 {
-    if(get_property('_batWingsFreeFights').to_int() < 5 && !have_equipped($item[bat wings]))
+    if(get_property('_batWingsFreeFights').to_int() < 5)
         equip($slot[back], $item[bat wings]);
-    else if(!have_equipped($item[buddy bjorn]))
+    else
         equip($slot[back], $item[buddy bjorn]);
 
     if(have_effect($effect[everything looks yellow]) == 0 && !have_equipped($item[jurassic parka]))
