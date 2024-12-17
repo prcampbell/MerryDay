@@ -16,6 +16,21 @@ boolean thesis_run()
     return true;
 }
 
+boolean profsausage_can()
+{
+    return true;
+}
+
+boolean profsausage_run()
+{
+    set_auto_attack('BasicProfChain');
+    use_familiar($familiar[pocket professor]);
+    maximize('familiar weight, equip pocket professor memory chip', false);
+    cli_execute('reminisce sausage goblin');
+    set_auto_attack(0);
+    return true;
+}
+
 boolean shadowrifts_can()
 {
     return !get_property('_shadowAffinityToday').to_boolean();

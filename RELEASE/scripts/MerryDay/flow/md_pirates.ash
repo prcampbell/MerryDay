@@ -20,7 +20,7 @@ Acquire curious anemometer
 Acquire Swift Clipper 
 
 Head to Sea 
-*/
+
 
 
 ash 
@@ -39,6 +39,49 @@ while(have_effect($effect[shadow waters]) < 600)
     {
         break;
     }
+}*/
+
+void pirates_init()
+{
+    //get eyepatch
+    //equip eyepatch, ensure low stats
+    /*
+    visitUrl("place.php?whichplace=realm_pirate&action=pr_port");
+      runChoice(1); // Head to Groggy's
+      runChoice(1); // Select the first crew-member. Better options exist probably.
+      runChoice(4); // Grab the Anemometer
+      runChoice(4); // Swift Clipper, if it's unlocked
+      runChoice(1); // Head to the sea
+      */
+}
+
+void crabSail()
+{
+
+}
+
+boolean crabs_run()
+{
+    return false;
+}
+
+boolean giantcrab_run()
+{
+    return false;
+}
+
+void trashSail()
+{
+
+}
+
+void main()
+{
+    pirates_init();
+    crabSail();
+    crabs_run();
+    giantcrab_run();
+    trashSail();
 }
 
 
