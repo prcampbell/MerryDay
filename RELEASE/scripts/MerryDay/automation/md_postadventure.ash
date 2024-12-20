@@ -89,7 +89,12 @@ void RestoreSetup() {
 		set_property("afterAdventureScript", afterAdventureScript);
         set_property("betweenBattleScript", beforeAdventureScript);
 		if (aa != get_auto_attack())
-			set_auto_attack(aa);
+        {   
+            print("Trying to set autoattack to ... ", "green");
+            print(aa, "purple");
+            set_auto_attack(aa);
+        }
+			
 		if(fam != my_familiar()) 
 		{
 			use_familiar(fam);
@@ -458,7 +463,6 @@ void digitizeMonster()
 			{
 				equip($slot[back],$item[protonic accelerator pack]);
 			}
-			use_familiar(familiarChoice);
 			use_familiar(familiarChoice);
 			(!adv1(doctorLocation, -1, "skill saucestorm;"));
 		}
