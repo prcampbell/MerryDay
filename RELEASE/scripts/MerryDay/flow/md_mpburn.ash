@@ -371,7 +371,7 @@ void main()
     //PYEC();
     //ClanShower();
     //FratNuns();
-	//Sausages();
+	Sausages();
 	unlockLatte();
 
 }
