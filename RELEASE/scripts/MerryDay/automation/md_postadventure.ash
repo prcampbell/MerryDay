@@ -92,6 +92,8 @@ void RestoreSetup() {
         {   
             print("Trying to set autoattack to ... ", "green");
             print(aa, "purple");
+            if(aa == '99188633')
+                cli_execute('autoattack BasicAscend');
             set_auto_attack(aa);
         }
 			

@@ -42,7 +42,10 @@ void main()
         equip($slot[back], $item[buddy bjorn]);
 
     if(have_effect($effect[everything looks yellow]) == 0)
-        equip($slot[shirt], $item[jurassic parka]);
+        {
+            equip($slot[shirt], $item[jurassic parka]);
+            cli_execute('parka acid');
+        }
     else
         equip($slot[shirt], $item[hodgman's disgusting technicolor overcoat]);
     
