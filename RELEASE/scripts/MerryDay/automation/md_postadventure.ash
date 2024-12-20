@@ -94,7 +94,8 @@ void RestoreSetup() {
             print(aa, "purple");
             if(aa == '99188633')
                 cli_execute('autoattack BasicAscend');
-            set_auto_attack(aa);
+            else
+                set_auto_attack(aa);
         }
 			
 		if(fam != my_familiar()) 
