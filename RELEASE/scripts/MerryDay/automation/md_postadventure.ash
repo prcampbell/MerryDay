@@ -9,6 +9,7 @@ int autoAttack, turnsPlayed, clan;
 boolean SetupSaved = FALSE;
 string aa;	
 string afterAdventureScript;
+string beforeAdventureScript;
 string sourceTerminalEducate1;
 string sourceTerminalEducate2;
 location lastLocation;
@@ -76,6 +77,8 @@ void SaveSetup() {
 		foreach eqSlot in $slots[]
 			equipment[eqSlot] = equipped_item(eqSlot);
 		aa = get_auto_attack();
+        beforeAdventureScript = get_property("betweenBattleScript");
+        set_property("betweenBattleScript", "");
 		afterAdventureScript = get_property("afterAdventureScript"); 
 		set_property("afterAdventureScript", ""); //Note Awkward workaround: required to stop nested calls of the after Adventure script (as would otherwise happen after any of the adv1() calls in the script). The nesting messes up the restoration of the setup
 		SetupSaved = TRUE; //To prevent overriding the first saved setup, in case multiple of the functions in the script get called in succession (like picking a bricko fight and then busting a ghost). 
@@ -86,6 +89,7 @@ void SaveSetup() {
 void RestoreSetup() {
 	if (SetupSaved) {
 		set_property("afterAdventureScript", afterAdventureScript);
+        set_property("betweenBattleScript", beforeAdventureScript);
 		if (aa != get_auto_attack())
 			set_auto_attack(aa);
 		if(fam != my_familiar()) 
