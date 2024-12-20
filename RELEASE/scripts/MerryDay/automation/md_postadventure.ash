@@ -1,4 +1,4 @@
-import <canadv.ash>
+
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
@@ -238,7 +238,7 @@ void voteMonster()
 		{
 			equip($slot[back],$item[protonic accelerator pack]);
 		}
-		if(doctorLocation != $location[none] && can_adv(doctorLocation) && doctorLocation != $location[The Dire Warren])
+		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
 			SaveSetup();
 			
@@ -249,7 +249,7 @@ void voteMonster()
 			(!adv1(doctorLocation, -1, "skill saucegeyser;"));
 
 		}
-		else if(guzzlrLocation != $location[none] && can_adv(guzzlrLocation))
+		else if(guzzlrLocation != $location[none] && can_adventure(guzzlrLocation))
 		{
 			SaveSetup();
 			cli_execute("/outfit Free Drops");
@@ -379,7 +379,7 @@ void digitizeMonster()
 		else
 			familiarChoice = chooseFamiliar();
 		
-		if(guzzlrLocation != $location[none]  && can_adv(guzzlrLocation))
+		if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
 		{
 			SaveSetup();
 			if (get_property('_sourceTerminalDigitizeMonster').to_monster() == $monster[knob goblin embezzler])
@@ -444,7 +444,7 @@ void digitizeMonster()
 			}
 				
 		}
-		else if(doctorLocation != $location[none] && can_adv(doctorLocation) && doctorLocation != $location[The Dire Warren])
+		else if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
 			SaveSetup();
 			if (get_property('_sourceTerminalDigitizeMonster').to_monster() == $monster[knob goblin embezzler])
@@ -499,7 +499,7 @@ void kramco()
 		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
-		if(doctorLocation != $location[none] && can_adv(doctorLocation) && doctorLocation.wanderers)
+		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
 		{
 			SaveSetup();
 			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
@@ -512,7 +512,7 @@ void kramco()
 			(!adv1(doctorLocation, -1, "skill saucegeyser;"));
 
 		}
-		else if(guzzlrLocation != $location[none]  && can_adv(guzzlrLocation))
+		else if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
 		{
 			SaveSetup();
 			location ghostLocation = to_location(get_property("ghostLocation"));
