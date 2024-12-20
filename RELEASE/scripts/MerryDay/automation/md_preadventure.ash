@@ -3,8 +3,6 @@ familiar ChooseFamiliar()
     foreach f in $familiars[Jill-of-all-Trades, Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 1 )
 				return f;
-    if($familiar[Obtuse Angel].drops_today < 1)
-        return $familiar[Obtuse Angel];
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 2 )
 				return f;
