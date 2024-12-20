@@ -147,6 +147,7 @@ void bustGhost()
 		return stun.insert(0, "skill Shoot Ghost; "); // Inserting because something goes wrong when stun is first? This attack gets ignored!
 	}
 	SaveSetup();
+    autoattack(0);
 	item acc3;
 	familiar fam;
 	location ghostLocation = to_location(get_property("ghostLocation"));
