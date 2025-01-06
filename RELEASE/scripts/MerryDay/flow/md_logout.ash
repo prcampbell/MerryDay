@@ -5,6 +5,13 @@ void endDay()
   set_property('autoBuyPriceLimit', 100000);
 
 
+	while(get_property('_candyEggsDeviled').to_int() < 3 && item_amount($item[candy egg deviler]) > 0 )
+	{
+		cli_execute('devilcandyegg angry farmer candy');
+	}
+  
+
+
   if(have_skill($skill[Aug. 13th: Left/Off Hander's Day!]))
   {
     use_skill($skill[Aug. 13th: Left/Off Hander's Day!]);
@@ -21,7 +28,7 @@ void endDay()
   {
 		if (it.item_amount() > 0) use(it.item_amount(), it);
 	}
-
+/*
   foreach it, count in get_campground()
 	{
 		while (it == $item[packet of tall grass seeds] &&  $item[packet of thanksgarden seeds].item_amount() > 0)
@@ -40,7 +47,7 @@ void endDay()
       }
 		}
 	}
-
+*/
   if (item_amount($item[earthenware muffin tin]) > 0 ||
 	    (!get_property("_muffinOrderedToday").to_boolean() && 
 			$items[blueberry muffin, bran muffin, chocolate chip muffin, earthenware muffin tin] contains get_property("muffinOnOrder").to_item())) 
