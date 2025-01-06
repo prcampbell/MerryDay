@@ -1,4 +1,4 @@
-
+import c2t_megg.ash;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
@@ -15,6 +15,7 @@ string sourceTerminalEducate2;
 location lastLocation;
 string questLog = "questlog.php?which=1";
 string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
+
 
 location get_property_loc( string property ) {
 	if ( !property_exists(property) )
@@ -62,7 +63,7 @@ familiar ChooseFamiliar()
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 5 )
 				return f;
-    return $familiar[Obtuse Angel];
+    return $familiar[reagnimated gnome];
 }
 
 void SaveSetup() {
@@ -400,6 +401,7 @@ void digitizeMonster()
 			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 			{
 				equip($slot[back],$item[protonic accelerator pack]);
+
 			}
 			use_familiar(familiarChoice);
 			(!adv1(guzzlrLocation, -1, "skill saucestorm;"));
@@ -411,10 +413,7 @@ void digitizeMonster()
 				maximize('meat, equip mafia pointer ring', false);
 			else
 				cli_execute("/outfit Free Drops");
-			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-			{
-				equip($slot[back],$item[protonic accelerator pack]);
-			}
+			
 			use_familiar(familiarChoice);
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
 				(!adv1($location[Pirates of the Garbage Barges]));
@@ -625,6 +624,33 @@ void RemoveCurrencies() {
 
 }
 
+void tatters()
+{
+if(have_effect($effect[everything looks green]) == 0 && get_property('banishedMonsters').contains_text('banshee librarian') &&  get_property('banishedMonsters').contains_text('writing desk'))
+{
+SaveSetup();
+
+cli_execute('autoattack tatterfarm; familiar xo skeleton;');
+equip($slot[back], $item[bat wings]);
+equip($slot[off-hand], $item[tiny black hole]);
+equip($slot[acc1], $item[spring shoes]);
+adv1($location[The Haunted Library], -1, "skill saucegeyser;");
+set_auto_attack(0);
+
+}
+}
+void purple()
+{
+if(have_effect($effect[everything looks purple]) == 0){
+SaveSetup();
+
+cli_execute('autoattack BasicAscend;');
+equip($slot[off-hand],$item[roman candelabra]); 
+c2t_megg_fight($monster[witchess knight]); 
+set_auto_attack(0);
+}
+}
+
 void main() {
 
 	try {
@@ -636,9 +662,12 @@ void main() {
 			voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
 			brickoPrime();
 			bustGhost(); //Basically Bales function, but with though with similar outfit switching
+tatters();
+purple();
 		}
 	} 
 	finally { 
 		HandleChains();
-		RestoreSetup(); }
+		RestoreSetup(); 
+}
 }

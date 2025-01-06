@@ -15,7 +15,7 @@ familiar ChooseFamiliar()
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 5 )
 				return f;
-    return $familiar[Cookbookbat];
+    return $familiar[reagnimated gnome];
 }
 
 void main()
@@ -33,7 +33,7 @@ void main()
 
 
 
-    equip($slot[hat], $item[goggles of loathing]);
+    equip($slot[hat], $item[hardened slime hat]);
 
 
     if(get_property('_batWingsFreeFights').to_int() < 5)
@@ -47,7 +47,7 @@ void main()
             cli_execute('parka acid');
         }
     else
-        equip($slot[shirt], $item[hodgman's disgusting technicolor overcoat]);
+        equip($slot[shirt], $item[hodgman'sdisgusting technicolor overcoat]);
     
     if(get_property('_pantsgivingCount').to_int() < 50)
         equip($slot[pants], $item[Pantsgiving]);
@@ -56,7 +56,7 @@ void main()
     else if(get_property('sweat').to_int() < 75)
         equip($slot[pants], $item[designer sweatpants]);
     else
-        equip($slot[pants], $item[designer sweatpants]);    
+        equip($slot[pants], $item[hardened slime pants]);    
 
     if(have_effect($effect[everything looks red]) == 0)
         equip($slot[acc1], $item[everfull dart holster]);
@@ -64,4 +64,25 @@ void main()
         equip($slot[acc1], $item[mafia thumb ring]);
     equip($slot[acc2], $item[retrospecs]);
     equip($slot[acc3], $item[lucky gold ring]);   
+
+cli_execute('autoattack BasicAscend');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
