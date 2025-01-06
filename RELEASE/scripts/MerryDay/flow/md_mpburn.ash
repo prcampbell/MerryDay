@@ -99,22 +99,14 @@ void ClanShower()
 		{
 			cli_execute("shower hot");
 
-			while(have_effect($effect[Leash of Linguini]) < 600)
-			{
-				use_skill(1, $skill[Leash of Linguini]);
-			}
-			while(have_effect($effect[Disco Leer]) < 600)
-			{
-				use_skill(1, $skill[Disco Leer]);
-			}
-			while(have_effect($effect[Ruthlessly Efficient]) < 600)
-			{
-				use_skill(1, $skill[Ruthless Efficiency]);
-			}
-			while(have_effect($effect[Curiosity of Br'er Tarrypin]) < 600)
-			{
-				use_skill(1, $skill[Curiosity of Br'er Tarrypin]);
-			}
+			//240 MP
+			use_skill(60, $skill[Leash of Linguini]);
+			//120 MP
+			use_skill(60, $skill[Disco Leer]);
+			//120 MP
+			use_skill(60, $skill[Ruthless Efficiency]);
+			//120 MP
+			use_skill(60, $skill[Curiosity of Br'er Tarrypin]);
 
 			LibramBurn();
 		}
