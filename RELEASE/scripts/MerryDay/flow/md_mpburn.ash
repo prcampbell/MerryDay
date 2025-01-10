@@ -10,7 +10,7 @@ int mpRestored;
 
 void mpBuff()
 { use_familiar($familiar[left-hand man]);
-	//maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+
 	maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
 	//Slotless All Stats
 	//Telescope

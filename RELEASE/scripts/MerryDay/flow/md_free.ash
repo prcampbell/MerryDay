@@ -18,7 +18,7 @@ boolean thesis_run()
 
 boolean profsausage_can()
 {
-    return true;
+    return get_property('_pocketProfessorLectures').to_int() == 0 && !get_property('_locketMonstersFought').contains_text('sausage goblin');
 }
 
 boolean profsausage_run()
@@ -166,7 +166,7 @@ void smokepatches()
     cli_execute('autoattack StealEverything');
     cli_execute('reminisce Smoke Monster');
 
-    equip($slot[weapon], $item[Staff of Simmering Hatred]);
+    equip($slot[weapon], $item[June Cleaver]);
     cli_execute('familiar god lobster');
     cli_execute('autoattack NostalgiaKill');
     while (get_property('_godLobsterFights') < 2) 
@@ -240,6 +240,10 @@ void main()
     if(saber_can())
     {
         saber_run();
+    }
+    if(profsausage_can())
+    {
+        profsausage_run();
     }
 
     //Set up model train & fight 1 Witchess Knight to load diner
