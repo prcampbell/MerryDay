@@ -1,6 +1,7 @@
 
 boolean fillInitialStomach()
 {
+    //Making sure we eat our breakfast, and get the +meat buffs we want.
     if(my_fullness() != 0)
     {
         return false;
@@ -32,11 +33,6 @@ boolean fillInitialStomach()
         take_shop(1, $item[jumping horseradish]);
     }
     eat(1, $item[jumping horseradish]);
-    if(item_amount($item[glass of raw eggs]) > 0)
-    {
-        eat(1, $item[glass of raw eggs]);
-    }
-
     return true;
 }
 

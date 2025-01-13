@@ -435,7 +435,7 @@ void dailyItems()
     if(!get_property('_candyCaneSwordOvergrownShrine').to_boolean())
     {
         equip($slot[weapon], $item[candy cane sword cane]);
-        adv1($location[An Overgrown Shrine (Northeast)], -1, '');
+        visit_url('adventure.php?snarfblat=348');
         run_choice(4);
         run_choice(6);
     }

@@ -1,3 +1,5 @@
+script md_embezzlers;
+
 /*
 
 basemeat (1000) * % meat gain * number of embezzlers (5)

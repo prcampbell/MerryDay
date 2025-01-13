@@ -230,7 +230,6 @@ void saber_run()
     }
     set_auto_attack(0);
     set_property('mappingMonsters', 'false');
-    //set mappingMonsters = false
 }
 
 void main()

@@ -6,7 +6,7 @@ import md_free.ash;
 import md_dailies.ash;
 import md_diet.ash;
 import md_buffs.ash;
-import md_meat.ash;
+import md_embezzlers;
 
 
 
@@ -68,7 +68,7 @@ void main()
   if(embezzlers_can())
     embezzlers_run();
 
-  abort();
+
 
 /*
 Pure Meat
