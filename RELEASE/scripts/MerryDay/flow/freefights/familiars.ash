@@ -17,7 +17,7 @@ boolean familiarToFatten()
 
 boolean familiars_should()
 {
-    return $familiar[pocket professor].experience < 400 && $familiar[chest mimic].experience < 400 && $familiar[grey goose].experience < 400;
+    return $familiar[pocket professor].experience < 400 || $familiar[chest mimic].experience < 400 || $familiar[grey goose].experience < 400;
 }
 
 boolean familiar_adv()
@@ -33,17 +33,20 @@ boolean familiars_run()
 {
     while(familiars_should())
     {
-        familiarToFatten();
-        maximize('familiar exp', false);
-        if(item_amount($item[pulled blue taffy]) > 4 && have_effect($effect[blue swayed]) < 50)
+        if(familiarToFatten())
         {
-            while(have_effect($effect[blue swayed]) < 50)
+            maximize('familiar exp', false);
+            if(item_amount($item[pulled blue taffy]) > 4 && have_effect($effect[blue swayed]) < 50)
             {
-                use(1, $item[pulled blue taffy]);
+                while(have_effect($effect[blue swayed]) < 50)
+                {
+                    use(1, $item[pulled blue taffy]);
+                }
             }
+            set_auto_attack('stasis');
+            familiar_adv();
         }
-        set_auto_attack('stasis');
-        familiar_adv();
+        
     }
     set_auto_attack(0);
     return true;
