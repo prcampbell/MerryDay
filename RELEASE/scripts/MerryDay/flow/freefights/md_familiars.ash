@@ -1,3 +1,8 @@
+boolean have(skill skl) 
+{
+	return skl.have_skill();
+}
+
 boolean familiarToFatten()
 {
     if($familiar[pocket professor].experience < 400)
