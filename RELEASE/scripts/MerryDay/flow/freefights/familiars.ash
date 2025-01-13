@@ -43,7 +43,7 @@ boolean familiars_run()
                     use(1, $item[pulled blue taffy]);
                 }
             }
-            set_auto_attack('stasis');
+            set_auto_attack('StasisFight');
             familiar_adv();
         }
         
