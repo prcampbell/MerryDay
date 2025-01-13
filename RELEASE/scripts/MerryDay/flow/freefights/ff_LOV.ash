@@ -10,7 +10,7 @@ void LOV_run()
     if (!(get_property('_loveTunnelUsed').to_boolean())) {
         // Run the fights
         visit_url("place.php?whichplace=town_wrong&action=townwrong_tunnel");
-	    run_choice(1);
+	    //run_choice(1);
         // Fight 1 - Epaul
         run_choice(1);
         run_combat();
