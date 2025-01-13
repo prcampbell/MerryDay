@@ -3,6 +3,46 @@ script md_library;
 int VIPClan = 84165;
 int TrampClan = 2046989819;
 
+boolean use(int amt, skill skl) {
+	return(use_skill(amt, skl));
+}
+
+boolean use(skill skl) {
+	return(use_skill(1, skl));
+}
+
+boolean use(familiar fam) {
+	return fam.use_familiar();
+}
+
+boolean have(item it) {
+	return it.item_amount() > 0;
+}
+
+boolean have(familiar fam) {
+	return fam.have_familiar();
+}
+
+boolean have(skill skl) {
+	return skl.have_skill();
+}
+
+boolean have(effect eff) {
+	return eff.have_effect() > 0;
+}
+
+boolean avail(item it) {
+	return it.available_amount() > 0;
+}
+
+boolean equipped(item it) {
+	return it.have_equipped();
+}
+
+int amt(item it) {
+	return it.item_amount();
+}
+
 void error(string message) 
 {
     // Clean up saved properties.

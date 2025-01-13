@@ -1,22 +1,7 @@
+import md_library;
 import ff_glitch;
 import ff_lov;
 import ff_tentacle;
-
-boolean have(item it) {
-	return it.item_amount() > 0;
-}
-
-boolean have(familiar fam) {
-	return fam.have_familiar();
-}
-
-boolean have(skill skl) {
-	return skl.have_skill();
-}
-
-boolean have(effect eff) {
-	return eff.have_effect() > 0;
-}
 
 boolean familiarToFatten()
 {
