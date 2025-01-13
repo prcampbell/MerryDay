@@ -46,6 +46,7 @@ boolean familiars_run()
         familiar_adv();
     }
     set_auto_attack(0);
+    return true;
 }
 
 
