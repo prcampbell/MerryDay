@@ -431,7 +431,6 @@ void dailyItems()
 		}
 	}
 
-/*
     if(!get_property('_candyCaneSwordOvergrownShrine').to_boolean())
     {
         equip($slot[weapon], $item[candy cane sword cane]);
@@ -439,7 +438,7 @@ void dailyItems()
         run_choice(4);
         run_choice(6);
     }
-*/
+
     
 
     set_auto_attack(0);
