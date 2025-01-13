@@ -37,7 +37,7 @@ boolean familiar_adv()
     }
     if(tentacle_skill_fight_can())
     {
-        tentacle_skill_fight_run()
+        tentacle_skill_fight_run();
     }
     if(tentacle_fight_can())
     {
