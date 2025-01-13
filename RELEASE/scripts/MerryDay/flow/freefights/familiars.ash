@@ -22,11 +22,11 @@ boolean familiars_should()
 
 boolean familiar_adv();
 {
-    autoattack('stasis');
     if(get_property('_speakeasyFreeFights').to_int() < 3)
     {
-        adv1($location[an unusually quiet barroom brawl], -1, '');
+        return adv1($location[an unusually quiet barroom brawl], -1, '');
     }
+    return false;
 }
 
 boolean familiars_run()
@@ -39,11 +39,13 @@ boolean familiars_run()
         {
             while(have_effect($effect[blue swayed]) < 50)
             {
-                use(1, $item[pulled blue taffy]));
+                use(1, $item[pulled blue taffy]);
             }
         }
         autoattack('stasis');
+        familiar_adv();
     }
+    set_auto_attack(0);
 }
 
 
