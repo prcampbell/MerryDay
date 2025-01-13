@@ -20,7 +20,7 @@ boolean familiars_should()
     return $familiar[pocket professor].experience < 400 && $familiar[chest mimic].experience < 400 && $familiar[grey goose].experience < 400;
 }
 
-boolean familiar_adv();
+boolean familiar_adv()
 {
     if(get_property('_speakeasyFreeFights').to_int() < 3)
     {
@@ -42,7 +42,7 @@ boolean familiars_run()
                 use(1, $item[pulled blue taffy]);
             }
         }
-        autoattack('stasis');
+        set_auto_attack('stasis');
         familiar_adv();
     }
     set_auto_attack(0);
