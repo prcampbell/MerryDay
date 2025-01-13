@@ -7,6 +7,7 @@ import md_dailies.ash;
 import md_diet.ash;
 import md_buffs.ash;
 import md_embezzlers;
+import md_familiars;
 
 
 
@@ -52,6 +53,9 @@ void main()
 
   //mayfly bait
 
+  //if(familiars_should())
+        //familiars_run();
+
   if(smokepatches_can())
     smokepatches();
   if(saber_can())
@@ -71,18 +75,6 @@ void main()
 
 
 /*
-Pure Meat
-
-Apriling Band Helmet
-Buddy Bjorn w Happy Medium
-Jurassic Parka
-Fourth of May Cosplay Saber
-Fully charged Latte
-Repaid Diaper
-Yamtility Belt
-Wormwood Wedding Ring
-Ring of the Skeleton Lord
-
 
 while($effect[shadow waters].have_effect() < my_turns())
 {

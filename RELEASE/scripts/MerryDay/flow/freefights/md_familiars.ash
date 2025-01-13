@@ -1,3 +1,5 @@
+script md_familiars;
+
 import md_library;
 import ff_glitch;
 import ff_lov;

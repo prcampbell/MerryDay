@@ -86,10 +86,11 @@ boolean fillSpleen()
     {
         chew(1, $item[beggin' cologne]);
     }
-    while(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 600)
+    if(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 600)
     {
         cli_execute('synthesize greed');
     }
+    /*
     cli_execute('acquire 3 mojo filter; use 3 mojo filter;');
     if(shop_amount($item[transdermal smoke patch]) > 2)
     {
@@ -103,6 +104,7 @@ boolean fillSpleen()
             chew(1, $item[transdermal smoke patch]);
         }
     }
+    */
     return true;
 }
 
