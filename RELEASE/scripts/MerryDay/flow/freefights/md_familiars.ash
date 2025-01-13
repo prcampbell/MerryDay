@@ -1,3 +1,5 @@
+import ff_glitch.ash;
+
 boolean have(item it) {
 	return it.item_amount() > 0;
 }
@@ -38,6 +40,8 @@ boolean familiars_should()
 
 boolean familiar_adv()
 {
+    if(glitch_reward_fight_can())
+		glitch_reward_fight_run();
     if(get_property('_speakeasyFreeFights').to_int() < 3)
     {
         return adv1($location[an unusually quiet barroom brawl], -1, '');
