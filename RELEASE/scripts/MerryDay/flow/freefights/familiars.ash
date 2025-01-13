@@ -26,6 +26,17 @@ boolean familiar_adv()
     {
         return adv1($location[an unusually quiet barroom brawl], -1, '');
     }
+    if(!get_property('_eldritchHorrorEvoked').to_boolean())
+    {
+        use_skill(1, $skill[evoke eldritch horror]);
+        if (my_hp() < 100) visit_url("clan_viplounge.php?action=hottub"); //Because the big eye ball beats us up
+    }
+    if(!get_property("_eldritchTentacleFought").to_boolean())
+    {
+        print("Preparing to fight the free science tent tentacle.", "purple");
+        visit_url("place.php?whichplace=forestvillage&action=fv_scientist");
+        run_choice($item[eldritch essence].have() ? 2 : 1);
+    }
     return false;
 }
 
@@ -44,7 +55,12 @@ boolean familiars_run()
                 }
             }
             set_auto_attack('StasisFight');
-            familiar_adv();
+            if(!familiar_adv())
+            {
+                set_auto_attack(0);
+                return false;
+            }
+                
         }
         
     }
