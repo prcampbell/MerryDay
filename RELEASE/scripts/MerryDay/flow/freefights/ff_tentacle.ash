@@ -1,4 +1,4 @@
-script "ff_tentacle.ash";
+script "ff_tentacle";
 
 
 boolean tentacle_skill_have() {

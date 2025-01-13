@@ -1,4 +1,6 @@
-import ff_glitch.ash;
+import ff_glitch;
+import ff_lov;
+import ff_tentacle;
 
 boolean have(item it) {
 	return it.item_amount() > 0;
@@ -40,22 +42,21 @@ boolean familiars_should()
 
 boolean familiar_adv()
 {
+    if(LOV_can())
+        LOV_run();
     if(glitch_reward_fight_can())
 		glitch_reward_fight_run();
     if(get_property('_speakeasyFreeFights').to_int() < 3)
     {
         return adv1($location[an unusually quiet barroom brawl], -1, '');
     }
-    if(!get_property('_eldritchHorrorEvoked').to_boolean())
+    if(tentacle_skill_fight_can())
     {
-        use_skill(1, $skill[evoke eldritch horror]);
-        if (my_hp() < 100) visit_url("clan_viplounge.php?action=hottub"); //Because the big eye ball beats us up
+        tentacle_skill_fight_run()
     }
-    if(!get_property("_eldritchTentacleFought").to_boolean())
+    if(tentacle_fight_can())
     {
-        print("Preparing to fight the free science tent tentacle.", "purple");
-        visit_url("place.php?whichplace=forestvillage&action=fv_scientist");
-        run_choice($item[eldritch essence].have() ? 2 : 1);
+        tentacle_fight_run();
     }
     return false;
 }
