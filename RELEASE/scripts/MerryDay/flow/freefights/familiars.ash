@@ -2,15 +2,15 @@ boolean familiarToFatten()
 {
     if($familiar[pocket professor].experience < 400)
     {
-        use_familiar($familiar[pocket professor]);
+        return use_familiar($familiar[pocket professor]);
     }
     else if($familiar[chest mimic].experience < 400)
     {
-        use_familiar($familiar[chest mimic]);
+        return use_familiar($familiar[chest mimic]);
     }
     else if($familiar[grey goose].experience < 400)
     {
-        use_familiar($familiar[grey goose]);
+        return use_familiar($familiar[grey goose]);
     }
     return false;
 } 
