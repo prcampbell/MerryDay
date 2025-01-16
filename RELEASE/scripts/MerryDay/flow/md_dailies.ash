@@ -211,6 +211,10 @@ void dailyEffects()
     {
         cli_execute('monkeypaw effect Braaaaaains');
     }
+    if(!get_property('_portableSteamUnitUsed').to_boolean())
+    {
+        use(1, $item[portable steam unit]);
+    }
 }
 
 int gnome() {
