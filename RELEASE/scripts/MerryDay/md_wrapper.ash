@@ -62,6 +62,10 @@ void main()
       saber_run();
   if(thesis_can())
     thesis_run();
+  if(profsausage_can())
+  {
+      profsausage_run();
+  }
 
 
   /*To hell with Garbo's diet.*/
