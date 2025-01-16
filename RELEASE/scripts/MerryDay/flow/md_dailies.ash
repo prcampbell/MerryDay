@@ -131,9 +131,6 @@ void dailyEffects()
         cli_execute('beach head familiar');
     }
     
-    
-    
-
     while (get_property('_campAwaySmileBuffs') < 3) 
     { 
         visit_url('place.php?whichplace=campaway&action=campaway_sky');
