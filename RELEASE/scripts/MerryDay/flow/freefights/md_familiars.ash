@@ -4,6 +4,7 @@ import md_library;
 import ff_glitch;
 import ff_lov;
 import ff_tentacle;
+import ff_leaves;
 
 boolean familiarToFatten()
 {
@@ -44,6 +45,10 @@ boolean familiar_adv()
     if(tentacle_fight_can())
     {
         tentacle_fight_run();
+    }
+    if(leaves_can())
+    {
+        leaves_run();
     }
     return false;
 }
