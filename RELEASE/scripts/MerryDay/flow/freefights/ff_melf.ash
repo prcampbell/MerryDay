@@ -159,7 +159,7 @@ boolean melf_run()
         adv1($location[The Deep Machine Tunnels], -1, '');
         set_property('choiceAdventure1119', '5');
     }
-    adv1($location[The Deep Machine Tunnels], -1, "");
+    return adv1($location[The Deep Machine Tunnels], -1, "");
 }
 
 void main()
