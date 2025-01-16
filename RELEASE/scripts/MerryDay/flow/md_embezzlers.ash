@@ -115,9 +115,20 @@ boolean hotdog_run()
     }
 }
 
+boolean pillkeeper_can()
+{
+    return !get_property('_freePillKeeperUsed').to_boolean();
+}
+
+boolean pillkeeper_run()
+{
+    cli_execute('pillkeeper free lucky');
+    return adv1($location[Cobb's Knob Treasury], -1, '');
+}
+
 boolean embezzlers_can()
 {
-    return august_can() && sax_can() && hotdog_can();
+    return august_can() && sax_can() && hotdog_can() && pillkeeper_can();
 }
 
 
@@ -125,12 +136,14 @@ boolean embezzlers_run()
 {
     embezzler_potions();
     use_familiar($familiar[jill-of-all-trades]);
-    maximize('meat drop', false);
+    maximize('meat drop, switch hobo monkey', false);
     set_auto_attack('BackupMeat');
     if(august_can())
         august_run();
     while(sax_can())
         sax_run();
+    if(pillkeeper_can())
+        pillkeeper_run();
     if(hotdog_can())
         hotdog_run();
     set_auto_attack(0);
