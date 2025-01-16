@@ -147,7 +147,7 @@ boolean melf_can()
     return get_property('_machineTunnelsAdv') < 5;
 }
 
-booean melf_run()
+boolean melf_run()
 {
     use_familiar($familiar[Machine Elf]);
     if (get_property('encountersUntilDMTChoice') == 0 && get_property('knownAscensions') > get_property('lastDMTDuplication')) 
@@ -161,51 +161,6 @@ booean melf_run()
     }
     adv1($location[The Deep Machine Tunnels], -1, "");
 }
-
-void DMT_run()
-{
-    SaveSetup();
-    outfit("birthday suit");
-    outfit("FreeUnderThumb");
-	cli_execute('mood apathetic');
-	try
-	{
-		/*
-		if(available_amount($item[stinky cheese eye]) == 0)
-        	cli_execute('fold stinky cheese eye');
-		equip($slot[acc1], $item[stinky cheese eye]);
-		*/
-		cli_execute('ccs DMT');
-		set_property("battleAction","custom combat script");
-		use_familiar($familiar[Machine Elf]);
-		while(get_property('_machineTunnelsAdv') < 5)
-		{
-			if (get_property('encountersUntilDMTChoice') == 0) 
-			{
-				set_property('choiceAdventure1119', '4');
-				set_property('choiceAdventure1125', '1&iid=7050');
-				adv1($location[The Deep Machine Tunnels], -1, '');
-			}
-			adv1($location[The Deep Machine Tunnels], -1, "");
-		}
-		if (get_property('encountersUntilDMTChoice') == 0 && get_property('knownAscensions') > get_property('lastDMTDuplication')) 
-		{
-			//Karma Schwarma - 7797
-			//Warbear Gyro - 7050
-			set_property('choiceAdventure1119', '4');
-			set_property('choiceAdventure1125', '1&iid=7050');
-			adv1($location[The Deep Machine Tunnels], -1, '');
-            set_property('choiceAdventure1119', '5');
-		}
-	}
-	finally
-	{
-		//RestoreSetup();
-	}
-    
-    
-        
-}       
 
 void main()
 {
