@@ -248,6 +248,11 @@ void dailyItems()
     {
         cli_execute('swim item');
     }
+
+    while(get_property('_candyEggsDeviled').to_int() < 3 && item_amount($item[candy egg deviler]) > 0 )
+	{
+		cli_execute('devilcandyegg angry farmer candy');
+	}
     
     if(get_property('_saberMod') == 0)
     {

@@ -3,15 +3,7 @@ void endDay()
   set_property('autoBuyPriceLimit', 150000);
   cli_execute("familiar stooper;drink stillsuit distillate;CONSUME NIGHTCAP;");
   set_property('autoBuyPriceLimit', 100000);
-
-
-	while(get_property('_candyEggsDeviled').to_int() < 3 && item_amount($item[candy egg deviler]) > 0 )
-	{
-		cli_execute('devilcandyegg angry farmer candy');
-	}
   
-
-
   if(have_skill($skill[Aug. 13th: Left/Off Hander's Day!]))
   {
     use_skill($skill[Aug. 13th: Left/Off Hander's Day!]);
