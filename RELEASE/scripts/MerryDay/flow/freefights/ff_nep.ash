@@ -34,7 +34,7 @@ void main()
     set_auto_attack('StasisFight');
     equip($slot[hat], $item[daylight shavings helmet]);
     equip($slot[back], $item[buddy bjorn]);
-    bjornify_familiar(get_best_bjorn());
+    //bjornify_familiar(get_best_bjorn());
     equip($slot[shirt], $item[jurassic parka]);
     equip($slot[weapon], $item[june cleaver]);
     equip($slot[off-hand], $item[Kramco Sausage-o-Matic&trade;]);
