@@ -69,6 +69,6 @@ void main()
     while(doctor_bander_can())
         doctor_bander_run();
     maximize('familiar weight, equip tearaway pants', false);
-    if(fungi_bander_can())
+    while(fungi_bander_can())
         fungi_bander_run();
 }
