@@ -147,10 +147,28 @@ familiar get_best_bjorn()
 
 void construct_free_outfit()
 {
-    equip($slot[hat], $item[daylight shavings helmet]);
+    
 
-    equip($slot[back], $item[buddy bjorn]);
-    bjornify_familiar(get_best_bjorn());
+    if(get_property('').to_int() < 10)
+    {
+        equip($slot[back], $item[vampyric cloake]);
+    }
+    else
+    {
+        equip($slot[back], $item[buddy bjorn]);
+        bjornify_familiar(get_best_bjorn());    
+    }
+
+    if(equipped_item($slot[back]) != $item[buddy bjorn])
+    {
+        equip($slot[hat], $item[crown of thrones]);
+        enthrone_familiar(get_best_bjorn());
+    }
+    else
+    {
+        equip($slot[hat], $item[daylight shavings helmet]);
+    }
+    
     
     equip($slot[shirt], $item[jurassic parka]);
     
