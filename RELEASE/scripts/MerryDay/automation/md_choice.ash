@@ -24,7 +24,7 @@ void main ( int choiceID, string whichpage ) {
 					2: decline quest
 					3: turn off phone for the day */
 			location doctorLocation = get_property("doctorBagQuestLocation").to_location();
-			if ( !doctorLocation.wanderers || $locations[The Oasis, The Skeleton Store, Camp Logging Camp, Obligatory Pirate Cove] contains doctorLocation )
+			if ( !doctorLocation.wanderers || doctorLocation.combat_percent < 99 || $locations[The Oasis, The Skeleton Store, Camp Logging Camp, Obligatory Pirate Cove] contains doctorLocation )
 			{
 				print("Declining doctor bag quest in "+doctorLocation,"blue");
 				run_choice(2);

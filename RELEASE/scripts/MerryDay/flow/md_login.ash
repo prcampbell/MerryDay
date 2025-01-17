@@ -47,7 +47,7 @@ void startDay()
 	{
 		cli_execute('spoon wombat');
 	}
-	if ( available_amount($item[raffle prize box])>0 )
+	if ( available_amount($item[raffle prize box]) > 0)
 		use(available_amount($item[raffle prize box]),$item[raffle prize box]);
 	if ( my_level() > 10 && get_property("questS01OldGuy") == "unstarted" )
 		visit_url("place.php?whichplace=sea_oldman&action=oldman_oldman",false);

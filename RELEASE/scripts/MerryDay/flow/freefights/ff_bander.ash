@@ -37,6 +37,7 @@ boolean gingerbread_bander_run()
 boolean doctor_bander_can()
 {
     return get_property('questDoctorBag') != 'unstarted'
+        && get_property('doctorBagQuestLocation').to_location().combat_percent > 99
         && get_property('_banderRunaways').to_int() < floor((familiar_weight($familiar[frumious bandersnatch]) + weight_adjustment()) / 5);
 }
 
