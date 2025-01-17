@@ -1,6 +1,7 @@
 script ff_bander;
 
 import md_outfit;
+import md_library
 
 boolean gap_can()
 {
@@ -46,6 +47,19 @@ boolean doctor_bander_run()
     return adv1(get_property('doctorBagQuestLocation').to_location(), -1, "runaway;");
 }
 
+boolean fungi_bander_can()
+{
+    return get_property('_banderRunaways').to_int() < floor((familiar_weight($familiar[frumious bandersnatch]) + weight_adjustment()) / 5);
+}
+
+boolean fungi_bander_run()
+{
+    use_familiar($familiar[frumious bandersnatch]);
+    ensure_song($effect[Ode to Booze]);
+
+    return adv1($location[the fun-guy mansion], -1, "skill 7527; runaway;");
+}
+
 void main()
 {
     while(gap_can())
@@ -54,4 +68,7 @@ void main()
         gingerbread_bander_run();
     while(doctor_bander_can())
         doctor_bander_run();
+    maximize('familiar weight, equip tearaway pants', false);
+    if(fungi_bander_can())
+        fungi_bander_run();
 }
