@@ -22,7 +22,7 @@ boolean gap_run()
 boolean gingerbread_bander_can()
 {
     return get_property('_gingerbreadCityTurns').to_int() < 15 
-        && get_property('_banderRunaways').to_int() < floor((familiar_weight($familiar[bandersnatch]) + weight_adjustment()) / 5);
+        && get_property('_banderRunaways').to_int() < floor((familiar_weight($familiar[frumious bandersnatch]) + weight_adjustment()) / 5);
 }
 
 boolean gingerbread_bander_run()
@@ -36,6 +36,6 @@ void main()
 {
     while(gap_can())
         gap_run();
-    if(gingerbread_bander_can())
+    while(gingerbread_bander_can())
         gingerbread_bander_run();
 }
