@@ -8,6 +8,10 @@ import ff_leaves;
 
 boolean familiarToFatten()
 {
+    if($familiar[frumious bandersnatch].experience < 400)
+    {
+        return use_familiar($familiar[frumious bandersnatch]);
+    }
     if($familiar[pocket professor].experience < 400)
     {
         return use_familiar($familiar[pocket professor]);
