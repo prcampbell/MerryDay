@@ -12,6 +12,7 @@ boolean lobster_run()
     run_combat();
     visit_url('choice.php');
     if (handling_choice()) run_choice(2);
+    return true;
 }
 
 void main()
