@@ -21,6 +21,6 @@ boolean gap_run()
 
 void main()
 {
-    if(gap_can())
+    while(gap_can())
         gap_run();
 }
