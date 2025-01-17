@@ -42,7 +42,7 @@ boolean doctor_bander_run()
 {
     if(item_amount(get_property('doctorBagQuestItem').to_item()) == 0)
         cli_execute('acquire 1 ' + get_property('doctorBagQuestItem'));
-    equip($slot[acc1], $item[Lil' Doctor&trade; bag]);
+    maximize('familiar weight, equip doctor bag', false);
     return adv1(get_property('doctorBagQuestLocation').to_location(), -1, "runaway;");
 }
 
@@ -52,6 +52,6 @@ void main()
         gap_run();
     while(gingerbread_bander_can())
         gingerbread_bander_run();
-    if(doctor_bander_can())
+    while(doctor_bander_can())
         doctor_bander_run();
 }
