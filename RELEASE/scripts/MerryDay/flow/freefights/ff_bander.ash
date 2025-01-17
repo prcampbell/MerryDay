@@ -5,7 +5,7 @@ import md_outfit;
 boolean gap_can()
 {
     return get_property("_navelRunaways").to_int() < 3 
-        && get_property('_gingerbreadCityTurns').to_int() > 5
+        && get_property('_gingerbreadCityTurns').to_int() >= 5
         && get_property('_gingerbreadCityTurns').to_int() < 14;
 }
 
