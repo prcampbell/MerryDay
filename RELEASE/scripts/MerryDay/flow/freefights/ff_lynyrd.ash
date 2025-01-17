@@ -7,5 +7,5 @@ boolean lynyrd_can()
 
 boolean lynyrd_run()
 {
-    use(1, $item[lynyrd snare]);
+    return use(1, $item[lynyrd snare]);
 }

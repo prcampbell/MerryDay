@@ -5,6 +5,7 @@ import ff_glitch;
 import ff_lov;
 import ff_tentacle;
 import ff_leaves;
+import ff_lynyrd;
 
 boolean familiarToFatten()
 {
@@ -57,6 +58,10 @@ boolean familiar_adv()
     if(leaves_can())
     {
         return leaves_run();
+    }
+    if(lynyrd_can())
+    {
+        return lynyrd_run();
     }
     return false;
 }
