@@ -30,6 +30,7 @@ boolean gingerbread_bander_run()
 {
     cli_execute('outfit gingerbread best');
     use_familiar($familiar[frumious bandersnatch]);
+    ensure_song($effect[Ode to Booze]);
     return adv1($location[Gingerbread Upscale Retail District], -1, "runaway;");
 }
 
@@ -44,6 +45,8 @@ boolean doctor_bander_run()
     if(item_amount(get_property('doctorBagQuestItem').to_item()) == 0)
         cli_execute('acquire 1 ' + get_property('doctorBagQuestItem'));
     maximize('familiar weight, equip doctor bag', false);
+    use_familiar($familiar[frumious bandersnatch]);
+    ensure_song($effect[Ode to Booze]);
     return adv1(get_property('doctorBagQuestLocation').to_location(), -1, "runaway;");
 }
 
@@ -56,7 +59,6 @@ boolean fungi_bander_run()
 {
     use_familiar($familiar[frumious bandersnatch]);
     ensure_song($effect[Ode to Booze]);
-
     return adv1($location[the fun-guy mansion], -1, "skill 7527; runaway;");
 }
 

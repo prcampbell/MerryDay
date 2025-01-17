@@ -445,7 +445,10 @@ void dailyItems()
         run_choice(6);
     }
 
-    
+    if(get_property('_bittycar') == '' && item_amount($item[bittycar meatcar]) > 0)
+    {
+        use(1, $item[bittycar meatcar]);
+    }
 
     set_auto_attack(0);
 }
