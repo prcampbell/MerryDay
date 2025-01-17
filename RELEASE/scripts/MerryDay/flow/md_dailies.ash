@@ -208,10 +208,6 @@ void dailyEffects()
     {
         use(1, $item[portable steam unit]);
     }
-    if(!get_property('_fishyPipeUsed').to_boolean())
-    {
-        use(1, $item[fishy pipe]);
-    }
 }
 
 int gnome() {
