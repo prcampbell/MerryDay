@@ -19,8 +19,23 @@ boolean gap_run()
     return adv1($location[Gingerbread Train Station], -1, "runaway;");
 }
 
+boolean gingerbread_bander_can()
+{
+    return get_property('_gingerbreadCityTurns').to_int() < 15 
+        && get_property('_banderRunaways').to_int() > (modifier_eval("W") / 5) - 1;
+}
+
+boolean gingerbread_bander_run()
+{
+    cli_execute('outfit gingerbread best');
+    use_familiar($familiar[frumious bandersnatch]);
+    return adv1($location[Gingerbread Train Station], -1, "runaway;");
+}
+
 void main()
 {
     while(gap_can())
         gap_run();
+    if(gingerbread_bander_can())
+        gingerbread_bander_run();
 }
