@@ -41,21 +41,32 @@ void main()
     cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
   }
   unlockLatte();
-  mpBuff();
-  Aug15(); 
-  PYEC();
-  ClanShower();
-  FratNuns();
-  Sausages();
+
+  if(
+    !to_boolean(get_property("expressCardUsed"))
+    && !get_property('_aug15Cast').to_boolean()
+    && !get_property("_aprilShower").to_boolean()
+    && get_property("sidequestNunsCompleted")=="fratboy" && get_property("nunsVisits").to_int() < 3
+    && get_property("_sausagesEaten").to_int() < 23 && available_amount($item[magical sausage casing]) > 0
+  )
+  {
+    mpBuff();
+    Aug15(); 
+    PYEC();
+    ClanShower();
+    FratNuns();
+    Sausages();    
+  }
+
   GingerLatte();
 
   if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
     cli_execute('uneffect Mojomuscular Melody');
 
   /*To hell with Garbo's diet.*/
-  fillSpleen();
-  fillInitialStomach();
-  fillInitialLiver();
+  //fillSpleen();
+  //fillInitialStomach();
+  //fillInitialLiver();
 
   if(familiars_should())
     familiars_run();

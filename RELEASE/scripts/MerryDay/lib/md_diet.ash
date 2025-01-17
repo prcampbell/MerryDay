@@ -77,6 +77,8 @@ boolean fillSpleen()
     {
         return false;
     }
+    if(my_spleen_use() > 0)
+        return false;
     
     if(item_amount($item[body spradium]) > 0 && spleen_limit()-my_spleen_use() >= 1)
     {
