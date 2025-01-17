@@ -12,7 +12,7 @@ boolean familiarToFatten()
     {
         return use_familiar($familiar[frumious bandersnatch]);
     }
-    if($familiar[pocket professor].experience < 400)
+    else if($familiar[pocket professor].experience < 400)
     {
         return use_familiar($familiar[pocket professor]);
     }
