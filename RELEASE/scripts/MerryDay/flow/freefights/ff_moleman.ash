@@ -7,7 +7,7 @@ boolean moleman_can()
 
 boolean moleman_run()
 {
-    use(1, $item[molehill mountain]);
+    return use(1, $item[molehill mountain]);
 }
 
 void main()
