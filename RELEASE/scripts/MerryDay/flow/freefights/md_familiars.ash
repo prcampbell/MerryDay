@@ -92,11 +92,12 @@ boolean familiars_run()
                 }
             }
             set_auto_attack('StasisFight');
-            while(familiar_adv() && familiars_should())
+            if(!familiar_adv())
             {
-            }   
+                set_auto_attack(0);
+                return false; // ran out of fights before fattening everyone
+            }
         }
-        
     }
     set_auto_attack(0);
     return true;
