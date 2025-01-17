@@ -9,7 +9,8 @@ import md_diet.ash;
 import md_buffs.ash;
 import md_embezzlers;
 import md_familiars;
-import ff_melf.ash;
+import ff_melf;
+import ff_moleman;
 
 
 

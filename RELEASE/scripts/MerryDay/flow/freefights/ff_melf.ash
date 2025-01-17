@@ -1,3 +1,4 @@
+script md_melf;
 import md_outfit;
 
 boolean melf_can()
