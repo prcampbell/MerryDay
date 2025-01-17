@@ -29,7 +29,21 @@ boolean gingerbread_bander_run()
 {
     cli_execute('outfit gingerbread best');
     use_familiar($familiar[frumious bandersnatch]);
-    return adv1($location[Gingerbread Train Station], -1, "runaway;");
+    return adv1($location[Gingerbread Upscale Retail District], -1, "runaway;");
+}
+
+boolean doctor_bander_can()
+{
+    return get_property('questDoctorBag') != 'unstarted'
+        && get_property('_banderRunaways').to_int() < floor((familiar_weight($familiar[frumious bandersnatch]) + weight_adjustment()) / 5);
+}
+
+boolean doctor_bander_run()
+{
+    if(item_amount(get_property('doctorBagQuestItem').to_item()) == 0)
+        acquire(1, get_property('doctorBagQuestItem').to_item());
+    equip($slot[acc1], $item[Lil' Doctor&trade; bag]);
+    return adv1(get_property('doctorBagQuestLocation').to_location(), -1, "runaway;");
 }
 
 void main()
@@ -38,4 +52,6 @@ void main()
         gap_run();
     while(gingerbread_bander_can())
         gingerbread_bander_run();
+    if(doctor_bander_can())
+        doctor_bander_run();
 }
