@@ -1,5 +1,41 @@
 scrollwhendone
 
+#Tearaway Pants
+if monsterphylum Plant && hasskill 7527
+skill 7527
+endif
+
+#DMT Handling
+if monstername "Perceiver of Sensations"
+use Abstraction: Thought
+endif
+if monstername "Thinker of Thoughts"
+use Abstraction: Action
+endif
+if monstername "Performer of Actions"
+use Abstraction: Sensation
+endif
+
+#Bowling Alley Handling
+if monstername pygmy bowler
+skill feel hatred
+endif
+if monstername pygmy orderlies
+skill snokebomb
+endif
+if monstername pygmy janitor
+use divine champagne popper
+endif
+
+#Cloake Skills
+if hasskill 7310 && !haseffect bat-adjacent form
+skill 7310
+endif
+if hasskill 7308 && !haseffect wolfish form
+skill 7308
+endif
+
+
 if hasskill Curse of Weaksauce 
 skill Curse of Weaksauce
 endif
@@ -44,6 +80,6 @@ if hasskill furious wallop
 skill furious wallop
 endif
 skill saucegeyser
-while !hppercentbelow 25
+while !hppercentbelow 25 && !pastround 25
 attack
 endwhile

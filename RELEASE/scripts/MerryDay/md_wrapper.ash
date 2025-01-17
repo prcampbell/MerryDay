@@ -86,7 +86,28 @@ void main()
       melf_run();
       set_auto_attack(0);
   }
-        
+
+  // Regular free fights start here
+
+    if(tentacle_skill_fight_can())
+    {
+      set_auto_attack('StasisFight');
+      construct_free_outfit();
+      tentacle_skill_fight_run();
+    }
+    if(tentacle_fight_can())
+    {
+      set_auto_attack('StasisFight');
+      construct_free_outfit();
+      tentacle_fight_run();
+    }
+    if(leaves_can())
+    {
+      set_auto_attack('StasisFight');
+      construct_free_outfit();
+      equip($slot[pants], $item[tearaway pants]);
+      leaves_run();
+    }      
 
 
   
