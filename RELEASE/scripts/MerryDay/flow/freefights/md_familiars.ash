@@ -92,9 +92,8 @@ boolean familiars_run()
                 }
             }
             set_auto_attack('StasisFight');
-            while(familiar_adv())
+            while(familiar_adv() && familiars_should())
             {
-                continue;
             }   
         }
         
