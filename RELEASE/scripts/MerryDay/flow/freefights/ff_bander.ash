@@ -41,7 +41,7 @@ boolean doctor_bander_can()
 boolean doctor_bander_run()
 {
     if(item_amount(get_property('doctorBagQuestItem').to_item()) == 0)
-        acquire(1, get_property('doctorBagQuestItem').to_item());
+        cli_execute('acquire 1 ' + get_property('doctorBagQuestItem'));
     equip($slot[acc1], $item[Lil' Doctor&trade; bag]);
     return adv1(get_property('doctorBagQuestLocation').to_location(), -1, "runaway;");
 }
