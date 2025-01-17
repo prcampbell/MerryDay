@@ -1,4 +1,5 @@
 import md_library;
+import md_outfit;
 import md_login.ash;
 import md_logout.ash;
 import md_mpburn.ash;
@@ -66,21 +67,10 @@ void main()
       profsausage_run();
   }
 
-  if(melf_can())
+  while(melf_can())
   {
       set_auto_attack('StasisFight');
-      equip($slot[hat], $item[daylight shavings helmet]);
-      equip($slot[back], $item[buddy bjorn]);
-      bjornify_familiar(get_best_bjorn());
-      equip($slot[shirt], $item[jurassic parka]);
-      equip($slot[weapon], $item[june cleaver]);
-      equip($slot[off-hand], $item[KoL Con 13 snowglobe]);
-      if(available_amount($item[stinky cheese diaper]) == 0)
-      cli_execute('fold stinky cheese diaper');
-      equip($slot[pants], $item[stinky cheese diaper ]);
-      equip($slot[acc1], $item[Lil' Doctor&trade; bag]);
-      equip($slot[acc2], $item[lucky gold ring]);
-      equip($slot[acc3], $item[mr. cheeng's spectacles]);
+      construct_free_outfit();
       melf_run();
       set_auto_attack(0);
   }

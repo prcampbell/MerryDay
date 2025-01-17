@@ -31,24 +31,28 @@ boolean familiars_should()
 boolean familiar_adv()
 {
     if(LOV_can())
-        LOV_run();
+    {
+        return LOV_run();
+    } 
     if(glitch_reward_fight_can())
-		glitch_reward_fight_run();
+    {
+        return glitch_reward_fight_run();
+    }
     if(get_property('_speakeasyFreeFights').to_int() < 3)
     {
         return adv1($location[an unusually quiet barroom brawl], -1, '');
     }
     if(tentacle_skill_fight_can())
     {
-        tentacle_skill_fight_run();
+        return tentacle_skill_fight_run();
     }
     if(tentacle_fight_can())
     {
-        tentacle_fight_run();
+        return tentacle_fight_run();
     }
     if(leaves_can())
     {
-        leaves_run();
+        return leaves_run();
     }
     return false;
 }
@@ -59,7 +63,27 @@ boolean familiars_run()
     {
         if(familiarToFatten())
         {
+            if(!get_property('_madTeaParty').to_boolean() )
+            {
+                cli_execute('hatter 6');
+            }
+            if(!get_property('friarsBlessingReceived').to_boolean())
+            {
+                cli_execute('friars blessing familiar');
+            }
+            if(!get_property('_defectiveTokenUsed').to_boolean() && $item[defective game grid token].item_amount() > 0)
+            {
+                use(1, $item[defective game grid token]);
+            }
+            if(!get_property('_clanFortuneBuffUsed').to_boolean())
+            {
+                cli_execute('fortune buff familiar');
+            }
             maximize('familiar exp', false);
+            if(item_amount($item[deviled candy egg]) > 0 && have_effect($effect[candied devil]) == 0)
+            {
+                use(1, $item[deviled candy egg]);
+            }
             if(item_amount($item[pulled blue taffy]) > 4 && have_effect($effect[blue swayed]) < 50)
             {
                 while(have_effect($effect[blue swayed]) < 50)
@@ -68,12 +92,10 @@ boolean familiars_run()
                 }
             }
             set_auto_attack('StasisFight');
-            if(!familiar_adv())
+            while(familiar_adv())
             {
-                set_auto_attack(0);
-                return false;
-            }
-                
+                continue;
+            }   
         }
         
     }

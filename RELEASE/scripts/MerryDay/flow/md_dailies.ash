@@ -106,10 +106,6 @@ void dailyEffects()
     {
         cli_execute('concert w');
     }
-    if(!get_property('_madTeaParty').to_boolean() )
-    {
-        cli_execute('hatter 22');
-    }
     if(contains_text(get_property('_birdOfTheDayMods'), 'Meat Drop') && my_mp() >= 425)
     {
         while(get_property('_birdsSoughtToday') < 6)

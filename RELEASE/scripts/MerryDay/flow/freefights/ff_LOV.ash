@@ -5,7 +5,7 @@ boolean LOV_can()
     return !get_property('_loveTunnelUsed').to_boolean();
 }
 
-void LOV_run()
+boolean LOV_run()
 {
     if (!(get_property('_loveTunnelUsed').to_boolean())) {
         // Run the fights
@@ -24,6 +24,7 @@ void LOV_run()
         run_combat();
         run_choice(3);
     }
+    return true;
 }
 
 void main()
