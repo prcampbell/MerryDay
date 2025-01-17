@@ -30,6 +30,9 @@ void startDay()
 	if(get_property('skillLevel144') != 3)
 		set_property('skillLevel144', 3);
 
+	if(get_property('choiceAdventureScript') != 'scripts\MerryDay\automation\md_choice.ash')
+		set_property('choiceAdventureScript', 'scripts\MerryDay\automation\md_choice.ash');
+
 	if($item[raffle ticket].item_amount() < 11)
 	{
 		buyRaffle(11);
