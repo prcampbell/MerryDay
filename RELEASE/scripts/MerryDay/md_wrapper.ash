@@ -107,7 +107,6 @@ void main()
       construct_free_outfit();
       tentacle_skill_fight_run();
     }
-    abort('Hold up!');
     if(tentacle_fight_can())
     {
       set_auto_attack('StasisFight');
