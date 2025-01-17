@@ -56,6 +56,18 @@ void main()
   fillInitialStomach();
   fillInitialLiver();
 
+  if(familiars_should())
+    familiars_run();
+  
+  if(moleman_can())
+  {
+      use_familiar($familiar[grey goose]);
+      maximize('familiar exp', false);
+      set_auto_attack('DroneStasis');
+      moleman_run();
+      set_auto_attack(0);    
+  }
+
   if(smokepatches_can())
     smokepatches();
   if(saber_can())
