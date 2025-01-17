@@ -11,7 +11,7 @@ boolean gap_can()
 
 boolean gap_run()
 {
-    use_familiar($familiar[chocolate lab]));
+    use_familiar($familiar[chocolate lab]);
     construct_free_outfit();
     equip($slot[pants], $item[greatest american pants]);
     equip($slot[familiar], $item[tiny rake]);
