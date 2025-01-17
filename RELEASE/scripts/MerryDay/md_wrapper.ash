@@ -33,6 +33,7 @@ void main()
   */
 
   startDay();
+  print('Day Started', 'green');
   dailyEffects();
   dailyItems();
 

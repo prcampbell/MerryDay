@@ -1,5 +1,7 @@
 script "ff_nep.ash"
 
+import md_outfit;
+
 //TODO: Finish the quest for free if we can.
 
 boolean nep_have() 
@@ -32,18 +34,8 @@ boolean nep_free_turn_run() {
 void main()
 {
     set_auto_attack('StasisFight');
-    equip($slot[hat], $item[daylight shavings helmet]);
-    equip($slot[back], $item[buddy bjorn]);
-    //bjornify_familiar(get_best_bjorn());
-    equip($slot[shirt], $item[jurassic parka]);
-    equip($slot[weapon], $item[june cleaver]);
+    construct_free_outfit();
     equip($slot[off-hand], $item[Kramco Sausage-o-Matic&trade;]);
-    if(available_amount($item[stinky cheese diaper]) == 0)
-        cli_execute('fold stinky cheese diaper');
-    equip($slot[pants], $item[stinky cheese diaper ]);
-    equip($slot[acc1], $item[Lil' Doctor&trade; bag]);
-    equip($slot[acc2], $item[lucky gold ring]);
-    equip($slot[acc3], $item[mr. cheeng's spectacles]);
     
 	while(nep_free_turn_can())
 		nep_free_turn_run();
