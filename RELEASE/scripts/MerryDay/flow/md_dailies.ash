@@ -208,6 +208,12 @@ void dailyEffects()
     {
         use(1, $item[portable steam unit]);
     }
+    if(get_property('_kgbClicksUsed').to_int() < 22)
+    {
+        cli_execute('briefcase collect; briefcase buff item;');
+        while(get_property('_kgbClicksUsed').to_int() < 22) 
+            cli_execute('briefcase buff meat');
+    }
 }
 
 int gnome() {

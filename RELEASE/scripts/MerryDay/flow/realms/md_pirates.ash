@@ -41,18 +41,88 @@ while(have_effect($effect[shadow waters]) < 600)
     }
 }*/
 
+boolean check_effect(effect e) {
+    return have_effect(e) > 0;
+}
+
+boolean have(item i) {
+    return item_amount(i) > 0;
+}
+
+void keepStatsLow() {
+  // Loop through each stat
+  foreach st in $stats[] {
+      // While the buffed stat is greater than 100
+      while (my_buffedstat(st) > 100) {
+          if (!check_effect($effect[Mush-Mouth]) && mall_price($item[Fun-Guy spore]) < 5000) {
+              retrieve_item(1, $item[Fun-Guy spore]);
+              use(1, $item[Fun-Guy spore]);
+          }
+
+          // Special handling for Muscle stat
+          if (st == $stat[Muscle]) {
+              if (!have($item[decorative fountain]) && !check_effect($effect[Sleepy]) && mall_price($item[decorative fountain]) < 2000) {
+                  retrieve_item(1, $item[decorative fountain]);
+              }
+              if (!check_effect($effect[Sleepy])) {
+                  use(1, $item[decorative fountain]);
+              }
+          }
+
+          // Special handling for Moxie stat
+          if (st == $stat[Moxie]) {
+              if (!have($item[patchouli incense stick]) && !check_effect($effect[Far Out]) && mall_price($item[patchouli incense stick]) < 2000) {
+                  retrieve_item(1, $item[patchouli incense stick]);
+              }
+              use(1, $item[patchouli incense stick]);
+
+              if (check_effect($effect[Endless Drool])) {
+                  cli_execute("shrug " + $effect[Endless Drool]);
+              }
+          }
+
+          // General item and effect management
+          if (mall_price($item[Mr. Mediocrebar]) < 2000 && !check_effect($effect[Apathy])) {
+              retrieve_item(1, $item[Mr. Mediocrebar]);
+              use(1, $item[Mr. Mediocrebar]);
+          }
+
+          if (check_effect($effect[Feeling Excited])) {
+                cli_execute("shrug " + $effect[Feeling Excited]);
+          }
+
+          // Remove effects that affect the stat negatively
+          foreach ef in my_effects() {
+              if (numeric_modifier(ef, st.to_string()) > 0 &&
+                  numeric_modifier(ef, "meat drop") <= 0 &&
+                  numeric_modifier(ef, "familiar weight") == 0 &&
+                  numeric_modifier(ef, "smithsness") == 0 
+                  // && numeric_modifier(ef, "item drop") == 0
+                  ) {
+                  cli_execute("shrug " + ef);
+              }
+          }
+      }
+  }
+}
+
 void pirates_init()
 {
-    //get eyepatch
-    //equip eyepatch, ensure low stats
-    /*
-    visitUrl("place.php?whichplace=realm_pirate&action=pr_port");
-      runChoice(1); // Head to Groggy's
-      runChoice(1); // Select the first crew-member. Better options exist probably.
-      runChoice(4); // Grab the Anemometer
-      runChoice(4); // Swift Clipper, if it's unlocked
-      runChoice(1); // Head to the sea
-      */
+	if (
+        get_property("_pirateRealmSailingTurns").to_int() == 0 
+        && (get_property("_lastPirateRealmIsland") != "Trash Island") ) 
+    {
+		visit_url("/place.php?whichplace=realm_pirate&action=pr_port");
+        equip($slot[hat], $item[piraterealm party hat]);
+        equip($slot[acc1], $item[PirateRealm eyepatch]);
+        equip($slot[acc2], $item[Red Roger's red right foot]);
+        visit_url("place.php?whichplace=realm_pirate&action=pr_port");
+		run_choice(1);
+		run_choice(1);
+		run_choice(4);
+		run_choice(4);
+		run_choice(1);
+	}
 }
 
 void crabSail()
