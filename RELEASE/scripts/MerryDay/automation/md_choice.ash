@@ -1,7 +1,8 @@
 script merryChoice.ash
 
  
-void main ( int choiceID, string whichpage ) {
+void main ( int choiceID, string whichpage ) 
+{
 	switch (choiceID) 
     {
 		case 1116: /* All They Got Inside is Vacancy (and Ice)

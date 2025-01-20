@@ -7,6 +7,11 @@ import ff_tentacle;
 import ff_leaves;
 import ff_lynyrd;
 
+boolean familiarDrops()
+{
+    
+}
+
 boolean familiarToFatten()
 {
     if($familiar[frumious bandersnatch].experience < 400)

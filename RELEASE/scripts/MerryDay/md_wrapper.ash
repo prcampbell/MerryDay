@@ -11,6 +11,7 @@ import md_embezzlers;
 import md_familiars;
 import ff_melf;
 import ff_moleman;
+import ff_bander;
 
 
 
@@ -114,7 +115,7 @@ void main()
     construct_free_outfit();
     tentacle_fight_run();
   }
-  if(leaves_can())
+  while(leaves_can())
   {
     set_auto_attack('StasisFight');
     construct_free_outfit();
@@ -126,7 +127,20 @@ void main()
     set_auto_attack('StasisFight');
     construct_free_outfit();
     lobster_run();
-  }      
+  }
+  while(gap_can())
+      gap_run();
+  while(gingerbread_bander_can())
+      gingerbread_bander_run();
+  while(doctor_bander_can())
+      doctor_bander_run();
+  if(fungi_bander_can())
+  {
+    maximize('familiar weight, equip tearaway pants', false);
+    while(fungi_bander_can())
+        fungi_bander_run();   
+  }
+      
 
 
   
