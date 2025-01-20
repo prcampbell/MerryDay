@@ -149,7 +149,7 @@ void construct_free_outfit()
 {
     
 
-    if(get_property('').to_int() < 10)
+    if(get_property('_vampyreCloakeFormUses').to_int() < 10)
     {
         equip($slot[back], $item[vampyric cloake]);
     }

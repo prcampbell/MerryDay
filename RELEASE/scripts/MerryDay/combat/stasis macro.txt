@@ -5,6 +5,11 @@ if monsterphylum Plant && hasskill 7527
 skill 7527
 endif
 
+#Circadian Rhythms
+if monsterphylum Horror&& hasskill 7486
+skill 7486
+endif
+
 #DMT Handling
 if monstername "Perceiver of Sensations"
 use Abstraction: Thought
@@ -31,7 +36,7 @@ endif
 if hasskill 7310 && !haseffect bat-adjacent form
 skill 7310
 endif
-if hasskill 7308 && !haseffect wolfish form
+if hasskill 7308
 skill 7308
 endif
 

@@ -97,6 +97,12 @@ void main()
   {
       set_auto_attack('StasisFight');
       construct_free_outfit();
+      //don't runthings we need to track
+      if(equipped_item($slot[back]) == $item[buddy bjorn])
+        bjornify_familiar($familiar[warbear drone]);
+      if(equipped_item($slot[hat]) == $item[crown of thrones])
+        enthrone_familiar($familiar[warbear drone]);
+      
       melf_run();
       set_auto_attack(0);
   }
