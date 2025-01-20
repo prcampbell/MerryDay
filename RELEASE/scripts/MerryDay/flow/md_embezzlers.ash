@@ -57,13 +57,13 @@ vial of proquoise juice
 
 
 
-void embezzler_potions()
+void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
 {
     foreach it in $items[]
     {
         if(item_type(it) == 'potion' && numeric_modifier(effect_modifier(it, "effect"), "meat drop") > 0)
         {
-            if ((1000 * (numeric_modifier(effect_modifier(it, "effect"), "meat drop") / 100) * 5) > mall_price(it))
+            if ((meatDrop * (numeric_modifier(effect_modifier(it, "effect"), "meat drop") / 100) * numberOfEmbezzlers) > mall_price(it))
                 use(1, it);
         }
     }
@@ -134,7 +134,7 @@ boolean embezzlers_can()
 
 boolean embezzlers_run()
 {
-    embezzler_potions();
+    embezzler_potions(6, 1000);
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop, switch hobo monkey', false);
     set_auto_attack('BackupMeat');
