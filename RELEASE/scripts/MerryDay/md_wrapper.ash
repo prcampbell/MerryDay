@@ -12,7 +12,7 @@ import md_familiars;
 import ff_melf;
 import ff_moleman;
 import ff_bander;
-
+import ff_lobster;
 
 
 
@@ -114,12 +114,14 @@ void main()
     set_auto_attack('StasisFight');
     construct_free_outfit();
     tentacle_skill_fight_run();
+    set_auto_attack(0);
   }
   if(tentacle_fight_can())
   {
     set_auto_attack('StasisFight');
     construct_free_outfit();
     tentacle_fight_run();
+    set_auto_attack(0);
   }
   while(leaves_can())
   {
@@ -127,12 +129,14 @@ void main()
     construct_free_outfit();
     equip($slot[pants], $item[tearaway pants]);
     leaves_run();
+    set_auto_attack(0);
   }
   if(lobster_can())
   {
     set_auto_attack('StasisFight');
     construct_free_outfit();
     lobster_run();
+    set_auto_attack(0);
   }
   while(gap_can())
       gap_run();
