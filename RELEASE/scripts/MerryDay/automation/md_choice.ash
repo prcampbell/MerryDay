@@ -61,9 +61,9 @@ void main ( int choiceID, string whichpage )
 					4: Investigate the basement
 					5: fight
 		*/
-			if(get_property("_questPartyFairQuest") == "food" && get_property("_questPartyFairProgress") == "")
+			if(get_property("_questPartyFairQuest") == "food")
 				run_choice(2);
-			if(get_property("_questPartyFairQuest") == "booze" && get_property("_questPartyFairProgress") == "")
+			if(get_property("_questPartyFairQuest") == "booze")
 				run_choice(3);
 			return;
 		case 1326:
