@@ -4,7 +4,11 @@ import md_outfit;
 
 boolean pygmy_can()
 {
-    return can_adventure($location[The Hidden Bowling Alley]) && get_property('_drunkPygmyBanishes').to_int() < 11 || (get_property('_saberForceMonsterCount').to_int() > 0 && get_property('_saberForceMonster') == 'drunk pygmy') || get_property('crystalBallMonster') == 'drunk pygmy';
+    return can_adventure($location[The Hidden Bowling Alley]) 
+        && (get_property('_drunkPygmyBanishes').to_int() < 11 
+            || (get_property('_saberForceMonsterCount').to_int() > 0 
+                && get_property('_saberForceMonster') == 'drunk pygmy') 
+                || get_property('crystalBallMonster') == 'drunk pygmy');
 }
 
 boolean pygmy_run()
