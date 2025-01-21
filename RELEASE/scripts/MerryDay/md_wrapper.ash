@@ -112,6 +112,7 @@ void main()
   if(tentacle_skill_fight_can())
   {
     set_auto_attack('StasisFight');
+    use_familiar(familiarDrops());
     construct_free_outfit();
     tentacle_skill_fight_run();
     set_auto_attack(0);
@@ -119,6 +120,7 @@ void main()
   if(tentacle_fight_can())
   {
     set_auto_attack('StasisFight');
+    use_familiar(familiarDrops());
     construct_free_outfit();
     tentacle_fight_run();
     set_auto_attack(0);
@@ -126,6 +128,7 @@ void main()
   while(leaves_can())
   {
     set_auto_attack('StasisFight');
+    use_familiar(familiarDrops());
     construct_free_outfit();
     equip($slot[pants], $item[tearaway pants]);
     leaves_run();
@@ -138,6 +141,8 @@ void main()
     lobster_run();
     set_auto_attack(0);
   }
+
+  
   while(gap_can())
       gap_run();
   while(gingerbread_bander_can())
