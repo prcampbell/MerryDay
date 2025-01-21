@@ -28,7 +28,7 @@ boolean nep_free_turn_run()
 {
 	int turns = nep_free_turns();
 	if((get_property("_questPartyFairQuest") == "food" || get_property("_questPartyFairQuest") == "booze") 
-		&& turns = 9 && !get_property('_claraBellUsed').to_boolean())
+		&& turns == 9 && !get_property('_claraBellUsed').to_boolean())
 	{
 		print("Preparing to complete Neverending Party for free", "purple");
 		item item_wanted = $item[none];
@@ -71,17 +71,17 @@ boolean nep_free_turn_run()
 		}*/
 		if (item_wanted == $item[none])
 		{
-			abort("Error: cannot recognise item the quest wants.", "red");
+			abort("Error: cannot recognise item the quest wants.");
 		}
 
-
+		if(item_amount(item_wanted) < 10)
+			cli_execute('acquire 10 '+ item_wanted.to_string());
 		use(1, $item[clara's bell]);
 		adv1($location[The Neverending Party], -1, "");
 		return nep_free_turns() > turns;
 	}
 
 	print("Preparing to spend Neverending Party free turn #" + (turns + 1) +".", "purple");
-	if(available_amount(get_property('')))
 	adv1($location[The Neverending Party], -1, "");
 	return nep_free_turns() > turns;
 }
