@@ -62,9 +62,16 @@ void main ( int choiceID, string whichpage )
 					5: fight
 		*/
 			if(get_property("_questPartyFairQuest") == "food")
+			{
 				run_choice(2);
+				return;
+			}
 			if(get_property("_questPartyFairQuest") == "booze")
+			{
 				run_choice(3);
+				return;
+			}
+			run_choice(5);
 			return;
 		case 1326:
 			/* Gone Kitchin'

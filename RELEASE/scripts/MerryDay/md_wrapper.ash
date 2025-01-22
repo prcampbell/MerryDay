@@ -141,6 +141,14 @@ void main()
     lobster_run();
     set_auto_attack(0);
   }
+  if(nep_can())
+  {
+    set_auto_attack('StasisFight');
+    familiarDrops();
+    construct_free_outfit();
+    leaves_run();
+    set_auto_attack(0);  
+  }
 
 
   while(gap_can())
