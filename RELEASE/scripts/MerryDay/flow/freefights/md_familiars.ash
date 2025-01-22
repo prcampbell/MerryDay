@@ -16,11 +16,11 @@ boolean familiarDrops()
         if ( have_familiar(f) && f.drops_today < f.drops_limit )
             return use_familiar(f);
         if(get_property(' _catBurglarCharge').to_int() < 10)
-            return use_familiar($familiar[cat burglar]) && equip($item[burglar sleep mask]);
+            return use_familiar($familiar[cat burglar]) && equip($item[burglar/sleep mask]);
         if(get_property('camelSpit').to_int() < 100)
             return use_familiar($familiar[Melodramedary]) && equip($item[dromedary drinking helmet]);    
     }
-    return use_familiar($familiar[Obtuse Angel]);
+    return use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
 }
 
 boolean familiarToFatten()

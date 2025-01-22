@@ -10,6 +10,22 @@ $monster target = $monster[witchess knight];
 
 */
 
+int copyCount()
+{
+    int count = 0;
+    //11 backups
+    //18 habitats with orb
+    //10 cheats
+    //10 macros
+    //6 putty
+    //11 mimics
+    //3 romantic
+    //1 chateau painting
+    //1 fax
+    //1 4-d camera
+    //
+}
+
 void main()
 {
 

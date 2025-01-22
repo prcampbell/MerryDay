@@ -10,6 +10,16 @@ boolean leaves_run()
     return cli_execute('leaves leaflet');
 }
 
+boolean monstera_run()
+{
+    return cli_execute('leaves monstera');
+}
+
+boolean leviathan_run()
+{
+    return cli_execute('leaves leviathan');
+}
+
 void main()
 {
     set_auto_attack('StasisFight');

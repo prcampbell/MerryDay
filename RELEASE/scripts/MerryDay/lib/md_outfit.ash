@@ -205,8 +205,4 @@ void construct_free_outfit()
     equip($slot[acc2], $item[mr. screege's spectacles]);
     equip($slot[acc3], $item[mr. cheeng's spectacles]);
 
-	if(my_familiar() == $familiar[obtuse angel])
-		equip($slot[familiar], $item[quake of arrows]);
-	else
-		equip($slot[familiar], $item[itty bitty hookah]);
 }
