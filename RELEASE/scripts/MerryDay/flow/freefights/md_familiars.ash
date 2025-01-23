@@ -13,7 +13,7 @@ boolean familiarDrops()
     {
         if ( have_familiar(f) && f.drops_today < 1 )
             return use_familiar(f);
-        else if(get_property(' _catBurglarCharge').to_int() < 10)
+        else if(get_property('_catBurglarCharge').to_int() < 10)
             return use_familiar($familiar[cat burglar]) && equip($item[burglar/sleep mask]);
         else if(get_property('camelSpit').to_int() < 100)
             return use_familiar($familiar[Melodramedary]) && equip($item[dromedary drinking helmet]);
