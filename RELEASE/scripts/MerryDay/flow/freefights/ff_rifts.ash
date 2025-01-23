@@ -7,7 +7,8 @@ boolean shadowrifts_can()
 {
     return !get_property('_shadowAffinityToday').to_boolean() 
             || have_effect($effect[shadow affinity]) > 0 
-            || item_amount($item[Rufus's shadow lodestone]) > 1;
+            || item_amount($item[Rufus's shadow lodestone]) > 1
+            || (item_amount(get_property('rufusQuestTarget').to_item()) && get_property('rufusQuestType') == 'artifact');
 }
 
 boolean shadowrifts_run()
@@ -28,6 +29,10 @@ boolean rifts_can()
 
 boolean rifts_run()
 {
+    if(item_amount(get_property('rufusQuestTarget').to_item()) && get_property('rufusQuestType') == 'artifact')
+    {
+        use(1, $item[closed-circuit pay phone]);
+    }
     return adv1($location[Shadow Rift (The Misspelled Cemetary)]);
 }
 

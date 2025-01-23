@@ -142,6 +142,20 @@ void main ( int choiceID, string whichpage )
 					
 					
 			break;
+		case 1500:	/* <choice adventure name>
+					1: The Forge
+					2: Shadow Waters
+					3: Loot Forest*/
+					if(!get_property('_shadowForestLooted').to_boolean())
+					{
+						run_choice(3);
+						return;
+					}
+					else
+					{
+						run_choice(2);
+						return;
+					}
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
