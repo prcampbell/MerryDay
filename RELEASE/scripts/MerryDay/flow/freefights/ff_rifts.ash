@@ -7,7 +7,7 @@ boolean shadowrifts_can()
 {
     return !get_property('_shadowAffinityToday').to_boolean() 
             || have_effect($effect[shadow affinity]) > 0 
-            || item_amount($item[shadow lodestone]) > 1;
+            || item_amount($item[Rufus's shadow lodestone]) > 1;
 }
 
 boolean shadowrifts_run()
@@ -23,7 +23,7 @@ boolean shadowrifts_run()
 
 boolean rifts_can()
 {
-
+    return false;
 }
 
 boolean rifts_run()
