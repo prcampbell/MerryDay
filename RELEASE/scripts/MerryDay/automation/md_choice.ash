@@ -128,7 +128,7 @@ void main ( int choiceID, string whichpage )
 						3: collect the goods
 
 					*/
-					if(have_effect($effect[shadow affinity]) == 0)
+					if(have_effect($effect[shadow affinity]) == 0 && !get_property('_shadowAffinityToday').to_boolean())
 					{
 						run_choice(2);
 						return;
@@ -159,7 +159,7 @@ void main ( int choiceID, string whichpage )
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
-			abort("How did you get to choice -1? Did you fall through the case in choiceAdventure.ash");
+			abort("How did you get to choice -1? Did you fall through the case in md_choice.ash");
 			return;
 	}
 }
