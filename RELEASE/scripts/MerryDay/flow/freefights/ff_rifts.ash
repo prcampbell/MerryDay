@@ -33,7 +33,7 @@ boolean rifts_run()
 
 void main()
 {
-    if(shadowrifts_can())
+    while(shadowrifts_can())
     {
         set_auto_attack('StasisFight');
         familiarDrops();
