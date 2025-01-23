@@ -142,7 +142,7 @@ void main()
     lobster_run();
     set_auto_attack(0);
   }
-  if(nep_free_turn_can())
+  while(nep_free_turn_can())
   {
     set_auto_attack('StasisFight');
     familiarDrops();
