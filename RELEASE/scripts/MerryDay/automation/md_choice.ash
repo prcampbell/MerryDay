@@ -122,6 +122,26 @@ void main ( int choiceID, string whichpage )
 							abort("Why are you in the NEP backyard?");	
 					}
 					break;
+		case 1497: /* Calling Rufus
+						1: fight the entity
+						2: find the artifact
+						3: collect the goods
+
+					*/
+					if(have_effect($effect[shadow affinity]) == 0)
+					{
+						run_choice(2);
+						return;
+					}
+					if(item_amount(get_property('rufusDesiredItems').to_item()) > 3)
+					{
+						run_choice(3);
+						return;
+					}
+						
+					
+					
+			break;
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
