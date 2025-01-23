@@ -13,6 +13,7 @@ import ff_melf;
 import ff_moleman;
 import ff_bander;
 import ff_lobster;
+import ff_nep;
 
 
 
@@ -146,7 +147,7 @@ void main()
     set_auto_attack('StasisFight');
     familiarDrops();
     construct_free_outfit();
-    leaves_run();
+    nep_run();
     set_auto_attack(0);  
   }
 
