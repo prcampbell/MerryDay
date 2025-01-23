@@ -23,8 +23,6 @@ boolean familiarDrops()
     return use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
 }
 
-$familiars[Li'l Xenomorph].drops_today < 1
-
 boolean familiarToFatten()
 {
     if($familiar[frumious bandersnatch].experience < 400)
