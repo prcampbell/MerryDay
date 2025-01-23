@@ -1,5 +1,8 @@
 script ff_rifts;
 
+import md_outfit;
+import md_familiars;
+
 boolean shadowrifts_can()
 {
     return !get_property('_shadowAffinityToday').to_boolean() 
@@ -30,6 +33,15 @@ boolean rifts_run()
 
 void main()
 {
-    if(rifts_can())
-        rifts_run();
+    if(shadowrifts_can())
+    {
+        set_auto_attack('StasisFight');
+        familiarDrops();
+        construct_free_outfit();
+        rifts_run(); 
+        set_auto_attack(0);
+    }
+    
 }
+
+
