@@ -8,7 +8,7 @@ boolean shadowrifts_can()
     return !get_property('_shadowAffinityToday').to_boolean() 
             || have_effect($effect[shadow affinity]) > 0 
             || item_amount($item[Rufus's shadow lodestone]) > 1
-            || (item_amount(get_property('rufusQuestTarget').to_item() >= 3 && get_property('rufusQuestType') == 'artifact'));
+            || (item_amount(get_property('rufusQuestTarget').to_item()) >= 3 && get_property('rufusQuestType') == 'artifact'));
 }
 
 boolean shadowrifts_run()
