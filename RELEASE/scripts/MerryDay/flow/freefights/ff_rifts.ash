@@ -29,7 +29,7 @@ boolean rifts_can()
 
 boolean rifts_run()
 {
-    if(item_amount(get_property('rufusQuestTarget').to_item()) && get_property('rufusQuestType') == 'artifact')
+    if(item_amount(get_property('rufusQuestTarget').to_item()) >= 3 && get_property('rufusQuestType') == 'artifact')
     {
         use(1, $item[closed-circuit pay phone]);
     }
