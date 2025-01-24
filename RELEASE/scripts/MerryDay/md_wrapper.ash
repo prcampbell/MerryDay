@@ -16,6 +16,7 @@ import ff_lobster;
 import ff_nep;
 import ff_drunks;
 import ff_rifts;
+import ff_bricks;
 
 
 
@@ -94,6 +95,12 @@ void main()
   if(profsausage_can())
   {
       profsausage_run();
+  }
+
+  if(eaglebrick_can())
+  {
+    construct_free_outfit();
+    eaglebrick_run();
   }
 
   while(melf_can())

@@ -77,6 +77,7 @@ boolean familiar_adv()
     {
         return glitch_reward_fight_run();
     }
+    
     if(get_property('_speakeasyFreeFights').to_int() < 3)
     {
         return adv1($location[an unusually quiet barroom brawl], -1, '');
@@ -93,10 +94,12 @@ boolean familiar_adv()
     {
         return leaves_run();
     }
-    if(lynyrd_can())
+    while(lynyrd_can())
     {
         return lynyrd_run();
     }
+    while(zeppelin_can())
+        zeppelin_run();
     return false;
 }
 
