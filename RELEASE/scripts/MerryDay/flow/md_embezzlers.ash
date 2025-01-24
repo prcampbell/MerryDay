@@ -67,6 +67,13 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
                 use(1, it);
         }
     }
+    if(contains_text(get_property('_birdOfTheDayMods'), 'Meat Drop') && my_mp() >= 425)
+    {
+        while(get_property('_birdsSoughtToday') < 6)
+        {
+            use_skill(1, $skill[Seek out a Bird]);
+        }
+    }
 }
 
 boolean august_can()

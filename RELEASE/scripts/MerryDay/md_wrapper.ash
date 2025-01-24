@@ -190,7 +190,7 @@ void main()
   if(embezzlers_can())
     embezzlers_run();
 
-
+  cli_execute('combo');
 
 /*
 
