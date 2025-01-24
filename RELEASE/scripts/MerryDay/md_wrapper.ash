@@ -17,6 +17,7 @@ import ff_nep;
 import ff_drunks;
 import ff_rifts;
 import ff_bricks;
+import ff_speakeasy;
 
 
 
@@ -157,6 +158,14 @@ void main()
     familiarDrops();
     construct_free_outfit();
     nep_free_turn_run();
+    set_auto_attack(0);  
+  }
+  while(speakeasy_can())
+  {
+    set_auto_attack('StasisFight');
+    familiarDrops();
+    construct_free_outfit();
+    speakeasy_run();
     set_auto_attack(0);  
   }
   while(pygmy_can())

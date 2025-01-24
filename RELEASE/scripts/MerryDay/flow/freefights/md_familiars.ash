@@ -6,6 +6,8 @@ import ff_lov;
 import ff_tentacle;
 import ff_leaves;
 import ff_lynyrd;
+import ff_speakeasy;
+import ff_zeppelin;
 
 boolean familiarDrops()
 {
@@ -78,9 +80,9 @@ boolean familiar_adv()
         return glitch_reward_fight_run();
     }
     
-    if(get_property('_speakeasyFreeFights').to_int() < 3)
+    while(speakeasy_can())
     {
-        return adv1($location[an unusually quiet barroom brawl], -1, '');
+        return speakeasy_run();
     }
     if(tentacle_skill_fight_can())
     {
