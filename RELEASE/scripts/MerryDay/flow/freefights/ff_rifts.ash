@@ -43,7 +43,8 @@ boolean shadowwaters_run()
         use(1, $item[closed-circuit pay phone]);
     }
     if(shadowrifts_can())
-        rifts_run();
+        return rifts_run();
+    return false;
 }
 
 void main()
