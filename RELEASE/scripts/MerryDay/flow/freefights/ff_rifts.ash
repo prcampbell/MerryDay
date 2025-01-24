@@ -12,22 +12,6 @@ boolean shadowrifts_can()
             || (get_property('rufusQuestType') == 'items' && item_amount(get_property('rufusQuestTarget').to_item()) >= 3);
 }
 
-boolean shadowrifts_run()
-{
-    //set prefrence to items
-    use(1, $item[closed-circuit pay phone]);
-    //dress up for free fights
-    //adventure in a shadow rift
-    //NC => Add 3 turns of 3 random effects
-    //Lodestone => Forest
-    return true;
-}
-
-boolean rifts_can()
-{
-    return false;
-}
-
 boolean rifts_run()
 {
     if(have_effect($effect[shadow affinity]) == 0 && !get_property('_shadowAffinityToday').to_boolean())
@@ -47,6 +31,21 @@ boolean rifts_run()
     return adv1($location[Shadow Rift (The Misspelled Cemetary)]);
 }
 
+boolean shadowwaters_can()
+{
+    return have_effect($effect[shadow waters]) < my_adventures();
+}
+
+boolean shadowwaters_run()
+{
+    if(get_property('questRufus') == 'unstarted')
+    {
+        use(1, $item[closed-circuit pay phone]);
+    }
+    if(shadowrifts_can())
+        rifts_run();
+}
+
 void main()
 {
     while(shadowrifts_can())
@@ -57,6 +56,8 @@ void main()
         rifts_run(); 
         set_auto_attack(0);
     }
+    if(shadowwaters_can())
+        shadowwaters_run();
 }
 
 
