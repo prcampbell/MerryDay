@@ -8,7 +8,7 @@ boolean shadowrifts_can()
     return !get_property('_shadowAffinityToday').to_boolean() 
             || have_effect($effect[shadow affinity]) > 0 
             || item_amount($item[Rufus's shadow lodestone]) > 1
-            || (get_property('rufusQuestType') == 'artifact' && item_amount(get_property('rufusQuestTarget').to_item()) >= 3);
+            || (get_property('rufusQuestType') == 'artifact' && item_amount(get_property('rufusQuestTarget').to_item()) > 0);
 }
 
 boolean shadowrifts_run()
@@ -33,7 +33,7 @@ boolean rifts_run()
     {
         use(1, $item[closed-circuit pay phone]);
     }
-    if(get_property('rufusQuestType') == 'artifact' && item_amount(get_property('rufusQuestTarget').to_item()) >= 3)
+    if(get_property('rufusQuestType') == 'artifact' && item_amount(get_property('rufusQuestTarget').to_item()) > 0)
     {
         use(1, $item[closed-circuit pay phone]);
     }
