@@ -14,6 +14,7 @@ import ff_moleman;
 import ff_bander;
 import ff_lobster;
 import ff_nep;
+import ff_drunks;
 
 
 
@@ -150,7 +151,14 @@ void main()
     nep_free_turn_run();
     set_auto_attack(0);  
   }
-
+  while(pygmy_can())
+  {
+    use_familiar($familiar[mini-hipster]);
+    set_auto_attack('StasisFight');
+    construct_free_outfit();
+    pygmy_run();
+    set_auto_attack(0);
+  }
 
   while(gap_can())
       gap_run();
