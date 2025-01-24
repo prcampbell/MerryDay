@@ -15,6 +15,7 @@ import ff_bander;
 import ff_lobster;
 import ff_nep;
 import ff_drunks;
+import ff_rifts;
 
 
 
@@ -159,6 +160,16 @@ void main()
     pygmy_run();
     set_auto_attack(0);
   }
+  while(shadowrifts_can())
+  {
+      set_auto_attack('StasisFight');
+      familiarDrops();
+      construct_free_outfit();
+      rifts_run(); 
+      set_auto_attack(0);
+  }
+  if(shadowwaters_can())
+      shadowwaters_run();
 
   while(gap_can())
       gap_run();
@@ -182,18 +193,6 @@ void main()
 
 
 /*
-
-while($effect[shadow waters].have_effect() < my_turns())
-{
-  call rufus - Get Item Quest
-  call rufus - Get Lodestone
-  adv1 shadow rift
-
-
-}
-
-
-
 
   cli_execute('garbo quick');
   endDay();
