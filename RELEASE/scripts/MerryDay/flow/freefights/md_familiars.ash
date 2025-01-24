@@ -9,7 +9,7 @@ import ff_lynyrd;
 
 boolean familiarDrops()
 {
-    foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
+    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
     {
         if ( have_familiar(f) && f.drops_today < 1 )
             return use_familiar(f);
@@ -17,7 +17,25 @@ boolean familiarDrops()
             return use_familiar($familiar[cat burglar]) && equip($item[burglar/sleep mask]);
         else if(get_property('camelSpit').to_int() < 100)
             return use_familiar($familiar[Melodramedary]) && equip($item[dromedary drinking helmet]);
-        else if ( have_familiar(f) && f.drops_today < f.drops_limit )
+    }
+    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
+    {
+        if ( have_familiar(f) && f.drops_today < 2 )
+            return use_familiar(f);
+    }
+    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
+    {
+        if ( have_familiar(f) && f.drops_today < 3 )
+            return use_familiar(f);
+    }
+    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
+    {
+        if ( have_familiar(f) && f.drops_today < 4 )
+            return use_familiar(f);
+    }
+    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
+    {
+        if ( have_familiar(f) && f.drops_today < f.drops_limit )
             return use_familiar(f);
     }
     return use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
