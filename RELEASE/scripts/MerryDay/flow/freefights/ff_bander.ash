@@ -45,7 +45,7 @@ boolean doctor_bander_run()
 {
     if(item_amount(get_property('doctorBagQuestItem').to_item()) == 0)
         cli_execute('acquire 1 ' + get_property('doctorBagQuestItem'));
-    maximize('familiar weight, equip doctor bag', false);
+    maximize('familiar weight -tie, equip doctor bag', false);
     use_familiar($familiar[frumious bandersnatch]);
     ensure_song($effect[Ode to Booze]);
     return adv1(get_property('doctorBagQuestLocation').to_location(), -1, "runaway;");
@@ -71,7 +71,7 @@ void main()
         gingerbread_bander_run();
     while(doctor_bander_can())
         doctor_bander_run();
-    maximize('familiar weight, equip tearaway pants', false);
+    maximize('familiar weight -tie, equip tearaway pants', false);
     while(fungi_bander_can())
         fungi_bander_run();
 }
