@@ -79,8 +79,7 @@ boolean familiar_adv()
     {
         return glitch_reward_fight_run();
     }
-    
-    while(speakeasy_can())
+    if(speakeasy_can())
     {
         return speakeasy_run();
     }
@@ -96,12 +95,16 @@ boolean familiar_adv()
     {
         return leaves_run();
     }
-    while(lynyrd_can())
+    if(lynyrd_can())
     {
         return lynyrd_run();
     }
-    while(zeppelin_can())
-        zeppelin_run();
+    if(zeppelin_can())
+    {
+        set_auto_attack(0);
+        return zeppelin_run();
+    }
+        
     return false;
 }
 
