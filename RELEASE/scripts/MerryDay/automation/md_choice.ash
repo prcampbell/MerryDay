@@ -156,6 +156,13 @@ void main ( int choiceID, string whichpage )
 						run_choice(2);
 						return;
 					}
+		case 786:	/* Working Holiday
+					choice 1: Knock on the boss's office door (office empty)
+					choice 2: Raid the supply cabinet (Get random item)
+					choice 3: Pick a fight with a cubicle drone (Fight pygmy witch accountant)
+					choice 6: Take the day off (skip adventure)*/
+					run_choice(6);
+					break;
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
