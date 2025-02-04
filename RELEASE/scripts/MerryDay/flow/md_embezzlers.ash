@@ -74,6 +74,19 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
             use_skill(1, $skill[Seek out a Bird]);
         }
     }
+    if(have_effect($effect[Kicked in the Sinuses]) == 0 && item_amount($item[jumping horseradish]) > 0 && my_fullness() < fullness_limit())
+    {
+        eat(1, $item[jumping horseradish]);
+    }
+    if(have_effect($effect[Inspired Chef]) == 0 && (item_amount($item[boris's bread]) > 0 || item_amount($item[yeast of boris]) > 1) && my_fullness() < fullness_limit())
+    {
+        eat(1, $item[boris's bread]);
+    }
+    if(have_effect($effect[all blued up]) == 0 && item_amount($item[blueberry muffin]) > 0 && my_fullness() < fullness_limit())
+    {
+        eat(1, $item[blueberry muffin]);
+    }
+
 }
 
 boolean august_can()

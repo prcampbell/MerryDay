@@ -9,6 +9,7 @@ boolean eaglebrick_can()
 
 boolean eaglebrick_run()
 {
+    set_auto_attack(0); 
     use_familiar($familiar[patriotic eagle]);
     return adv1($location[lair of the ninja snowmen], -1, 'skill 7449; use shadow brick;');
 }
