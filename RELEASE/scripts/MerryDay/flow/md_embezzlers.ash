@@ -87,6 +87,15 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
         eat(1, $item[blueberry muffin]);
     }
 
+    if(have_effect($effect[Synthesis: Greed]) == 0 && my_spleen_use() < spleen_limit())
+    {
+        cli_execute('synthesize greed');
+    }
+    if(have_effect($effect[boxing day glow]) == 0 && my_spleen_use() < spleen_limit())
+    {
+        chew(1, $item[body spradium]);
+    }
+
 }
 
 boolean august_can()
