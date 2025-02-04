@@ -9,8 +9,30 @@ import ff_lynyrd;
 import ff_speakeasy;
 import ff_zeppelin;
 
+boolean have_amuletcoin()
+{
+    if(item_amount($item[amulet coin]) != 0)
+    {
+        return true;
+    }
+    foreach f in $familiars[]
+    {
+        if(have_familiar(f) && familiar_equipped_equipment(f) == $item[amulet coin])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
 boolean familiarDrops()
 {
+    if(!have_amuletcoin())
+    {
+        return use_familiar($familiar[cornbeefadon]) && equip($slot[familiar], $item[toy cupid bow]);
+    }
     foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
     {
         if ( have_familiar(f) && f.drops_today < 1 )
@@ -60,6 +82,10 @@ boolean familiarToFatten()
     else if($familiar[grey goose].experience < 400)
     {
         return use_familiar($familiar[grey goose]);
+    }
+    if(!have_amuletcoin())
+    {
+        return use_familiar($familiar[cornbeefadon]) && equip($slot[familiar], $item[toy cupid bow]);
     }
     return false;
 } 
