@@ -83,7 +83,7 @@ boolean familiarToFatten()
     {
         return use_familiar($familiar[grey goose]);
     }
-    if(!have_amuletcoin())
+    else if(!have_amuletcoin())
     {
         return use_familiar($familiar[cornbeefadon]) && equip($slot[familiar], $item[toy cupid bow]);
     }
