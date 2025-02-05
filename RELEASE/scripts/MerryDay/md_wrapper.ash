@@ -98,7 +98,7 @@ void main()
       profsausage_run();
   }
 
-  if(eaglebrick_can())
+  while(eaglebrick_can())
   {
     construct_free_outfit();
     eaglebrick_run();
