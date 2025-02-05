@@ -157,7 +157,7 @@ boolean pillkeeper_run()
 
 boolean embezzlers_can()
 {
-    return august_can() && sax_can() && hotdog_can() && pillkeeper_can();
+    return august_can() && sax_can() && pillkeeper_can();
 }
 
 
