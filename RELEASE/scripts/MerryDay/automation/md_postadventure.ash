@@ -415,9 +415,14 @@ void digitizeMonster()
 				cli_execute("/outfit Free Drops");
 			
 			use_familiar(familiarChoice);
-			if(parseDinseyQuest() == 'Social Justice Adventurer I')
+			if(parseDinseyQuest() == 'Super Luber' && get_property('dinseyRollercoasterNext').to_boolean())
+			{
+				equip($slot[acc3], $item[lube-shoes]);
+				(!adv1($location[Barf Mountain]));
+			}
+			else if(parseDinseyQuest() == 'Social Justice Adventurer I')
 				(!adv1($location[Pirates of the Garbage Barges]));
-			if(parseDinseyQuest() == 'Social Justice Adventurer II')
+			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
 				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice])); //'
 			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 			{
@@ -550,9 +555,9 @@ void kramco()
 				equip($slot[acc3], $item[lube-shoes]);
 				(!adv1($location[Barf Mountain]));
 			}
-			if(parseDinseyQuest() == 'Social Justice Adventurer I')
+			else if(parseDinseyQuest() == 'Social Justice Adventurer I')
 				(!adv1($location[Pirates of the Garbage Barges]));
-			if(parseDinseyQuest() == 'Social Justice Adventurer II')
+			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
 				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice])); //'
 			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 			{
