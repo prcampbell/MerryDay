@@ -1,4 +1,4 @@
-script ff_bricks;
+script ff_shadowbricks;
 
 boolean eaglebrick_can()
 {

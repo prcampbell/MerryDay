@@ -16,7 +16,7 @@ import ff_lobster;
 import ff_nep;
 import ff_drunks;
 import ff_rifts;
-import ff_bricks;
+import ff_shadowbricks;
 import ff_speakeasy;
 
 
