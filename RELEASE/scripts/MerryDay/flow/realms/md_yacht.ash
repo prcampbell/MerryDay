@@ -35,6 +35,7 @@ boolean force_nc()
             LibramBurn();
             cli_execute('rest free');
         }
+        return true;
     }
     return false;
 }
