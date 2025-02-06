@@ -1,6 +1,6 @@
 script md_yacht;
 
-import mpBurn;
+import md_mpburn;
 
 boolean fishy_get()
 {

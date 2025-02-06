@@ -1,4 +1,4 @@
-script mpBurn
+script md_mpBurn
 import Librams.ash
 import md_library;
 import md_iotm2019;
