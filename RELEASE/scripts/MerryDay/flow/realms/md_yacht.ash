@@ -40,7 +40,7 @@ boolean fishy_get()
 
 boolean yacht_can()
 {
-    return nc_can();
+    return nc_can() && (have_effect($effect[fishy]) > 0 || fishy_can());
 }
 
 boolean force_nc()
@@ -93,6 +93,9 @@ boolean yacht_run()
 
 void main()
 {
-    yacht_run();
+    if(yacht_can())
+        yacht_run();
+    else 
+        print('You cannot do yacht anymore','red');
 }
 
