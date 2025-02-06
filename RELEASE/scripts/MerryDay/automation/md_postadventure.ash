@@ -626,29 +626,37 @@ void RemoveCurrencies() {
 
 void tatters()
 {
-if(have_effect($effect[everything looks green]) == 0 && get_property('banishedMonsters').contains_text('banshee librarian') &&  get_property('banishedMonsters').contains_text('writing desk'))
-{
-SaveSetup();
+	if(have_effect($effect[everything looks green]) == 0 && get_property('banishedMonsters').contains_text('banshee librarian') &&  get_property('banishedMonsters').contains_text('writing desk'))
+	{
+		SaveSetup();
 
-cli_execute('autoattack tatterfarm; familiar xo skeleton;');
-equip($slot[back], $item[bat wings]);
-equip($slot[off-hand], $item[tiny black hole]);
-equip($slot[acc1], $item[spring shoes]);
-adv1($location[The Haunted Library], -1, "skill saucegeyser;");
-set_auto_attack(0);
+		cli_execute('autoattack tatterfarm; familiar xo skeleton;');
+		equip($slot[back], $item[bat wings]);
+		equip($slot[off-hand], $item[tiny black hole]);
+		equip($slot[acc1], $item[spring shoes]);
+		adv1($location[The Haunted Library], -1, "");
+		set_auto_attack(0);
 
-}
+	}
 }
 void purple()
 {
-if(have_effect($effect[everything looks purple]) == 0){
-SaveSetup();
-
-cli_execute('autoattack BasicAscend;');
-equip($slot[off-hand],$item[roman candelabra]); 
-c2t_megg_fight($monster[witchess knight]); 
-set_auto_attack(0);
-}
+	if(have_effect($effect[everything looks purple]) == 0)
+	{
+		foreach m in $monsters[witchess knight, witchess bishop, sausage goblin]
+		{
+			if(c2t_megg_eggs()[m] > 0)
+			{
+				SaveSetup();
+				cli_execute('autoattack BasicAscend;');
+				equip($slot[off-hand],$item[roman candelabra]); 
+				c2t_megg_fight(m);
+				set_auto_attack(0); 
+			}
+		}
+		
+		
+	}
 }
 
 void main() {
