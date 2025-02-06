@@ -25,7 +25,7 @@ void main ( int choiceID, string whichpage )
 					2: decline quest
 					3: turn off phone for the day */
 			location doctorLocation = get_property("doctorBagQuestLocation").to_location();
-			if ( !doctorLocation.wanderers || doctorLocation.combat_percent < 99 || $locations[The Oasis, The Skeleton Store, Camp Logging Camp, Obligatory Pirate Cove] contains doctorLocation )
+			if ( !doctorLocation.wanderers || doctorLocation.combat_percent < 99 || $locations[The Oasis, The Skeleton Store, Camp Logging Camp, The Obligatory Pirate's Cove] contains doctorLocation )
 			{
 				print("Declining doctor bag quest in "+doctorLocation,"blue");
 				run_choice(2);
@@ -163,7 +163,7 @@ void main ( int choiceID, string whichpage )
 					choice 6: Take the day off (skip adventure)*/
 					run_choice(6);
 					break;
-		case -1:	/* Yachtzee!
+		case 918:	/* Yachtzee!
 					1: Raid a minifridge (cocktail ingredients or Ultimate Mind Destroyer)
 					2: Dig through the wreckage (5k meat)
 					3: Give that guy some beads, for crying out loud (get Beach Bucks)*/
