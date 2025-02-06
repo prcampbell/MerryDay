@@ -47,7 +47,7 @@ void main()
             cli_execute('parka acid');
         }
     else
-        equip($slot[shirt], $item[hodgman'sdisgusting technicolor overcoat]);
+        equip($slot[shirt], $item[hodgman's disgusting technicolor overcoat]);
     
     if(get_property('_pantsgivingCount').to_int() < 50)
         equip($slot[pants], $item[Pantsgiving]);
