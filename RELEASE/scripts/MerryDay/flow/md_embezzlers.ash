@@ -91,7 +91,7 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
     {
         cli_execute('synthesize greed');
     }
-    if(have_effect($effect[boxing day glow]) == 0 && my_spleen_use() < spleen_limit())
+    if(have_effect($effect[boxing day glow]) == 0 && item_amount($item[body spradium]) > 0 && my_spleen_use() < spleen_limit())
     {
         chew(1, $item[body spradium]);
     }
