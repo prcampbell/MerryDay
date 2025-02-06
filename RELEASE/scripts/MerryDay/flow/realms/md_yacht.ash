@@ -45,16 +45,6 @@ boolean yacht_can()
 
 boolean force_nc()
 {
-    if(clara_nc_can())
-    {
-        print('forcing NC with clara bell','purple');
-        return use(1, $item[clara's bell]);
-    }
-    if(tuba_nc_can())
-    {
-        print('forcing NC with tuba','purple');
-        return cli_execute('aprilband play tuba');
-    }
     if(cinch_nc_can())
     {
         equip($slot[acc3], $item[cincho de mayo]);
@@ -66,6 +56,17 @@ boolean force_nc()
         }
         return true;
     }
+    if(clara_nc_can())
+    {
+        print('forcing NC with clara bell','purple');
+        return use(1, $item[clara's bell]);
+    }
+    if(tuba_nc_can())
+    {
+        print('forcing NC with tuba','purple');
+        return cli_execute('aprilband play tuba');
+    }
+
     return false;
 }
 
@@ -93,9 +94,9 @@ boolean yacht_run()
 
 void main()
 {
-    if(yacht_can())
+    while(yacht_can())
         yacht_run();
-    else 
-        print('You cannot do yacht anymore','red');
+
+    print('You cannot do yacht anymore','red');
 }
 
