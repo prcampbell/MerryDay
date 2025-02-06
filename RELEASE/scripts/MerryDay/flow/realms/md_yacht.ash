@@ -18,7 +18,7 @@ boolean force_nc()
     {
         return use(1, $item[clara's bell]);
     }
-    if(get_property('_aprilBandTubaUses').to_int() < 3)
+    if(get_property('_aprilBandTubaUses').to_int() < 3 && item_amount($item[apriling band tuba]) > 0)
     {
         return cli_execute('aprilband play tuba');
     }

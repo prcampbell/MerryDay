@@ -163,6 +163,11 @@ void main ( int choiceID, string whichpage )
 					choice 6: Take the day off (skip adventure)*/
 					run_choice(6);
 					break;
+		case -1:	/* Yachtzee!
+					1: Raid a minifridge (cocktail ingredients or Ultimate Mind Destroyer)
+					2: Dig through the wreckage (5k meat)
+					3: Give that guy some beads, for crying out loud (get Beach Bucks)*/
+					run_choice(2);
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
