@@ -545,7 +545,11 @@ void kramco()
 			}
 			equip($item[Fourth of May Cosplay Saber]);
 			equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]); 
-			
+			if(parseDinseyQuest() == 'Super Luber' && get_property('dinseyRollercoasterNext').to_boolean())
+			{
+				equip($slot[acc3], $item[lube-shoes]);
+				(!adv1($location[Barf Mountain]));
+			}
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
 				(!adv1($location[Pirates of the Garbage Barges]));
 			if(parseDinseyQuest() == 'Social Justice Adventurer II')
@@ -670,8 +674,8 @@ void main() {
 			voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
 			brickoPrime();
 			bustGhost(); //Basically Bales function, but with though with similar outfit switching
-tatters();
-purple();
+			tatters();
+			purple();
 		}
 	} 
 	finally { 
