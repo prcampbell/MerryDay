@@ -9,7 +9,7 @@ boolean fishy_get()
 
 boolean yacht_can()
 {
-    return !get_property('_fishyPipeUsed').to_boolean()
+    return !get_property('_fishyPipeUsed').to_boolean();
 }
 
 boolean force_nc()
