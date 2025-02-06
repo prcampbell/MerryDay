@@ -168,6 +168,7 @@ void main ( int choiceID, string whichpage )
 					2: Dig through the wreckage (5k meat)
 					3: Give that guy some beads, for crying out loud (get Beach Bucks)*/
 					run_choice(2);
+					break;
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
