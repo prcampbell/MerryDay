@@ -93,8 +93,8 @@ void RestoreSetup() {
         {   
             print("Trying to set autoattack to ... ", "green");
             print(aa, "purple");
-            if(aa == '99188633')
-                cli_execute('autoattack BasicAscend');
+            if(aa == '99184996')
+                cli_execute('autoattack BasicBarf');
             else
                 set_auto_attack(aa);
         }
