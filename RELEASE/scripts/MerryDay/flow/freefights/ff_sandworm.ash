@@ -1,51 +1,34 @@
 void BuffItems() 
 {
- 
-	if ( available_amount($item[li'l ninja costume]) <= 0 ) {
-		
-		if ( my_familiar() == $familiar[stooper] && freeLiver() == 0 || freeLiver() == -1 && my_familiar() != $familiar[stooper] )
-			use_familiar($familiar[stooper]);
-		equip($item[The Jokester's Gun]);
-		if(can_adv( $location[Lair of the Ninja Snowmen], false ))
-			adv1($location[Lair of the Ninja Snowmen], -1, "");
-		else
-			c2t_cartographyHunt($location[The Haiku Dungeon], $monster[amateur ninja]);
-		equip($item[fourth of may cosplay saber]);
-	}
 	set_location($location[Friar Ceremony Location]);
 	if ( available_amount($item[li'l ninja costume]) <= 0 ) //'
 		abort("Couldn't get li'l ninja costume, for some reason");
 	use_familiar($familiar[Trick-or-Treating Tot]);
 	if(!contains_text(get_property('_mummeryMods'), 'Item Drop'))
 		cli_execute('mummery item');
-	if ( !has_effect($effect[Steely-eyed squint]) && !get_property("_steelyEyedSquintUsed").to_boolean() && have_skill($skill[Steely-eyed Squint]) )
+	if ( have_effect($effect[Steely-eyed squint]) == 0 && !get_property("_steelyEyedSquintUsed").to_boolean() && have_skill($skill[Steely-eyed Squint]) )
 		use_skill($skill[Steely-eyed Squint]);
-	if ( !has_effect($effect[Clyde's Blessing]) && retrieve_item($item[The Legendary Beat]) && !get_property("_legendaryBeat").to_boolean() ) //'
+	if ( have_effect($effect[Clyde's Blessing]) == 0 && !get_property("_legendaryBeat").to_boolean() )
 		use($item[The Legendary Beat]);
-	if ( !has_effect($effect[Pork Barrel]) && is_unrestricted($item[shrine to the barrel god]) && get_property("barrelShrineUnlocked").to_boolean() && !get_property("_barrelPrayer").to_boolean() && my_class() == $class[Pastamancer] )
+	if ( have_effect($effect[Pork Barrel]) && is_unrestricted($item[shrine to the barrel god]) && get_property("barrelShrineUnlocked").to_boolean() && !get_property("_barrelPrayer").to_boolean() && my_class() == $class[Pastamancer] )
 		cli_execute("barrelprayer buff");
-	if ( !has_effect($effect[Billiards Belligerence]) 		&& get_property("_poolGames") < 3 && (get_clan_lounge() contains $item[Clan pool table] ) )
+	if ( have_effect($effect[Billiards Belligerence]) == 0 		&& get_property("_poolGames") < 3 && (get_clan_lounge() contains $item[Clan pool table] ) )
 		cli_execute("pool 3");
-	if ( !has_effect($effect[There's No N in Love]) 		&& !get_property("_clanFortuneBuffUsed").to_boolean() && (get_clan_lounge() contains $item[Clan Carnival Game] ) )
+	if ( have_effect($effect[There's No N in Love]) == 0 		&& !get_property("_clanFortuneBuffUsed").to_boolean() && (get_clan_lounge() contains $item[Clan Carnival Game] ) )
 		cli_execute("fortune buff item");
-	if ( !has_effect($effect[Uncucumbered]) 				&& !get_property("_daycareSpa").to_boolean() && (get_property("daycareOpen").to_boolean() || get_property("_daycareToday").to_boolean()) )
+	if ( have_effect($effect[Uncucumbered]) == 0 				&& !get_property("_daycareSpa").to_boolean() && (get_property("daycareOpen").to_boolean() || get_property("_daycareToday").to_boolean()) )
 		cli_execute("daycare mysticality");
-	if ( have_skill($skill[Fat Leon's Phat Loot Lyric]) && !has_effect($effect[Fat Leon's Phat Loot Lyric]) )
-		use_skill($skill[Fat Leon's Phat Loot Lyric]);
-	if ( !has_effect($effect[Clyde's Blessing]) && retrieve_item($item[The Legendary Beat]) && !get_property("_legendaryBeat").to_boolean() ) //'
-		use($item[The Legendary Beat]);
-	if(!has_effect($effect[Certainty]) && item_amount($item[abstraction: Certainty]) > 0  && my_spleen_use() < spleen_limit())
+	if(have_effect($effect[Certainty]) == 0 && item_amount($item[abstraction: Certainty]) > 0  && my_spleen_use() < spleen_limit())
 		cli_execute('chew abstraction: certainty');
-	if(!has_effect($effect[Synthesis: Collection]) && my_spleen_use() < spleen_limit())
+	if(have_effect($effect[Synthesis: Collection]) == 0 && my_spleen_use() < spleen_limit())
 		cli_execute('synthesize collection');
 	
-
 	maximize("item drop, -equip lucky sock",false);
-	cli_execute("gain 4900 item");	// 	Ezandora's gain.ash
 }
 
 
-void ChestXRay() {
+void ChestXRay() 
+{
 	while ( get_property("_chestXRayUsed") < 3 && (get_property("garbageChampagneCharge")>0) )
      {
 		boolean [item] RequiredItems;
