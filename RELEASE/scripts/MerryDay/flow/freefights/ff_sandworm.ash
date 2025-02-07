@@ -10,7 +10,7 @@ void BuffItems()
 		use_skill($skill[Steely-eyed Squint]);
 	if ( have_effect($effect[Clyde's Blessing]) == 0 && !get_property("_legendaryBeat").to_boolean() )
 		use($item[The Legendary Beat]);
-	if ( have_effect($effect[Pork Barrel]) && is_unrestricted($item[shrine to the barrel god]) && get_property("barrelShrineUnlocked").to_boolean() && !get_property("_barrelPrayer").to_boolean() && my_class() == $class[Pastamancer] )
+	if ( have_effect($effect[Pork Barrel]) == 0 && is_unrestricted($item[shrine to the barrel god]) && get_property("barrelShrineUnlocked").to_boolean() && !get_property("_barrelPrayer").to_boolean() && my_class() == $class[Pastamancer] )
 		cli_execute("barrelprayer buff");
 	if ( have_effect($effect[Billiards Belligerence]) == 0 		&& get_property("_poolGames") < 3 && (get_clan_lounge() contains $item[Clan pool table] ) )
 		cli_execute("pool 3");
@@ -26,6 +26,20 @@ void BuffItems()
 	maximize("item drop, -equip lucky sock",false);
 }
 
+void Bullseye()
+{
+	while(have_effect($effect[everything looks red]) == 0)
+	{
+		set_location($location[Friar Ceremony Location]);
+        use_familiar($familiar[Trick-or-Treating Tot]);
+		maximize("item drop, -equip lucky sock,equip everfull dart holster",false);
+		use( 1, $item[drum machine] );
+		if ( get_property("garbageChampagneCharge")==0 && !get_property("_garbageItemChanged").to_boolean() ) {
+			cli_execute("fold wad of used tape");
+			cli_execute("fold broken champagne bottle");
+		}		
+	}
+}
 
 void ChestXRay() 
 {
@@ -99,7 +113,8 @@ void MadnessKills()
 
 void Sandworm() 
 {
-	set_auto_attack(0);
+	set_auto_attack('SandwormFreeKills');
+	cli_execute('mood apathetic');
     if ( get_property("garbageChampagneCharge")==0 && !get_property("_garbageItemChanged").to_boolean() ) 
     {
         cli_execute("fold wad of used tape");
@@ -114,8 +129,8 @@ void Sandworm()
             )
         ) 
 		return;
-    cli_execute('mood apathetic');
-	BuffItems();
+    BuffItems();
+	Bullseye();
 	ChestXRay();
 	OtherFreeFreeKills();
 }
