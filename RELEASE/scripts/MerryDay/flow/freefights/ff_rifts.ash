@@ -9,7 +9,8 @@ boolean shadowrifts_can()
             || have_effect($effect[shadow affinity]) > 0 
             || item_amount($item[Rufus's shadow lodestone]) > 1
             || (get_property('rufusQuestType') == 'artifact' && item_amount(get_property('rufusQuestTarget').to_item()) > 0)
-            || (get_property('rufusQuestType') == 'items' && item_amount(get_property('rufusQuestTarget').to_item()) >= 3);
+            || (get_property('rufusQuestType') == 'items' && item_amount(get_property('rufusQuestTarget').to_item()) >= 3)
+            || get_property('_shadowRiftCombats').to_int() == 11;
 }
 
 boolean rifts_run()
