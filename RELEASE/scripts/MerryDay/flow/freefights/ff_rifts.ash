@@ -10,7 +10,7 @@ boolean shadowrifts_can()
             || item_amount($item[Rufus's shadow lodestone]) > 1
             || (get_property('rufusQuestType') == 'artifact' && item_amount(get_property('rufusQuestTarget').to_item()) > 0)
             || (get_property('rufusQuestType') == 'items' && item_amount(get_property('rufusQuestTarget').to_item()) >= 3)
-            || get_property('_shadowRiftCombats').to_int() == 11;
+            || get_property('encountersUntilSRChoice').to_int() == 0;
 }
 
 boolean rifts_run()
@@ -27,7 +27,7 @@ boolean rifts_run()
     {
         use(1, $item[closed-circuit pay phone]);
     }
-    if(get_property('_shadowRiftCombats').to_int() == 11)
+    if(get_property('encountersUntilSRChoice').to_int() == 0)
         return adv1($location[Shadow Rift (The Misspelled Cemetary)]);
     if(have_effect($effect[shadow affinity]) == 0 && item_amount($item[Rufus's shadow lodestone]) == 0)
         abort('Attempting to adventure in a Shadow Rift without affinity or lodestone');
