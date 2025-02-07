@@ -108,12 +108,14 @@ void keepStatsLow() {
 
 void pirates_init()
 {
-	if (
-        get_property("_pirateRealmSailingTurns").to_int() == 0 
+	if (get_property('questPirateRealm') == 'unstarted')
+        visit_url("/place.php?whichplace=realm_pirate&action=pr_port");
+
+    if(get_property("_pirateRealmSailingTurns").to_int() == 0 
         && (get_property("_lastPirateRealmIsland") != "Trash Island") ) 
     {
         
-		visit_url("/place.php?whichplace=realm_pirate&action=pr_port");
+		
         equip($slot[hat], $item[piraterealm party hat]);
         equip($slot[acc1], $item[PirateRealm eyepatch]);
         equip($slot[acc2], $item[Red Roger's red right foot]);
@@ -129,7 +131,11 @@ void pirates_init()
 
 void crabSail()
 {
-
+    if(get_property("_pirateRealmSailingTurns").to_int() == 0 
+        && (get_property("_lastPirateRealmIsland") == "") ) 
+    {
+        adv1($location[Sailing the PirateRealm Seas], -1, "");
+    }
 }
 
 boolean crabs_run()
@@ -156,4 +162,4 @@ void main()
     trashSail();
 }
 
-
+http://127.0.0.1:60080/adventure.php?snarfblat=530

@@ -169,6 +169,38 @@ void main ( int choiceID, string whichpage )
 					3: Give that guy some beads, for crying out loud (get Beach Bucks)*/
 					run_choice(2);
 					break;
+
+		case 1352:	/* Island #1, Who Are You?
+					choice 1: Crab Island
+					choice 2: Glass Island
+					choice 3: Battle Island
+					choice 6: Dessert Island
+					*/
+					run_choice(1);
+					break;
+		case 1361:	/* Avast, a Mast!
+					choice 1: Search the wreckage for plunder
+					
+					*/
+					run_choice(1);
+					break;
+		case 1362:	/* Stormy Weather
+					choice 1: Batten down the hatches
+					choice 2: Try to gain some extra distance
+					*/
+					run_choice(2);
+					break;
+		case 1367:	/* The Ship is Wrecked
+					choice 1: Fix it with glue
+					choice 2: Wait for assistance
+					*/
+					run_choice(2);
+					break;
+		case 1355:	/* Land Ho
+					choice 1: Head Inland
+					*/
+					run_choice(1);
+					break;				
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
