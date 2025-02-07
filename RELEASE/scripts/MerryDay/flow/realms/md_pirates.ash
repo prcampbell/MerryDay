@@ -153,7 +153,12 @@ void Sailing()
 {
     while(get_property("lastEncounter") != "Land Ho!" && get_property("_pirateRealmIslandMonstersDefeated").to_int() == 0)
             adv1($location[Sailing the PirateRealm Seas], -1, "");
-    
+}
+
+void postTrashSailing()
+{
+    while(get_property("lastEncounter") != "Land Ho!" && get_property("_pirateRealmIslandMonstersDefeated").to_int() == 0)
+    adv1($location[Sailing the PirateRealm Seas], -1, "");
 }
 
 void main()

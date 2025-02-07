@@ -234,10 +234,12 @@ void main ( int choiceID, string whichpage )
 					choice 6: Sail away
 					
 					*/
-					while(get_property('_pirateRealmGold').to_int() > 20)
+					int g = get_property('_pirateRealmGold').to_int();
+					while(g > 20)
 					{
 						run_choice(1);
 						run_choice(2);
+						g = g - 20;
 					}
 					run_choice(6);
 					break;
