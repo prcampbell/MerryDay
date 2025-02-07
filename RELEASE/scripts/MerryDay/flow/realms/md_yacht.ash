@@ -43,6 +43,11 @@ boolean yacht_can()
     return nc_can() && (have_effect($effect[fishy]) > 0 || fishy_can());
 }
 
+boolean yacht_double_can()
+{
+    return nc_can();
+}
+
 boolean force_nc()
 {
     if(cinch_nc_can())
@@ -68,6 +73,17 @@ boolean force_nc()
     }
 
     return false;
+}
+
+boolean yacht_double_run()
+{
+    if(force_nc())
+    {
+        use_familiar($familiar[urchin urchin]);
+        maximize('meat drop, equip elf guard scuba tank', false);
+        return adv1($location[the sunken party yacht], -1, '');
+    }
+    return false;     
 }
 
 boolean yacht_run()
