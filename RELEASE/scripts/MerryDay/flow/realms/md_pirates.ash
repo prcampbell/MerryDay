@@ -112,6 +112,7 @@ void pirates_init()
         get_property("_pirateRealmSailingTurns").to_int() == 0 
         && (get_property("_lastPirateRealmIsland") != "Trash Island") ) 
     {
+        keepStatsLow();
 		visit_url("/place.php?whichplace=realm_pirate&action=pr_port");
         equip($slot[hat], $item[piraterealm party hat]);
         equip($slot[acc1], $item[PirateRealm eyepatch]);
