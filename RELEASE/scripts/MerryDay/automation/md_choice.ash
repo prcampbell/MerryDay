@@ -221,17 +221,17 @@ void main ( int choiceID, string whichpage )
 					choice 2: Dive for bigger bounty
 					
 					*/
-					if(contains_text(get_property('_pirateRealmCrewmate'),'luttonous')
+					if(contains_text(get_property('_pirateRealmCrewmate'),'luttonous'))
 						run_choice(2);
 					else
 						run_choice(1);
 					break;
 		case 1360:	/* Like Shops in the Night
 					choice 1: Buy 5 food
-choice 2: Buy 5 booze
-choice 3: Buy 1 glue
-choice 4: Buy an additional cannon
-choice 6: Sail away
+					choice 2: Buy 5 booze
+					choice 3: Buy 1 glue
+					choice 4: Buy an additional cannon
+					choice 6: Sail away
 					
 					*/
 					while(get_property('_pirateRealmGold').to_int() > 20)
