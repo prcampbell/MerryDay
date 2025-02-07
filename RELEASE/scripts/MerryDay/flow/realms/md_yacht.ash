@@ -20,7 +20,7 @@ boolean tuba_nc_can()
 
 boolean cinch_nc_can()
 {
-    return get_property('_cinchUsed') < 40;
+    return get_property('_cinchUsed') <= 40;
 }
 
 boolean nc_can()
