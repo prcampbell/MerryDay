@@ -250,7 +250,15 @@ void main ( int choiceID, string whichpage )
 					*/
 
 					run_choice(2);
-					break;						
+					break;
+		case 1365:	/* A Sea Monster!
+					choice 1: Fight it
+choice 2: Flee it!
+					
+					*/
+
+					run_choice(2);
+					break;							
 								
 		case -1:	/* <choice adventure name>
 					1: 
