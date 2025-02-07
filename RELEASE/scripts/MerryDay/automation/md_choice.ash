@@ -200,7 +200,23 @@ void main ( int choiceID, string whichpage )
 					choice 1: Head Inland
 					*/
 					run_choice(1);
-					break;				
+					break;
+		case 1353:	/* What's Behind Island #2
+					choice 2: Isla Gublar
+					choice 3: Cemetery Island
+					choice 5: Trash Island
+					*/
+					run_choice(5);
+					break;
+		case 1357:	/* High Tide, Low Morale
+					choice 2: Have a party
+					choice 3: Give everybody bonus wages
+					choice 4: Do a little dance for them
+					
+					*/
+					run_choice(4);
+					break;			
+								
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */

@@ -134,7 +134,8 @@ void crabSail()
     if(get_property("_pirateRealmSailingTurns").to_int() == 0 
         && (get_property("_lastPirateRealmIsland") == "") ) 
     {
-        adv1($location[Sailing the PirateRealm Seas], -1, "");
+        while(get_property("lastEncounter") != "Land Ho!" && get_property("_lastPirateRealmIsland") != "Trash Island")
+            adv1($location[Sailing the PirateRealm Seas], -1, "");
     }
 }
 
@@ -148,9 +149,11 @@ boolean giantcrab_run()
     return false;
 }
 
-void trashSail()
+void Sailing()
 {
-
+    while(get_property("lastEncounter") != "Land Ho!" && get_property("_pirateRealmIslandMonstersDefeated").to_int() == 0)
+            adv1($location[Sailing the PirateRealm Seas], -1, "");
+    
 }
 
 void main()
