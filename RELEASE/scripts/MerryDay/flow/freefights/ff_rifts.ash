@@ -26,6 +26,8 @@ boolean rifts_run()
     {
         use(1, $item[closed-circuit pay phone]);
     }
+    if(get_property('_shadowRiftCombats').to_int() == 11)
+        return adv1($location[Shadow Rift (The Misspelled Cemetary)]);
     if(have_effect($effect[shadow affinity]) == 0 && item_amount($item[Rufus's shadow lodestone]) == 0)
         abort('Attempting to adventure in a Shadow Rift without affinity or lodestone');
     return adv1($location[Shadow Rift (The Misspelled Cemetary)]);
