@@ -215,7 +215,40 @@ void main ( int choiceID, string whichpage )
 					
 					*/
 					run_choice(4);
-					break;			
+					break;
+		case 1358:	/* The Starboard is Bare
+					choice 1: Catch some fish
+					choice 2: Dive for bigger bounty
+					
+					*/
+					if(contains_text(get_property('_pirateRealmCrewmate'),'luttonous')
+						run_choice(2);
+					else
+						run_choice(1);
+					break;
+		case 1360:	/* Like Shops in the Night
+					choice 1: Buy 5 food
+choice 2: Buy 5 booze
+choice 3: Buy 1 glue
+choice 4: Buy an additional cannon
+choice 6: Sail away
+					
+					*/
+					while(get_property('_pirateRealmGold').to_int() > 20)
+					{
+						run_choice(1);
+						run_choice(2);
+					}
+					run_choice(6);
+					break;
+		case 1363:	/* Who Pirates the Pirates?
+					choice 1: Fire the guns
+					choice 2: Attempt to flee
+					
+					*/
+
+					run_choice(2);
+					break;						
 								
 		case -1:	/* <choice adventure name>
 					1: 
