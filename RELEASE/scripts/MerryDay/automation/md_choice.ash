@@ -19,6 +19,12 @@ void main ( int choiceID, string whichpage )
 			else
 				run_choice(6);			
 			return;
+		case 1119: /* Olive Backwards In Time (DMT)
+					choice 1: A wiggling of tuneless shapes. (acquire some abstractions)
+					choice 3: A pyramid that encloses. (acquire modern picture frame)
+					6: Leave*/
+				run_choice(6);			
+			return;
 
 		case 1340:	/* Is There A Doctor In The House?
 					1: accept quest
