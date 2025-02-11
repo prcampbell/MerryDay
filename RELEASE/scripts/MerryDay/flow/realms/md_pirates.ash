@@ -53,10 +53,13 @@ void keepStatsLow() {
   // Loop through each stat
   foreach st in $stats[] {
       // While the buffed stat is greater than 100
-      while (my_buffedstat(st) > 100) {
+      while (my_buffedstat(st) > 100) 
+      {
           if (!check_effect($effect[Mush-Mouth]) && mall_price($item[Fun-Guy spore]) < 5000) {
               retrieve_item(1, $item[Fun-Guy spore]);
               use(1, $item[Fun-Guy spore]);
+              if(my_buffedstat(st) <= 100)
+                break;
           }
 
           // Special handling for Muscle stat
@@ -67,6 +70,8 @@ void keepStatsLow() {
               if (!check_effect($effect[Sleepy])) {
                   use(1, $item[decorative fountain]);
               }
+              if(my_buffedstat(st) <= 100)
+                break;
           }
 
           // Special handling for Moxie stat
@@ -79,16 +84,23 @@ void keepStatsLow() {
               if (check_effect($effect[Endless Drool])) {
                   cli_execute("shrug " + $effect[Endless Drool]);
               }
+              if(my_buffedstat(st) <= 100)
+                break;
           }
 
           // General item and effect management
           if (mall_price($item[Mr. Mediocrebar]) < 2000 && !check_effect($effect[Apathy])) {
               retrieve_item(1, $item[Mr. Mediocrebar]);
               use(1, $item[Mr. Mediocrebar]);
+              if(my_buffedstat(st) <= 100)
+                break;
           }
 
-          if (check_effect($effect[Feeling Excited])) {
-                cli_execute("shrug " + $effect[Feeling Excited]);
+          if (check_effect($effect[Feeling Excited])) 
+          {
+            cli_execute("shrug " + $effect[Feeling Excited]);
+            if(my_buffedstat(st) <= 100)
+                break;
           }
 
           // Remove effects that affect the stat negatively
@@ -100,6 +112,8 @@ void keepStatsLow() {
                   // && numeric_modifier(ef, "item drop") == 0
                   ) {
                   cli_execute("shrug " + ef);
+                  if(my_buffedstat(st) <= 100)
+                break;
               }
           }
       }
@@ -169,5 +183,3 @@ void main()
     giantcrab_run();
     trashSail();
 }
-
-http://127.0.0.1:60080/adventure.php?snarfblat=530
