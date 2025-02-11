@@ -259,7 +259,14 @@ choice 2: Flee it!
 
 					run_choice(2);
 					break;							
-								
+		case 1364:	/* An  Opportunity for Dastardly Do
+					choice 1: Attack them
+					choice 2: Leave them alone
+					
+					*/
+
+					run_choice(2);
+					break;									
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
