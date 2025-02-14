@@ -26,7 +26,22 @@ int copyCount()
     //
 }
 
+boolean angel_run()
+{
+    use_familiar($familiar[obtuse angel]);
+    maximize('meat drop, equip quake of arrows',false);
+    set_auto_attack('CopyCrates');
+    visit_url('place.php?whichplace=chateau&action=chateau_painting');
+    use_familiar($familiar[jill-of-all-trades]);
+    maximize('meat drop, equip backup camera',false);
+    adv1($location[noob cave], -1, '');
+}
+
 void main()
 {
 
 }
+
+
+
+
