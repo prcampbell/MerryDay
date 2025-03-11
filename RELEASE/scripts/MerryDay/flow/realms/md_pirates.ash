@@ -194,6 +194,4 @@ void main()
     pirates_init();
     crabSail();
     crabs_run();
-    giantcrab_run();
-    trashSail();
 }
