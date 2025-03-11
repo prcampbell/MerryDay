@@ -136,7 +136,7 @@ void keepStatsLow()
 
 void pirates_init()
 {
-	if (get_property('questPirateRealm') == 'unstarted')
+	if (get_property('_questPirateRealm') == 'unstarted')
         visit_url("/place.php?whichplace=realm_pirate&action=pr_port");
 
     if(get_property("_pirateRealmSailingTurns").to_int() == 0 
