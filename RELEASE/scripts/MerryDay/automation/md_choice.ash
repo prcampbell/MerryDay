@@ -241,6 +241,12 @@ void main ( int choiceID, string whichpage )
 					else
 						run_choice(1);
 					break;
+		case 1359: /*
+						Encounter: Grog for the Grogless
+					choice 1: Ferment some seawater
+					choice 2: Dive for sunken casks*/
+					run_choice(1);
+					break;
 		case 1360:	/* Like Shops in the Night
 					choice 1: Buy 5 food
 					choice 2: Buy 5 booze
