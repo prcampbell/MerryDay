@@ -214,6 +214,15 @@ void main ( int choiceID, string whichpage )
 					*/
 					run_choice(5);
 					break;
+		case 1356:	/* Encounter: Smooth Sailing
+						choice 1: Have a snack
+						choice 2: Have a cocktail
+						choice 3: Do some birdwatching
+					
+					*/
+
+					run_choice(3);
+					break;	
 		case 1357:	/* High Tide, Low Morale
 					choice 2: Have a party
 					choice 3: Give everybody bonus wages
@@ -272,7 +281,8 @@ choice 2: Flee it!
 					*/
 
 					run_choice(2);
-					break;									
+					break;
+								
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
