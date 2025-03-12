@@ -1,7 +1,7 @@
 script md_library;
 
-int VIPClan = 84165;
-int TrampClan = 2046989819;
+int VIPClan = 90485; //Bonus Adventures From Hell
+int TrampClan = 2046989819; //Gypsies, Tramps and Thieves
 
 boolean use(int amt, skill skl) {
 	return(use_skill(amt, skl));
