@@ -81,13 +81,18 @@ void Aug15()
 
 void PYEC() 
 {
+	switchClan(TrampClan);
 	if ( !(to_boolean(get_property("expressCardUsed"))) && (take_stash(1 , $item[Platinum Yendorian Express Card])||item_amount($item[Platinum Yendorian Express Card]) > 0) ) 
   	{
 		LibramBurn(true);
 		use(1,$item[Platinum Yendorian Express Card]);
-		put_stash(1, $item[Platinum Yendorian Express Card]);
-		LibramBurn(false);
+		if(get_clan_id() == TrampClan)
+		{
+			put_stash(1, $item[Platinum Yendorian Express Card]);
+		}
+		LibramBurn(false);	
 	}
+	switchClan(VIPClan);
 }
 
 void ClanShower() 
