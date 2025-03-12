@@ -179,6 +179,15 @@ boolean giantcrab_run()
 
 void Sailing()
 {
+    while(get_property("lastEncounter") != "Land Ho!" 
+        && (get_property("_questPirateRealm") == "step1"
+            || get_property("_questPirateRealm") == "step2"
+            || get_property("_questPirateRealm") == "step3" 
+            || get_property("_questPirateRealm") == "step6"
+            || get_property("_questPirateRealm") == "step7"
+            || get_property("_questPirateRealm") == "step8"
+            || get_property("_questPirateRealm") == "step11"))
+            adv1($location[Sailing the PirateRealm Seas], -1, "");
     //_questPirateRealm changed from step5 to step6 <- happened after big crab
     while(get_property("lastEncounter") != "Land Ho!" && get_property("_pirateRealmIslandMonstersDefeated").to_int() == 0)
             adv1($location[Sailing the PirateRealm Seas], -1, "");

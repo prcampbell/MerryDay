@@ -214,6 +214,14 @@ void main ( int choiceID, string whichpage )
 					*/
 					run_choice(5);
 					break;
+		case 1354:	/* Encounter: Third Island's the Charm
+					choice 1: Signal Island
+					choice 2: Tiki Island
+					choice 3: Storm Island
+					choice 7: Decide Later
+					*/
+					run_choice(3);
+					break;
 		case 1356:	/* Encounter: Smooth Sailing
 						choice 1: Have a snack
 						choice 2: Have a cocktail
