@@ -163,24 +163,35 @@ void pirates_init()
 	}
 }
 
-void crabSail()
+boolean windy_crabs_run()
 {
-    if(get_property("_pirateRealmSailingTurns").to_int() == 0 
-        && (get_property("_lastPirateRealmIsland") == "") ) 
-    {
-        while(get_property("lastEncounter") != "Land Ho!" && get_property("_lastPirateRealmIsland") != "Trash Island")
-            adv1($location[Sailing the PirateRealm Seas], -1, "");
-    }
+    if(item_amount($item[windicle]) > 0
+        && get_property('_pirateRealmIslandMonstersDefeated').to_int() == 0
+        && get_property('_lastPirateRealmIsland') == 'Crab Island'
+        )
+        return adv1($location[PirateRealm Island], -1, "use windicle;");
+    return false;
 }
 
 boolean crabs_run()
 {
+    if(item_amount($item[windicle]) > 0 && get_property('_pirateRealmIslandMonstersDefeated').to_int() == 0)
+        adv1($location[PirateRealm Island], -1, "");
     return false;
 }
 
 boolean giantcrab_run()
 {
     return false;
+}
+
+boolean storm_run()
+{
+    set_auto_attack(0);
+    use_familiar($familiar[Trick-or-Treating Tot]);
+    maximize('item drop, equip');
+    while(get_property('_questPirateRealm') == 'step14')
+        adv1($location[PirateRealm Island], -1, "use shadow brick;");
 }
 
 void Sailing()
@@ -207,15 +218,9 @@ void Sailing()
             adv1($location[Sailing the PirateRealm Seas], -1, "");
 }
 
-void postTrashSailing()
-{
-    while(get_property("lastEncounter") != "Land Ho!" && get_property("_pirateRealmIslandMonstersDefeated").to_int() == 0)
-    adv1($location[Sailing the PirateRealm Seas], -1, "");
-}
-
 void main()
 {
     pirates_init();
     Sailing();
-    crabs_run();
+    windy_crabs_run();
 }

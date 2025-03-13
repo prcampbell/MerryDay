@@ -303,7 +303,14 @@ choice 2: Flee it!
 					*/
 
 					run_choice(1);
-					break;								
+					break;
+		case 1384:	/* Encounter: The Calm After the Storm
+					choice 1: Investigate the equipment
+					
+					*/
+
+					run_choice(1);
+					break;									
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
