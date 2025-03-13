@@ -33,6 +33,9 @@ void startDay()
 	if(get_property('choiceAdventureScript') != 'md_choice.ash')
 		set_property('choiceAdventureScript', 'md_choice.ash');
 
+	if(get_property('betweenBattleScript') != 'md_preadventure.ash')
+		set_property('betweenBattleScript', 'md_preadventure.ash');
+
 	if($item[raffle ticket].item_amount() < 11)
 	{
 		buyRaffle(11);

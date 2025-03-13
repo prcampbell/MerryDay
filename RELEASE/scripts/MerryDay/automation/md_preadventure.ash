@@ -1,3 +1,5 @@
+import md_iotm2022.ash;
+
 familiar ChooseFamiliar()
 {
     foreach f in $familiars[Jill-of-all-Trades, Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
@@ -20,22 +22,19 @@ familiar ChooseFamiliar()
 
 void main()
 {
-    use_familiar(ChooseFamiliar());
-    if(item_amount($item[autumn-aton]) > 0)
+    
+    if(item_amount($item[autumn-aton]) > 0 && autobotTurnsForQuest() < my_adventures())
     {
         cli_execute('fallguy send Shadow Rift');
     }
 
 
+
+    /*
+    use_familiar(ChooseFamiliar());
     equip($slot[weapon], $item[june cleaver]);
     equip($slot[off-hand], $item[deft pirate hook]);
-
-
-
-
     equip($slot[hat], $item[hardened slime hat]);
-
-
     if(get_property('_batWingsFreeFights').to_int() < 5)
         equip($slot[back], $item[bat wings]);
     else
@@ -65,7 +64,8 @@ void main()
     equip($slot[acc2], $item[retrospecs]);
     equip($slot[acc3], $item[lucky gold ring]);   
 
-cli_execute('autoattack BasicAscend');
+    cli_execute('autoattack BasicAscend');
+    */
 }
 
 
