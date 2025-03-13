@@ -175,8 +175,13 @@ boolean windy_crabs_run()
 
 boolean crabs_run()
 {
-    if(item_amount($item[windicle]) > 0 && get_property('_pirateRealmIslandMonstersDefeated').to_int() == 0)
+    while(get_property("_questPirateRealm") == "step4"
+            || get_property("_questPirateRealm") == "step5")
+    {
+        keepStatsLow();
         adv1($location[PirateRealm Island], -1, "");
+    }
+        
     return false;
 }
 
@@ -191,7 +196,12 @@ boolean storm_run()
     use_familiar($familiar[Trick-or-Treating Tot]);
     maximize('item drop, equip');
     while(get_property('_questPirateRealm') == 'step14')
+    {
+        keepStatsLow();
         adv1($location[PirateRealm Island], -1, "use shadow brick;");
+    }
+    keepStatsLow();
+    adv1($location[PirateRealm Island], -1, "");
 }
 
 void Sailing()
