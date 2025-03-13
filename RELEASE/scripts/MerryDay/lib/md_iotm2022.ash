@@ -1,6 +1,6 @@
 string[int] autobotCurrentUpgrades()
 {
-    return split_string(get_property('autumnatonUpgrades', ','));
+    return split_string(get_property('autumnatonUpgrades'), ',');
 }
 
 int autobotTurnsLeft()
@@ -25,6 +25,6 @@ int autobotLegs()
 
 int autobotTurnsForQuest()
 {
-    return 11 * max(1, get("_autumnatonQuests") - autobotLegs());
+    return 11 * max(1, get_property("_autumnatonQuests") - autobotLegs());
 }
 
