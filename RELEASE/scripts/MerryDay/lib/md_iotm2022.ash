@@ -25,6 +25,6 @@ int autobotLegs()
 
 int autobotTurnsForQuest()
 {
-    return 11 * max(1, get_property("_autumnatonQuests") - autobotLegs());
+    return 11 * max(1, get_property("_autumnatonQuests").to_int() - autobotLegs());
 }
 
