@@ -145,8 +145,14 @@ void pirates_init()
         
 		
         equip($slot[hat], $item[piraterealm party hat]);
+        equip($slot[shirt], $item[none]);
+        equip($slot[back], $item[none]);
+        equip($slot[off-hand], $item[none]);
+        equip($slot[weapon], $item[none]);
+        equip($slot[pants], $item[none]);
         equip($slot[acc1], $item[PirateRealm eyepatch]);
         equip($slot[acc2], $item[Red Roger's red right foot]);
+        equip($slot[acc3], $item[none]);
         keepStatsLow();
         visit_url("place.php?whichplace=realm_pirate&action=pr_port");
 		run_choice(1);
@@ -179,6 +185,15 @@ boolean giantcrab_run()
 
 void Sailing()
 {
+    equip($slot[hat], $item[piraterealm party hat]);
+    equip($slot[shirt], $item[none]);
+    equip($slot[back], $item[none]);
+    equip($slot[off-hand], $item[none]);
+    equip($slot[weapon], $item[none]);
+    equip($slot[pants], $item[none]);
+    equip($slot[acc1], $item[PirateRealm eyepatch]);
+    equip($slot[acc2], $item[Red Roger's red right foot]);
+    equip($slot[acc3], $item[none]);
     while(get_property("lastEncounter") != "Land Ho!" 
         && (get_property("_questPirateRealm") == "step1"
             || get_property("_questPirateRealm") == "step2"
@@ -186,10 +201,9 @@ void Sailing()
             || get_property("_questPirateRealm") == "step6"
             || get_property("_questPirateRealm") == "step7"
             || get_property("_questPirateRealm") == "step8"
-            || get_property("_questPirateRealm") == "step11"))
-            adv1($location[Sailing the PirateRealm Seas], -1, "");
-    //_questPirateRealm changed from step5 to step6 <- happened after big crab
-    while(get_property("lastEncounter") != "Land Ho!" && get_property("_pirateRealmIslandMonstersDefeated").to_int() == 0)
+            || get_property("_questPirateRealm") == "step11"
+            || get_property("_questPirateRealm") == "step12"
+            || get_property("_questPirateRealm") == "step13"))
             adv1($location[Sailing the PirateRealm Seas], -1, "");
 }
 
