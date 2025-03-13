@@ -296,7 +296,14 @@ choice 2: Flee it!
 
 					run_choice(2);
 					break;
-								
+		case 1368:	/* Encounter: All-You-Can-Fight Crab
+					Unsupported choice adventure #1368
+					choice 1: Fight the giant giant crab
+					
+					*/
+
+					run_choice(1);
+					break;								
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
