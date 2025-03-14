@@ -200,7 +200,7 @@ boolean storm_run()
 {
     set_auto_attack(0);
     use_familiar($familiar[Trick-or-Treating Tot]);
-    maximize('item drop, equip piraterealm eyepatch, -equp broken champagne', false);
+    maximize('item drop, equip piraterealm eyepatch, -equip broken champagne', false);
     while(get_property('_questPirateRealm') == 'step14')
     {
         keepStatsLow();
