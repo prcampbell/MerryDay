@@ -675,7 +675,7 @@ void bullseye()
 		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
-		
+
 		if(hasDinseyQuest())
 		{
 			SaveSetup();
@@ -718,6 +718,15 @@ void bullseye()
 			}
 					
 		}
+		else if(my_location().wanderers)
+		{
+			(!adv1(my_location(), -1, "skill Darts: Aim for the Bullseye;"));
+		}
+		else
+		{
+			(!adv1($location[The Haunted Kitchen], -1, "skill Darts: Aim for the Bullseye;"));
+		}
+
 	}
 }
 
