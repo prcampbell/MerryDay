@@ -676,17 +676,26 @@ void bullseye()
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
 
-		if(hasDinseyQuest())
+		SaveSetup();
+		cli_execute('autoattack 0');
+		cli_execute("/outfit Free Drops");
+		equip($slot[acc2],$item[Everfull Dart Holster]); 
+		if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 		{
-			SaveSetup();
-			cli_execute('autoattack 0');
-			cli_execute("/outfit Free Drops");
-			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-			{
-				equip($slot[back],$item[protonic accelerator pack]);
-			}
+			equip($slot[back],$item[protonic accelerator pack]);
+		}
+		use_familiar(chooseFamiliar());
 
-			equip($slot[acc2],$item[Everfull Dart Holster]); 
+		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
+		{
+			(!adv1(doctorLocation, -1, "skill Darts: Aim for the Bullseye;"));
+		}
+		else if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
+		{
+			(!adv1(guzzlrLocation, -1, "skill Darts: Aim for the Bullseye;"));
+		}
+		else if(hasDinseyQuest())
+		{
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
 				(!adv1($location[Pirates of the Garbage Barges], -1, 'skill Darts: Aim for the Bullseye;'));
 			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
@@ -706,15 +715,6 @@ void bullseye()
 				
 				run_choice( 3 );
 				run_choice( 6 );
-
-				if(my_location().wanderers)
-				{
-					(!adv1(my_location(), -1, "skill Darts: Aim for the Bullseye;"));
-				}
-				else
-				{
-					(!adv1($location[The Haunted Kitchen], -1, "skill Darts: Aim for the Bullseye;"));
-				}
 			}
 					
 		}
