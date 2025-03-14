@@ -668,6 +668,59 @@ void purple()
 	}
 }
 
+void bullseye()
+{
+	if(have_effect($effect[everything looks red]) == 0)
+	{
+		cli_execute('autoattack 0');
+
+		if(hasDinseyQuest())
+		{
+			SaveSetup();
+			cli_execute("/outfit Free Drops");
+			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
+			{
+				equip($slot[back],$item[protonic accelerator pack]);
+			}
+
+			equip($slot[acc2],$item[Everfull Dart Holster]); 
+			if(parseDinseyQuest() == 'Social Justice Adventurer I')
+				(!adv1($location[Pirates of the Garbage Barges], -1, 'skill Darts: Aim for the Bullseye;'));
+			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
+				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice], -1, 'skill Darts: Aim for the Bullseye;')); //'
+			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
+			{
+				equip($item[Dinsey mascot mask]);
+				(!adv1($location[The Toxic Teacups], -1, 'skill Darts: Aim for the Bullseye;'));
+			}
+			else
+			{
+				(!adv1($location[The Toxic Teacups], -1, 'skill Darts: Aim for the Bullseye;'));
+			}
+			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+			{
+				visit_url(kiosk);
+				
+				run_choice( 3 );
+				run_choice( 6 );
+
+				if(my_location().wanderers)
+				{
+					(!adv1(my_location(), -1, "skill Darts: Aim for the Bullseye;"));
+				}
+				else
+				{
+					(!adv1($location[The Haunted Kitchen], -1, "skill Darts: Aim for the Bullseye;"));
+				}
+			}
+					
+		}
+
+		
+		
+	}
+}
+
 void main() {
 
 	try {
@@ -681,6 +734,7 @@ void main() {
 			bustGhost(); //Basically Bales function, but with though with similar outfit switching
 			tatters();
 			purple();
+			bullseye();
 		}
 	} 
 	finally { 
