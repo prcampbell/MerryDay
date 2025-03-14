@@ -304,6 +304,14 @@ choice 2: Flee it!
 
 					run_choice(1);
 					break;
+		case 1376:	/* 	Encounter: Your Empire of Dirt
+					Unsupported choice adventure #1376
+					choice 1: Dig through the refuse
+					*/
+
+					run_choice(1);
+					break;
+
 		case 1384:	/* Encounter: The Calm After the Storm
 					choice 1: Investigate the equipment
 					
