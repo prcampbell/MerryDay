@@ -56,6 +56,14 @@ void startDay()
 		visit_url("place.php?whichplace=sea_oldman&action=oldman_oldman",false);
 
 	switchClan(VIPClan);
+	
+	if(!get_property('_milkOfMagnesiumUsed').to_boolean() &&
+		!get_property('_spaghettiBreakfastEaten').to_boolean()
+		&& item_amount($item[spaghetti breakfast]) > 1)
+	{
+		use(1, $item[milk of magnesium]);
+		eat(1, $item[spaghetti breakfast]);
+	}
 	if(!get_property('breakfastCompleted').to_boolean())
 	{
 		cli_execute("breakfast");
