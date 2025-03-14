@@ -27,7 +27,10 @@ void main()
     {
         cli_execute('fallguy send Shadow Rift');
     }
-
+    if(have_effect($effect[beaten up]) > 0)
+    {
+        use_skill(1, $skill[tongue of the walrus]);
+    }
 
 
     /*
