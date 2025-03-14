@@ -123,7 +123,7 @@ void Sandworm()
  
 	if ( !(get_property("garbageChampagneCharge") > 0
 			&& ( 
-                has_effect($effect[Steely-eyed squint]) 
+                have_effect($effect[Steely-eyed squint]) > 0
                 || !get_property("_steelyEyedSquintUsed").to_boolean() && have_skill($skill[Steely-eyed Squint]) 
                 )
             )
