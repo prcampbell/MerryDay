@@ -672,6 +672,9 @@ void bullseye()
 {
 	if(have_effect($effect[everything looks red]) == 0)
 	{
+		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
+		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
+		location ghostLocation = to_location(get_property("ghostLocation"));
 		
 		if(hasDinseyQuest())
 		{
