@@ -318,7 +318,34 @@ choice 2: Flee it!
 					*/
 
 					run_choice(1);
-					break;									
+					break;	
+
+/*June Cleaver Encounters*/
+		case 1469:	/* Encounter: Delicious Sprouts
+					Encounter: Beware of Aligator
+choice 1: Come clean to Dad and let him take it to the zoo. (get Yapping Pal)
+choice 2: Claim the housekeeper is drunk. (Dad's brandy)
+choice 3: Ignore the situation and charge your friends admission to see the alligator. (1500 meat)
+					
+					*/
+					if(get_property('_juneCleaverSkips').to_int() < 5)
+						run_choice(4);
+					else
+						run_choice(3);
+					break;	
+		case 1474:	/* Encounter: Delicious Sprouts
+					Choice option 1474/4 is not available.
+					choice 1: Just eat 'em. (Mysticality substats)
+					choice 2: Hide them in your napkin. (guilty sprout)
+					choice 3: Go to your room. (Muscle substats)		
+					
+					*/
+					if(get_property('_juneCleaverSkips').to_int() < 5)
+						run_choice(4);
+					else
+						run_choice(2);
+					break;	
+											
 		case -1:	/* <choice adventure name>
 					1: 
 					2: */
