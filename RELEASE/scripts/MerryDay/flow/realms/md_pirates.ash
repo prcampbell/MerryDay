@@ -225,7 +225,11 @@ void Sailing()
             || get_property("_questPirateRealm") == "step11"
             || get_property("_questPirateRealm") == "step12"
             || get_property("_questPirateRealm") == "step13"))
-            adv1($location[Sailing the PirateRealm Seas], -1, "");
+    {
+        keepStatsLow();
+        adv1($location[Sailing the PirateRealm Seas], -1, "");
+    }
+            
 }
 
 void main()
