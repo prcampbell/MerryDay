@@ -178,7 +178,7 @@ boolean crabs_run()
 {
     set_auto_attack('BackupMeat');
     use_familiar($familiar[Trick-or-Treating Tot]);
-    maximize('meat drop, equip piraterealm eyepatch');
+    maximize('meat drop, equip piraterealm eyepatch', false);
     while(get_property("_questPirateRealm") == "step4"
             || get_property("_questPirateRealm") == "step5")
     {
@@ -198,7 +198,7 @@ boolean storm_run()
 {
     set_auto_attack(0);
     use_familiar($familiar[Trick-or-Treating Tot]);
-    maximize('item drop, equip piraterealm eyepatch, -equp broken champagne');
+    maximize('item drop, equip piraterealm eyepatch, -equp broken champagne', false);
     while(get_property('_questPirateRealm') == 'step14')
     {
         keepStatsLow();
