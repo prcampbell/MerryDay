@@ -180,7 +180,9 @@ boolean crabs_run()
     use_familiar($familiar[Trick-or-Treating Tot]);
     maximize('meat drop, equip piraterealm eyepatch', false);
     while(get_property("_questPirateRealm") == "step4"
-            || get_property("_questPirateRealm") == "step5")
+            || get_property("_questPirateRealm") == "step5"
+            || get_property("_questPirateRealm") == "step9"
+            || get_property("_questPirateRealm") == "step10")
     {
         keepStatsLow();
         adv1($location[PirateRealm Island], -1, "");
