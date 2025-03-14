@@ -672,11 +672,11 @@ void bullseye()
 {
 	if(have_effect($effect[everything looks red]) == 0)
 	{
-		cli_execute('autoattack 0');
-
+		
 		if(hasDinseyQuest())
 		{
 			SaveSetup();
+			cli_execute('autoattack 0');
 			cli_execute("/outfit Free Drops");
 			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 			{
@@ -715,9 +715,6 @@ void bullseye()
 			}
 					
 		}
-
-		
-		
 	}
 }
 
