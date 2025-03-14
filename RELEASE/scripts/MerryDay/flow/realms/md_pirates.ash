@@ -165,6 +165,7 @@ void pirates_init()
 
 boolean windy_crabs_run()
 {
+    set_auto_attack(0);
     if(item_amount($item[windicle]) > 0
         && get_property('_pirateRealmIslandMonstersDefeated').to_int() == 0
         && get_property('_lastPirateRealmIsland') == 'Crab Island'
@@ -175,6 +176,9 @@ boolean windy_crabs_run()
 
 boolean crabs_run()
 {
+    set_auto_attack('BackupMeat');
+    use_familiar($familiar[Trick-or-Treating Tot]);
+    maximize('meat drop, equip piraterealm eyepatch');
     while(get_property("_questPirateRealm") == "step4"
             || get_property("_questPirateRealm") == "step5")
     {
@@ -194,7 +198,7 @@ boolean storm_run()
 {
     set_auto_attack(0);
     use_familiar($familiar[Trick-or-Treating Tot]);
-    maximize('item drop, equip');
+    maximize('item drop, equip piraterealm eyepatch, -equp broken champagne');
     while(get_property('_questPirateRealm') == 'step14')
     {
         keepStatsLow();
