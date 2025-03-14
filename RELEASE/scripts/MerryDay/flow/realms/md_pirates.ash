@@ -205,7 +205,7 @@ boolean storm_run()
         adv1($location[PirateRealm Island], -1, "use shadow brick;");
     }
     keepStatsLow();
-    adv1($location[PirateRealm Island], -1, "");
+    return adv1($location[PirateRealm Island], -1, "");
 }
 
 void Sailing()
