@@ -19,9 +19,9 @@ void startDay()
 		set_property('choiceAdventure1065', '6');
 	}
 
-	if(get_property('garbo_stashClan') != 2046989819)
+	if(get_property('garbo_stashClan').to_int() != TrampClan)
 	{
-		set_property('garbo_stashClan', '2046989819');
+		set_property('garbo_stashClan', TrampClan.to_string());
 	}
 
 	if(get_property('puzzleChampBonus') != 20)
