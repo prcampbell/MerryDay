@@ -28,11 +28,11 @@ void BuffItems()
 
 void Bullseye()
 {
+	set_location($location[Friar Ceremony Location]);
+	use_familiar($familiar[Trick-or-Treating Tot]);
+	maximize("item drop, -equip lucky sock,equip everfull dart holster",false);
 	while(have_effect($effect[everything looks red]) == 0)
 	{
-		set_location($location[Friar Ceremony Location]);
-        use_familiar($familiar[Trick-or-Treating Tot]);
-		maximize("item drop, -equip lucky sock,equip everfull dart holster",false);
 		use( 1, $item[drum machine] );
 		if ( get_property("garbageChampagneCharge")==0 && !get_property("_garbageItemChanged").to_boolean() ) {
 			cli_execute("fold wad of used tape");
@@ -43,13 +43,13 @@ void Bullseye()
 
 void ChestXRay() 
 {
+	boolean [item] RequiredItems;
+	RequiredItems[$item[Lil' Doctor&trade; bag]] = true; //'
+	set_location($location[Friar Ceremony Location]);
+	use_familiar($familiar[Trick-or-Treating Tot]);
+	maximize("item drop, -equip lucky sock,equip Lil' Doctor&trade; bag",false);
 	while ( get_property("_chestXRayUsed") < 3 && (get_property("garbageChampagneCharge")>0) )
      {
-		boolean [item] RequiredItems;
-		RequiredItems[$item[Lil' Doctor&trade; bag]] = true; //'
-		set_location($location[Friar Ceremony Location]);
-        use_familiar($familiar[Trick-or-Treating Tot]);
-		maximize("item drop, -equip lucky sock,equip Lil' Doctor&trade; bag",false);
 		use( 1, $item[drum machine] );
 		if ( get_property("garbageChampagneCharge")==0 && !get_property("_garbageItemChanged").to_boolean() ) {
 			cli_execute("fold wad of used tape");
@@ -61,14 +61,12 @@ void ChestXRay()
 
 void OtherFreeFreeKills() 
 {
+	set_location($location[Friar Ceremony Location]);
+	use_familiar($familiar[Trick-or-Treating Tot]);
+	maximize("item drop, -equip lucky sock",false);
 	while ( get_property("_usedReplicaBatoomerang") < 3 && (get_property("garbageChampagneCharge") > 0) ) 
 	{	
         // other free kills are higher in combat order, so they'll be used before the boomerang: lightning strike, shattering punch, mob hit, asdon martin missile
-
-		set_location($location[Friar Ceremony Location]);
-		use_familiar($familiar[Trick-or-Treating Tot]);
-		maximize("item drop, -equip lucky sock",false);
-
 		use( 1, $item[drum machine] );
 
         if ( get_property("garbageChampagneCharge").to_int() == 0 && !get_property("_garbageItemChanged").to_boolean() ) {
