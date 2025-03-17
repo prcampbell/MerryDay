@@ -321,11 +321,23 @@ choice 2: Flee it!
 					break;	
 
 /*June Cleaver Encounters*/
+		case 1468:	/* Encounter: Aunts not Ants
+					Manual control requested for choice #1468
+					choice 1: Act rudely so they leave! (Moxie substats)
+					choice 2: Be on your best behavior so you can go later. (Muscle substats)
+					choice 3: Sneak out the back door. (get Ashamed)
+					choice 4: Snap out of it! (Do nothing)
+					*/
+					if(get_property('_juneCleaverSkips').to_int() < 5)
+						run_choice(4);
+					else
+						run_choice(2);
+					break;		
 		case 1469:	/* Encounter: Delicious Sprouts
 					Encounter: Beware of Aligator
-choice 1: Come clean to Dad and let him take it to the zoo. (get Yapping Pal)
-choice 2: Claim the housekeeper is drunk. (Dad's brandy)
-choice 3: Ignore the situation and charge your friends admission to see the alligator. (1500 meat)
+					choice 1: Come clean to Dad and let him take it to the zoo. (get Yapping Pal)
+					choice 2: Claim the housekeeper is drunk. (Dad's brandy)
+					choice 3: Ignore the situation and charge your friends admission to see the alligator. (1500 meat)
 					
 					*/
 					if(get_property('_juneCleaverSkips').to_int() < 5)
@@ -344,7 +356,8 @@ choice 3: Ignore the situation and charge your friends admission to see the alli
 						run_choice(4);
 					else
 						run_choice(2);
-					break;	
+					break;
+
 											
 		case -1:	/* <choice adventure name>
 					1: 
