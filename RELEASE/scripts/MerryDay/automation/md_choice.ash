@@ -321,6 +321,14 @@ choice 2: Flee it!
 					break;	
 
 /*June Cleaver Encounters*/
+		case 1467:	/* Encounter: Poetic Justice
+					choice 1: Hand in the poem your brother wrote (Moxie substats)
+					choice 2: Admit that you didn't write anything (Mysticality substats)
+					choice 3: Fake an injury on the playground (Gain 5 adventures, get beaten up)
+					choice 4: Snap out of it! (Do nothing)
+					*/
+					run_choice(3);
+					break;	
 		case 1468:	/* Encounter: Aunts not Ants
 					Manual control requested for choice #1468
 					choice 1: Act rudely so they leave! (Moxie substats)
