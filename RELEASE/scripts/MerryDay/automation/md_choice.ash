@@ -364,6 +364,19 @@ choice 2: Flee it!
 					else
 						run_choice(2);
 					break;
+		case 1470:	/* Encounter: Lost and Found
+					choice 1: Cash in that savings bond from your Aunt! (savings bond)
+					choice 2: Challenge Lumpy's accusation. (Muscle substats, 250 meat, get beaten up)
+					choice 3: Tell Father what happened. (Mysticality substats)
+					choice 4: Snap out of it! (Do nothing)				
+					*/
+					if(get_property('_juneCleaverSkips').to_int() < 5)
+						run_choice(4);
+					else
+						run_choice(1);
+					break;
+
+
 		case 1472:	/* Encounter: Summer Days
 					choice 1: Sneak away and watch the movie at the nearby drive-in. (trampled ticket stub)
 					choice 2: Suck it up and go fishing. (fire-roasted lake trout)

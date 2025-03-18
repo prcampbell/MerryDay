@@ -43,5 +43,108 @@ void main()
 }
 
 
+if hasskill 7108 #fire a badly romantic arrow
+    skill 7108
+endif
+
+
+if monstername crate
+if hasskill transcendent olfaction
+skill transcendent olfaction
+endif
+ if hasskill 7326 # Switch Enemy
+  skill 7326
+ endif
+endif
+
+if monstername crate
+
+ if hasskill macrometeor
+  skill macrometeor
+ endif
+endif
+
+
+
+if monstername crate
+ if hasskill 7381 # Back-up To your Last Enemy
+  skill 7381
+ endif
+endif
+
+if !monstername tumbleweed
+if monstername cockroach
+
+    if hasskill 7526 #Purple Candle
+    skill 7526
+    endif
+if hascombatitem spooky putty sheet && hascombatitem rain-doh black box
+        use spooky putty sheet, rain-doh black box
+    endif
+
+    if hascombatitem 4-d camera || hascombatitem unfinished ice sculpture
+        if hascombatitem print screen button
+            use print screen button
+        endif
+        if hascombatitem 4-d camera && !hascombatitem unfinished ice sculpture
+            use 4-d camera
+        endif
+        if !hascombatitem 4-d camera && hascombatitem unfinished ice sculpture
+            use unfinished ice sculpture
+        endif
+        if hascombatitem 4-d camera && hascombatitem unfinished ice sculpture
+            use 4-d camera, unfinished ice sculpture
+        endif
+        if hascombatitem alpine watercolor set
+            use alpine watercolor set
+        endif
+    endif
+if hasskill 7526 #Purple Candle
+skill 7526
+endif
+if match CTRL+V && hasskill digitize
+skill digitize
+endif
+    if hasskill 7485 #habitat
+        skill 7485
+    endif
+endif
+if hasskill Micrometeorite
+    skill Micrometeorite
+endif
+if hasskill sing along
+    skill sing along
+endif
+if hasskill summon hobo underling
+    skill summon hobo underling
+endif
+if hasskill Ask the hobo to tell you a joke
+    skill Ask the hobo to tell you a joke
+endif
+
+if hasskill become a wolf
+    skill become a wolf
+endif
+if hasskill Bowl Straight Up
+    skill Bowl Straight Up
+endif
+
+if hascombatitem time-spinner
+    use time-spinner
+endif
+if hascombatitem rain-doh indigo cup
+    use rain-doh indigo cup
+endif
+if hasskill pocket crumbs
+    skill pocket crumbs
+endif
+if hasskill furious wallop
+    skill furious wallop
+endif
+while !hppercentbelow 25 && !pastround 27
+    attack
+endwhile
+endif
+
 
 
