@@ -18,6 +18,7 @@ import ff_drunks;
 import ff_rifts;
 import ff_shadowbricks;
 import ff_speakeasy;
+import ff_sandworm.ash;
 
 
 
@@ -40,6 +41,7 @@ void main()
 
   startDay();
   print('Day Started', 'green');
+
   dailyEffects();
   dailyItems();
 
@@ -199,7 +201,10 @@ void main()
     while(fungi_bander_can())
         fungi_bander_run();   
   }
-      
+  if(sandworm_can())
+	{
+		Sandworm();
+	}    
 
 
   

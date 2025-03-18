@@ -133,7 +133,16 @@ void Sandworm()
 	OtherFreeFreeKills();
 }
 
+boolean sandworm_can()
+{
+	return get_property("garbageChampagneCharge") > 0;
+}
+
 void main()
 {
-	Sandworm();
+	if(sandworm_can())
+	{
+		Sandworm();
+	}
+		
 }
