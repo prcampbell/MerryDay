@@ -387,7 +387,18 @@ choice 2: Flee it!
 						run_choice(4);
 					else
 						run_choice(1);
-					break;				
+					break;
+		case 1473:	/* Encounter: Bath Time
+
+					choice 1: Use Mother's hair dryer and towels to dry things up. (Muscle substats, gob of wet hair)
+					choice 2: Confess to Mother and Father. (get Wholesomely Resolved)
+					choice 3: Pretend you don't notice. (get Kinda Damp)
+					choice 4: Snap out of it! (Do nothing)*/
+					if(get_property('_juneCleaverSkips').to_int() < 5)
+						run_choice(4);
+					else
+						run_choice(1);
+					break;					
 
 		case 1474:	/* Encounter: Delicious Sprouts
 					Choice option 1474/4 is not available.
