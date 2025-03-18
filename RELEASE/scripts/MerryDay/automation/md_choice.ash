@@ -352,7 +352,19 @@ choice 2: Flee it!
 						run_choice(4);
 					else
 						run_choice(3);
-					break;	
+					break;
+		case 1470:	/* Encounter: Teacher's Pet
+					choice 1: Ignore the situation. (30 turns of Teacher's Pet)
+					choice 2: Confess your love to Miss Teacher! (teacher's pen)
+					choice 3: Prank the teacher and get your friends off your case. (Muscle substats)
+					choice 4: Snap out of it! (Do nothing)					
+					*/
+					if(get_property('_juneCleaverSkips').to_int() < 5)
+						run_choice(4);
+					else
+						run_choice(2);
+					break;				
+
 		case 1474:	/* Encounter: Delicious Sprouts
 					Choice option 1474/4 is not available.
 					choice 1: Just eat 'em. (Mysticality substats)
