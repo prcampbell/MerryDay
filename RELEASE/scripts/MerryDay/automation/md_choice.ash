@@ -363,6 +363,17 @@ choice 2: Flee it!
 						run_choice(4);
 					else
 						run_choice(2);
+					break;
+		case 1472:	/* Encounter: Summer Days
+					choice 1: Sneak away and watch the movie at the nearby drive-in. (trampled ticket stub)
+					choice 2: Suck it up and go fishing. (fire-roasted lake trout)
+					choice 3: Make a cool fort on the small island in the lake. (Moxie substats)
+					choice 4: Snap out of it! (Do nothing)				
+					*/
+					if(get_property('_juneCleaverSkips').to_int() < 5)
+						run_choice(4);
+					else
+						run_choice(1);
 					break;				
 
 		case 1474:	/* Encounter: Delicious Sprouts
