@@ -364,7 +364,7 @@ choice 2: Flee it!
 					else
 						run_choice(2);
 					break;
-		case 1470:	/* Encounter: Lost and Found
+		case 1471:	/* Encounter: Lost and Found
 					choice 1: Cash in that savings bond from your Aunt! (savings bond)
 					choice 2: Challenge Lumpy's accusation. (Muscle substats, 250 meat, get beaten up)
 					choice 3: Tell Father what happened. (Mysticality substats)
