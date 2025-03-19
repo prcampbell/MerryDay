@@ -135,6 +135,11 @@ void Sandworm()
 
 boolean sandworm_can()
 {
+	if ( get_property("garbageChampagneCharge")==0 && !get_property("_garbageItemChanged").to_boolean() ) 
+    {
+        cli_execute("fold wad of used tape");
+        cli_execute("fold broken champagne bottle");
+    }
 	return get_property("garbageChampagneCharge") > 0;
 }
 
