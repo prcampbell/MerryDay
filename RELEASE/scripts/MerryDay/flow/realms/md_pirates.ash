@@ -174,7 +174,7 @@ boolean crabs_run()
 {
     set_auto_attack('BackupMeat');
     use_familiar($familiar[Trick-or-Treating Tot]);
-    maximize('meat drop, equip piraterealm eyepatch, equip latte lovers member''s mug, -equip backup camera', false);
+    maximize('meat drop, equip piraterealm eyepatch, equip latte lovers member mug, -equip backup camera', false);
     while(get_property("_questPirateRealm") == "step4"
             || get_property("_questPirateRealm") == "step5"
             || get_property("_questPirateRealm") == "step9"
