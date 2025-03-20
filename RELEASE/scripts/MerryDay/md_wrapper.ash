@@ -19,6 +19,7 @@ import ff_rifts;
 import ff_shadowbricks;
 import ff_speakeasy;
 import ff_sandworm.ash;
+import md_pirates.ash;
 
 
 
@@ -50,6 +51,9 @@ void main()
     cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
   }
   unlockLatte();
+  pirates_init();
+  Sailing();
+  windy_crabs_run();
 
   if(
     !to_boolean(get_property("expressCardUsed"))
@@ -212,6 +216,9 @@ void main()
     embezzlers_run();
 
   cli_execute('combo');
+
+  crabs_run();
+  Sailing();
 
 /*
 

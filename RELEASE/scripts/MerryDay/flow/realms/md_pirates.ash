@@ -191,11 +191,6 @@ boolean crabs_run()
     return false;
 }
 
-boolean giantcrab_run()
-{
-    return false;
-}
-
 boolean storm_run()
 {
     set_auto_attack(0);

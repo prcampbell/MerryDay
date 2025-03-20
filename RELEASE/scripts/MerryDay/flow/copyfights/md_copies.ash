@@ -30,11 +30,13 @@ boolean angel_run()
 {
     use_familiar($familiar[obtuse angel]);
     maximize('meat drop, equip quake of arrows',false);
-    set_auto_attack('CopyCrates');
+    set_auto_attack('BackupMeat');
     visit_url('place.php?whichplace=chateau&action=chateau_painting');
     use_familiar($familiar[jill-of-all-trades]);
-    maximize('meat drop, equip backup camera',false);
+    maximize('meat drop, equip backup camera, equip Roman Candelabra',false);
     adv1($location[noob cave], -1, '');
+    use_familiar($familiar[jill-of-all-trades]);
+    maximize('meat drop, equip powerful glove, equip latte lover',false);
 }
 
 void main()
