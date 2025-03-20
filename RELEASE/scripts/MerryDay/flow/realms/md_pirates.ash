@@ -45,10 +45,6 @@ boolean check_effect(effect e) {
     return have_effect(e) > 0;
 }
 
-boolean have(item i) {
-    return item_amount(i) > 0;
-}
-
 void keepStatsLow() 
 {
   // Loop through each stat
