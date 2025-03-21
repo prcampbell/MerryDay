@@ -28,6 +28,7 @@ int copyCount()
 
 boolean angel_run()
 {
+    cli_execute('closet take 1 spooky putty sheet');
     use_familiar($familiar[obtuse angel]);
     maximize('meat drop, equip quake of arrows',false);
     set_auto_attack('BackupMeat');

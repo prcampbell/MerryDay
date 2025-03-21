@@ -5,6 +5,16 @@ void main ( int choiceID, string whichpage )
 {
 	switch (choiceID) 
     {
+
+
+		case 886: /*Encounter: Chasin' Babies
+					Unsupported choice adventure #886
+					choice 1: Try the poppet
+					choice 2: Try the rocking horse
+					choice 3: Try the jack-in-the-box
+					choice 6: Do nothing*/
+				run_choice(6);			
+			return;
 		case 1116: /* All They Got Inside is Vacancy (and Ice)
 					3: Look for some <> (fill bucket by 10-15%)
 					4: Raid the bar (acquire cocktailcrafting supplies)
