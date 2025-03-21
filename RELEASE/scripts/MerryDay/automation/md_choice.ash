@@ -413,7 +413,7 @@ choice 2: Flee it!
 						run_choice(2);
 					break;
 
-		case 1474:	/* Encounter: Break Time!
+		case 919:	/* Encounter: Break Time!
 					choice 1: Plunder the cash register (get Beach Bucks)
 					choice 2: Turn up the freezer (+15ML on Sundaes)
 					choice 3: Turn up the stoves (+15ML on Burgers)
