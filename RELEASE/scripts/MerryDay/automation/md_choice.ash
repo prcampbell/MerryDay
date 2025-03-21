@@ -413,6 +413,16 @@ choice 2: Flee it!
 						run_choice(2);
 					break;
 
+		case 1474:	/* Encounter: Break Time!
+					choice 1: Plunder the cash register (get Beach Bucks)
+					choice 2: Turn up the freezer (+15ML on Sundaes)
+					choice 3: Turn up the stoves (+15ML on Burgers)
+					choice 4: Turn up the booze hose pressure (+15ML on Cocktails)
+					choice 5: Cut the power (reset ML on monsters)
+					choice 6: Cut and run (leave without using a turn)		
+					
+					*/
+					run_choice(6);
 											
 		case -1:	/* <choice adventure name>
 					1: 
