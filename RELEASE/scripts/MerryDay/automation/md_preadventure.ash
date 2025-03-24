@@ -60,7 +60,7 @@ void main()
         else
             if(my_familiar() == $familiar[jill-of-all-trades]
                 || my_familiar() == $familiar[hobo monkey]
-                || (my_familiar() == $familiar[comma chameleon] && get_property('commaFamiliar') == 'Robortender'
+                || (my_familiar() == $familiar[comma chameleon] && get_property('commaFamiliar') == 'Robortender')
                 )
                 equip($slot[pants], $item[repaid diaper]);
             else
