@@ -19,7 +19,7 @@ familiar ChooseFamiliar()
 			if ( have_familiar(f) && f.drops_today < 5 )
 				return f;
     */
-    return $familiar[rjill-of-all-trades];
+    return $familiar[jill-of-all-trades];
 }
 
 void main()
@@ -63,7 +63,7 @@ void main()
             else
                 equip($slot[pants], $item[Pantsgiving]);
 
-        equip($slot[acc1], $item[mafia pointer ring]);
+        equip($slot[acc1], $item[mafia pointer finger ring]);
         equip($slot[acc2], $item[retrospecs]);
         equip($slot[acc3], $item[lucky gold ring]); 
     }
