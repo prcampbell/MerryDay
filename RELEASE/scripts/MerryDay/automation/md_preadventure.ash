@@ -11,13 +11,15 @@ familiar ChooseFamiliar()
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 3 )
 				return f;
+    /*
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 4 )
 				return f;
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 5 )
 				return f;
-    return $familiar[reagnimated gnome];
+    */
+    return $familiar[rjill-of-all-trades];
 }
 
 void main()
@@ -31,8 +33,40 @@ void main()
     {
         use_skill(1, $skill[tongue of the walrus]);
     }
+    if(my_hp() < my_maxhp())
+    {
+        restore_hp(my_maxhp());
+    }
+    if(my_mp() < 200)
+    {
+        restore_mp(200);
+    }
 
+    if(my_location() == $location[Barf Mountain])
+    {
+        use_familiar(ChooseFamiliar());
 
+        if(get_property('_batWingsFreeFights').to_int() < 5)
+            equip($slot[back], $item[bat wings]);
+        else
+            equip($slot[back], $item[buddy bjorn]);
+
+        if(get_property('_pantsgivingCount').to_int() < 50)
+            equip($slot[pants], $item[Pantsgiving]);
+        else if(get_property('_stinkyCheeseCount').to_int() < 100)
+            equip($slot[pants], $item[stinky cheese diaper]);
+        else if(get_property('sweat').to_int() < 75)
+            equip($slot[pants], $item[designer sweatpants]);
+        else
+            if($familiars[jill-of-all-trades, hobo monkey].contains(my_familiar()))
+                equip($slot[pants], $item[repaid diaper]);
+            else
+                equip($slot[pants], $item[Pantsgiving]);
+
+        equip($slot[acc1], $item[mafia pointer ring]);
+        equip($slot[acc2], $item[retrospecs]);
+        equip($slot[acc3], $item[lucky gold ring]); 
+    }
     /*
     use_familiar(ChooseFamiliar());
     equip($slot[weapon], $item[june cleaver]);
