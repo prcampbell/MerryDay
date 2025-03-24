@@ -58,7 +58,10 @@ void main()
         else if(get_property('sweat').to_int() < 75)
             equip($slot[pants], $item[designer sweatpants]);
         else
-            if($familiars[jill-of-all-trades, hobo monkey].contains(my_familiar()))
+            if(my_familiar() == $familiar[jill-of-all-trades]
+                || my_familiar() == $familiar[hobo monkey]
+                || (my_familiar() == $familiar[comma chameleon] && get_property('commaFamiliar') == 'Robortender'
+                )
                 equip($slot[pants], $item[repaid diaper]);
             else
                 equip($slot[pants], $item[Pantsgiving]);
