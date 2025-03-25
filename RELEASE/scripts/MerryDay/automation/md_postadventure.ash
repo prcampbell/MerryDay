@@ -1,4 +1,5 @@
 import c2t_megg.ash;
+import md_yacht.ash;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
@@ -650,6 +651,7 @@ void tatters()
 
 	}
 }
+
 void purple()
 {
 	if(have_effect($effect[everything looks purple]) == 0)
@@ -667,6 +669,15 @@ void purple()
 		}
 		
 		
+	}
+}
+
+void yacht()
+{
+	if(yacht_double_can())
+	{
+		SaveSetup();
+		yacht_double_run();		
 	}
 }
 
@@ -746,6 +757,7 @@ void main() {
 			tatters();
 			purple();
 			bullseye();
+			yacht();
 		}
 	} 
 	finally { 
