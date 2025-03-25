@@ -54,7 +54,7 @@ vial of proquoise juice
 //gingerbread spice latte
 //short stack of pancakes
 
-
+import md_library;
 
 
 void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
@@ -94,6 +94,32 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
     if(have_effect($effect[boxing day glow]) == 0 && item_amount($item[body spradium]) > 0 && my_spleen_use() < spleen_limit())
     {
         chew(1, $item[body spradium]);
+    }
+
+    if(item_amount($item[bottle of Greedy Dog]) > 0 && my_inebriety() < inebriety_limit() - 3)
+    {
+        ensure_song($effect[Ode to Booze]);
+        drink(1, $item[bottle of Greedy Dog]);
+    }
+    if(item_amount($item[ambitious turkey]) > 0 && my_inebriety() < inebriety_limit() - 1)
+    {
+        ensure_song($effect[Ode to Booze]);
+        drink(1, $item[ambitious turkey]);
+    }
+    if(item_amount($item[high-end ginger wine]) > 0 && my_inebriety() < inebriety_limit() - 2)
+    {
+        ensure_song($effect[Ode to Booze]);
+        drink(1, $item[high-end ginger wine]);
+    }
+
+    if ((item_amount($item[dirt julep]) > 0 || 
+    (item_amount($item[pile of dirt]) > 0
+    && item_amount($item[bottle of whiskey]) > 0
+    && item_amount($item[lemon]) > 0)) && my_inebriety() < inebriety_limit() - 1)
+    {
+        create( 1, $item[dirt julep]);
+        ensure_song($effect[Ode to Booze]);
+        drink(1, $item[dirt julep]);
     }
 
 }
