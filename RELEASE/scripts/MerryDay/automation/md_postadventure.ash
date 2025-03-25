@@ -103,7 +103,9 @@ void RestoreSetup() {
 		if(fam != my_familiar()) 
 		{
 			use_familiar(fam);
-			equip(fameq);
+			if(my_familiar() != $familiar[Comma Chameleon])
+				if(!have_equipped(fameq))
+					equip(fameq);
 		}
 			
 		foreach eqSlot in $slots[]
@@ -748,6 +750,7 @@ void main() {
 	try {
 		if ( can_interact() && my_inebriety() <= inebriety_limit() && my_familiar() != $familiar[stooper])
 		{
+			yacht();
 			lightsOut(); //Handles the lights out Quest
 			kramco();
 			digitizeMonster(); //Picks up digitize wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
@@ -757,7 +760,7 @@ void main() {
 			tatters();
 			purple();
 			bullseye();
-			yacht();
+			
 		}
 	} 
 	finally { 

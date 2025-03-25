@@ -33,11 +33,45 @@ boolean angel_run()
     maximize('meat drop, equip quake of arrows',false);
     set_auto_attack('BackupMeat');
     visit_url('place.php?whichplace=chateau&action=chateau_painting');
+
+/*adv.php to set Romantic Counter*/
+
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop, equip backup camera, equip Roman Candelabra',false);
     adv1($location[noob cave], -1, '');
+    maximize('meat drop, equip backup camera, equip latte lover',false);
+/*burn Romantic Delay */
+    use(1, $item[spooky putty monster]);
+    use(1, $item[rain-doh box full of monster]);
+    
+    use(1, $item[spooky putty monster]);
+    use(1, $item[rain-doh box full of monster]);
+    
+    use(1, $item[spooky putty monster]);
+    cli_execute('closet put 1 spooky putty sheet');
+    use(1, $item[rain-doh box full of monster]);
+
+    /*Timespinner goes here*/
+
+/*Noob Cave until orb dance*/
+
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop, equip powerful glove, equip latte lover',false);
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_powerfulGloveBatteryPowerUsed').to_int() < 100)
+        adv1($location[noob cave], -1, '');
+    maximize('meat drop, equip latte lover',false);
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 10)
+        adv1($location[noob cave], -1, '');
+}
+
+void orb_run()
+{
+    use_familiar($familiar[hobo monkey]);
+    maximize('meat drop, equip latte lover, equip miniature crystal ball',false);
+    set_auto_attack('BasicBarf');
+    adv1($location[the dire warren], -1, '');
+    set_auto_attack('BackupMeat');
+    adv1($location[the dire warren], -1, '');
 }
 
 void main()
