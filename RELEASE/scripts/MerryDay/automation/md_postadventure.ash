@@ -104,8 +104,13 @@ void RestoreSetup() {
 		{
 			use_familiar(fam);
 			if(my_familiar() != $familiar[Comma Chameleon])
-				if(!have_equipped(fameq))
+			{
+				if(fameq != $item[none])
+				{
 					equip(fameq);
+				}
+			}
+					
 		}
 			
 		foreach eqSlot in $slots[]
@@ -304,10 +309,14 @@ void voteMonster()
 		}
 		else
 		{
-			SaveSetup();
-			equip($slot[acc3], votedSticker);
-			use_familiar(chooseFamiliar());
-			(!adv1(my_location(), -1, "skill saucegeyser;"));
+			if(my_location() != $location[The Sunken Party Yacht])
+			{
+				SaveSetup();
+				equip($slot[acc3], votedSticker);
+				use_familiar(chooseFamiliar());
+				(!adv1(my_location(), -1, "skill saucegeyser;"));				
+			}
+
 		}
 	}
 	
