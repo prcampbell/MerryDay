@@ -50,6 +50,10 @@ boolean yacht_double_can()
 
 boolean force_nc()
 {
+    if(get_property('noncombatForcerActive').to_boolean())
+    {
+        return true;
+    }
     if(cinch_nc_can())
     {
         equip($slot[acc3], $item[cincho de mayo]);
