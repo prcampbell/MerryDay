@@ -1,7 +1,7 @@
 script ff_bander;
 
 import md_outfit;
-import md_library
+import md_library;
 
 boolean gap_can()
 {
