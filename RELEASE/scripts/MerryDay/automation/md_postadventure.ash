@@ -635,7 +635,9 @@ void RemoveCurrencies() {
 
 void tatters()
 {
-	if(have_effect($effect[everything looks green]) == 0 && get_property('banishedMonsters').contains_text('banshee librarian') &&  get_property('banishedMonsters').contains_text('writing desk'))
+	if(have_effect($effect[everything looks green]) == 0)
+	 //&& get_property('banishedMonsters').contains_text('banshee librarian') &&  get_property('banishedMonsters').contains_text('writing desk')
+	 
 	{
 		SaveSetup();
 
