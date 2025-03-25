@@ -16,7 +16,7 @@ string sourceTerminalEducate2;
 location lastLocation;
 string questLog = "questlog.php?which=1";
 string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
-
+string parka;
 
 location get_property_loc( string property ) {
 	if ( !property_exists(property) )
@@ -76,6 +76,8 @@ void SaveSetup() {
 		fameq = familiar_equipped_equipment(fam);
 		foreach eqSlot in $slots[]
 			equipment[eqSlot] = equipped_item(eqSlot);
+		if(have_equipped($item[jurassic parka]))
+			parka = get_property('parkaMode');
 		aa = get_auto_attack();
         beforeAdventureScript = get_property("betweenBattleScript");
         set_property("betweenBattleScript", "");
@@ -118,6 +120,9 @@ void RestoreSetup() {
 			if (equipped_item(eqSlot) != equipment[eqSlot])
 				equip(eqSlot, equipment[eqSlot]);
 		}
+		if(have_equipped($item[jurassic parka]) && get_property('parkaMode') != parka)
+			cli_execute('parka '+ parka);
+
 		if (throne != my_enthroned_familiar()) 
 			enthrone_familiar( throne );
 		if (bjorn != my_bjorned_familiar())
