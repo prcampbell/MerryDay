@@ -45,11 +45,19 @@ void main()
     if(my_location() == $location[Barf Mountain])
     {
         use_familiar(ChooseFamiliar());
+        
 
         if(get_property('_batWingsFreeFights').to_int() < 5)
             equip($slot[back], $item[bat wings]);
         else
             equip($slot[back], $item[buddy bjorn]);
+
+        if(!have_equipped($item[buddy bjorn]))
+            equip($slot[hat], $item[crown of thrones]);
+        else
+            equip($slot[hat], $item[Apriling Band Helmet]);
+
+        equip($slot[shirt], $item[stephen's lab coat]);    
 
         if(get_property('_pantsgivingCount').to_int() < 50)
             equip($slot[pants], $item[Pantsgiving]);
@@ -67,7 +75,7 @@ void main()
                 equip($slot[pants], $item[Pantsgiving]);
 
         equip($slot[acc1], $item[mafia pointer finger ring]);
-        equip($slot[acc2], $item[retrospecs]);
+        equip($slot[acc2], $item[mr. screege's spectacles]);
         equip($slot[acc3], $item[lucky gold ring]); 
     }
     /*
