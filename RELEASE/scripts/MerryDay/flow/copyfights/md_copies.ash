@@ -26,6 +26,43 @@ int copyCount()
     //
 }
 
+void orb_run()
+{
+    use_familiar($familiar[hobo monkey]);
+    maximize('meat drop, equip latte lover, equip miniature crystal ball',false);
+    set_auto_attack('BasicBarf');
+    adv1($location[the dire warren], -1, '');
+    set_auto_attack('BackupMeat');
+    adv1($location[the dire warren], -1, '');
+}
+
+boolean spinner_run()
+{
+    int spins_used = get_property("_timeSpinnerMinutesUsed").to_int();
+
+//Actually do the thing:
+    monster goal = $monster[cockroach];
+    string[int] pages;
+    pages[0] = "inv_use.php?pwd=&which=3&whichitem=9104";
+	pages[1] = "choice.php?pwd=&whichchoice=1195&option=1";
+	pages[2] = "choice.php?pwd=&whichchoice=1196&option=1&monid=" + goal.id;
+
+    visit_url(pages[0]);
+    visit_url(pages[1]);
+    visit_url(pages[2]);
+
+
+//this stuff is to get us out of the spinner
+    if(get_property("lastEncounter") == "Travel to a Recent Fight")
+	{
+		visit_url("choice.php?pwd&whichchoice=1196&option=2");
+	}
+	else
+	{
+		abort("Time-Spinner combat failed and we were unable to leave the Time-Spinner");
+	}
+}
+
 boolean angel_run()
 {
     cli_execute('closet take 1 spooky putty sheet');
@@ -62,17 +99,16 @@ boolean angel_run()
     maximize('meat drop, equip latte lover',false);
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 10)
         adv1($location[noob cave], -1, '');
+    
+    use_familiar($familiar[jill-of-all-trades]);
+    maximize('meat drop, equip latte lover, equip backup camera',false);
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_backUpUses').to_int() < 11)
+        adv1($location[noob cave], -1, '');
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        adv1($location[the dire warren], -1, '');
 }
 
-void orb_run()
-{
-    use_familiar($familiar[hobo monkey]);
-    maximize('meat drop, equip latte lover, equip miniature crystal ball',false);
-    set_auto_attack('BasicBarf');
-    adv1($location[the dire warren], -1, '');
-    set_auto_attack('BackupMeat');
-    adv1($location[the dire warren], -1, '');
-}
+
 
 void main()
 {

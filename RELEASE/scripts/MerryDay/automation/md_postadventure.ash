@@ -502,7 +502,7 @@ void digitizeMonster()
 				equip($slot[back],$item[protonic accelerator pack]);
 			}
 			use_familiar(familiarChoice);
-			if(my_location().wanderers)
+			if(my_location().wanderers && my_location() != $location[The Sunken Party Yacht])
 			{
 				(!adv1(my_location(), -1, "skill saucegeyser;"));
 			}
@@ -764,11 +764,12 @@ void main() {
 	try {
 		if ( can_interact() && my_inebriety() <= inebriety_limit() && my_familiar() != $familiar[stooper])
 		{
-			yacht();
+			
 			lightsOut(); //Handles the lights out Quest
-			kramco();
 			digitizeMonster(); //Picks up digitize wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
+			yacht();
 			voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
+			kramco();
 			brickoPrime();
 			bustGhost(); //Basically Bales function, but with though with similar outfit switching
 			tatters();
