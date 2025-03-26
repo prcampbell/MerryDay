@@ -200,16 +200,19 @@ void main()
         }    
     }
 
-    use_familiar($familiar[jill-of-all-trades]);
-    maximize('meat drop, equip latte lover, equip backup camera',false);
-
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
-        adv1($location[the dire warren], -1, '');
-
-    if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
     {
-        orb_run();
+        use_familiar($familiar[jill-of-all-trades]);
+        maximize('meat drop, equip latte lover, equip backup camera',false);
+        adv1($location[the dire warren], -1, '');
+        if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
+        {
+            orb_run();
+        }        
     }
+        
+
+
 }
 
 /*
