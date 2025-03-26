@@ -594,7 +594,7 @@ void kramco()
 
 				equip($item[Fourth of May Cosplay Saber]);
 				equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]);
-				if(my_location().wanderers)
+				if(my_location().wanderers && my_location() != $location[The Sunken Party Yacht])
 				{
 					(!adv1(my_location(), -1, "skill saucegeyser;"));
 				}
@@ -610,7 +610,7 @@ void kramco()
 			SaveSetup();
 			equip($item[Fourth of May Cosplay Saber]);
 			equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]);
-			if(my_location().wanderers)
+			if(my_location().wanderers && my_location() != $location[The Sunken Party Yacht])
 			{
 				(!adv1(my_location(), -1, "skill saucegeyser;"));
 			}
