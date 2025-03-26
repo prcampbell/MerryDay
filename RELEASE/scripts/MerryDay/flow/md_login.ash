@@ -80,6 +80,28 @@ void startDay()
 		visit_url("place.php?whichplace=chateau&action=chateau_desk1", false);
 	}
 
+	if (item_amount($item[earthenware muffin tin]) > 0 ||
+	    (!get_property("_muffinOrderedToday").to_boolean() && 
+			$items[blueberry muffin, bran muffin, chocolate chip muffin, earthenware muffin tin] contains get_property("muffinOnOrder").to_item())) 
+	{
+		visit_url("place.php?whichplace=monorail&action=monorail_downtown");
+		run_choice(7); 
+		if (get_property("muffinOnOrder") != "")
+		{
+			cli_execute("refresh inv");
+			if (item_amount(get_property("muffinOnOrder").to_item()) > 0)
+			{
+				
+				set_property("muffinOnOrder", "");
+			}
+		}
+		if (!get_property("_muffinOrderedToday").to_boolean() && item_amount($item[earthenware muffin tin]) > 0) {
+			run_choice(1);
+		}
+		run_choice(1); 
+		run_choice(8); 
+	}
+
 
 	if ( can_interact() ) 
 	{

@@ -158,6 +158,32 @@ boolean angel_run()
 
 void main()
 {
+    cli_execute('closet take 1 spooky putty sheet');
+    use_familiar($familiar[obtuse angel]);
+    maximize('meat drop, equip quake of arrows',false);
+    set_auto_attack('BackupMeat');
+    visit_url('place.php?whichplace=chateau&action=chateau_painting');
+
+/*adv.php to set Romantic Counter*/
+
+    use_familiar($familiar[jill-of-all-trades]);
+    maximize('meat drop, equip backup camera, equip Roman Candelabra',false);
+    adv1($location[noob cave], -1, '');
+    maximize('meat drop, equip backup camera, equip latte lover',false);
+/*burn Romantic Delay */
+    use(1, $item[spooky putty monster]);
+    use(1, $item[rain-doh box full of monster]);
+    
+    use(1, $item[spooky putty monster]);
+    use(1, $item[rain-doh box full of monster]);
+    
+    use(1, $item[spooky putty monster]);
+    cli_execute('closet put 1 spooky putty sheet');
+    use(1, $item[rain-doh box full of monster]);
+
+    /*Timespinner goes here*/
+    spinner_run();
+    spinner_run();
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_powerfulGloveBatteryPowerUsed').to_int() < 100)
     {
         use_familiar($familiar[jill-of-all-trades]);
