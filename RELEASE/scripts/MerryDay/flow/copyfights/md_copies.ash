@@ -1,4 +1,4 @@
-$monster target = $monster[witchess knight];
+
 
 
 /*
@@ -6,7 +6,7 @@ $monster target = $monster[witchess knight];
 2. Backup into Noob Cave, where we can also olfact crates + habitat
 3. Habitats
 
-
+$monster target = $monster[witchess knight];
 
 */
 
@@ -24,6 +24,7 @@ int copyCount()
     //1 fax
     //1 4-d camera
     //
+    return 65;
 }
 
 void orb_run()
@@ -50,6 +51,8 @@ boolean spinner_run()
     visit_url(pages[1]);
     visit_url(pages[2]);
 
+    return true;
+
 
 //this stuff is to get us out of the spinner
 /*    if(get_property("lastEncounter") == "Travel to a Recent Fight")
@@ -60,6 +63,8 @@ boolean spinner_run()
 	{
 		abort("Time-Spinner combat failed and we were unable to leave the Time-Spinner");
 	}*/
+
+    
 }
 
 boolean angel_run()
@@ -145,6 +150,8 @@ boolean angel_run()
     {
         orb_run();
     }
+
+    return true;
 }
 
 
