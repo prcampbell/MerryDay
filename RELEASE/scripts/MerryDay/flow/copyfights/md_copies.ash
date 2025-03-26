@@ -38,7 +38,6 @@ void orb_run()
 
 boolean spinner_run()
 {
-    int spins_used = get_property("_timeSpinnerMinutesUsed").to_int();
 
 //Actually do the thing:
     monster goal = $monster[cockroach];
@@ -53,14 +52,14 @@ boolean spinner_run()
 
 
 //this stuff is to get us out of the spinner
-    if(get_property("lastEncounter") == "Travel to a Recent Fight")
+/*    if(get_property("lastEncounter") == "Travel to a Recent Fight")
 	{
 		visit_url("choice.php?pwd&whichchoice=1196&option=2");
 	}
 	else
 	{
 		abort("Time-Spinner combat failed and we were unable to leave the Time-Spinner");
-	}
+	}*/
 }
 
 boolean angel_run()
@@ -89,33 +88,124 @@ boolean angel_run()
     use(1, $item[rain-doh box full of monster]);
 
     /*Timespinner goes here*/
-
+    spinner_run();
+    spinner_run();
 /*Noob Cave until orb dance*/
 
-    use_familiar($familiar[jill-of-all-trades]);
-    maximize('meat drop, equip powerful glove, equip latte lover',false);
+
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_powerfulGloveBatteryPowerUsed').to_int() < 100)
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        maximize('meat drop, equip powerful glove, equip latte lover',false);
         adv1($location[noob cave], -1, '');
-    maximize('meat drop, equip latte lover',false);
-    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 10)
-        adv1($location[noob cave], -1, '');
+        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        {
+            orb_run();
+        }
+    }
+
+    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    {
+        orb_run();
+    }
     
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 10)
+    {
+        maximize('meat drop, equip latte lover',false);
+        adv1($location[noob cave], -1, '');
+        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        {
+            orb_run();
+        }
+    }
+
+    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    {
+        orb_run();
+    }    
+    
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_backUpUses').to_int() < 11)
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        maximize('meat drop, equip latte lover, equip backup camera',false);
+        adv1($location[noob cave], -1, '');
+        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        {
+            orb_run();
+        }    
+    }
+
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop, equip latte lover, equip backup camera',false);
-    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_backUpUses').to_int() < 11)
-        adv1($location[noob cave], -1, '');
+
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
         adv1($location[the dire warren], -1, '');
+
+    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    {
+        orb_run();
+    }
 }
 
 
 
 void main()
 {
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_powerfulGloveBatteryPowerUsed').to_int() < 100)
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        maximize('meat drop, equip powerful glove, equip latte lover',false);
+        adv1($location[noob cave], -1, '');
+        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        {
+            orb_run();
+        }
+    }
+    
+    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    {
+        orb_run();
+    }
+    
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 10)
+    {
+        maximize('meat drop, equip latte lover',false);
+        adv1($location[noob cave], -1, '');
+        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        {
+            orb_run();
+        }
+    }
 
+    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    {
+        orb_run();
+    }    
+    
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_backUpUses').to_int() < 11)
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        maximize('meat drop, equip latte lover, equip backup camera',false);
+        adv1($location[noob cave], -1, '');
+        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        {
+            orb_run();
+        }    
+    }
+
+    use_familiar($familiar[jill-of-all-trades]);
+    maximize('meat drop, equip latte lover, equip backup camera',false);
+
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        adv1($location[the dire warren], -1, '');
+
+    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    {
+        orb_run();
+    }
 }
 
-
+/*
 if hasskill 7108 #fire a badly romantic arrow
     skill 7108
 endif
@@ -217,7 +307,7 @@ endif
 while !hppercentbelow 25 && !pastround 27
     attack
 endwhile
-endif
+endif*/
 
 
 
