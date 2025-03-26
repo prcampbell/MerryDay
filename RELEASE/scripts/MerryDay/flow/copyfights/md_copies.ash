@@ -163,13 +163,13 @@ void main()
         use_familiar($familiar[jill-of-all-trades]);
         maximize('meat drop, equip powerful glove, equip latte lover',false);
         adv1($location[noob cave], -1, '');
-        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
             orb_run();
         }
     }
     
-    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
     {
         orb_run();
     }
@@ -178,13 +178,13 @@ void main()
     {
         maximize('meat drop, equip latte lover',false);
         adv1($location[noob cave], -1, '');
-        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
             orb_run();
         }
     }
 
-    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
     {
         orb_run();
     }    
@@ -194,7 +194,7 @@ void main()
         use_familiar($familiar[jill-of-all-trades]);
         maximize('meat drop, equip latte lover, equip backup camera',false);
         adv1($location[noob cave], -1, '');
-        if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+        if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
             orb_run();
         }    
@@ -206,7 +206,7 @@ void main()
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
         adv1($location[the dire warren], -1, '');
 
-    if(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
+    if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
     {
         orb_run();
     }
