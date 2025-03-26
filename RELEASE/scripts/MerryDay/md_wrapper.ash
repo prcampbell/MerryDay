@@ -43,8 +43,9 @@ void main()
   startDay();
   print('Day Started', 'green');
 
-  dailyEffects();
   dailyItems();
+  dailyEffects();
+
 
   if($effect[Jingle Jangle Jingle].have_effect() < 600)
   {
