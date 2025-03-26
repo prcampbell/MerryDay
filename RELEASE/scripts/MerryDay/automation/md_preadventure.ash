@@ -86,7 +86,10 @@ void main()
                 equip($slot[pants], $item[Pantsgiving]);
 
         equip($slot[acc1], $item[mafia pointer finger ring]);
-        equip($slot[acc2], $item[mr. screege's spectacles]);
+        if(get_property('_mayflySummons').to_int() < 30)
+            equip($slot[acc2], $item[mayfly bait necklace]);
+        else
+            equip($slot[acc2], $item[mr. screege's spectacles]);
         equip($slot[acc3], $item[lucky gold ring]); 
     }
     /*
