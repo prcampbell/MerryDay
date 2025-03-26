@@ -24,6 +24,17 @@ familiar ChooseFamiliar()
 
 void main()
 {
+    if(get_property("_universeCalculated").to_int() < min(3, get_property("skillLevel144").to_int()))
+    {
+        int numberwang = 69;
+        int[int] numberology = reverse_numberology();
+        if (numberology contains numberwang) 
+        {
+            numberology[numberwang];
+        }        
+    }
+
+
     
     if(item_amount($item[autumn-aton]) > 0 && autobotTurnsForQuest() < my_adventures())
     {
