@@ -1,3 +1,6 @@
+string questLog = "questlog.php?which=1";
+string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
+
 boolean hasDinseyQuest()
 {
 	string text = visit_url(questLog);
