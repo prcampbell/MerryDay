@@ -42,17 +42,22 @@ boolean get_dinsey_access()
 
 boolean dispose_garbage()
 {
-    if(item_amount($item[bag of park garbage]) < 3)
+    if(get_property('_dinseyGarbageDisposed').to_boolean())
+    {
+        return true;
+    }
+    else if(item_amount($item[bag of park garbage]) < 3)
     {
         if(shop_amount($item[bag of park garbage]) >= 3)
         {
             take_shop(3, $item[bag of park garbage]);
         }
         visit_url('place.php?whichplace=airport_stench&action=airport3_tunnels');
-        return run_choice(6);
+        run_choice(6);
+        return true; 
     }
-
-    return false;
+    else
+        return false;
 }
 
 boolean get_quest()
