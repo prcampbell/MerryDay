@@ -42,6 +42,16 @@ boolean get_dinsey_access()
 
 boolean dispose_garbage()
 {
+    if(item_amount($item[bag of park garbage]) < 3)
+    {
+        if(shop_amount($item[bag of park garbage]) >= 3)
+        {
+            take_shop(3, $item[bag of park garbage]);
+        }
+        visit_url('place.php?whichplace=airport_stench&action=airport3_tunnels');
+        return run_choice(6);
+    }
+
     return false;
 }
 
@@ -56,4 +66,5 @@ boolean get_quest()
 void main()
 {
     get_dinsey_access();
+    dispose_garbage();
 }
