@@ -60,6 +60,15 @@ boolean dispose_garbage()
         return false;
 }
 
+boolean buy_dinsey_ticket()
+{
+    if(item_amount($item[FunFund]) >= 20)
+    {
+        return buy($coinmaster[The Dinsey Company Store], 1, $item[one-day ticket to Dinseylandfill]);
+    }
+    return false;
+}
+
 boolean get_quest()
 {
     if(hasDinseyQuest())
@@ -72,4 +81,5 @@ void main()
 {
     get_dinsey_access();
     dispose_garbage();
+    buy_dinsey_ticket();
 }
