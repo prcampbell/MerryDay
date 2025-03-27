@@ -27,15 +27,15 @@ string parseDinseyQuest()
 
 boolean has_dinsey_access()
 {
-    return(get_property('_stenchAirportToday').to_boolean() || get_property('stenchAirportAlways').to_boolean())
+    return(get_property('_stenchAirportToday').to_boolean() || get_property('stenchAirportAlways').to_boolean());
 }
 
 boolean get_dinsey_access()
 {
     if(!has_dinsey_access())
     {
-        cli_execute('acquire 1 one-day ticket to dinsey landfill');
-        use(1, $item[one-day ticket to dinsey landfill]);
+        cli_execute('acquire 1 one-day ticket to Dinseylandfill');
+        use(1, $item[one-day ticket to Dinseylandfill]);
     }
     return has_dinsey_access();
 }
