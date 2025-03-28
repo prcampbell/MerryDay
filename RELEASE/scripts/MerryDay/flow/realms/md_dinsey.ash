@@ -62,7 +62,7 @@ boolean dispose_garbage()
 
 boolean buy_dinsey_ticket()
 {
-    if(item_amount($item[FunFund]) >= 20)
+    while(item_amount($item[FunFunds&trade;]) >= 20)
     {
         return buy($coinmaster[The Dinsey Company Store], 1, $item[one-day ticket to Dinseylandfill]);
     }
