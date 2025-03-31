@@ -6,7 +6,13 @@ void main ( int choiceID, string whichpage )
 	switch (choiceID) 
     {
 
-
+		case 780: /*Encounter: Action Elevator
+					choice 1: Go to the Thrice-Cursed Penthouse (penthouse empty)
+					choice 2: Go to the mezzanine (Increase Thrice-Cursed)
+					choice 3: Go down to the parking garage (Relocate pygmy witch lawyers to Hidden Park)
+					choice 6: Exit through the gift shop (skip adventure)*/
+				run_choice(6);			
+			return;
 		case 886: /*Encounter: Chasin' Babies
 					Unsupported choice adventure #886
 					choice 1: Try the poppet
