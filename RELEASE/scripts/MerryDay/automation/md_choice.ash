@@ -21,6 +21,13 @@ void main ( int choiceID, string whichpage )
 					choice 6: Do nothing*/
 				run_choice(6);			
 			return;
+		case 1062: /*Encounter: Lots of Options
+					choice 2: Check out the shopping carts (acquire food)
+					choice 3: Look through the cardboard boxes (acquire drinks)
+					choice 4: Check out the spooky noises (gain moxie stats)
+					choice 7: Let sleeping oysters lie*/
+				run_choice(7);			
+			return;
 		case 1116: /* All They Got Inside is Vacancy (and Ice)
 					3: Look for some <> (fill bucket by 10-15%)
 					4: Raid the bar (acquire cocktailcrafting supplies)
