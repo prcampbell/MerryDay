@@ -2,6 +2,25 @@ script md_yacht;
 
 import md_mpburn;
 
+void yacht_outfit()
+{
+    equip($slot[hat], $item[Apriling band helment]);
+
+    equip($slot[weapon], $item[garbage sticker]);
+    equip($slot[off-hand], $item[latte lovers member's mug]);
+
+    equip($slot[back], $item[elf guard scuba tank]);
+    equip($slot[shirt], $item[jurassic parka]);
+    equip($slot[pants], $item[repaid diaper]);
+
+    equip($slot[acc1], $item[yamtility belt]);
+    equip($slot[acc2], $item[wormwood weeding ring]);
+    equip($slot[acc3], $item[anemony clip]);
+
+    equip($slot[familiar], $item[amulet coin]);
+    
+}
+
 boolean fishy_can()
 {
     return !get_property('_fishyPipeUsed').to_boolean();
@@ -84,7 +103,7 @@ boolean yacht_double_run()
     if(force_nc())
     {
         use_familiar($familiar[urchin urchin]);
-        maximize('meat drop, equip elf guard scuba tank', false);
+        yacht_outfit();
         return adv1($location[the sunken party yacht], -1, '');
     }
     return false;     
@@ -103,7 +122,7 @@ boolean yacht_run()
         if(force_nc())
         {
             use_familiar($familiar[urchin urchin]);
-            maximize('meat drop, equip elf guard scuba tank', false);
+            yacht_outfit();
             return adv1($location[the sunken party yacht], -1, '');
         }        
     }
