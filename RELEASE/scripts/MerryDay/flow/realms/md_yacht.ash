@@ -11,6 +11,10 @@ void yacht_outfit()
 
     equip($slot[back], $item[elf guard scuba tank]);
     equip($slot[shirt], $item[jurassic parka]);
+    if(get_property('parkaMode') != 'kachungasaur')
+    {
+        cli_execute('parka meat');
+    }
     equip($slot[pants], $item[repaid diaper]);
 
     equip($slot[acc1], $item[yamtility belt]);
