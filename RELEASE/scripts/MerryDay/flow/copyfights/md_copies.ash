@@ -37,6 +37,11 @@ void orb_run()
     adv1($location[the dire warren], -1, '');
 }
 
+boolean spinner_can()
+{
+    return get_property('_timeSpinnerMinutesUsed').to_int() < 8;
+}
+
 boolean spinner_run()
 {
 
@@ -63,45 +68,84 @@ boolean spinner_run()
 	{
 		abort("Time-Spinner combat failed and we were unable to leave the Time-Spinner");
 	}*/
+}
 
-    
+boolean get_spooky_putty_sheet()
+{
+    if(item_amount($item[spooky putty sheet]) > 0)
+    {
+        return true;
+    }
+    if(closet_amount($item[spooky putty sheet]) > 0)
+    {
+        return take_closet(1, $item[spooky putty sheet]);
+    }
+    return false;
+}
+
+boolean angel_can()
+{
+    return get_property('_badlyRomanticArrows').to_int() == 0 &&
+            !get_property('_chateauMonsterFought').to_boolean();
 }
 
 boolean angel_run()
 {
-    return true;
-}
-
-
-
-void main()
-{
+    
+    get_spooky_putty_sheet();
+    
     cli_execute('closet take 1 spooky putty sheet');
     use_familiar($familiar[obtuse angel]);
     maximize('meat drop, equip quake of arrows',false);
     set_auto_attack('BackupMeat');
     visit_url('place.php?whichplace=chateau&action=chateau_painting');
-
-/*adv.php to set Romantic Counter*/
-
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop, equip backup camera, equip Roman Candelabra',false);
     adv1($location[noob cave], -1, '');
+
+    return true;
+}
+
+boolean putty_can()
+{
+    return get_property('_raindohCopiesMade').to_int() + get_property('spookyPuttyCopiesMade').to_int() < 6
+        && get_property('spookyPuttyMonster').to_monster() = $monster[cockroach]
+        && get_property('rainDohMonster').to_monster() = $monster[cockroach]
+}
+
+boolean putty_run()
+{
+    use(1, $item[spooky putty monster]);
+    if(get_property('spookyPuttyCopiesMade').to_int() = 3)
+    {
+        put_closet(1, $item[spooky putty sheet]);
+    }
+    use(1, $item[rain-doh box full of monster]);
+}
+
+
+void main()
+{
+    if(get_property('_questPirateRealm') != 'step10')
+    {
+        abort('Trash Island is not open!');
+    }
+    if(angel_can())
+        angel_run();
+
+/*adv.php to set Romantic Counter*/
+
     maximize('meat drop, equip backup camera, equip latte lover',false);
 /*burn Romantic Delay */
-    use(1, $item[spooky putty monster]);
-    use(1, $item[rain-doh box full of monster]);
-    
-    use(1, $item[spooky putty monster]);
-    use(1, $item[rain-doh box full of monster]);
-    
-    use(1, $item[spooky putty monster]);
-    cli_execute('closet put 1 spooky putty sheet');
-    use(1, $item[rain-doh box full of monster]);
+    while(putty_can())
+    {
+        putty_run();
+    }
 
     /*Timespinner goes here*/
     spinner_run();
     spinner_run();
+
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_powerfulGloveBatteryPowerUsed').to_int() < 100)
     {
         use_familiar($familiar[jill-of-all-trades]);
