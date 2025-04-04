@@ -105,4 +105,5 @@ void main()
     get_dinsey_access();
     dispose_garbage();
     buy_dinsey_ticket();
+    get_quest();
 }
