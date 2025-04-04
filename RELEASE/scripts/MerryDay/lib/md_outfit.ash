@@ -144,11 +144,12 @@ familiar get_best_bjorn()
 	return get_best_bjorn_data().fam;
 }
 
-
-void construct_free_outfit()
+void construct_free_outfit(item[slot] required_equips)
 {
-    
 
+	//free outfits prioritize charging equipment
+
+//back
     if(get_property('_vampyreCloakeFormUses').to_int() < 10)
     {
         equip($slot[back], $item[vampyric cloake]);
@@ -158,7 +159,7 @@ void construct_free_outfit()
         equip($slot[back], $item[buddy bjorn]);
         bjornify_familiar(get_best_bjorn());    
     }
-
+	//hat
     if(equipped_item($slot[back]) != $item[buddy bjorn])
     {
         equip($slot[hat], $item[crown of thrones]);
@@ -168,20 +169,17 @@ void construct_free_outfit()
     {
         equip($slot[hat], $item[daylight shavings helmet]);
     }
-    
-    
-    equip($slot[shirt], $item[jurassic parka]);
-    
-    equip($slot[weapon], $item[june cleaver]);
-    equip($slot[off-hand], $item[Kol Con 13 snowglobe]);
-    
-    if(get_property('_stinkyCheeseCount').to_int() < 100)
-    {
-        if(available_amount($item[stinky cheese diaper]) == 0)
-        cli_execute('fold stinky cheese diaper');
-        equip($slot[pants], $item[stinky cheese diaper ]);
-    }
-    else if(get_property('_pantsgivingCount').to_int() < 55)
+	//shirt
+	if(required_equips[$slot[shirt]] != $item[none] && can_equip(required_equips[$slot[shirt]]))
+	{
+		equip($slot[shirt], required_equips[$slot[shirt]]);
+	}
+	else
+	{
+		equip($slot[shirt], $item[jurassic parka]);
+	}
+	//pants
+    if(get_property('_pantsgivingCount').to_int() < 5)
     {
         equip($slot[pants], $item[pantsgiving]);
     }
@@ -194,15 +192,74 @@ void construct_free_outfit()
         if(available_amount($item[pantogram pants]) > 0)
             equip($slot[pants], $item[pantogram pants]);
         else
-            equip($slot[pants], $item[greatest american pants]);
+            equip($slot[pants], $item[pantsgiving]);
     }
+	//weapon
+    equip($slot[weapon], $item[june cleaver]);
+	//off-hand
+
+	if(required_equips[$slot[off-hand]] != $item[none] && can_equip(required_equips[$slot[off-hand]]))
+	{
+		equip($slot[off-hand], required_equips[$slot[off-hand]]);
+	}
+	else
+	{
+		equip($slot[off-hand], $item[Kol Con 13 snowglobe]);
+	}
     
-    
+	//accessories
     if(get_property('questDoctorBag') == 'unstarted')
         equip($slot[acc1], $item[Lil' Doctor&trade; bag]);
     else 
         equip($slot[acc1], $item[Lucky Gold Ring]);
-    equip($slot[acc2], $item[mr. screege's spectacles]);
-    equip($slot[acc3], $item[mr. cheeng's spectacles]);
 
+	if(get_property('_stinkyCheeseCount').to_int() < 100)
+    {
+        if(available_amount($item[stinky cheese eye]) == 0)
+        cli_execute('fold stinky cheese eye');
+        equip($slot[acc2], $item[stinky cheese eye ]);
+    }
+	else
+	{
+		equip($slot[acc2], $item[mr. cheeng's spectacles]);
+	}
+
+    equip($slot[acc3], $item[mr. screege's spectacles]);
+	
+	if(required_equips[$slot[familiar]] != $item[none])
+	{
+		equip($slot[familiar], required_equips[$slot[familiar]]);
+	}
+	
+
+}
+
+
+void construct_free_outfit()
+{
+	item[slot] nothing;
+	construct_free_outfit(nothing);   
+}
+
+void construct_meat_outfit(item[slot] required_equips, familiar fam)
+{
+	use_familiar(fam);
+
+	equip($slot[hat], $item[apriling band helmet]);
+	//equip($slot[hat], $item[crumpled felt fedora]);
+	equip($slot[back], $item[Buddy Bjorn]); //Happy medium or Misshapen Animal Skeleton
+	equip($slot[shirt], $item[Jurassic Parka]); //Kachungasaur
+	equip($slot[pants], $item[Pantsgiving]);
+	//equip($slot[pants], $item[repaid diaper]);
+	//equip($slot[pants], $item[pantogram pants]);
+
+	equip($slot[acc1], $item[yamtility belt]);
+	equip($slot[acc2], $item[wormwood wedding ring]);
+	equip($slot[acc3], $item[ring of the skeleton lord]);
+
+	equip($slot[weapon], $item[fourth of may cosplay saber]);
+	//equip($slot[weapon], $item[garbage sticker]);
+	equip($slot[off-hand], $item[latte lovers member's mug]);
+
+	equip($slot[familiar], $item[amulet coin]);
 }
