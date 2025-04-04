@@ -1,5 +1,6 @@
 import c2t_megg.ash;
 import md_yacht.ash;
+import md_outfit.ash;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
@@ -225,11 +226,12 @@ void BrickoPrime()
 		if (get_property("_brickoFights").to_int()<10) {
 			SaveSetup();
 			set_auto_attack(1);
-			outfit("birthday suit");
-			//if (chooseFamiliar() != my_familiar()) use_familiar(chooseFamiliar());
+			
 			use_familiar(chooseFamiliar());
-			cli_execute("/outfit Free Drops");	
-			equip($slot[back],$item[protonic accelerator pack]);
+			item[slot] needs;
+			needs[$slot[back]] = $item[protonic accelerator pack];
+			construct_free_outfit(needs);
+			
 			use( 1, $item[BRICKO Ooze] );
 			location ghostLocation = to_location(get_property("ghostLocation"));
 			if  ( ghostLocation == $location[none] )
@@ -567,23 +569,18 @@ void kramco()
 			}
 			equip($item[Fourth of May Cosplay Saber]);
 			equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]); 
-			if(parseDinseyQuest() == 'Super Luber' && get_property('dinseyRollercoasterNext').to_boolean())
-			{
-				equip($slot[acc3], $item[lube-shoes]);
-				(!adv1($location[Barf Mountain]));
-			}
-			else if(parseDinseyQuest() == 'Social Justice Adventurer I')
-				(!adv1($location[Pirates of the Garbage Barges]));
+			if(parseDinseyQuest() == 'Social Justice Adventurer I')
+				(!adv1($location[Pirates of the Garbage Barges], -1, "skill saucegeyser;"));
 			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
-				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice])); //'
+				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice], -1, "skill saucegeyser;")); //'
 			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 			{
 				equip($item[Dinsey mascot mask]);
-				(!adv1($location[The Toxic Teacups]));
+				(!adv1($location[The Toxic Teacups], -1, "skill saucegeyser;"));
 			}
 			else
 			{
-				(!adv1($location[The Toxic Teacups]));
+				(!adv1($location[The Toxic Teacups], -1, "skill saucegeyser;"));
 			}
 			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
 			{
@@ -767,6 +764,15 @@ void main() {
 			
 			lightsOut(); //Handles the lights out Quest
 			digitizeMonster(); //Picks up digitize wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
+			//Lubes the tube
+			if(hasDinseyQuest())
+			{
+				if(parseDinseyQuest() == 'Super Luber' && get_property('dinseyRollercoasterNext').to_boolean())
+				{
+					equip($slot[acc3], $item[lube-shoes]);
+					(!adv1($location[Barf Mountain]));
+				}
+			}
 			yacht();
 			voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
 			kramco();
