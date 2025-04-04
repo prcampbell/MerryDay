@@ -261,46 +261,57 @@ void voteMonster()
 		item votedSticker = to_item("&quot;I Voted!&quot; sticker");
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
+	
+		item[slot] needs;
+		needs[$slot[acc3]] = votedSticker;	
+		SaveSetup();
+	
+	
 		if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 		{
-			equip($slot[back],$item[protonic accelerator pack]);
+			needs[$slot[back]] = $item[protonic accelerator pack];
 		}
 		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
-			SaveSetup();
-			
-			cli_execute("/outfit Free Drops");
-
-			equip($slot[acc3], votedSticker);
 			use_familiar(chooseFamiliar());
+			construct_free_outfit(needs);
 			(!adv1(doctorLocation, -1, "skill saucegeyser;"));
 
 		}
 		else if(guzzlrLocation != $location[none] && can_adventure(guzzlrLocation))
 		{
-			SaveSetup();
-			cli_execute("/outfit Free Drops");
-			
-			equip($slot[acc3], votedSticker);
 			use_familiar(chooseFamiliar());
+			construct_free_outfit(needs);
 			(!adv1(guzzlrLocation, -1, "skill saucegeyser;"));
 		}
 		else if(hasDinseyQuest())
 		{
-			SaveSetup();
-			equip($slot[acc1], votedSticker);
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
+			{
+				use_familiar(chooseFamiliar());
+				construct_free_outfit(needs);
 				(!adv1($location[Pirates of the Garbage Barges]));
-			if(parseDinseyQuest() == 'Social Justice Adventurer II')
+			}
+				
+			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
+			{
+				use_familiar(chooseFamiliar());
+				construct_free_outfit(needs);
 				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice])); //'
+			}
+				
 			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 			{
-				equip($item[Dinsey mascot mask]);
+				needs[$slot[hat]] = $item[Dinsey mascot mask];
+				use_familiar(chooseFamiliar());
+				construct_free_outfit(needs);
 				(!adv1($location[The Toxic Teacups]));
 			}
 			else if(parseDinseyQuest() == 'Teach a Man to Fish Trash')
 			{
-				equip($item[trash net]);
+				needs[$slot[weapon]] = $item[trash net];
+				use_familiar(chooseFamiliar());
+				construct_free_outfit(needs);
 				(!adv1($location[Pirates of the Garbage Barges]));
 			}
 			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
@@ -308,9 +319,6 @@ void voteMonster()
 				visit_url(kiosk);
 				run_choice( 3 );
 				run_choice( 6 );
-				equip($slot[acc3], votedSticker);
-				use_familiar(chooseFamiliar());
-				(!adv1(my_location(), -1, "skill saucegeyser;"));
 			}
 				
 		}
@@ -318,9 +326,8 @@ void voteMonster()
 		{
 			if(my_location() != $location[The Sunken Party Yacht])
 			{
-				SaveSetup();
-				equip($slot[acc3], votedSticker);
 				use_familiar(chooseFamiliar());
+				construct_free_outfit(needs);
 				(!adv1(my_location(), -1, "skill saucegeyser;"));				
 			}
 
