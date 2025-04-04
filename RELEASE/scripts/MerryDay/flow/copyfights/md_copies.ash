@@ -189,7 +189,8 @@ void roach_run()
         orb_run($monster[cockroach]);
     }
     
-    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 10)
+    //We save 2 for orb dancing later
+    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 8)
     {
         maximize('meat drop, equip latte lover',false);
         adv1($location[noob cave], -1, '');
