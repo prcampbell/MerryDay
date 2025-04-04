@@ -275,7 +275,7 @@ void voteMonster()
 		{
 			needs[$slot[back]] = $item[protonic accelerator pack];
 		}
-		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
+		else if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
 			target = doctorLocation;
 			
