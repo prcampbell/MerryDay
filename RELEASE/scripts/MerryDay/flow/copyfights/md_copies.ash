@@ -129,7 +129,7 @@ boolean angel_run()
 
 boolean putty_can()
 {
-    return get_property('_raindohCopiesMade').to_int() + get_property('spookyPuttyCopiesMade').to_int() < 6
+    return get_property('_raindohCopiesMade').to_int() + get_property('spookyPuttyCopiesMade').to_int() <= 6
         && get_property('spookyPuttyMonster').to_monster() == $monster[cockroach]
         && get_property('rainDohMonster').to_monster() == $monster[cockroach];
 }
