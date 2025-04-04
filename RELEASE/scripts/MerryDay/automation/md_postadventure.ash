@@ -19,12 +19,6 @@ string questLog = "questlog.php?which=1";
 string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
 string parka;
 
-location get_property_loc( string property ) {
-	if ( !property_exists(property) )
-		abort("Couldn't find preference "+property);
-	return to_location(get_property(property));
-}
-
 boolean hasDinseyQuest()
 {
 	string text = visit_url(questLog);
@@ -68,8 +62,10 @@ familiar ChooseFamiliar()
     return $familiar[reagnimated gnome];
 }
 
-void SaveSetup() {
-	if (!SetupSaved) {
+void SaveSetup() 
+{
+	if (!SetupSaved) 
+	{
 		print("Saving setup ...", "green");
 		fam = my_familiar();
 		throne = my_enthroned_familiar();
@@ -188,30 +184,30 @@ void bustGhost()
 
 		switch(ghostLocation) 
 		{
-		case $location[Inside the Palindome]:
-			needs[$slot[acc3]] = $item[Talisman o' Namsilat];
-			break;
-		case $location[The Skeleton Store]:
-			if(get_property("questM23Meatsmith") == "unstarted") 
-			{
-				visit_url("shop.php?whichshop=meatsmith&action=talk");
-				run_choice(1);
-			}
-			break;
-		case $location[The Overgrown Lot]:
-			if(get_property("questM24Doc") == "unstarted") 
-			{
-				visit_url("shop.php?whichshop=doc&action=talk");
-				run_choice(1);
-			}
-			break;
-		case $location[Madness Bakery]:
-			if(get_property("questM25Armorer") == "unstarted") 
-			{
-				visit_url("shop.php?whichshop=armory&action=talk");
-				run_choice(1);
-			}
-			break;
+			case $location[Inside the Palindome]:
+				needs[$slot[acc3]] = $item[Talisman o' Namsilat];
+				break;
+			case $location[The Skeleton Store]:
+				if(get_property("questM23Meatsmith") == "unstarted") 
+				{
+					visit_url("shop.php?whichshop=meatsmith&action=talk");
+					run_choice(1);
+				}
+				break;
+			case $location[The Overgrown Lot]:
+				if(get_property("questM24Doc") == "unstarted") 
+				{
+					visit_url("shop.php?whichshop=doc&action=talk");
+					run_choice(1);
+				}
+				break;
+			case $location[Madness Bakery]:
+				if(get_property("questM25Armorer") == "unstarted") 
+				{
+					visit_url("shop.php?whichshop=armory&action=talk");
+					run_choice(1);
+				}
+				break;
 		}	
 
 		use_familiar(chooseFamiliar());
@@ -377,8 +373,8 @@ boolean SpookyravenAccess( location l ) {
 void LightsOut() {
 	if ( total_turns_played() % 37 == 0 && get_property("lastLightsOutTurn") != total_turns_played() ) {
 		location StephenRoom,ElizabethRoom,LightsOutLocation;
-		ElizabethRoom = get_property_loc("nextSpookyravenElizabethRoom");
-		StephenRoom = get_property_loc("nextSpookyravenStephenRoom");
+		ElizabethRoom = get_property("nextSpookyravenElizabethRoom").to_location();
+		StephenRoom = get_property("nextSpookyravenStephenRoom").to_location();
 		monster LightsOutMonster;
  
 		if ( ElizabethRoom == $location[The Haunted Gallery] && SpookyravenAccess(ElizabethRoom)) {
@@ -415,115 +411,84 @@ void digitizeMonster()
 		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
-		if(monster_phylum(get_property('_sourceTerminalDigitizeMonster').to_monster()) == $phylum[horror] && get_property('redSnapperPhylum') == 'horror')
+		if(monster_phylum(get_property('_sourceTerminalDigitizeMonster').to_monster()) == get_property('redSnapperPhylum').to_phylum())
 			familiarChoice = $familiar[Red-Nosed Snapper];
-		else if (get_property('_sourceTerminalDigitizeMonster').to_monster() == $monster[knob goblin embezzler])
-			familiarChoice = $familiar[hobo monkey];
 		else
 			familiarChoice = chooseFamiliar();
-		
+
+		SaveSetup();
+
+		location target;
+		string macro = 'skill saucegeyser;';
+
+		item[slot] needs;
+
 		if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
 		{
-			SaveSetup();
-			if (get_property('_sourceTerminalDigitizeMonster').to_monster() == $monster[knob goblin embezzler])
-				maximize('meat, equip mafia pointer ring', false);
-			else
-				cli_execute("/outfit Free Drops");
+			
 			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 			{
-				equip($slot[back],$item[protonic accelerator pack]);
-
+				needs[$slot[back]] = $item[protonic accelerator pack];
 			}
-			use_familiar(familiarChoice);
-			(!adv1(guzzlrLocation, -1, "skill saucestorm;"));
+			target = guzzlrLocation;
 		}
 		else if(hasDinseyQuest())
 		{
-			SaveSetup();
-			if (get_property('_sourceTerminalDigitizeMonster').to_monster() == $monster[knob goblin embezzler])
-				maximize('meat, equip mafia pointer ring', false);
-			else
-				cli_execute("/outfit Free Drops");
-			
-			use_familiar(familiarChoice);
-			if(parseDinseyQuest() == 'Super Luber' && get_property('dinseyRollercoasterNext').to_boolean())
+			if(parseDinseyQuest() == 'Social Justice Adventurer I')
 			{
-				equip($slot[acc3], $item[lube-shoes]);
-				(!adv1($location[Barf Mountain]));
+				target = $location[Pirates of the Garbage Barges];
 			}
-			else if(parseDinseyQuest() == 'Social Justice Adventurer I')
-				(!adv1($location[Pirates of the Garbage Barges]));
+				
 			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
-				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice])); //'
+			{
+				target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
+			}
+				
 			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 			{
-				equip($item[Dinsey mascot mask]);
-				(!adv1($location[The Toxic Teacups]));
+				needs[$slot[hat]] = $item[Dinsey mascot mask];
+				target = $location[The Toxic Teacups];
 			}
 			else if(parseDinseyQuest() == 'Teach a Man to Fish Trash')
 			{
-				equip($item[trash net]);
-				(!adv1($location[Pirates of the Garbage Barges]));
-			}
-			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
-			{
-				visit_url(kiosk);
-				run_choice( 3 );
-				run_choice( 6 );
-				if (get_property('_sourceTerminalDigitizeMonster').to_monster() == $monster[knob goblin embezzler])
-					maximize('meat, equip mafia pointer ring, equip mafia thumb ring, equip lucky gold ring', false);
-				else
-					cli_execute("/outfit Free Drops");
-				if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-				{
-					equip($slot[back],$item[protonic accelerator pack]);
-				}
-				use_familiar(familiarChoice);
-				if(my_location().wanderers)
-				{
-					(!adv1(my_location(), -1, "skill saucegeyser;"));
-				}
-				else
-				{
-					(!adv1($location[The Haunted Kitchen], -1, "skill saucegeyser;"));
-				}
-			}
-				
+				needs[$slot[weapon]] = $item[trash net];
+				target = $location[Pirates of the Garbage Barges];
+			}		
 		}
 		else if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
-			SaveSetup();
-			if (get_property('_sourceTerminalDigitizeMonster').to_monster() == $monster[knob goblin embezzler])
-				maximize('meat, equip mafia pointer ring', false);
-			else
-				cli_execute("/outfit Free Drops");
 			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 			{
-				equip($slot[back],$item[protonic accelerator pack]);
+				needs[$slot[back]] = $item[protonic accelerator pack];
 			}
-			use_familiar(familiarChoice);
-			(!adv1(doctorLocation, -1, "skill saucestorm;"));
+			target = doctorLocation;
 		}
 		else 
 		{
-			SaveSetup();
-			if (get_property('_sourceTerminalDigitizeMonster').to_monster() == $monster[knob goblin embezzler])
-				maximize('meat, equip mafia pointer ring, equip mafia thumb ring, equip lucky gold ring', false);
-			else
-				cli_execute("/outfit Free Drops");
 			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 			{
-				equip($slot[back],$item[protonic accelerator pack]);
+				needs[$slot[back]] = $item[protonic accelerator pack];
 			}
-			use_familiar(familiarChoice);
+
 			if(my_location().wanderers && my_location() != $location[The Sunken Party Yacht])
 			{
-				(!adv1(my_location(), -1, "skill saucegeyser;"));
+				target = my_location();
 			}
 			else
 			{
-				(!adv1($location[The Haunted Kitchen], -1, "skill saucegeyser;"));
+				target = $location[The Haunted Kitchen];
 			}
+		}
+		
+		use_familiar(familiarChoice);
+		construct_free_outfit(needs);
+		(!adv1(target, -1, macro));
+
+		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+		{
+			visit_url(kiosk);
+			run_choice( 3 );
+			run_choice( 6 );
 		}
 	}
 }
@@ -544,90 +509,56 @@ void kramco()
 		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
+		location target;
+		string macro = 'skill saucegeyser;';
+		item[slot] needs;
+		
+		SaveSetup();
+		
+		needs[$slot[off-hand]] = $item[Kramco Sausage-o-Matic&trade;];
+		
 		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
 		{
-			SaveSetup();
-			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-			{
-				equip($slot[back],$item[protonic accelerator pack]);
-			}
-			equip($item[Fourth of May Cosplay Saber]);
-			equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]); 
-			use_familiar(chooseFamiliar());
-			(!adv1(doctorLocation, -1, "skill saucegeyser;"));
-
+			target = doctorLocation;
 		}
 		else if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
 		{
-			SaveSetup();
-			location ghostLocation = to_location(get_property("ghostLocation"));
-			cli_execute("/outfit Free Drops");
-			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-			{
-				equip($slot[back],$item[protonic accelerator pack]);
-			}
-			equip($item[Fourth of May Cosplay Saber]);
-			equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]); 
-			use_familiar(chooseFamiliar());
-			(!adv1(guzzlrLocation, -1, "skill saucegeyser;"));
+			target = guzzlrLocation;
 		}
 		else if(hasDinseyQuest())
-		{
-			SaveSetup();
-			cli_execute("/outfit Free Drops");
-			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-			{
-				equip($slot[back],$item[protonic accelerator pack]);
-			}
-			equip($item[Fourth of May Cosplay Saber]);
-			equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]); 
+		{ 
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
-				(!adv1($location[Pirates of the Garbage Barges], -1, "skill saucegeyser;"));
+				target = $location[Pirates of the Garbage Barges];
 			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
-				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice], -1, "skill saucegeyser;")); //'
+				target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
 			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 			{
-				equip($item[Dinsey mascot mask]);
-				(!adv1($location[The Toxic Teacups], -1, "skill saucegeyser;"));
+				needs[$slot[hat]] = $item[Dinsey mascot mask];
+				target = $location[The Toxic Teacups];
 			}
-			else
-			{
-				(!adv1($location[The Toxic Teacups], -1, "skill saucegeyser;"));
-			}
-			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
-			{
-				visit_url(kiosk);
-				
-				run_choice( 3 );
-				run_choice( 6 );
-
-				equip($item[Fourth of May Cosplay Saber]);
-				equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]);
-				if(my_location().wanderers && my_location() != $location[The Sunken Party Yacht])
-				{
-					(!adv1(my_location(), -1, "skill saucegeyser;"));
-				}
-				else
-				{
-					(!adv1($location[The Haunted Kitchen], -1, "skill saucegeyser;"));
-				}
-			}
-				
 		}
 		else
 		{
-			SaveSetup();
-			equip($item[Fourth of May Cosplay Saber]);
-			equip($slot[off-hand],$item[Kramco Sausage-o-Matic&trade;]);
-			if(my_location().wanderers && my_location() != $location[The Sunken Party Yacht])
+			if(my_location().wanderers && my_location().environment != 'underwater')
 			{
-				(!adv1(my_location(), -1, "skill saucegeyser;"));
+				target = my_location();
 			}
 			else
 			{
-				(!adv1($location[The Haunted Kitchen], -1, "skill saucegeyser;"));
+				target = $location[The Haunted Kitchen];
 			}
 				
+		}
+
+		use_familiar(familiarChoice);
+		construct_free_outfit(needs);
+		(!adv1(target, -1, macro));
+
+		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+		{
+			visit_url(kiosk);
+			run_choice( 3 );
+			run_choice( 6 );
 		}
 	}
 }
@@ -781,7 +712,8 @@ void bullseye()
 	}
 }
 
-void main() {
+void main() 
+{
 
 	try {
 		if ( can_interact() && my_inebriety() <= inebriety_limit() && my_familiar() != $familiar[stooper])
@@ -809,8 +741,9 @@ void main() {
 			
 		}
 	} 
-	finally { 
+	finally 
+	{ 
 		HandleChains();
 		RestoreSetup(); 
-}
+	}
 }
