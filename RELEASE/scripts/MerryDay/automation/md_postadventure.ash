@@ -550,7 +550,7 @@ void kramco()
 				
 		}
 
-		use_familiar(familiarChoice);
+		use_familiar(chooseFamiliar());
 		construct_free_outfit(needs);
 		(!adv1(target, -1, macro));
 
