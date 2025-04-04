@@ -4,7 +4,7 @@ import md_mpburn;
 
 void yacht_outfit()
 {
-    equip($slot[hat], $item[Apriling band helment]);
+    equip($slot[hat], $item[Apriling band helmet]);
 
     equip($slot[weapon], $item[garbage sticker]);
     equip($slot[off-hand], $item[latte lovers member's mug]);
@@ -18,8 +18,8 @@ void yacht_outfit()
     equip($slot[pants], $item[repaid diaper]);
 
     equip($slot[acc1], $item[yamtility belt]);
-    equip($slot[acc2], $item[wormwood weeding ring]);
-    equip($slot[acc3], $item[anemony clip]);
+    equip($slot[acc2], $item[wormwood wedding ring]);
+    equip($slot[acc3], $item[anemoney clip]);
 
     equip($slot[familiar], $item[amulet coin]);
     
