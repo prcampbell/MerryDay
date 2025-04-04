@@ -140,7 +140,8 @@ void bustGhost()
 {
 	if(to_location(get_property("ghostLocation")) == $location[none])
 		return;
-	buffer stun() {
+	buffer stun() 
+	{
 		buffer stun;
 		void addstun(skill sk) {
 			if(sk != $skill[none] && have_skill(sk)) {
@@ -175,45 +176,49 @@ void bustGhost()
 	item acc3;
 	familiar fam;
 	location ghostLocation = to_location(get_property("ghostLocation"));
-	if(my_inebriety() <= inebriety_limit() && to_boolean(get_property("kingLiberated")) && ghostLocation != $location[none]) { # && my_location() != ghostLocation) {
+	if(my_inebriety() <= inebriety_limit() 
+		&& to_boolean(get_property("kingLiberated")) 
+		&& ghostLocation != $location[none]) 
+	{ 
 		// If last adventure was getting beaten up, then ABORT! (Last adventure might have been losing to this ghost.)
 		if(run_combat().contains_text("<p>You lose.  You slink away"))
 			abort("Whoa! Not doing well here! Fight this ghost manually!");
 		
-		switch(ghostLocation) {
+		item[slot] needs;
+
+		switch(ghostLocation) 
+		{
 		case $location[Inside the Palindome]:
-			acc3 = equipped_item($slot[acc3]);
-			equip($slot[acc3], $item[Talisman o' Namsilat]);//'
+			needs[$slot[acc3]] = $item[Talisman o' Namsilat];
 			break;
 		case $location[The Skeleton Store]:
-			if(get_property("questM23Meatsmith") == "unstarted") {
+			if(get_property("questM23Meatsmith") == "unstarted") 
+			{
 				visit_url("shop.php?whichshop=meatsmith&action=talk");
 				run_choice(1);
 			}
 			break;
 		case $location[The Overgrown Lot]:
-			if(get_property("questM24Doc") == "unstarted") {
+			if(get_property("questM24Doc") == "unstarted") 
+			{
 				visit_url("shop.php?whichshop=doc&action=talk");
 				run_choice(1);
 			}
 			break;
 		case $location[Madness Bakery]:
-			if(get_property("questM25Armorer") == "unstarted") {
+			if(get_property("questM25Armorer") == "unstarted") 
+			{
 				visit_url("shop.php?whichshop=armory&action=talk");
 				run_choice(1);
 			}
 			break;
 		}	
-		item back;
-		if(!have_equipped($item[protonic accelerator pack])) {
-			back = equipped_item($slot[back]);
-			equip($item[protonic accelerator pack]);
-		}
-		fam = my_familiar();
+
 		use_familiar(chooseFamiliar());
-		//equip($item[dromedary drinking helmet]);
+		
+		needs[$slot[back]] = $item[protonic accelerator pack];
+		construct_free_outfit(needs);
 		(!adv1(ghostLocation, -1, "skill Shadow Noodles; while hasskill Shoot Ghost; skill Shoot Ghost; if hasskill Trap Ghost; skill Trap Ghost; endif; endwhile;"));
-		// Trapped error condition in case I''m adventuring with goals
 		
 	}
 }
