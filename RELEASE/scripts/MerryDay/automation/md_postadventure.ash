@@ -754,11 +754,11 @@ void bullseye()
 		}
 		else if(my_location().wanderers)
 		{
-			target = my_location()
+			target = my_location();
 		}
 		else
 		{
-			target = $location[The Haunted Kitchen]
+			target = $location[The Haunted Kitchen];
 		}
 
 		use_familiar(chooseFamiliar());
