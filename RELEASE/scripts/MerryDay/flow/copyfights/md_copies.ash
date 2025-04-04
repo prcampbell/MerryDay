@@ -147,13 +147,15 @@ boolean putty_run()
     return true;
 }
 
+boolean roach_can()
+{
+    return get_property("_questPirateRealm") == "step9"
+            || get_property("_questPirateRealm") == "step10";
+}
 
 void roach_run()
 {
-    if(get_property('_questPirateRealm') != 'step10')
-    {
-        abort('Trash Island is not open!');
-    }
+
     if(angel_can())
         angel_run();
 
@@ -236,7 +238,15 @@ void roach_run()
 
 void main()
 {
-    roach_run();
+    if(roach_can())
+    {
+        roach_run();
+    }
+    else 
+    {
+        abort('Trash Island is not open!');
+    }
+    
 }
 
 
