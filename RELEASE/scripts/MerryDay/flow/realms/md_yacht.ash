@@ -140,6 +140,9 @@ void main()
     while(yacht_can())
         yacht_run();
 
+    while(yacht_double_can())
+        yacht_double_run();
+
     print('You cannot do yacht anymore','red');
 }
 
