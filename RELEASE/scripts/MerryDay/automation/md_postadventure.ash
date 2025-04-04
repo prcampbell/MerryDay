@@ -215,15 +215,13 @@ void bustGhost()
 	}
 }
 
-
-
-
 void BrickoPrime() 
 {
 	location ghostLocation = to_location(get_property("ghostLocation"));
 	if (to_boolean(get_property("kingLiberated")) && ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() ) 
 	{
-		if (get_property("_brickoFights").to_int()<10) {
+		if (get_property("_brickoFights").to_int()<10) 
+		{
 			SaveSetup();
 			set_auto_attack(1);
 			
@@ -705,61 +703,74 @@ void bullseye()
 {
 	if(have_effect($effect[everything looks red]) == 0)
 	{
+		location target;
+		string macro = 'skill Darts: Aim for the Bullseye;';
 		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
 
 		SaveSetup();
 		cli_execute('autoattack 0');
-		cli_execute("/outfit Free Drops");
-		equip($slot[acc2],$item[Everfull Dart Holster]); 
+
+		use_familiar(chooseFamiliar());
+		item[slot] needs;
+		needs[$slot[acc3]] = $item[Everfull Dart Holster];
+
 		if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 		{
-			equip($slot[back],$item[protonic accelerator pack]);
+			needs[$slot[back]] = $item[protonic accelerator pack];
 		}
-		use_familiar(chooseFamiliar());
 
 		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
 		{
-			(!adv1(doctorLocation, -1, "skill Darts: Aim for the Bullseye;"));
+			target = doctorLocation;
 		}
 		else if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
 		{
-			(!adv1(guzzlrLocation, -1, "skill Darts: Aim for the Bullseye;"));
+			target = guzzlrLocation;
 		}
 		else if(hasDinseyQuest())
 		{
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
-				(!adv1($location[Pirates of the Garbage Barges], -1, 'skill Darts: Aim for the Bullseye;'));
+			{
+				target = $location[Pirates of the Garbage Barges];
+			}
 			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
-				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice], -1, 'skill Darts: Aim for the Bullseye;')); //'
+			{
+				target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
+			}
 			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 			{
-				equip($item[Dinsey mascot mask]);
-				(!adv1($location[The Toxic Teacups], -1, 'skill Darts: Aim for the Bullseye;'));
+				needs[$slot[hat]] = $item[Dinsey mascot mask];
+				target = $location[The Toxic Teacups];
 			}
-			else
+			else if(parseDinseyQuest() == 'Teach a Man to Fish Trash')
 			{
-				(!adv1($location[The Toxic Teacups], -1, 'skill Darts: Aim for the Bullseye;'));
+				needs[$slot[weapon]] = $item[trash net];
+				target = $location[Pirates of the Garbage Barges];
 			}
-			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
-			{
-				visit_url(kiosk);
-				
-				run_choice( 3 );
-				run_choice( 6 );
-			}
+
 					
 		}
 		else if(my_location().wanderers)
 		{
-			(!adv1(my_location(), -1, "skill Darts: Aim for the Bullseye;"));
+			target = my_location()
 		}
 		else
 		{
-			(!adv1($location[The Haunted Kitchen], -1, "skill Darts: Aim for the Bullseye;"));
+			target = $location[The Haunted Kitchen]
 		}
 
+		use_familiar(chooseFamiliar());
+		construct_free_outfit(needs);
+		(!adv1(target, -1, macro));
+		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+		{
+			visit_url(kiosk);
+			
+			run_choice( 3 );
+			run_choice( 6 );
+		}
 	}
 }
 
