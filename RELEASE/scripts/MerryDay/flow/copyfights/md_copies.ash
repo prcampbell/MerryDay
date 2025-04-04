@@ -27,7 +27,7 @@ int copyCount()
     return 65;
 }
 
-void orb_run($monster goal)
+void orb_run(monster goal)
 {
     print('orb-dancing in the dire warren','purple');
     use_familiar($familiar[hobo monkey]);
