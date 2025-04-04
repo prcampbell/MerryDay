@@ -77,6 +77,26 @@ boolean get_quest()
     if(hasDinseyQuest())
         return true;
     
+    string page = visit_url( "place.php?whichplace=airport_stench&action=airport3_kiosk" );
+    
+    matcher m = create_matcher( "<b>Waterway Debris Removal</b>.*?name=option value=(.)>", page );
+    if ( m.find() ) 
+    {
+        // Accept the job
+        print( "They do!" );
+        run_choice( m.group( 1 ).to_int() );
+    }
+    matcher m = create_matcher( "<b>Electrical Maintenance</b>.*?name=option value=(.)>", page );
+    if ( m.find() ) 
+    {
+        // Accept the job
+        print( "They do!" );
+        run_choice( m.group( 1 ).to_int() );
+    }
+
+    // Leave the Kiosk
+    run_choice( 6 );
+
     return false;
 }
 
