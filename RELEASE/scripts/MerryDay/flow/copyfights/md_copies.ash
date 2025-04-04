@@ -144,6 +144,7 @@ boolean putty_run()
         put_closet(1, $item[spooky putty sheet]);
     }
     use(1, $item[rain-doh box full of monster]);
+    return true;
 }
 
 
