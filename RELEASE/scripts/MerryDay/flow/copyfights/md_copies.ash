@@ -96,7 +96,7 @@ boolean get_spooky_putty_sheet()
     {
         return true;
     }
-    if(closet_amount($item[spooky putty sheet]) > 0)
+    else if(closet_amount($item[spooky putty sheet]) > 0)
     {
         return take_closet(1, $item[spooky putty sheet]);
     }
@@ -115,7 +115,6 @@ boolean angel_run()
     
     get_spooky_putty_sheet();
     
-    cli_execute('closet take 1 spooky putty sheet');
     use_familiar($familiar[obtuse angel]);
     maximize('meat drop, equip quake of arrows',false);
     set_auto_attack('BackupMeat');
