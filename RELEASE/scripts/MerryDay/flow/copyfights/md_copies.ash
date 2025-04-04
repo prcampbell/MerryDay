@@ -27,14 +27,30 @@ int copyCount()
     return 65;
 }
 
-void orb_run()
+void orb_run($monster goal)
 {
+    print('orb-dancing in the dire warren','purple');
     use_familiar($familiar[hobo monkey]);
     maximize('meat drop, equip latte lover, equip miniature crystal ball',false);
     set_auto_attack('BasicBarf');
     adv1($location[the dire warren], -1, '');
-    set_auto_attack('BackupMeat');
-    adv1($location[the dire warren], -1, '');
+
+
+    string crystalBall = (get_property("crystalBallPredictions"));
+    string[] predictions = crystalBall.split_string("[|]");
+    foreach i in (predictions) 
+    {
+        string[] predictions_split = predictions[i].split_string(":");
+        print(predictions_split[1] + " - " + predictions_split[2]);
+        if(predictions_split[1].to_location() == $location[The Dire Warren] && predictions_split[2].to_monster() == goal)
+        {
+            set_auto_attack('BackupMeat');
+            adv1($location[the dire warren], -1, '');
+        }
+    }
+
+
+
 }
 
 boolean spinner_can()
@@ -42,11 +58,15 @@ boolean spinner_can()
     return get_property('_timeSpinnerMinutesUsed').to_int() < 8;
 }
 
-boolean spinner_run()
+boolean spinner_can(monster goal)
+{
+    return get_property('_timeSpinnerMinutesUsed').to_int() < 8;
+}
+
+boolean spinner_run(monster goal)
 {
 
 //Actually do the thing:
-    monster goal = $monster[cockroach];
     string[int] pages;
     pages[0] = "inv_use.php?pwd=&which=3&whichitem=9104";
 	pages[1] = "choice.php?pwd=&whichchoice=1195&option=1";
@@ -91,6 +111,7 @@ boolean angel_can()
 
 boolean angel_run()
 {
+    print('Romantic Arrow in the Chateau','purple');
     
     get_spooky_putty_sheet();
     
@@ -101,6 +122,7 @@ boolean angel_run()
     visit_url('place.php?whichplace=chateau&action=chateau_painting');
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop, equip backup camera, equip Roman Candelabra',false);
+    print('Set the Romantic Counter','purple');
     adv1($location[noob cave], -1, '');
 
     return true;
@@ -115,6 +137,7 @@ boolean putty_can()
 
 boolean putty_run()
 {
+    print('Spooky Puty and Rain-doh #' + get_property('spookyPuttyCopiesMade'),'purple');
     use(1, $item[spooky putty monster]);
     if(get_property('spookyPuttyCopiesMade').to_int() = 3)
     {
@@ -124,7 +147,7 @@ boolean putty_run()
 }
 
 
-void main()
+void roach_run()
 {
     if(get_property('_questPirateRealm') != 'step10')
     {
@@ -143,8 +166,10 @@ void main()
     }
 
     /*Timespinner goes here*/
-    spinner_run();
-    spinner_run();
+    while(spinner_can($monster[cockroach]))
+    {
+        spinner_run($monster[cockroach]);
+    }
 
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_powerfulGloveBatteryPowerUsed').to_int() < 100)
     {
@@ -153,13 +178,13 @@ void main()
         adv1($location[noob cave], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
-            orb_run();
+            orb_run($monster[cockroach]);
         }
     }
     
     if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
     {
-        orb_run();
+        orb_run($monster[cockroach]);
     }
     
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 10)
@@ -168,13 +193,13 @@ void main()
         adv1($location[noob cave], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
-            orb_run();
+            orb_run($monster[cockroach]);
         }
     }
 
     if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
     {
-        orb_run();
+        orb_run($monster[cockroach]);
     }    
     
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_backUpUses').to_int() < 11)
@@ -184,7 +209,7 @@ void main()
         adv1($location[noob cave], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
-            orb_run();
+            orb_run($monster[cockroach]);
         }    
     }
 
@@ -195,12 +220,22 @@ void main()
         adv1($location[the dire warren], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
-            orb_run();
+            orb_run($monster[cockroach]);
         }        
     }
-        
 
+    if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
+    {
+        orb_run($monster[cockroach]);
+    }     
 
+    set_auto_attack(0);
+
+}
+
+void main()
+{
+    roach_run();
 }
 
 
