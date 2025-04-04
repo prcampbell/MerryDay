@@ -9,7 +9,8 @@ boolean maximizedMP = false;
 int mpRestored;
 
 void mpBuff()
-{ use_familiar($familiar[left-hand man]);
+{ 
+	use_familiar($familiar[left-hand man]);
 
 	maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
 	//Slotless All Stats
@@ -148,20 +149,20 @@ void Sausages()
 	}
 }
 
-void GingerLatte()
+boolean GingerLatte()
 {
 	if(get_property("_gingerbreadCityTurns") >= 5)
-		return;
+		return false;
 	if(get_property("_gingerbreadCityTurns") == 0 && get_property("_latteRefillsUsed") != 0)
 	{
-		return;
+		return false;
 	}
 	if(!contains_text(get_property('latteUnlocks'), 'cajun') 
 		&& !contains_text(get_property('latteUnlocks'), 'carrot')
 		&& !contains_text(get_property('latteUnlocks'), 'rawhide')
 	)
 	{
-		return;
+		return false;
 	}
 	use_familiar($familiar[Blavious Kloop]);
 	equip($slot[off-hand], $item[latte lovers member's mug]);
@@ -179,6 +180,7 @@ void GingerLatte()
 		adv1($location[Gingerbread Train Station], -1, 'skill gulp latte; skill throw latte;');
 		cli_execute('Librams; latte refill cajun rawhide carrot');
 	}
+	return true;
 }
 
 /* 
@@ -319,14 +321,14 @@ void EternalCarBattery() {
  
 */
 
-void unlockLatte()
+boolean unlockLatte()
 {
 	if(contains_text(get_property('latteUnlocks'), 'cajun') 
 		&& contains_text(get_property('latteUnlocks'), 'carrot')
 		&& contains_text(get_property('latteUnlocks'), 'rawhide')
 	)
 	{
-		return;
+		return true;
 	}
 	while(!contains_text(get_property('latteUnlocks'), 'cajun'))
 	{
@@ -336,7 +338,7 @@ void unlockLatte()
 		
 		if(get_property('blackForestProgress').to_int() == 0)
 		{
-			return;
+			break;
 		}
 		use_familiar($familiar[frumious bandersnatch]);
 		equip($slot[off-hand], $item[latte lovers member's mug]);
@@ -360,16 +362,7 @@ void unlockLatte()
 		ensure_song($effect[Ode To Booze]);
 		adv1($location[The Dire Warren], -1, 'runaway;');
 	}
-}
-void main() 
-{
-	//mpBuff();
-    //Aug15(); 
-    //PYEC();
-    //ClanShower();
-    //FratNuns();
-	Sausages();
-	unlockLatte();
-LibramBurn();
-
+	return contains_text(get_property('latteUnlocks'), 'cajun') 
+		&& contains_text(get_property('latteUnlocks'), 'carrot')
+		&& contains_text(get_property('latteUnlocks'), 'rawhide')
 }
