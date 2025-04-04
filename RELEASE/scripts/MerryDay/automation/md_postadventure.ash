@@ -260,6 +260,9 @@ void voteMonster()
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
 	
+		location target;
+		string macro = 'skill saucegeyser;';
+
 		item[slot] needs;
 		needs[$slot[acc3]] = votedSticker;	
 		SaveSetup();
@@ -271,64 +274,59 @@ void voteMonster()
 		}
 		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
-			use_familiar(chooseFamiliar());
-			construct_free_outfit(needs);
-			(!adv1(doctorLocation, -1, "skill saucegeyser;"));
+			target = doctorLocation;
+			
 
 		}
 		else if(guzzlrLocation != $location[none] && can_adventure(guzzlrLocation))
 		{
-			use_familiar(chooseFamiliar());
-			construct_free_outfit(needs);
-			(!adv1(guzzlrLocation, -1, "skill saucegeyser;"));
+			target = guzzlrLocation;
 		}
 		else if(hasDinseyQuest())
 		{
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
 			{
-				use_familiar(chooseFamiliar());
-				construct_free_outfit(needs);
-				(!adv1($location[Pirates of the Garbage Barges]));
+				target = $location[Pirates of the Garbage Barges];
 			}
 				
 			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
 			{
-				use_familiar(chooseFamiliar());
-				construct_free_outfit(needs);
-				(!adv1($location[Uncle Gator's Country Fun-Time Liquid Waste Sluice])); //'
+				target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
 			}
 				
 			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 			{
 				needs[$slot[hat]] = $item[Dinsey mascot mask];
-				use_familiar(chooseFamiliar());
-				construct_free_outfit(needs);
-				(!adv1($location[The Toxic Teacups]));
+				target = $location[The Toxic Teacups];
 			}
 			else if(parseDinseyQuest() == 'Teach a Man to Fish Trash')
 			{
 				needs[$slot[weapon]] = $item[trash net];
-				use_familiar(chooseFamiliar());
-				construct_free_outfit(needs);
-				(!adv1($location[Pirates of the Garbage Barges]));
-			}
-			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
-			{
-				visit_url(kiosk);
-				run_choice( 3 );
-				run_choice( 6 );
-			}
-				
+				target = $location[Pirates of the Garbage Barges];
+			}	
 		}
 		else
 		{
 			if(my_location() != $location[The Sunken Party Yacht])
 			{
-				use_familiar(chooseFamiliar());
-				construct_free_outfit(needs);
-				(!adv1(my_location(), -1, "skill saucegeyser;"));				
+				target = my_location();				
+			}
+			else
+			{
+				target = $location[The Haunted Kitchen];
 			}
 
+		}
+
+		use_familiar(chooseFamiliar());
+		construct_free_outfit(needs);
+		(!adv1(target, -1, macro));
+		
+		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+		{
+			visit_url(kiosk);
+			run_choice( 3 );
+			run_choice( 6 );
 		}
 	}
 	
