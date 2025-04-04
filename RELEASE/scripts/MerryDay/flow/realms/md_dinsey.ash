@@ -86,7 +86,7 @@ boolean get_quest()
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
     }
-    matcher m = create_matcher( "<b>Electrical Maintenance</b>.*?name=option value=(.)>", page );
+    m = create_matcher( "<b>Electrical Maintenance</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
     {
         // Accept the job
