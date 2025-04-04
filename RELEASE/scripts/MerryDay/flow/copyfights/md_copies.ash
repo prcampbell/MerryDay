@@ -132,14 +132,14 @@ boolean putty_can()
 {
     return get_property('_raindohCopiesMade').to_int() + get_property('spookyPuttyCopiesMade').to_int() < 6
         && get_property('spookyPuttyMonster').to_monster() == $monster[cockroach]
-        && get_property('rainDohMonster').to_monster() == $monster[cockroach]
+        && get_property('rainDohMonster').to_monster() == $monster[cockroach];
 }
 
 boolean putty_run()
 {
     print('Spooky Puty and Rain-doh #' + get_property('spookyPuttyCopiesMade'),'purple');
     use(1, $item[spooky putty monster]);
-    if(get_property('spookyPuttyCopiesMade').to_int() = 3)
+    if(get_property('spookyPuttyCopiesMade').to_int() == 3)
     {
         put_closet(1, $item[spooky putty sheet]);
     }
