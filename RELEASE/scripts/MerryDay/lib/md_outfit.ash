@@ -150,7 +150,11 @@ void construct_free_outfit(item[slot] required_equips)
 	//free outfits prioritize charging equipment
 
 //back
-    if(get_property('_vampyreCloakeFormUses').to_int() < 10)
+	if(required_equips[$slot[back]] != $item[none])
+	{
+		equip($slot[back], required_equips[$slot[back]]);
+	}
+	else if(get_property('_vampyreCloakeFormUses').to_int() < 10)
     {
         equip($slot[back], $item[vampyric cloake]);
     }
@@ -159,8 +163,13 @@ void construct_free_outfit(item[slot] required_equips)
         equip($slot[back], $item[buddy bjorn]);
         bjornify_familiar(get_best_bjorn());    
     }
-	//hat
-    if(equipped_item($slot[back]) != $item[buddy bjorn])
+
+//hat
+	if(required_equips[$slot[hat]] != $item[none])
+	{
+		equip($slot[hat], required_equips[$slot[hat]]);
+	}
+    else if(equipped_item($slot[back]) != $item[buddy bjorn])
     {
         equip($slot[hat], $item[crown of thrones]);
         enthrone_familiar(get_best_bjorn());
@@ -169,6 +178,7 @@ void construct_free_outfit(item[slot] required_equips)
     {
         equip($slot[hat], $item[daylight shavings helmet]);
     }
+
 	//shirt
 	if(required_equips[$slot[shirt]] != $item[none] && can_equip(required_equips[$slot[shirt]]))
 	{
@@ -178,8 +188,13 @@ void construct_free_outfit(item[slot] required_equips)
 	{
 		equip($slot[shirt], $item[jurassic parka]);
 	}
+
 	//pants
-    if(get_property('_pantsgivingCount').to_int() < 5)
+	if(required_equips[$slot[pants]] != $item[none] && can_equip(required_equips[$slot[pants]]))
+	{
+		equip($slot[pants], required_equips[$slot[pants]]);
+	}
+    else if(get_property('_pantsgivingCount').to_int() < 5)
     {
         equip($slot[pants], $item[pantsgiving]);
     }
@@ -194,8 +209,17 @@ void construct_free_outfit(item[slot] required_equips)
         else
             equip($slot[pants], $item[pantsgiving]);
     }
+
 	//weapon
-    equip($slot[weapon], $item[june cleaver]);
+    if(required_equips[$slot[weapon]] != $item[none] && can_equip(required_equips[$slot[weapon]]))
+	{
+		equip($slot[weapon], required_equips[$slot[weapon]]);
+	}
+    else 
+	{
+		equip($slot[weapon], $item[june cleaver]);
+	}
+	
 	//off-hand
 
 	if(required_equips[$slot[off-hand]] != $item[none] && can_equip(required_equips[$slot[off-hand]]))
@@ -208,23 +232,55 @@ void construct_free_outfit(item[slot] required_equips)
 	}
     
 	//accessories
-    if(get_property('questDoctorBag') == 'unstarted')
+	if(required_equips[$slot[acc1]] != $item[none] 
+		&& can_equip(required_equips[$slot[acc1]])
+		&& required_equips[$slot[acc1]] != $item[mr. screege's spectacles]
+		&& required_equips[$slot[acc1]] != $item[mr. cheeng's spectacles]
+		&& required_equips[$slot[acc1]] != $item[stinky cheese eye]
+		)
+	{
+		equip($slot[acc1], required_equips[$slot[acc1]]);
+	}
+    else if(get_property('questDoctorBag') == 'unstarted')
         equip($slot[acc1], $item[Lil' Doctor&trade; bag]);
     else 
         equip($slot[acc1], $item[Lucky Gold Ring]);
 
+
+	if(required_equips[$slot[acc2]] != $item[none] 
+		&& can_equip(required_equips[$slot[acc2]])
+		&& required_equips[$slot[acc2]] != $item[mr. screege's spectacles]
+		&& required_equips[$slot[acc2]] != $item[Lil' Doctor&trade; bag]
+		&& required_equips[$slot[acc2]] != $item[Lucky Gold Ring]
+		)
+	{
+		equip($slot[acc2], required_equips[$slot[acc2]]);
+	}
 	if(get_property('_stinkyCheeseCount').to_int() < 100)
     {
         if(available_amount($item[stinky cheese eye]) == 0)
         cli_execute('fold stinky cheese eye');
-        equip($slot[acc2], $item[stinky cheese eye ]);
+        equip($slot[acc2], $item[stinky cheese eye]);
     }
 	else
 	{
 		equip($slot[acc2], $item[mr. cheeng's spectacles]);
 	}
 
-    equip($slot[acc3], $item[mr. screege's spectacles]);
+	if(required_equips[$slot[acc3]] != $item[none] 
+		&& can_equip(required_equips[$slot[acc3]])
+		&& required_equips[$slot[acc3]] != $item[Lil' Doctor&trade; bag]
+		&& required_equips[$slot[acc3]] != $item[Lucky Gold Ring]
+		&& required_equips[$slot[acc3]] != $item[stinky cheese eye]
+		)
+	{
+		equip($slot[acc3], required_equips[$slot[acc3]]);
+	}
+	else 
+	{
+		equip($slot[acc3], $item[mr. screege's spectacles]);
+	}
+    
 	
 	if(required_equips[$slot[familiar]] != $item[none])
 	{
