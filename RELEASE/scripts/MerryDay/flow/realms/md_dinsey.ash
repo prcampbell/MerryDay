@@ -34,8 +34,11 @@ boolean get_dinsey_access()
 {
     if(!has_dinsey_access())
     {
+        string tmp = get_property('autoBuyPriceLimit');
+        set_property('autoBuyPriceLimit', '150000');
         cli_execute('acquire 1 one-day ticket to Dinseylandfill');
         use(1, $item[one-day ticket to Dinseylandfill]);
+        set_property('autoBuyPriceLimit', tmp);
     }
     return has_dinsey_access();
 }
