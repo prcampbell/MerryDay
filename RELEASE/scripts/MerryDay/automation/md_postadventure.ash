@@ -89,8 +89,11 @@ void SaveSetup() {
 	}
 }
 
-void RestoreSetup() {
-	if (SetupSaved) {
+void RestoreSetup() 
+{
+	if (SetupSaved) 
+	{
+		print("Restoring setup ... ", "green");
 		set_property("afterAdventureScript", afterAdventureScript);
         set_property("betweenBattleScript", beforeAdventureScript);
 		if (aa != get_auto_attack())
