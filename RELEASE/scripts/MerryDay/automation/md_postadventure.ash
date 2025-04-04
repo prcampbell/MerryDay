@@ -270,7 +270,6 @@ void voteMonster()
 		needs[$slot[acc3]] = votedSticker;	
 		SaveSetup();
 	
-	
 		if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
 		{
 			needs[$slot[back]] = $item[protonic accelerator pack];
@@ -278,8 +277,6 @@ void voteMonster()
 		else if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
 			target = doctorLocation;
-			
-
 		}
 		else if(guzzlrLocation != $location[none] && can_adventure(guzzlrLocation))
 		{

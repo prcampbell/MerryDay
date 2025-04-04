@@ -64,6 +64,7 @@ bjorn_data [int] get_bjorn_data(boolean includeUnowned)
 	//	add_entry($familiar[reanimated reanimator], $items[broken skull, broken skull, broken skull, broken skull, hot wing], 1);
 	add_entry($familiar[warbear drone], $items[warbear whosit], 1.0 / 4.5);
 	add_entry($familiar[golden monkey], $items[gold nuggets], 0.5);
+	add_entry($familiar[mini kiwi], $items[mini kiwi], 0.02)
 
 	void limited_add_entry(familiar fam, boolean [item] drops, float dropChance, string prop, int limit)
 	{
@@ -81,6 +82,7 @@ bjorn_data [int] get_bjorn_data(boolean includeUnowned)
 	limited_add_entry($familiar[optimistic candle], $items[glob of melted wax], 1, "_optimisticCandleDropsCrown", 3);
 	limited_add_entry($familiar[adventurous spelunker], $items[bubblewrap ore, cardboard ore, styrofoam ore, teflon ore, velcro ore, vinyl ore], 1, "_oreDropsCrown", 6);
 	limited_add_entry($familiar[twitching space critter], $items[space beast fur], 1, "_spaceFurDropsCrown", 1);
+	limited_add_entry($familiar[puck man], $items[yellow pixel], 0.25, "_yellowPixelDropsCrown", 1);
 
 	return res;
 }
