@@ -320,6 +320,7 @@ void voteMonster()
 
 		use_familiar(chooseFamiliar());
 		construct_free_outfit(needs);
+		print('Trying to fight vote monster in' + target.to_string());
 		(!adv1(target, -1, macro));
 		
 		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
