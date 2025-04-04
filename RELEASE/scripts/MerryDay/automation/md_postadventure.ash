@@ -310,7 +310,10 @@ void voteMonster()
 		}
 		else
 		{
-			if(my_location() != $location[The Sunken Party Yacht])
+			if(my_location() != $location[none]
+				&& my_location().environment != 'underwater'
+				&& my_location().wanderers
+			)
 			{
 				target = my_location();				
 			}
