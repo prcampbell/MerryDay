@@ -364,5 +364,5 @@ boolean unlockLatte()
 	}
 	return contains_text(get_property('latteUnlocks'), 'cajun') 
 		&& contains_text(get_property('latteUnlocks'), 'carrot')
-		&& contains_text(get_property('latteUnlocks'), 'rawhide')
+		&& contains_text(get_property('latteUnlocks'), 'rawhide');
 }
