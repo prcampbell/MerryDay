@@ -204,17 +204,6 @@ void roach_run()
     {
         orb_run($monster[cockroach]);
     }    
-    
-    while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_backUpUses').to_int() < 11)
-    {
-        use_familiar($familiar[jill-of-all-trades]);
-        maximize('meat drop, equip latte lover, equip backup camera',false);
-        adv1($location[noob cave], -1, '');
-        if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
-        {
-            orb_run($monster[cockroach]);
-        }    
-    }
 
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
     {
@@ -231,6 +220,13 @@ void roach_run()
     {
         orb_run($monster[cockroach]);
     }     
+
+    while(get_property('lastCopyableMonster') == 'cockroach' && get_property('_backUpUses').to_int() < 11)
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        maximize('meat drop, equip latte lover, equip backup camera',false);
+        adv1($location[noob cave], -1, '');
+    }
 
     set_auto_attack(0);
 
