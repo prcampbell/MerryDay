@@ -20,6 +20,7 @@ import ff_shadowbricks;
 import ff_speakeasy;
 import ff_sandworm.ash;
 import md_pirates.ash;
+import md_copies.ash;
 
 
 
@@ -220,6 +221,13 @@ void main()
 
   crabs_run();
   Sailing();
+if(roach_can())
+    {
+        roach_run();
+    }
+crabs_run();
+  Sailing();
+storm_run();
 
 /*
 
