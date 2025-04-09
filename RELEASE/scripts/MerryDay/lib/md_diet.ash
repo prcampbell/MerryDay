@@ -68,6 +68,14 @@ boolean fillInitialLiver()
     {
         drink(1, $item[High-end ginger wine]);
     }
+
+    while(get_property('_sweatOutSomeBoozeUsed').to_int() < 3
+        && get_property('sweat').to_int() >= 25
+        && my_inebriety() > 0)
+    {
+        equip($item[designer sweatpants]);
+        use_skill(1, $skill[sweat out some booze]);
+    }
     return true;
 }
 
