@@ -79,12 +79,14 @@ boolean get_quest()
     
     string page = visit_url( "place.php?whichplace=airport_stench&action=airport3_kiosk" );
     
-    matcher m = create_matcher( "<b>Waterway Debris Removal</b>.*?name=option value=(.)>", page );
+    m = create_matcher( "<b>Track Maintenance</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
     {
         // Accept the job
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
+        run_choice( 6 );
+        return true;
     }
     m = create_matcher( "<b>Electrical Maintenance</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
@@ -92,6 +94,44 @@ boolean get_quest()
         // Accept the job
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
+        run_choice( 6 );
+        return true;
+    }
+    m = create_matcher( "<b>Compulsory Fun</b>.*?name=option value=(.)>", page );
+    if ( m.find() ) 
+    {
+        // Accept the job
+        print( "They do!" );
+        run_choice( m.group( 1 ).to_int() );
+        run_choice( 6 );
+        return true;
+    }
+    m = create_matcher( "<b>Racism Reduction</b>.*?name=option value=(.)>", page );
+    if ( m.find() ) 
+    {
+        // Accept the job
+        print( "They do!" );
+        run_choice( m.group( 1 ).to_int() );
+        run_choice( 6 );
+        return true;
+    }
+    m = create_matcher( "<b>Sexism Reduction/b>.*?name=option value=(.)>", page );
+    if ( m.find() ) 
+    {
+        // Accept the job
+        print( "They do!" );
+        run_choice( m.group( 1 ).to_int() );
+        run_choice( 6 );
+        return true;
+    }
+    matcher m = create_matcher( "<b>Waterway Debris Removal</b>.*?name=option value=(.)>", page );
+    if ( m.find() ) 
+    {
+        // Accept the job
+        print( "They do!" );
+        run_choice( m.group( 1 ).to_int() );
+        run_choice( 6 );
+        return true;
     }
 
     // Leave the Kiosk
