@@ -248,8 +248,13 @@ void construct_free_outfit(item[slot] required_equips)
     else 
         equip($slot[acc1], $item[Lucky Gold Ring]);
 
-
-	if(required_equips[$slot[acc2]] != $item[none] 
+	if(required_equips[$slot[acc2]] == $item[teacher's pen] && get_property('_stinkyCheeseCount').to_int() < 100)
+    {
+        if(available_amount($item[stinky cheese eye]) == 0)
+        cli_execute('fold stinky cheese eye');
+        equip($slot[acc2], $item[stinky cheese eye]);
+    }
+	else if(required_equips[$slot[acc2]] != $item[none] 
 		&& can_equip(required_equips[$slot[acc2]])
 		&& required_equips[$slot[acc2]] != $item[mr. screege's spectacles]
 		&& required_equips[$slot[acc2]] != $item[Lil' Doctor&trade; bag]
@@ -290,6 +295,49 @@ void construct_free_outfit(item[slot] required_equips)
 	}
 	
 
+}
+
+void construct_free_outfit(item[slot] required_equips, familiar fam)
+{
+	use_familiar(fam);
+
+	if(fam == $familiar[chest mimic]
+		|| fam == $familiar[grey goose]
+		|| fam == $familiar[pocket professor]
+	)
+	{
+		//These are familiars we want to fatten up, so add familiar exp to required_equips
+		if(required_equips[$slot[hat]] == $item[none])
+		{
+			required_equips[$slot[hat]] = $item[giant yellow hat];
+		}
+		if(required_equips[$slot[weapon]] == $item[none])
+		{
+			required_equips[$slot[weapon]] = $item[yule hatchet];
+		}
+		if(required_equips[$slot[off-hand]] == $item[none])
+		{
+			required_equips[$slot[off-hand]] = $item[familiar scrapbook];
+		}
+		if(required_equips[$slot[acc1]] == $item[none])
+		{
+			required_equips[$slot[acc1]] = $item[messenger rna bag];
+		}
+		if(required_equips[$slot[acc2]] == $item[none])
+		{
+			required_equips[$slot[acc2]] = $item[teacher's pen];
+		}
+		if(required_equips[$slot[acc3]] == $item[none])
+		{
+			required_equips[$slot[acc3]] = $item[teacher's pen];
+		}
+		if(required_equips[$slot[familiar]] == $item[none])
+		{
+			required_equips[$slot[familiar]] = $item[toy cupid's bow];
+		}
+
+	}
+	construct_free_outfit(required_equips);
 }
 
 
