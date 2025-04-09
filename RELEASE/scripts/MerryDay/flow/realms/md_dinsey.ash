@@ -78,7 +78,7 @@ boolean get_quest()
         return true;
     
     string page = visit_url( "place.php?whichplace=airport_stench&action=airport3_kiosk" );
-    
+    matcher m;
     m = create_matcher( "<b>Track Maintenance</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
     {
