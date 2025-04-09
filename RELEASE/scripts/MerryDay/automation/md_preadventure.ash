@@ -71,7 +71,7 @@ void main()
         if(!have_equipped($item[buddy bjorn]))
         {
             equip($slot[hat], $item[crown of thrones]);
-            enthrone_familiar(get_best_bjron());
+            enthrone_familiar(get_best_bjorn());
         }   
         else
             equip($slot[hat], $item[Apriling Band Helmet]);
