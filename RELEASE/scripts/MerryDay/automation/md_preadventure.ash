@@ -1,8 +1,9 @@
 import md_iotm2022.ash;
+import md_outfit.ash;
 
 familiar ChooseFamiliar()
 {
-    foreach f in $familiars[Jill-of-all-Trades, Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
+    /*foreach f in $familiars[Jill-of-all-Trades, Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 1 )
 				return f;
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
@@ -11,7 +12,7 @@ familiar ChooseFamiliar()
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 3 )
 				return f;
-    /*
+    
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 4 )
 				return f;
@@ -62,21 +63,31 @@ void main()
         if(get_property('_batWingsFreeFights').to_int() < 5)
             equip($slot[back], $item[bat wings]);
         else
+        {
             equip($slot[back], $item[buddy bjorn]);
-
+            bjornify_familiar(get_best_bjorn());
+        }
+            
         if(!have_equipped($item[buddy bjorn]))
+        {
             equip($slot[hat], $item[crown of thrones]);
+            enthrone_familiar(get_best_bjron());
+        }   
         else
             equip($slot[hat], $item[Apriling Band Helmet]);
 
-        equip($slot[shirt], $item[stephen's lab coat]);    
+        equip($slot[shirt], $item[jurassic parka]);
+        if(get_property('parkaMode') != 'kachungasaur')
+        {
+            cli_execute('parka meat');
+        }    
 
         if(get_property('_pantsgivingCount').to_int() < 50)
             equip($slot[pants], $item[Pantsgiving]);
         else if(get_property('_stinkyCheeseCount').to_int() < 100)
             equip($slot[pants], $item[stinky cheese diaper]);
-        else if(get_property('sweat').to_int() < 75)
-            equip($slot[pants], $item[designer sweatpants]);
+        //else if(get_property('sweat').to_int() < 75)
+            //equip($slot[pants], $item[designer sweatpants]);
         else
             if(my_familiar() == $familiar[jill-of-all-trades]
                 || my_familiar() == $familiar[hobo monkey]
