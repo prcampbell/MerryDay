@@ -321,7 +321,7 @@ void construct_free_outfit(item[slot] required_equips, familiar fam)
 		}
 		if(required_equips[$slot[acc1]] == $item[none])
 		{
-			required_equips[$slot[acc1]] = $item[messenger rna bag];
+			required_equips[$slot[acc1]] = $item[messenger bag rna];
 		}
 		if(required_equips[$slot[acc2]] == $item[none])
 		{
@@ -333,13 +333,18 @@ void construct_free_outfit(item[slot] required_equips, familiar fam)
 		}
 		if(required_equips[$slot[familiar]] == $item[none])
 		{
-			required_equips[$slot[familiar]] = $item[toy cupid's bow];
+			required_equips[$slot[familiar]] = $item[toy cupid bow];
 		}
 
 	}
 	construct_free_outfit(required_equips);
 }
 
+void construct_free_outfit(familiar fam)
+{
+	item[slot] nothing;
+	construct_free_outfit(nothing, fam);   
+}
 
 void construct_free_outfit()
 {
