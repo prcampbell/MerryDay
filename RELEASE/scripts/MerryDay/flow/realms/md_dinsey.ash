@@ -124,7 +124,7 @@ boolean get_quest()
         run_choice( 6 );
         return true;
     }
-    matcher m = create_matcher( "<b>Waterway Debris Removal</b>.*?name=option value=(.)>", page );
+    m = create_matcher( "<b>Waterway Debris Removal</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
     {
         // Accept the job
