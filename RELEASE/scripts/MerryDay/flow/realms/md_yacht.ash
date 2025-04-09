@@ -1,6 +1,8 @@
 script md_yacht;
 
+import md_library.ash;
 import md_mpburn;
+import md_outfit.ash;
 
 void yacht_outfit()
 {
@@ -135,10 +137,67 @@ boolean yacht_run()
 
 }
 
+boolean yacht_seal()
+{
+    if(my_class() != $class[seal clubber])
+    {
+        return false;
+    }
+    if(item_amount($item[spacegate research]) > 50 && my_inebriety() < inebriety_limit() - 2 && have_effect($effect[fishy]) == 0)
+    {
+        buy($coinmaster[spacegate fabrication facility], 1, $item[Centauri fish wine]);
+        ensure_song($effect[ode to booze]);
+        drink(1, $item[Centauri fish wine]);
+    }
+    
+    if(item_amount($item[seal-blubber candle]) < 10 - get_property('_sealsSummoned').to_int())
+    {
+        buy(10 - get_property('_sealsSummoned').to_int(), $item[seal-blubber candle]);
+    }
+    if(item_amount($item[figurine of a wretched-looking seal]) < 10 - get_property('_sealsSummoned').to_int())
+    {
+        buy(10 - get_property('_sealsSummoned').to_int(), $item[figurine of a wretched-looking seal]);
+    }
+
+    while(get_property('_sealsSummoned').to_int() < 10
+            && (get_property('_mcHugeLargeAvalancheUses').to_int() < 3
+            || get_property('_spikolodonSpikeUses').to_int() < 5)
+            )
+    {
+        set_auto_attack('BasicBarf');
+        if(get_property('_mcHugeLargeAvalancheUses').to_int() < 3)
+        {
+            item[slot] required_equips;
+            required_equips[$slot[weapon]] = $item[seal-clubbing club];
+            required_equips[$slot[acc3]] = $item[McHugeLarge left ski];
+            construct_free_outfit(required_equips, $familiar[chest mimic]);
+            use(1, $item[figurine of a wretched-looking seal]);
+        }
+        if(get_property('_spikolodonSpikeUses').to_int() < 5)
+        {
+            item[slot] required_equips;
+            required_equips[$slot[weapon]] = $item[seal-clubbing club];
+            required_equips[$slot[shirt]] = $item[jurassic parka];
+            construct_free_outfit(required_equips, $familiar[chest mimic]);
+            if(get_property('parkaMode') != 'spikolodon')
+                cli_execute('parka spikolodon');
+            use(1, $item[figurine of a wretched-looking seal]);
+        }
+        if(yacht_can())
+            yacht_run();
+        
+    }
+
+    return true;
+    
+}
+
 void main()
 {
     while(yacht_can())
         yacht_run();
+
+    yacht_seal();
 
     while(yacht_double_can())
         yacht_double_run();
