@@ -451,6 +451,7 @@ choice 2: Flee it!
 					
 					*/
 					run_choice(6);
+					break;
 											
 		case -1:	/* <choice adventure name>
 					1: 
