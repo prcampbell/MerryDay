@@ -143,7 +143,7 @@ boolean yacht_seal()
     {
         return false;
     }
-    if(item_amount($item[spacegate research]) > 50 && my_inebriety() < inebriety_limit() - 2 && have_effect($effect[fishy]) == 0)
+    if(item_amount($item[spacegate research]) > 50 && my_inebriety() < inebriety_limit() - 2 && have_effect($effect[fishy]) < 8)
     {
         buy($coinmaster[spacegate fabrication facility], 1, $item[Centauri fish wine]);
         ensure_song($effect[ode to booze]);
