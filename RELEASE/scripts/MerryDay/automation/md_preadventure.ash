@@ -35,9 +35,7 @@ void main()
             cli_execute('numberology ' + numberwang.to_string());
         }        
     }
-
-
-    
+ 
     if(item_amount($item[autumn-aton]) > 0 && autobotTurnsForQuest() < my_adventures())
     {
         cli_execute('fallguy send Shadow Rift');
@@ -53,6 +51,12 @@ void main()
     if(my_mp() < 200)
     {
         restore_mp(200);
+    }
+
+    if(my_location() == $location[the hidden bowling alley] 
+        && item_amount($item[bowling ball]) > 0)
+    {
+        put_closet(item_amount($item[bowling ball]), $item[bowling ball]);
     }
 
     if(my_location() == $location[Barf Mountain])
