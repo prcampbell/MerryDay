@@ -1,7 +1,7 @@
 import md_iotm2022.ash;
 import md_outfit.ash;
 
-familiar ChooseFamiliar()
+familiar MeatFamiliar()
 {
     /*foreach f in $familiars[Jill-of-all-Trades, Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 1 )
@@ -61,7 +61,7 @@ void main()
 
     if(my_location() == $location[Barf Mountain])
     {
-        use_familiar(ChooseFamiliar());
+        use_familiar(MeatFamiliar());
         
 
         if(get_property('_batWingsFreeFights').to_int() < 5)
