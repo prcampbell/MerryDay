@@ -59,6 +59,12 @@ boolean dispose_garbage()
         run_choice(6);
         return true; 
     }
+    else if(item_amount($item[bag of park garbage]) >= 3)
+    {
+        visit_url('place.php?whichplace=airport_stench&action=airport3_tunnels');
+        run_choice(6);
+        return true; 
+    }
     else
         return false;
 }
