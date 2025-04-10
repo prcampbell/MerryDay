@@ -250,6 +250,7 @@ void construct_free_outfit(item[slot] required_equips)
 
 	if(required_equips[$slot[acc2]] == $item[teacher's pen] && get_property('_stinkyCheeseCount').to_int() < 100)
     {
+		//stinky cheese charging over-rides familiar experience
         if(available_amount($item[stinky cheese eye]) == 0)
         cli_execute('fold stinky cheese eye');
         equip($slot[acc2], $item[stinky cheese eye]);
@@ -297,14 +298,23 @@ void construct_free_outfit(item[slot] required_equips)
 
 }
 
+boolean should_grow(familiar fam)
+{
+	if($familiars[chest mimic, grey goose, pocket professor] contains fam)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 void construct_free_outfit(item[slot] required_equips, familiar fam)
 {
 	use_familiar(fam);
 
-	if(fam == $familiar[chest mimic]
-		|| fam == $familiar[grey goose]
-		|| fam == $familiar[pocket professor]
-	)
+	if(should_grow(fam))
 	{
 		//These are familiars we want to fatten up, so add familiar exp to required_equips
 		if(required_equips[$slot[hat]] == $item[none])
