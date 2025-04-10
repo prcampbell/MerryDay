@@ -21,7 +21,7 @@ Summon Demon
 Source Terminal Enhance
 Source Terminal Enquire
 Mad Tea Party
-SongBoom - Meat (Food Vibrations if drunk)
+SongBoom - Meat (Food Vibrations if drunk)f
 MCD
 Implement glitch
 BittyCar MeatCar
@@ -225,15 +225,17 @@ int gnome() {
 
 void gravitate() 
 {
-    int rainbowLeft;
-    boolean noSummonsLeft() {
-        rainbowLeft = 3 - get_property("prismaticSummons").to_int();
-        return rainbowLeft < 1;
+    while(have_skill($skill[Rainbow Gravitation]) 
+        && get_property("prismaticSummons").to_int() < 3)
+    {
+        foreach key in $items[twinkly wad, hot wad, cold wad, spooky wad, stench wad, sleaze wad]
+        {
+            retrieve_item(1, key);
+        }
+            
+        use_skill(1, $skill[rainbow gravitation]);
     }
-    if(!have_skill($skill[Rainbow Gravitation]) || noSummonsLeft()) return;
-    foreach key in $items[twinkly wad, hot wad, cold wad, spooky wad, stench wad, sleaze wad]
-        retrieve_item(rainbowLeft, key);
-    use_skill(rainbowLeft, $skill[rainbow gravitation]);
+
 }
 
 void dailyItems()
@@ -282,8 +284,11 @@ void dailyItems()
     }
 
     /*End Guzzlr*/
-
-    voteInVotingBooth();
+    if(get_property('_voteModifier') != '')
+    {
+        voteInVotingBooth();
+    }
+    
     if(get_property('_birdOfTheDay') == '')
     {
         use(1, $item[bird-a-day calendar]);
@@ -333,16 +338,11 @@ void dailyItems()
     gravitate();
     
     
-    if(have_familiar($familiar[Reagnimated Gnome])) 
+    if ( available_amount($item[fisherman's sack]) > 0 )
     {
-        familiar f = my_familiar();
-        use_familiar($familiar[Reagnimated Gnome]);
-        visit_url("arena.php");
-        visit_url("choice.php?pwd&whichchoice=597&option="+gnome());
+        use(available_amount($item[fisherman's sack]),$item[fisherman's sack]);
     }
 
-		if ( available_amount($item[fisherman's sack]) > 0 )
-			use(available_amount($item[fisherman's sack]),$item[fisherman's sack]); //'
     if(item_amount($item[blue plate]) > 0)
     {
         use_familiar($familiar[Shorter-Order Cook ]);
@@ -385,7 +385,7 @@ void dailyItems()
      && !contains_text(get_property('_mayamSymbolsUsed'), 'clock'))
     
     {
-        if($familiar[Pocket Professor].experience < 400)
+        if($familiar[Grey Goose].experience < 400)
         {
             use_familiar($familiar[Pocket Professor]);
         }
@@ -395,7 +395,7 @@ void dailyItems()
         }
         else 
         {
-            use_familiar($familiar[Grey Goose]);
+            use_familiar($familiar[Pocket Professor]);
         }
         cli_execute('mayam rings fur bottle yam clock');
     }

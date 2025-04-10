@@ -70,6 +70,13 @@ void startDay()
 	if(!get_property('breakfastCompleted').to_boolean())
 	{
 		cli_execute("breakfast");
+		if(have_familiar($familiar[Reagnimated Gnome])) 
+		{
+			familiar f = my_familiar();
+			use_familiar($familiar[Reagnimated Gnome]);
+			visit_url("arena.php");
+			visit_url("choice.php?pwd&whichchoice=597&option="+gnome());
+		}
 	}
 	
 	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
