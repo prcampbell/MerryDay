@@ -9,7 +9,7 @@ void main ( int choiceID, string whichpage )
 					choice 1: Let's roll (stats)
 					choice 6: Let's don't (skip adventure)*/
 				run_choice(6);			
-			return;
+			break;
 
 		case 780: /*Encounter: Action Elevator
 					choice 1: Go to the Thrice-Cursed Penthouse (penthouse empty)
@@ -17,7 +17,7 @@ void main ( int choiceID, string whichpage )
 					choice 3: Go down to the parking garage (Relocate pygmy witch lawyers to Hidden Park)
 					choice 6: Exit through the gift shop (skip adventure)*/
 				run_choice(6);			
-			return;
+			break;
 		case 886: /*Encounter: Chasin' Babies
 					Unsupported choice adventure #886
 					choice 1: Try the poppet
@@ -25,14 +25,14 @@ void main ( int choiceID, string whichpage )
 					choice 3: Try the jack-in-the-box
 					choice 6: Do nothing*/
 				run_choice(6);			
-			return;
+			break;
 		case 1062: /*Encounter: Lots of Options
 					choice 2: Check out the shopping carts (acquire food)
 					choice 3: Look through the cardboard boxes (acquire drinks)
 					choice 4: Check out the spooky noises (gain moxie stats)
 					choice 7: Let sleeping oysters lie*/
 				run_choice(7);			
-			return;
+			break;
 		case 1116: /* All They Got Inside is Vacancy (and Ice)
 					3: Look for some <> (fill bucket by 10-15%)
 					4: Raid the bar (acquire cocktailcrafting supplies)
@@ -46,23 +46,27 @@ void main ( int choiceID, string whichpage )
 				run_choice(4);
 			else
 				run_choice(6);			
-			return;
+			break;
 		case 1119: /* Olive Backwards In Time (DMT)
 					choice 1: A wiggling of tuneless shapes. (acquire some abstractions)
 					choice 3: A pyramid that encloses. (acquire modern picture frame)
 					6: Leave*/
 				run_choice(6);			
-			return;
+			break;
 		case 1236: /* 			Encounter: Space Cave
 				Manual control requested for choice #1236
 				choice 1: Gather some rock samples (acquire some alien rock samples)
 				choice 6: Just leave (skip adventure)*/
 				run_choice(6);			
-			return;
-
-
-
-
+			break;
+		case 1255: /* 			Encounter: Cool Space Rocks
+						choice 1: Grab some of the rocks (acquire some alien rock samples)*/
+				if(have_equipped($item[geological sample kit]))
+					run_choice(2);
+				else
+				{run_choice(1);
+					
+				}
 
 		case 1340:	/* Is There A Doctor In The House?
 					1: accept quest
@@ -84,7 +88,7 @@ void main ( int choiceID, string whichpage )
 				print("Accepting doctor bag quest in "+doctorLocation,"blue");
 				run_choice(1);
 			}
-			return;
+			break;
 		case 1322:
 			if (get_property("_questPartyFairQuest") == "food" || get_property("_questPartyFairQuest") == "booze"
 			|| get_property("_questPartyFairQuest") == "trash"
@@ -97,7 +101,7 @@ void main ( int choiceID, string whichpage )
 			{
 				run_choice(2); // Decline Quest
 			}
-			return;
+			break;
 		case 1324:/*It Hasn't Ended, It's Just Paused
 					1: Head upstairs
 					2: Check out the kitchen
@@ -108,15 +112,15 @@ void main ( int choiceID, string whichpage )
 			if(get_property("_questPartyFairQuest") == "food")
 			{
 				run_choice(2);
-				return;
+				break;
 			}
 			if(get_property("_questPartyFairQuest") == "booze")
 			{
 				run_choice(3);
-				return;
+				break;
 			}
 			run_choice(5);
-			return;
+			break;
 		case 1326:
 			/* Gone Kitchin'
 							1: Get myst substats
@@ -141,7 +145,7 @@ void main ( int choiceID, string whichpage )
 						default:
 							abort("Why are you in the NEP kitchen?");					
 					}
-			return;
+			break;
 		case 1327:	/* Forward to the Back
 							1: Get mox substats
 							2: 50 turns of Citronella Armpits [+30 ML]
@@ -175,17 +179,13 @@ void main ( int choiceID, string whichpage )
 					if(have_effect($effect[shadow affinity]) == 0 && !get_property('_shadowAffinityToday').to_boolean())
 					{
 						run_choice(2);
-						return;
+						break;
 					}
 					else 
 					{
 						run_choice(3);
-						return;
+						break;
 					}
-						
-					
-					
-			break;
 		case 1500:	/* <choice adventure name>
 					1: The Forge
 					2: Shadow Waters
@@ -193,12 +193,12 @@ void main ( int choiceID, string whichpage )
 					if(!get_property('_shadowForestLooted').to_boolean())
 					{
 						run_choice(3);
-						return;
+						break;
 					}
 					else
 					{
 						run_choice(2);
-						return;
+						break;
 					}
 		case 786:	/* Working Holiday
 					choice 1: Knock on the boss's office door (office empty)
@@ -468,6 +468,6 @@ choice 2: Flee it!
 					1: 
 					2: */
 			abort("How did you get to choice -1? Did you fall through the case in md_choice.ash");
-			return;
+			break;
 	}
 }
