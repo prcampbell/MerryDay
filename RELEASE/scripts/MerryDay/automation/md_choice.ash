@@ -452,6 +452,24 @@ choice 2: Flee it!
 					*/
 					run_choice(6);
 					break;
+		case 1497:	/*Unsupported choice adventure #1497
+						choice 1: I'll fight the entity
+						choice 2: I'll find the artifact
+						choice 3: I'll collect the goods
+						choice 6: Hang up
+						Click here to continue in the relay browser.*/
+					if(!get_property('_shadowAffinityToday').to_boolean())
+					{
+						//we'll get things from the NC IIF we're going to fight in the realm
+						run_choice(2);
+					}
+					else
+					{
+						run_choice(3);
+					}
+					
+					break;
+
 											
 		case -1:	/* <choice adventure name>
 					1: 
