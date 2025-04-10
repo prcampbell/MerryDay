@@ -216,13 +216,6 @@ void dailyEffects()
     }
 }
 
-int gnome() {
-	// Ensure that you have body parts with the following priority. Otherwise snag the kgnee
-	foreach i in $items[gnomish housemaid's kgnee, gnomish coal miner's lung, gnomish athlete's foot, gnomish swimmer's ears, gnomish tennis elbow]
-		if(available_amount(i) < 1) return (to_int(i) - 5767);
-	return 4;
-}
-
 void gravitate() 
 {
     while(have_skill($skill[Rainbow Gravitation]) 

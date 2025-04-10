@@ -1,6 +1,13 @@
 import md_library;
 import md_iotm2019;
 import md_iotm2020;
+int gnome() 
+{
+	// Ensure that you have body parts with the following priority. Otherwise snag the kgnee
+	foreach i in $items[gnomish housemaid's kgnee, gnomish coal miner's lung, gnomish athlete's foot, gnomish swimmer's ears, gnomish tennis elbow]
+		if(available_amount(i) < 1) return (to_int(i) - 5767);
+	return 4;
+}
 
 void startDay()
 {
@@ -72,7 +79,6 @@ void startDay()
 		cli_execute("breakfast");
 		if(have_familiar($familiar[Reagnimated Gnome])) 
 		{
-			familiar f = my_familiar();
 			use_familiar($familiar[Reagnimated Gnome]);
 			visit_url("arena.php");
 			visit_url("choice.php?pwd&whichchoice=597&option="+gnome());
