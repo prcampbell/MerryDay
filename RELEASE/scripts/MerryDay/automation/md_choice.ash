@@ -5,6 +5,11 @@ void main ( int choiceID, string whichpage )
 {
 	switch (choiceID) 
     {
+		case 788: /*Encounter: Life is like a Cherry of Bowls
+					choice 1: Let's roll (stats)
+					choice 6: Let's don't (skip adventure)*/
+				run_choice(6);			
+			return;
 
 		case 780: /*Encounter: Action Elevator
 					choice 1: Go to the Thrice-Cursed Penthouse (penthouse empty)
