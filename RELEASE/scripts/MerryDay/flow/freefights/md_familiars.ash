@@ -8,6 +8,7 @@ import ff_leaves;
 import ff_lynyrd;
 import ff_speakeasy;
 import ff_zeppelin;
+import ff_moleman;
 
 boolean have_amuletcoin()
 {
@@ -92,7 +93,7 @@ boolean familiarToFatten()
 
 boolean familiars_should()
 {
-    return $familiar[pocket professor].experience < 400 || $familiar[chest mimic].experience < 400 || $familiar[grey goose].experience < 400;
+    return moleman_can() && $familiar[pocket professor].experience < 400 || $familiar[chest mimic].experience < 400 || $familiar[grey goose].experience < 400;
 }
 
 boolean familiar_adv()
