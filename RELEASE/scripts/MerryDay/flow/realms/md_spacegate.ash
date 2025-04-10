@@ -12,6 +12,6 @@ void main()
     required_equips[$slot[pants]] = $item[exo-servo leg braces];
     construct_free_outfit(required_equips, ChooseFamiliar());
     set_auto_attack('StasisFight');
-    adv1($location[494], -1, '');
+    adv1($location[Through the Spacegate], -1, '');
 }
 

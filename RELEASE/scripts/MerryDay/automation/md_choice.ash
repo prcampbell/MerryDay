@@ -53,6 +53,16 @@ void main ( int choiceID, string whichpage )
 					6: Leave*/
 				run_choice(6);			
 			return;
+		case 1236: /* 			Encounter: Space Cave
+				Manual control requested for choice #1236
+				choice 1: Gather some rock samples (acquire some alien rock samples)
+				choice 6: Just leave (skip adventure)*/
+				run_choice(6);			
+			return;
+
+
+
+
 
 		case 1340:	/* Is There A Doctor In The House?
 					1: accept quest
