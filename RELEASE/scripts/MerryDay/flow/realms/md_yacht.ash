@@ -200,7 +200,7 @@ boolean yacht_stench_can()
 {
     return my_spleen_use() < spleen_limit()
         && mall_price($item[stench jelly]) < 2000
-        && have_effect($effect[fishy]) > 0
+        && have_effect($effect[fishy]) > 0;
 }
 
 boolean yacht_stench_run()
