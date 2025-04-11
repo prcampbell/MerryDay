@@ -96,7 +96,7 @@ void RestoreSetup()
 		cli_execute('outfit birthday suit');
 		foreach eqSlot in $slots[]
 		{
-			if(available_amount(equipment[eqSlot]) == 0)
+			if(available_amount(equipment[eqSlot]) == 0 && equipment[eqSlot] != $item[none])
 			{
 				cli_execute('fold ' + equipment[eqSlot].to_string());
 			}

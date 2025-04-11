@@ -86,10 +86,10 @@ void main()
             cli_execute('parka meat');
         }    
 
-        if(get_property('_pantsgivingCount').to_int() < 50)
+        if(get_property('_pantsgivingCount').to_int() < 76)
             equip($slot[pants], $item[Pantsgiving]);
-        else if(get_property('_stinkyCheeseCount').to_int() < 100)
-            equip($slot[pants], $item[stinky cheese diaper]);
+        //else if(get_property('_stinkyCheeseCount').to_int() < 100)
+            //equip($slot[pants], $item[stinky cheese diaper]);
         //else if(get_property('sweat').to_int() < 75)
             //equip($slot[pants], $item[designer sweatpants]);
         else
