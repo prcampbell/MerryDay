@@ -28,7 +28,6 @@ boolean spacegate_init()
 boolean spacegate_run()
 {
     set_auto_attack('StasisFight');
-    import md_outfit;
     while(get_property('_spacegateTurnsLeft').to_int() > 0)
     {
         item[slot] required_equips;
