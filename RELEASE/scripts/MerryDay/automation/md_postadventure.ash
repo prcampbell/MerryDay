@@ -1,5 +1,4 @@
 import c2t_megg.ash;
-import md_yacht.ash;
 import md_outfit.ash;
 
 familiar fam = $familiar[none];
@@ -94,9 +93,13 @@ void RestoreSetup()
 			}
 					
 		}
-			
+		cli_execute('outfit birthday suit');
 		foreach eqSlot in $slots[]
 		{
+			if(available_amount(equipment[eqSlot]) == 0)
+			{
+				cli_execute('fold ' + equipment[eqSlot].to_string());
+			}
 			if (equipped_item(eqSlot) != equipment[eqSlot])
 				equip(eqSlot, equipment[eqSlot]);
 		}
@@ -710,7 +713,6 @@ void main()
 					(!adv1($location[Barf Mountain]));
 				}
 			}
-			yacht();
 			voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
 			kramco();
 			brickoPrime();
