@@ -3,25 +3,42 @@ string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
 
 boolean hasDinseyQuest()
 {
-	string text = visit_url(questLog);
-	foreach qName in $strings[Social Justice Adventurer II, Teach a Man to Fish Trash, Whistling Zippity-Doo-Dah, Nasty\, Nasty Bears, Give Me Fuel, Super Luber, Social Justice Adventurer I, Will Work With Food]
-	{
-		if (contains_text(text,qName))
-			return TRUE;
-	}
-	return FALSE;
+    if(get_property('_merryDinseyQuest') == '')
+    {
+        string text = visit_url(questLog);
+        foreach qName in $strings[Social Justice Adventurer II, Teach a Man to Fish Trash, Whistling Zippity-Doo-Dah, Nasty\, Nasty Bears, Give Me Fuel, Super Luber, Social Justice Adventurer I, Will Work With Food]
+        {
+            if (contains_text(text,qName))
+            {
+                get_property('_merryDinseyQuest') == qName;
+                return TRUE;
+            }
+                
+        }
+    }
+    if(get_property('_merryDinseyQuest') != '')
+    {
+        return true;
+    }
+
+	return false;
 }
 
 string parseDinseyQuest()
 {
-	string text = visit_url(questLog);
-	string output;
-	foreach qName in $strings[Social Justice Adventurer I, Teach a Man to Fish Trash, Whistling Zippity-Doo-Dah, Nasty\, Nasty Bears, Give Me Fuel, Super Luber, Social Justice Adventurer II, Will Work With Food]
-	{
-		if (contains_text(text,qName))
-			output = qName;
-	}
-	return output;
+
+    if(get_property('_merryDinseyQuest') == '')
+    {
+        string text = visit_url(questLog);
+	    string output;
+        foreach qName in $strings[Social Justice Adventurer I, Teach a Man to Fish Trash, Whistling Zippity-Doo-Dah, Nasty\, Nasty Bears, Give Me Fuel, Super Luber, Social Justice Adventurer II, Will Work With Food]
+        {
+            if (contains_text(text,qName))
+                output = qName;
+        }
+        return output;
+    }
+	return get_property('_merryDinseyQuest');
 }
 
 
@@ -78,11 +95,11 @@ boolean buy_dinsey_ticket()
     return false;
 }
 
-boolean get_quest()
+string get_quest()
 {
     if(hasDinseyQuest())
-        return true;
-    
+        return parseDinseyQuest();
+    print('Does the kiosk have a reasonable quest?');
     string page = visit_url( "place.php?whichplace=airport_stench&action=airport3_kiosk" );
     matcher m;
     m = create_matcher( "<b>Track Maintenance</b>.*?name=option value=(.)>", page );
@@ -92,7 +109,7 @@ boolean get_quest()
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
         run_choice( 6 );
-        return true;
+        return parseDinseyQuest();
     }
     m = create_matcher( "<b>Electrical Maintenance</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
@@ -101,7 +118,20 @@ boolean get_quest()
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
         run_choice( 6 );
-        return true;
+        if(item_amount($item[toxic globule]) >= 20)
+        {
+            visit_url("place.php?whichplace=airport_stench&action=airport3_kiosk");
+            run_choice(3);
+            run_choice(6);
+        }
+        else 
+        {
+            buy(20-item_amount($item[toxic globule]));
+            visit_url("place.php?whichplace=airport_stench&action=airport3_kiosk");
+            run_choice(3);
+            run_choice(6);
+        }
+        return parseDinseyQuest();
     }
     m = create_matcher( "<b>Compulsory Fun</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
@@ -110,7 +140,7 @@ boolean get_quest()
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
         run_choice( 6 );
-        return true;
+        return parseDinseyQuest();
     }
     m = create_matcher( "<b>Racism Reduction</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
@@ -119,7 +149,7 @@ boolean get_quest()
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
         run_choice( 6 );
-        return true;
+        return parseDinseyQuest();
     }
     m = create_matcher( "<b>Sexism Reduction/b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
@@ -128,7 +158,7 @@ boolean get_quest()
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
         run_choice( 6 );
-        return true;
+        return parseDinseyQuest();
     }
     m = create_matcher( "<b>Waterway Debris Removal</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
@@ -137,13 +167,21 @@ boolean get_quest()
         print( "They do!" );
         run_choice( m.group( 1 ).to_int() );
         run_choice( 6 );
-        return true;
+        return parseDinseyQuest();
     }
 
     // Leave the Kiosk
     run_choice( 6 );
 
-    return false;
+    return parseDinseyQuest();
+}
+
+void dinsey()
+{
+    get_dinsey_access();
+    dispose_garbage();
+    buy_dinsey_ticket();
+    set_property('_merryDinseyQuest',get_quest());
 }
 
 void main()

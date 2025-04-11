@@ -22,6 +22,7 @@ import ff_sandworm.ash;
 import md_pirates.ash;
 import md_copies.ash;
 import md_yacht.ash;
+import md_dinsey.ash;
 
 
 
@@ -44,7 +45,7 @@ void main()
 
   startDay();
   print('Day Started', 'green');
-
+  dinsey();
   dailyItems();
   dailyEffects();
   yachting();
