@@ -282,7 +282,7 @@ void dailyItems()
     }
 
     /*End Guzzlr*/
-    if(get_property('_voteModifier') != '')
+    if(get_property('_voteModifier') == '')
     {
         voteInVotingBooth();
     }
