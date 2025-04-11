@@ -603,6 +603,7 @@ void purple()
 				cli_execute('autoattack BasicAscend;');
 				equip($slot[off-hand],$item[roman candelabra]); 
 				c2t_megg_fight(m);
+				HandleChains();
 				set_auto_attack(0); 
 			}
 		}
@@ -709,9 +710,8 @@ void main()
 			brickoPrime();
 			bustGhost(); //Basically Bales function, but with though with similar outfit switching
 			tatters();
-			purple();
 			bullseye();
-			
+			purple();
 		}
 	} 
 	finally 
