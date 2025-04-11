@@ -611,15 +611,6 @@ void purple()
 	}
 }
 
-void yacht()
-{
-	if(yacht_double_can())
-	{
-		SaveSetup();
-		yacht_double_run();		
-	}
-}
-
 void bullseye()
 {
 	if(have_effect($effect[everything looks red]) == 0)
