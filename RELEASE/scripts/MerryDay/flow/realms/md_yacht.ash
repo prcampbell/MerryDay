@@ -194,7 +194,7 @@ boolean yacht_seal()
 
 boolean yacht_stench()
 {
-    if(my_spleen_use() < spleen_limit()
+    while(my_spleen_use() < spleen_limit()
         && mall_price($item[stench jelly]) < 2000
         && have_effect($effect[fishy]) > 0)
     {
