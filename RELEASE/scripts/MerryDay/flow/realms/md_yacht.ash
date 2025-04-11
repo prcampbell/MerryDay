@@ -192,6 +192,19 @@ boolean yacht_seal()
     
 }
 
+boolean yacht_stench()
+{
+    if(my_spleen_use() < spleen_limit()
+        && mall_price($item[stench jelly]) < 2000
+        && have_effect($effect[fishy]) > 0)
+    {
+        buy(1, $item[stench jelly]);
+        chew(1, $item[stench jelly]);
+        return yacht_run();
+    }
+    return false;
+}
+
 void main()
 {
     while(yacht_can())
