@@ -37,7 +37,8 @@ boolean spacegate_run()
         adv1($location[Through the Spacegate], -1, '');
         visit_url('place.php?whichplace=spacegate&action=sg_Terminal');
     }
-    set_auto_attack(0);    
+    set_auto_attack(0); 
+    return true;   
 }
 
 void main()
