@@ -21,6 +21,7 @@ import ff_speakeasy;
 import ff_sandworm.ash;
 import md_pirates.ash;
 import md_copies.ash;
+import md_yacht.ash;
 
 
 
@@ -46,7 +47,7 @@ void main()
 
   dailyItems();
   dailyEffects();
-
+  yachting();
 
   if($effect[Jingle Jangle Jingle].have_effect() < 600)
   {
@@ -82,7 +83,9 @@ void main()
   //fillSpleen();
   //fillInitialStomach();
   //fillInitialLiver();
-
+  dailyFamiliarBuffs();
+  dailyMeatBuffs();
+  dailyItemBuffs();
   if(familiars_should())
     familiars_run();
   
@@ -99,6 +102,7 @@ void main()
     smokepatches();
   if(saber_can())
       saber_run();
+
   if(thesis_can())
     thesis_run();
   if(profsausage_can())

@@ -23,7 +23,7 @@ void yacht_outfit()
     equip($slot[acc2], $item[wormwood wedding ring]);
     equip($slot[acc3], $item[anemoney clip]);
 
-    equip($slot[familiar], $item[amulet coin]);
+    equip($slot[familiar], $item[pet anemone]);
     
 }
 
@@ -58,6 +58,7 @@ boolean nc_can()
 
 boolean fishy_get()
 {
+    print('trying to use the fishy pipe', 'blue');
     if(!get_property('_fishyPipeUsed').to_boolean())
         return use(1, $item[fishy pipe]);
     return have_effect($effect[fishy]) > 0;
@@ -81,6 +82,7 @@ boolean force_nc()
     }
     if(cinch_nc_can())
     {
+        print('forcing NC with cincho', 'blue');
         equip($slot[acc3], $item[cincho de mayo]);
         use_skill(1, $skill[cincho: fiesta exit]);
         while(total_free_rests() > get_property('timesRested').to_int() && get_property('_cinchUsed').to_int() > 40)
@@ -167,6 +169,7 @@ boolean yacht_seal()
         set_auto_attack('BasicBarf');
         if(get_property('_mcHugeLargeAvalancheUses').to_int() < 3)
         {
+            print('NC Forced with Avalanche', 'blue');
             item[slot] required_equips;
             required_equips[$slot[weapon]] = $item[seal-clubbing club];
             required_equips[$slot[acc3]] = $item[McHugeLarge left ski];
@@ -175,6 +178,7 @@ boolean yacht_seal()
         }
         if(get_property('_spikolodonSpikeUses').to_int() < 5)
         {
+            print('NC Forced with Spikes', 'blue');
             item[slot] required_equips;
             required_equips[$slot[weapon]] = $item[seal-clubbing club];
             required_equips[$slot[shirt]] = $item[jurassic parka];
@@ -192,29 +196,37 @@ boolean yacht_seal()
     
 }
 
-boolean yacht_stench()
+boolean yacht_stench_can()
 {
-    while(my_spleen_use() < spleen_limit()
+    return my_spleen_use() < spleen_limit()
         && mall_price($item[stench jelly]) < 2000
-        && have_effect($effect[fishy]) > 0)
-    {
-        buy(1, $item[stench jelly]);
-        chew(1, $item[stench jelly]);
+        && have_effect($effect[fishy]) > 0
+}
+
+boolean yacht_stench_run()
+{
+    print('NC Forced with stench jelly from mall', 'blue');
+    buy(1, $item[stench jelly]);
+    chew(1, $item[stench jelly]);
+    return yacht_run();
+}
+
+void yachting()
+{
+    
+    while(yacht_can())
         yacht_run();
-    }
-    return true;
+    yacht_seal();
+    while(yacht_stench_can())
+            yacht_stench_run();
+    while(yacht_can())
+        yacht_run();
+
+    print('You cannot do yacht anymore','red');
 }
 
 void main()
 {
-    while(yacht_can())
-        yacht_run();
-
-    yacht_seal();
-
-    while(yacht_double_can())
-        yacht_double_run();
-
-    print('You cannot do yacht anymore','red');
+    yachting();
 }
 

@@ -55,33 +55,8 @@ Amulet Coin?
 
 import "VotingBooth.ash";
 
-void dailyEffects()
+void dailyMeatBuffs()
 {
-
-    if(!get_property('friarsBlessingReceived').to_boolean())
-    {
-        cli_execute('friars blessing familiar');
-    }
-    if(!get_property('_defectiveTokenUsed').to_boolean() && $item[defective game grid token].item_amount() > 0)
-    {
-        use(1, $item[defective game grid token]);
-    }
-    if(!get_property('_legendaryBeat').to_boolean() && $item[The Legendary Beat].item_amount() > 0)
-    {
-        use(1, $item[The Legendary Beat]);
-    }
-    if(!get_property('_redwoodRainStickUsed').to_boolean() && $item[redwood rain stick].item_amount() > 0)
-    {
-        use(1, $item[redwood rain stick]);
-    }
-    if(!get_property('_redwoodRainStickUsed').to_boolean() && $item[redwood rain stick].item_amount() > 0)
-    {
-        use(1, $item[redwood rain stick]);
-    }
-    if(!get_property('_glennGoldenDiceUsed').to_boolean() && $item[glenn's golden dice].item_amount() > 0)
-    {
-        use(1, $item[glenn's golden dice]);
-    }
     if(!get_property('_lodestoneUsed').to_boolean() && $item[lodestone].item_amount() > 0)
     {
         use(1, $item[lodestone]);
@@ -113,68 +88,6 @@ void dailyEffects()
             use_skill(1, $skill[Seek out a Bird]);
         }
     }
-    if(get_property('_augSkillsCast') < 4 && !get_property('_aug7Cast').to_boolean())
-    {
-        use_skill(1, $skill[Aug. 7th: Lighthouse Day!]);
-    }
-    while(get_property('_poolGames').to_int() < 3)
-    {
-        cli_execute('pool 1');
-    }
-
-    if(!contains_text(get_property('_beachHeadsUsed'), '10'))
-    {
-        cli_execute('beach head familiar');
-    }
-    
-    while (get_property('_campAwaySmileBuffs') < 3) 
-    { 
-        visit_url('place.php?whichplace=campaway&action=campaway_sky');
-    } 
-
-    if($item[Draftsman's driving gloves].item_amount() == 0 &&
-       $item[Nouveau nosering].item_amount() == 0 &&
-       $item[Brutal brogues].item_amount() == 0)
-    {
-        cli_execute('bastille myst draftsman gesture');
-    }
-        
-    if(!contains_text(get_property('boomBoxSong'), 'Total Eclipse of Your Meat')) {cli_execute('boombox meat');}
-
-    if(!contains_text(get_property('_mummeryUses'), '1') && !contains_text(get_property('_mummeryMods'), 'Meat Drop'))
-    {
-        use_familiar($familiar[jill-of-all-trades]);
-        cli_execute('mummery meat');
-    }
-    if(!contains_text(get_property('_mummeryUses'), '4') && !contains_text(get_property('_mummeryMods'), 'Item Drop'))
-    {
-        use_familiar($familiar[trick-or-treating tot]);
-        cli_execute('mummery item');
-    }
-
-    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Frumious Bandersnatch'))
-    {
-        use_familiar($familiar[frumious bandersnatch]);
-        use(1, $item[moveable feast]);
-    }
-    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Pocket Professor'))
-    {
-        use_familiar($familiar[pocket professor]);
-        use(1, $item[moveable feast]);
-    }
-    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Jill-of-All-Trades'))
-    {
-        use_familiar($familiar[jill-of-all-trades]);
-        use(1, $item[moveable feast]);
-    }
-
-    if(!get_property('_witchessBuff').to_boolean())
-    {
-        cli_execute('witchess buff');
-    }
-
-    while ( get_property("_feelDisappointedUsed").to_int() < 3 )
-		use_skill(1,$skill[Feel Disappointed]);
 
     if(get_property('_monkeyPawWishesUsed').to_int() == 0 && my_inebriety() < 10 && have_effect($effect[refined palate]) == 0)
     {
@@ -214,6 +127,80 @@ void dailyEffects()
         while(get_property('_kgbClicksUsed').to_int() < 22) 
             cli_execute('briefcase buff meat');
     }
+    while(get_property('_poolGames').to_int() < 3)
+    {
+        cli_execute('pool 1');
+    }
+
+    if(!contains_text(get_property('_beachHeadsUsed'), '10'))
+    {
+        cli_execute('beach head familiar');
+    }
+    if(!contains_text(get_property('boomBoxSong'), 'Total Eclipse of Your Meat')) {cli_execute('boombox meat');}
+    if(!get_property('_witchessBuff').to_boolean())
+    {
+        cli_execute('witchess buff');
+    }
+}
+
+void dailyFamiliarBuffs()
+{
+    if(!get_property('friarsBlessingReceived').to_boolean())
+    {
+        cli_execute('friars blessing familiar');
+    }
+    if(!get_property('_defectiveTokenUsed').to_boolean() && $item[defective game grid token].item_amount() > 0)
+    {
+        use(1, $item[defective game grid token]);
+    }
+}
+
+void dailyItemBuffs()
+{
+if(!get_property('_legendaryBeat').to_boolean() && $item[The Legendary Beat].item_amount() > 0)
+    {
+        use(1, $item[The Legendary Beat]);
+    }
+    if(!get_property('_redwoodRainStickUsed').to_boolean() && $item[redwood rain stick].item_amount() > 0)
+    {
+        use(1, $item[redwood rain stick]);
+    }
+    if(get_property('_augSkillsCast') < 4 && !get_property('_aug7Cast').to_boolean())
+    {
+        use_skill(1, $skill[Aug. 7th: Lighthouse Day!]);
+    }
+}
+
+void dailyEffects()
+{
+    while ( get_property("_feelDisappointedUsed").to_int() < 3 )
+		use_skill(1,$skill[Feel Disappointed]);
+    if(!get_property('_glennGoldenDiceUsed').to_boolean() && $item[glenn's golden dice].item_amount() > 0)
+    {
+        use(1, $item[glenn's golden dice]);
+    }
+
+    while (get_property('_campAwaySmileBuffs') < 3) 
+    { 
+        visit_url('place.php?whichplace=campaway&action=campaway_sky');
+    } 
+        
+    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Frumious Bandersnatch'))
+    {
+        use_familiar($familiar[frumious bandersnatch]);
+        use(1, $item[moveable feast]);
+    }
+    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Pocket Professor'))
+    {
+        use_familiar($familiar[pocket professor]);
+        use(1, $item[moveable feast]);
+    }
+    if(item_amount($item[moveable feast]) > 0 && get_property('_feastUsed') < 5 && !contains_text(get_property('_feastedFamiliars'), 'Jill-of-All-Trades'))
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        use(1, $item[moveable feast]);
+    }
+
 }
 
 void gravitate() 
@@ -237,6 +224,24 @@ void dailyItems()
 	cli_execute('closet take 5000000 meat');
     set_property('hpAutoRecovery', '0.8');
 	set_property("hpAutoRecoveryTarget", "1.0");
+
+    if($item[Draftsman's driving gloves].item_amount() == 0 &&
+       $item[Nouveau nosering].item_amount() == 0 &&
+       $item[Brutal brogues].item_amount() == 0)
+    {
+        cli_execute('bastille myst draftsman gesture');
+    }
+
+    if(!contains_text(get_property('_mummeryUses'), '1') && !contains_text(get_property('_mummeryMods'), 'Meat Drop'))
+    {
+        use_familiar($familiar[jill-of-all-trades]);
+        cli_execute('mummery meat');
+    }
+    if(!contains_text(get_property('_mummeryUses'), '4') && !contains_text(get_property('_mummeryMods'), 'Item Drop'))
+    {
+        use_familiar($familiar[trick-or-treating tot]);
+        cli_execute('mummery item');
+    }
 
     if(!get_property('_olympicSwimmingPoolItemFound').to_boolean())
     {
