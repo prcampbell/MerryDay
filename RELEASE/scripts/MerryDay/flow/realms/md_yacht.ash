@@ -200,9 +200,9 @@ boolean yacht_stench()
     {
         buy(1, $item[stench jelly]);
         chew(1, $item[stench jelly]);
-        return yacht_run();
+        yacht_run();
     }
-    return false;
+    return true;
 }
 
 void main()
