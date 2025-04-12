@@ -10,7 +10,7 @@ boolean hasDinseyQuest()
         {
             if (contains_text(text,qName))
             {
-                get_property('_merryDinseyQuest') == qName;
+                set_property('_merryDinseyQuest', qName);
                 return TRUE;
             }
                 
