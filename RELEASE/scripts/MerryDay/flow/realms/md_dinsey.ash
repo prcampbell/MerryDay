@@ -126,7 +126,7 @@ string get_quest()
         }
         else 
         {
-            buy(20-item_amount($item[toxic globule]));
+            buy(20-item_amount($item[toxic globule]), $item[toxic globule]);
             visit_url("place.php?whichplace=airport_stench&action=airport3_kiosk");
             run_choice(3);
             run_choice(6);
