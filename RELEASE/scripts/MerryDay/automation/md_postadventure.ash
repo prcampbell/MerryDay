@@ -606,6 +606,7 @@ void purple()
 				HandleChains();
 				set_auto_attack(0); 
 			}
+			break;
 		}
 		
 		

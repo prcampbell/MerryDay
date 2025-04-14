@@ -1,3 +1,46 @@
+/*
+use 1 LOV Extraterrestrial Chocolate
+You gain 3 Adventures
+Preference _loveChocolatesUsed changed from 0 to 1
+Preference _concoctionDatabaseRefreshes changed from 864 to 865
+> Trying to acquire 1 chocolate seal-clubbing clubs; max price 18000.
+
+use 1 chocolate seal-clubbing club
+You gain 3 Adventures
+Preference _chocolatesUsed changed from 0 to 1
+Preference _concoctionDatabaseRefreshes changed from 865 to 866
+> Trying to acquire 1 chocolate seal-clubbing clubs; max price 12000.
+
+use 1 chocolate seal-clubbing club
+You gain 2 Adventures
+Preference _chocolatesUsed changed from 1 to 2
+Preference _concoctionDatabaseRefreshes changed from 866 to 867
+> Skipping fancy chocolate sculpture; too expensive (98749 > 35000).
+> Trying to acquire 1 blobs of essential tofu; max price 30000.
+
+use 1 essential tofu
+You gain 6 Adventures
+Preference _essentialTofuUsed changed from false to true
+Preference _concoctionDatabaseRefreshes changed from 867 to 868
+Preference nextAdventure changed from The Sunken Party Yacht to Barf Mountain
+> ===== FULL DIET =====
+> Planning to fight 27 Witchess Knight and run 738 adventures
+> 1 (max 1) august scepter value: 0 price: 0
+> 3 (max 3) designer sweatpants value: 0 price: 0
+> 1 (max 1) pocket wish:Refined Palate value: 0 price: 49950
+> 3 (max 3) mojo filter value: 0 price: 17997
+> 13 (max 15) jumping horseradish(barf) helpers: Special Seasoning value: 685750 (additional value: 13750) price: 79898
+> 20 Sacramento wine value: 900000 price: 14900
+> 15 (max 25) Rethinking Candy(barf) value: 371250 (additional value: 24750) price: 0
+> Assuming MPA of 6000, Total Cost 162745, Total Value 1957000, Net Value 1794255
+> Trying to acquire 13 jars of Special Seasoning; max price 6000.
+Preference autoBuyPriceLimit changed from 100000 to 6000
+mallsearch "Special Seasoning"
+
+
+
+*/
+
 
 boolean fillInitialStomach()
 {
