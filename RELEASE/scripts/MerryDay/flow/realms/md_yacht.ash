@@ -217,8 +217,6 @@ void yachting()
     while(yacht_can())
         yacht_run();
     yacht_seal();
-    while(yacht_stench_can())
-            yacht_stench_run();
     while(yacht_can())
         yacht_run();
 
