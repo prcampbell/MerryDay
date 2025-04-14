@@ -16,6 +16,7 @@ boolean fax_run()
     set_auto_attack('DramaticShower');
     use(1, $item[photocopied monster]);
     set_auto_attack(0);
+    return true;
 }
 
 void main()
