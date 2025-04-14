@@ -18,6 +18,13 @@ void main ( int choiceID, string whichpage )
 					choice 6: Exit through the gift shop (skip adventure)*/
 				run_choice(6);			
 			break;
+		case 885: /*Encounter: Chasin' Babies
+					choice 1: Try the poppet
+					choice 2: Try the rocking horse
+					choice 3: Try the jack-in-the-box
+					choice 6: Do nothing*/
+				run_choice(6);			
+			break;
 		case 886: /*Encounter: Chasin' Babies
 					Unsupported choice adventure #886
 					choice 1: Try the poppet
