@@ -708,11 +708,12 @@ void main()
 			}
 			voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
 			kramco();
-			brickoPrime();
-			bustGhost(); //Basically Bales function, but with though with similar outfit switching
 			tatters();
 			bullseye();
 			purple();
+			brickoPrime();
+			bustGhost(); //Basically Bales function, but with though with similar outfit switching
+
 		}
 	} 
 	finally 
