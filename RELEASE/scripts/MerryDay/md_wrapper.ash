@@ -234,6 +234,12 @@ crabs_run();
   Sailing();
 storm_run();
 
+  if(spacegate_can())
+  {
+      spacegate_init();
+      spacegate_run(); 
+  }
+
 /*
 
   cli_execute('garbo quick');
