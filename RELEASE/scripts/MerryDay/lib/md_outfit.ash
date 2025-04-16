@@ -168,6 +168,11 @@ familiar ChooseFamiliar()
 
 void construct_free_outfit(item[slot] required_equips)
 {
+location ghostLocation = to_location(get_property("ghostLocation"));
+if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
+		{
+			needs[$slot[back]] = $item[protonic accelerator pack];
+		}
 
 	//free outfits prioritize charging equipment
 
@@ -175,6 +180,10 @@ void construct_free_outfit(item[slot] required_equips)
 	if(required_equips[$slot[back]] != $item[none])
 	{
 		equip($slot[back], required_equips[$slot[back]]);
+	}
+	else if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
+	{
+		equip($slot[back], $item[protonic accelerator pack]);
 	}
 	else if(get_property('_vampyreCloakeFormUses').to_int() < 10)
     {
