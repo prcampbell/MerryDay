@@ -115,6 +115,21 @@ void RestoreSetup()
 	}
 }
 
+location defaultTargetLocation()
+{
+	if(my_location() != $location[none]
+				&& my_location().environment != 'underwater'
+				&& my_location().wanderers
+			)
+			{
+				return my_location();				
+			}
+			else
+			{
+				return $location[The Haunted Kitchen];
+			}
+}
+
 void bustGhost() 
 {
 	if(to_location(get_property("ghostLocation")) == $location[none])
@@ -247,17 +262,13 @@ void voteMonster()
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
 	
-		location target;
+		location target = defaultTargetLocation();
 		string macro = 'skill saucegeyser;';
 
 		item[slot] needs;
 		needs[$slot[acc3]] = votedSticker;	
 		SaveSetup();
 	
-		if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-		{
-			needs[$slot[back]] = $item[protonic accelerator pack];
-		}
 		else if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
 			target = doctorLocation;
@@ -287,22 +298,7 @@ void voteMonster()
 			{
 				needs[$slot[weapon]] = $item[trash net];
 				target = $location[Pirates of the Garbage Barges];
-			}	
-		}
-		else
-		{
-			if(my_location() != $location[none]
-				&& my_location().environment != 'underwater'
-				&& my_location().wanderers
-			)
-			{
-				target = my_location();				
 			}
-			else
-			{
-				target = $location[The Haunted Kitchen];
-			}
-
 		}
 
 		use_familiar(chooseFamiliar());
@@ -353,7 +349,8 @@ boolean SpookyravenAccess( location l ) {
 	return false;
 }
 
-void LightsOut() {
+void LightsOut() 
+{
 	if ( total_turns_played() % 37 == 0 && get_property("lastLightsOutTurn") != total_turns_played() ) {
 		location StephenRoom,ElizabethRoom,LightsOutLocation;
 		ElizabethRoom = get_property("nextSpookyravenElizabethRoom").to_location();
@@ -401,21 +398,12 @@ void digitizeMonster()
 
 		SaveSetup();
 
-		location target;
+		location target = defaultTargetLocation();
 		string macro = 'skill saucegeyser;';
 
 		item[slot] needs;
 
-		if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
-		{
-			
-			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-			{
-				needs[$slot[back]] = $item[protonic accelerator pack];
-			}
-			target = guzzlrLocation;
-		}
-		else if(hasDinseyQuest())
+		if(hasDinseyQuest())
 		{
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
 			{
@@ -436,7 +424,7 @@ void digitizeMonster()
 			{
 				needs[$slot[weapon]] = $item[trash net];
 				target = $location[Pirates of the Garbage Barges];
-			}		
+			}	
 		}
 		else if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
@@ -445,22 +433,6 @@ void digitizeMonster()
 				needs[$slot[back]] = $item[protonic accelerator pack];
 			}
 			target = doctorLocation;
-		}
-		else 
-		{
-			if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-			{
-				needs[$slot[back]] = $item[protonic accelerator pack];
-			}
-
-			if(my_location().wanderers && my_location() != $location[The Sunken Party Yacht])
-			{
-				target = my_location();
-			}
-			else
-			{
-				target = $location[The Haunted Kitchen];
-			}
 		}
 		
 		use_familiar(familiarChoice);
@@ -492,7 +464,7 @@ void kramco()
 		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
 		location ghostLocation = to_location(get_property("ghostLocation"));
-		location target;
+		location target = defaultTargetLocation();
 		string macro = 'skill saucegeyser;';
 		item[slot] needs;
 		
@@ -520,18 +492,6 @@ void kramco()
 				target = $location[The Toxic Teacups];
 			}
 		}
-		else
-		{
-			if(my_location().wanderers && my_location().environment != 'underwater')
-			{
-				target = my_location();
-			}
-			else
-			{
-				target = $location[The Haunted Kitchen];
-			}
-				
-		}
 
 		use_familiar(chooseFamiliar());
 		construct_free_outfit(needs);
@@ -546,16 +506,20 @@ void kramco()
 	}
 }
 
-void HandleChains() {
+void HandleChains() 
+{
 	while ( in_multi_fight() )
 		run_combat();
 	while ( choice_follows_fight() )
 		run_choice(-1);
 }
 
-void RemoveCurrencies() {
-    if ( can_interact() ) {
-        foreach it in $items[hobo nickel,sand dollar] {
+void RemoveCurrencies() 
+{
+    if ( can_interact() ) 
+	{
+        foreach it in $items[hobo nickel,sand dollar] 
+		{
             if ( it == $item[hobo nickel] && get_property("choiceAdventure272").to_int() != 2 && my_location() == $location[Hobopolis Town Square] )
                 retrieve_item(20,it);
             else if ( it == $item[hobo nickel] && $locations[Burnbarrel Blvd., Exposure Esplanade, The Heap, The Ancient Hobo Burial Ground, The Purple Light District] contains my_location()
@@ -575,9 +539,7 @@ void RemoveCurrencies() {
 
 void tatters()
 {
-	if(have_effect($effect[everything looks green]) == 0)
-	 //&& get_property('banishedMonsters').contains_text('banshee librarian') &&  get_property('banishedMonsters').contains_text('writing desk')
-	 
+	if(have_effect($effect[everything looks green]) == 0) 
 	{
 		SaveSetup();
 
@@ -599,9 +561,12 @@ void purple()
 		{
 			if(c2t_megg_eggs()[m] > 0)
 			{
-				SaveSetup();
+				item[slot] needs;
+				
+				SaveSetup();	
+				needs[$slot[off-hand]] = $item[roman candelabra];
 				cli_execute('autoattack BasicAscend;');
-				equip($slot[off-hand],$item[roman candelabra]); 
+				construct_free_outfit(needs); 
 				c2t_megg_fight(m);
 				HandleChains();
 				set_auto_attack(0); 
@@ -617,7 +582,7 @@ void bullseye()
 {
 	if(have_effect($effect[everything looks red]) == 0)
 	{
-		location target;
+		location target = defaultTargetLocation();
 		string macro = 'skill Darts: Aim for the Bullseye;';
 		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
 		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
@@ -626,14 +591,8 @@ void bullseye()
 		SaveSetup();
 		cli_execute('autoattack 0');
 
-		use_familiar(chooseFamiliar());
 		item[slot] needs;
 		needs[$slot[acc3]] = $item[Everfull Dart Holster];
-
-		if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-		{
-			needs[$slot[back]] = $item[protonic accelerator pack];
-		}
 
 		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
 		{
@@ -663,16 +622,7 @@ void bullseye()
 				needs[$slot[weapon]] = $item[trash net];
 				target = $location[Pirates of the Garbage Barges];
 			}
-
 					
-		}
-		else if(my_location().wanderers)
-		{
-			target = my_location();
-		}
-		else
-		{
-			target = $location[The Haunted Kitchen];
 		}
 
 		use_familiar(chooseFamiliar());
