@@ -216,13 +216,14 @@ void main()
 	{
 		Sandworm();
 	}    
+  cli_execute('combo');
 
-
+/*We start running adventures here*/
   
   if(embezzlers_can())
     embezzlers_run();
 
-  cli_execute('combo');
+
 
   crabs_run();
   Sailing();
