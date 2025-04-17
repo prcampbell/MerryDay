@@ -166,6 +166,26 @@ familiar ChooseFamiliar()
     return $familiar[reagnimated gnome];
 }
 
+familiar meatFamiliar()
+{
+    if(have_familiar($familiar[robortender]) && get_property('_roboDrinks') != '')
+    {
+        return $familiar[robortender];
+    }
+    else if(have_familiar($familiar[comma chameleon]) && get_property('commaFamiliar') == 'Robortender' && get_property('_roboDrinks') != '')
+    {
+        return $familiar[comma chameleon];
+    }
+    else if(have_familiar($familiar[jill-of-all-trades]))
+    {
+        return $familiar[jill-of-all-trades];
+    }
+    else if(have_familiar($familiar[hobo monkey]))
+    {
+        return $familiar[hobo monkey];
+    }
+}
+
 void construct_free_outfit(item[slot] required_equips)
 {
 	location ghostLocation = to_location(get_property("ghostLocation"));
@@ -319,6 +339,10 @@ void construct_free_outfit(item[slot] required_equips)
 	{
 		equip($slot[familiar], required_equips[$slot[familiar]]);
 	}
+	else if(my_familiar() == $familiar[reagnimated gnome] && !have_equipped($item[gnomish housemaid's kgnee]) && item_amount($item[gnomish housemaid's kgnee]) > 0)
+	{
+		equip($slot[familiar], required_equips[$item[gnomish housemaid's kgnee]]);
+	}
 	
 
 }
@@ -408,4 +432,16 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	equip($slot[off-hand], $item[latte lovers member's mug]);
 
 	equip($slot[familiar], $item[amulet coin]);
+}
+
+void construct_meat_outfit(familiar fam)
+{
+	item[slot] required_equips;
+	construct_meat_outfit(required_equips, fam);
+}
+
+void construct_meat_outfit()
+{
+	item[slot] required_equips;
+	construct_meat_outfit(required_equips, chooseFamiliar());
 }
