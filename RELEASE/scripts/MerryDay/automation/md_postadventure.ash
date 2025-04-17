@@ -316,8 +316,10 @@ void voteMonster()
 	
 }
 
-boolean SpookyravenAccess( location l ) {
-	if ( !contains_text(l,"Haunted") || l == $location[The Haunted Sorority House] ) {
+boolean SpookyravenAccess( location l ) 
+{
+	if ( !contains_text(l,"Haunted") || l == $location[The Haunted Sorority House] ) 
+	{
 		abort("That is not a Spookyraven Location");
 		return false;
 	}
@@ -351,17 +353,20 @@ boolean SpookyravenAccess( location l ) {
 
 void LightsOut() 
 {
-	if ( total_turns_played() % 37 == 0 && get_property("lastLightsOutTurn") != total_turns_played() ) {
+	if ( total_turns_played() % 37 == 0 && get_property("lastLightsOutTurn") != total_turns_played() ) 
+	{
 		location StephenRoom,ElizabethRoom,LightsOutLocation;
 		ElizabethRoom = get_property("nextSpookyravenElizabethRoom").to_location();
 		StephenRoom = get_property("nextSpookyravenStephenRoom").to_location();
 		monster LightsOutMonster;
  
-		if ( ElizabethRoom == $location[The Haunted Gallery] && SpookyravenAccess(ElizabethRoom)) {
+		if ( ElizabethRoom == $location[The Haunted Gallery] && SpookyravenAccess(ElizabethRoom)) 
+		{
 			LightsOutLocation = ElizabethRoom;
 			LightsOutMonster = $monster[ghost of Elizabeth Spookyraven];
 		}
-		else if ( StephenRoom == $location[The Haunted Laboratory] && SpookyravenAccess(StephenRoom)) {
+		else if ( StephenRoom == $location[The Haunted Laboratory] && SpookyravenAccess(StephenRoom)) 
+		{
 			LightsOutLocation = StephenRoom;
 			LightsOutMonster = $monster[Stephen Spookyraven];
 		}
@@ -370,11 +375,13 @@ void LightsOut()
 		else if ( ElizabethRoom != $location[none] && SpookyravenAccess(ElizabethRoom) )
 			LightsOutLocation = ElizabethRoom;
  
-		if ( LightsOutLocation != $location[none] ) {
+		if ( LightsOutLocation != $location[none] ) 
+		{
 			print("Lights Out: "+total_turns_played(),"blue");
 			SaveSetup();
 			set_location(LightsOutLocation);
-			if ( LightsOutMonster != $monster[none] ) {
+			if ( LightsOutMonster != $monster[none] ) 
+			{
 				//ChooseFamiliar(LightsOutMonster);
 				//ConstructOutfit("exp",false,false);
 			}
@@ -512,29 +519,6 @@ void HandleChains()
 		run_combat();
 	while ( choice_follows_fight() )
 		run_choice(-1);
-}
-
-void RemoveCurrencies() 
-{
-    if ( can_interact() ) 
-	{
-        foreach it in $items[hobo nickel,sand dollar] 
-		{
-            if ( it == $item[hobo nickel] && get_property("choiceAdventure272").to_int() != 2 && my_location() == $location[Hobopolis Town Square] )
-                retrieve_item(20,it);
-            else if ( it == $item[hobo nickel] && $locations[Burnbarrel Blvd., Exposure Esplanade, The Heap, The Ancient Hobo Burial Ground, The Purple Light District] contains my_location()
-                && get_counters("Semirare window end",0,60) == "Semirare window end" && get_counters("Semirare window begin",1,60) != "Semirare window begin" )
-                retrieve_item(5,it);
-            else if ( available_amount(it) <= 11 )
-                retrieve_item(1,it);
-            else if ( item_amount(it) > 0 )
-                put_closet(item_amount(it),it);
-        }
-    }
-    foreach it in $items[mer-kin hallpass,pulled green taffy]
-        if (item_amount(it) > 0 )
-            put_closet(item_amount(it),it);
-
 }
 
 void tatters()

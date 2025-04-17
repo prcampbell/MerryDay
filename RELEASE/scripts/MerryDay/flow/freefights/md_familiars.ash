@@ -26,6 +26,25 @@ boolean have_amuletcoin()
     return false;
 }
 
+familiar meatFamiliar()
+{
+    if(have_familiar($familiar[robortender]) && get_property('_roboDrinks') != '')
+    {
+        return $familiar[robortender];
+    }
+    else if(have_familiar($familiar[comma chameleon]) && get_property('commaFamiliar') == 'Robortender' && get_property('_roboDrinks') != '')
+    {
+        return $familiar[comma chameleon];
+    }
+    else if(have_familiar($familiar[jill-of-all-trades]))
+    {
+        return $familiar[jill-of-all-trades];
+    }
+    else if(have_familiar($familiar[hobo monkey]))
+    {
+        return $familiar[hobo monkey];
+    }
+}
 
 
 boolean familiarDrops()

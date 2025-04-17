@@ -1,6 +1,29 @@
 import md_iotm2022.ash;
 import md_outfit.ash;
 
+void RemoveCurrencies() 
+{
+    if ( can_interact() ) 
+	{
+        foreach it in $items[hobo nickel,sand dollar] 
+		{
+            if ( it == $item[hobo nickel] && get_property("choiceAdventure272").to_int() != 2 && my_location() == $location[Hobopolis Town Square] )
+                retrieve_item(20,it);
+            else if ( it == $item[hobo nickel] && $locations[Burnbarrel Blvd., Exposure Esplanade, The Heap, The Ancient Hobo Burial Ground, The Purple Light District] contains my_location()
+                && get_counters("Semirare window end",0,60) == "Semirare window end" && get_counters("Semirare window begin",1,60) != "Semirare window begin" )
+                retrieve_item(5,it);
+            else if ( available_amount(it) <= 11 )
+                retrieve_item(1,it);
+            else if ( item_amount(it) > 0 )
+                put_closet(item_amount(it),it);
+        }
+    }
+    foreach it in $items[mer-kin hallpass,pulled green taffy]
+        if (item_amount(it) > 0 )
+            put_closet(item_amount(it),it);
+
+}
+
 familiar MeatFamiliar()
 {
     /*foreach f in $familiars[Jill-of-all-Trades, Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]

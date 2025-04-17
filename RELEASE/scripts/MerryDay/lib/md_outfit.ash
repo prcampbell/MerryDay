@@ -168,11 +168,7 @@ familiar ChooseFamiliar()
 
 void construct_free_outfit(item[slot] required_equips)
 {
-location ghostLocation = to_location(get_property("ghostLocation"));
-if (ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() )
-		{
-			needs[$slot[back]] = $item[protonic accelerator pack];
-		}
+	location ghostLocation = to_location(get_property("ghostLocation"));
 
 	//free outfits prioritize charging equipment
 
