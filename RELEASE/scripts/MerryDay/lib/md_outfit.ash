@@ -184,6 +184,7 @@ familiar meatFamiliar()
     {
         return $familiar[hobo monkey];
     }
+return $familiar[leprechaun];
 }
 
 void construct_free_outfit(item[slot] required_equips)
