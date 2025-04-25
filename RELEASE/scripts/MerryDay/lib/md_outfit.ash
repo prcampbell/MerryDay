@@ -440,6 +440,34 @@ void construct_meat_outfit(familiar fam)
 	construct_meat_outfit(required_equips, fam);
 }
 
+void construct_meat_outfit(familiar fam, location loc)
+{
+	item[slot] required_equips;
+
+	required_equips[$slot[hat]] = $item[Apriling Band Helmet];
+	required_equips[$slot[back]] = $item[buddy bjorn];
+    required_equips[$slot[back]] = $item[buddy bjorn];
+    required_equips[$slot[shirt]] = $item[jurassic parka];
+	if(get_property('parkaMode') != 'kachungasaur')
+	{
+		cli_execute('parka meat');
+	}
+	required_equips[$slot[weapon]] = $item[june cleaver];
+    required_equips[$slot[off-hand]] = $item[latte lovers member's mug];    
+
+    if(get_property('_pantsgivingCount').to_int() < 76)
+		required_equips[$slot[pants]] = $item[Pantsgiving];
+
+	required_equips[$slot[acc1]] = $item[mafia pointer finger ring];
+	required_equips[$slot[acc2]] = $item[lucky gold ring];
+	if(get_property('_mayflySummons').to_int() < 30 && $locations[Barf Mountain] contains loc)
+		required_equips[$slot[acc3]] = $item[mayfly bait necklace];
+	else
+		required_equips[$slot[acc3]] = $item[mr. screege's spectacles];
+
+	construct_meat_outfit(required_equips, fam);
+}
+
 void construct_meat_outfit()
 {
 	item[slot] required_equips;

@@ -1,6 +1,9 @@
 string questLog = "questlog.php?which=1";
 string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
 
+import md_outfit;
+
+
 boolean hasDinseyQuest()
 {
     if(get_property('_merryDinseyQuest') == '')
@@ -182,6 +185,14 @@ void dinsey()
     dispose_garbage();
     buy_dinsey_ticket();
     set_property('_merryDinseyQuest',get_quest());
+}
+
+boolean barf_run()
+{
+    print('Barf Mountain, 1 turn only', 'green');
+    set_auto_attack('BasicBarf');
+    construct_meat_outfit(meat_familiar(), $location[Barf Mountain]);
+    return adv1($location[Barf Mountain], -1, '');
 }
 
 void main()

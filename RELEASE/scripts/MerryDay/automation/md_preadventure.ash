@@ -24,28 +24,6 @@ void RemoveCurrencies()
 
 }
 
-familiar MeatFamiliar()
-{
-    /*foreach f in $familiars[Jill-of-all-Trades, Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
-			if ( have_familiar(f) && f.drops_today < 1 )
-				return f;
-    foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
-			if ( have_familiar(f) && f.drops_today < 2 )
-				return f;
-    foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
-			if ( have_familiar(f) && f.drops_today < 3 )
-				return f;
-    
-    foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
-			if ( have_familiar(f) && f.drops_today < 4 )
-				return f;
-    foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
-			if ( have_familiar(f) && f.drops_today < 5 )
-				return f;
-    */
-    return $familiar[jill-of-all-trades];
-}
-
 void main()
 {
     if(get_property("_universeCalculated").to_int() < min(3, get_property("skillLevel144").to_int()))
@@ -82,55 +60,7 @@ void main()
         put_closet(item_amount($item[bowling ball]), $item[bowling ball]);
     }
 
-    if(my_location() == $location[Barf Mountain])
-    {
-        use_familiar(MeatFamiliar());
-        
-
-        if(get_property('_batWingsFreeFights').to_int() < 5)
-            equip($slot[back], $item[bat wings]);
-        else
-        {
-            equip($slot[back], $item[buddy bjorn]);
-            bjornify_familiar(get_best_bjorn());
-        }
-            
-        if(!have_equipped($item[buddy bjorn]))
-        {
-            equip($slot[hat], $item[crown of thrones]);
-            enthrone_familiar(get_best_bjorn());
-        }   
-        else
-            equip($slot[hat], $item[Apriling Band Helmet]);
-
-        equip($slot[shirt], $item[jurassic parka]);
-        if(get_property('parkaMode') != 'kachungasaur')
-        {
-            cli_execute('parka meat');
-        }    
-
-        if(get_property('_pantsgivingCount').to_int() < 76)
-            equip($slot[pants], $item[Pantsgiving]);
-        //else if(get_property('_stinkyCheeseCount').to_int() < 100)
-            //equip($slot[pants], $item[stinky cheese diaper]);
-        //else if(get_property('sweat').to_int() < 75)
-            //equip($slot[pants], $item[designer sweatpants]);
-        else
-            if(my_familiar() == $familiar[jill-of-all-trades]
-                || my_familiar() == $familiar[hobo monkey]
-                || (my_familiar() == $familiar[comma chameleon] && get_property('commaFamiliar') == 'Robortender')
-                )
-                equip($slot[pants], $item[repaid diaper]);
-            else
-                equip($slot[pants], $item[Pantsgiving]);
-
-        equip($slot[acc1], $item[mafia pointer finger ring]);
-        if(get_property('_mayflySummons').to_int() < 30)
-            equip($slot[acc2], $item[mayfly bait necklace]);
-        else
-            equip($slot[acc2], $item[mr. screege's spectacles]);
-        equip($slot[acc3], $item[lucky gold ring]); 
-    }
+    
     /*
     use_familiar(ChooseFamiliar());
     equip($slot[weapon], $item[june cleaver]);
