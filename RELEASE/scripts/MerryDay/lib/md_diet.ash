@@ -41,6 +41,51 @@ mallsearch "Special Seasoning"
 
 */
 
+boolean eatWithHelper(item it)
+{
+    if(item_amount($item[whet stone]) > 1)
+    {
+        use(1, $item[whet stone]);
+    }
+    if(mall_price($item[special seasoning]) < get_property('valueOfAdventure').to_int() && item_amount($item[special seasoning]) == 0)
+    {
+        if(closet_amount($item[special seasoning]))
+        {
+            take_closet(1, $item[special seasoning]);
+        }
+        else if(shop_amount($item[special seasoning]) > 0)
+        {
+            take_shop(1, $item[special seasoning]);
+        }
+        else 
+        {
+            buy(1, $item[special seasoning]);
+        }
+    }
+    if(mall_price($item[kiwi aioli]) < get_property('valueOfAdventure').to_int() && item_amount($item[kiwi aioli]) == 0)
+    {
+        if(closet_amount($item[kiwi aioli]))
+        {
+            take_closet(1, $item[kiwi aioli]);
+        }
+        else if(shop_amount($item[kiwi aioli]) > 0)
+        {
+            take_shop(1, $item[kiwi aioli]);
+        }
+        else 
+        {
+            buy(1, $item[kiwi aioli]);
+        }
+        use(1, $item[kiwi aioli]);
+    }
+    if(!get_property('_milkOfMagnesiumUsed').to_boolean() && !get_property('milkOfMagnesiumActive').to_boolean())
+    {
+        cli_execute('acquire 1 milk of magnesium');
+        use(1, $item[milk of magnesium]);
+    }
+    eat(1, it);
+}
+
 
 boolean fillInitialStomach()
 {
@@ -76,6 +121,23 @@ boolean fillInitialStomach()
         take_shop(1, $item[jumping horseradish]);
     }
     eat(1, $item[jumping horseradish]);
+    if(item_amount($item[roasted vegetable foccaccia]) == 0)
+    {
+        if(item_amount($item[boris's bread]) == 0 && shop_amount($item[yeast of boris]) > 1) 
+        {
+            refresh_shop(); 
+            take_shop(2, $item[yeast of boris]);
+            cli_execute('make 1 boris bread');
+        }
+        if(item_amount($item[roasted vegetable of jarlsberg]) == 0 && shop_amount($item[vegetable of jarlsberg]) > 1) 
+        {
+            refresh_shop(); 
+            take_shop(2, $item[vegetable of jarlsberg]);
+            cli_execute('make 1 roasted vegetable of jarlsberg');
+        }    
+    }
+    eat(1, $item[roasted vegetable foccaccia]);
+    
     return true;
 }
 
