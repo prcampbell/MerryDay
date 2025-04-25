@@ -24,6 +24,7 @@ void RemoveCurrencies()
 
 }
 
+
 void main()
 {
     if(get_property("_universeCalculated").to_int() < min(3, get_property("skillLevel144").to_int()))

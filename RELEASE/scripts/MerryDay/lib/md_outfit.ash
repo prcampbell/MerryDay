@@ -184,6 +184,7 @@ familiar meatFamiliar()
     {
         return $familiar[hobo monkey];
     }
+return $familiar[leprechaun];
 }
 
 void construct_free_outfit(item[slot] required_equips)
@@ -341,7 +342,7 @@ void construct_free_outfit(item[slot] required_equips)
 	}
 	else if(my_familiar() == $familiar[reagnimated gnome] && !have_equipped($item[gnomish housemaid's kgnee]) && item_amount($item[gnomish housemaid's kgnee]) > 0)
 	{
-		equip($slot[familiar], required_equips[$item[gnomish housemaid's kgnee]]);
+		equip($slot[familiar], $item[gnomish housemaid's kgnee]);
 	}
 	
 
