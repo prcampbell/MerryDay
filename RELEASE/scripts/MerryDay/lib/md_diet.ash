@@ -43,13 +43,17 @@ mallsearch "Special Seasoning"
 
 boolean eatWithHelper(item it)
 {
+    if(my_fullness() + it.fullness > fullness_limit())
+    {
+        return false;
+    }
     if(item_amount($item[whet stone]) > 1)
     {
         use(1, $item[whet stone]);
     }
     if(mall_price($item[special seasoning]) < get_property('valueOfAdventure').to_int() && item_amount($item[special seasoning]) == 0)
     {
-        if(closet_amount($item[special seasoning]))
+        if(closet_amount($item[special seasoning]) > 0)
         {
             take_closet(1, $item[special seasoning]);
         }
@@ -62,28 +66,28 @@ boolean eatWithHelper(item it)
             buy(1, $item[special seasoning]);
         }
     }
-    if(mall_price($item[kiwi aioli]) < get_property('valueOfAdventure').to_int() && item_amount($item[kiwi aioli]) == 0)
+    if(mall_price($item[mini kiwi aioli]) < get_property('valueOfAdventure').to_int() && item_amount($item[mini kiwi aioli]) == 0)
     {
-        if(closet_amount($item[kiwi aioli]))
+        if(closet_amount($item[mini kiwi aioli]) > 0)
         {
-            take_closet(1, $item[kiwi aioli]);
+            take_closet(1, $item[mini kiwi aioli]);
         }
-        else if(shop_amount($item[kiwi aioli]) > 0)
+        else if(shop_amount($item[mini kiwi aioli]) > 0)
         {
-            take_shop(1, $item[kiwi aioli]);
+            take_shop(1, $item[mini kiwi aioli]);
         }
         else 
         {
-            buy(1, $item[kiwi aioli]);
+            buy(1, $item[mini kiwi aioli]);
         }
-        use(1, $item[kiwi aioli]);
+        use(1, $item[mini kiwi aioli]);
     }
     if(!get_property('_milkOfMagnesiumUsed').to_boolean() && !get_property('milkOfMagnesiumActive').to_boolean())
     {
         cli_execute('acquire 1 milk of magnesium');
         use(1, $item[milk of magnesium]);
     }
-    eat(1, it);
+    return eat(1, it);
 }
 
 
