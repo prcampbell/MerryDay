@@ -445,7 +445,10 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	}
 	else 
 	{
-		equip($slot[familiar], $item[amulet coin]);
+		if(fam != $familiar[comma chameleon])
+		{
+			equip($slot[familiar], $item[amulet coin]);
+		}
 	}
 	
 }
