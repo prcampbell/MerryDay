@@ -125,7 +125,7 @@ boolean fillInitialStomach()
         take_shop(1, $item[jumping horseradish]);
     }
     eat(1, $item[jumping horseradish]);
-    if(item_amount($item[roasted vegetable foccaccia]) == 0)
+    if(item_amount($item[roasted vegetable focaccia]) == 0)
     {
         if(item_amount($item[boris's bread]) == 0 && shop_amount($item[yeast of boris]) > 1) 
         {
@@ -140,7 +140,7 @@ boolean fillInitialStomach()
             cli_execute('make 1 roasted vegetable of jarlsberg');
         }    
     }
-    eat(1, $item[roasted vegetable foccaccia]);
+    eat(1, $item[roasted vegetable focaccia]);
     
     return true;
 }

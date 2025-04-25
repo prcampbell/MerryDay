@@ -1,7 +1,9 @@
+
+import md_outfit;
+
 string questLog = "questlog.php?which=1";
 string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
 
-import md_outfit;
 
 
 boolean hasDinseyQuest()
