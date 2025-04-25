@@ -166,7 +166,7 @@ familiar ChooseFamiliar()
     return $familiar[reagnimated gnome];
 }
 
-familiar meatFamiliar()
+familiar meat_familiar()
 {
     if(have_familiar($familiar[robortender]) && get_property('_roboDrinks') != '')
     {
@@ -184,7 +184,7 @@ familiar meatFamiliar()
     {
         return $familiar[hobo monkey];
     }
-return $familiar[leprechaun];
+	return $familiar[mini kiwi];
 }
 
 void construct_free_outfit(item[slot] required_equips)
