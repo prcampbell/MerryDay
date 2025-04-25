@@ -269,7 +269,7 @@ void voteMonster()
 		needs[$slot[acc3]] = votedSticker;	
 		SaveSetup();
 	
-		else if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
+		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
 		{
 			target = doctorLocation;
 		}
