@@ -432,7 +432,19 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	//equip($slot[weapon], $item[garbage sticker]);
 	equip($slot[off-hand], $item[latte lovers member's mug]);
 
-	equip($slot[familiar], $item[amulet coin]);
+	if(fam = $familiar[jill-of-all-trades] && !equipped_item($slot[familiar]) == $item[LED candle])
+	{
+		equip($slot[familiar], $item[LED candle]);
+		if(get_property('ledCandleMode') != 'ultraviolet')
+		{
+			cli_execute('ledcandle meat');
+		}
+	}
+	else 
+	{
+		equip($slot[familiar], $item[amulet coin]);
+	}
+	
 }
 
 void construct_meat_outfit(familiar fam)
