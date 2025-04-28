@@ -21,7 +21,7 @@ float leprechaun(int weight)
 	return eval('(220*weight)^0.5+(2*weight)-6', v);
 }
 
-float leprechaunValue(int weight, int modifier, familiar lep)
+float leprechaunValue(int weight, int mod, familiar lep)
 {
 	if(lep == $familiar[hobo monkey])
 	{
@@ -36,7 +36,7 @@ float leprechaunValue(int weight, int modifier, familiar lep)
 		weight = weight * 2;
 	}
 
-	return leprechaun(modifier + weight) - leprechaun(weight);
+	return leprechaun(mod + weight) - leprechaun(weight);
 }
 
 print(leprechaun(50).to_string());
