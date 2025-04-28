@@ -1,5 +1,7 @@
 script md_embezzlers;
 
+
+
 /*
 
 basemeat (1000) * % meat gain * number of embezzlers (5)
@@ -55,6 +57,7 @@ vial of proquoise juice
 //short stack of pancakes
 
 import md_library;
+import md_outfit;
 
 
 void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
@@ -190,8 +193,7 @@ boolean embezzlers_can()
 boolean embezzlers_run()
 {
     embezzler_potions(6, 1000);
-    use_familiar($familiar[jill-of-all-trades]);
-    maximize('meat drop, switch hobo monkey', false);
+    construct_meat_outfit(meat_familiar());
     set_auto_attack('BackupMeat');
     if(august_can())
         august_run();

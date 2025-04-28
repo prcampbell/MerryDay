@@ -45,8 +45,6 @@ float leprechaunValue(int weight, int mod, familiar lep)
 	return leprechaun(mod + weight) - leprechaun(weight);
 }
 
-leprechaunValue(49, 10, $familiar[robortender]);
-
 
 record bjorn_data
 {
@@ -471,7 +469,14 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	default_equips[$slot[hat]] = $item[apriling band helmet];
 	default_equips[$slot[back]] = $item[Buddy Bjorn];
 	default_equips[$slot[shirt]] = $item[Jurassic Parka];
-	default_equips[$slot[pants]] = $item[Pantsgiving];
+	if(item_amount($item[pantogram pants]) > 0)
+	{
+		default_equips[$slot[pants]] = $item[pantogram pants];
+	}
+	else 
+	{
+		default_equips[$slot[pants]] = $item[Pantsgiving];
+	}
 
 	default_equips[$slot[weapon]] = $item[garbage sticker];
 	default_equips[$slot[off-hand]] = $item[latte lovers member's mug];
@@ -481,59 +486,122 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	default_equips[$slot[acc3]] = $item[ring of the skeleton lord];
 
 	use_familiar(fam);
+	
+	if(required_equips[$slot[hat]] == $item[none])
+	{
+		if(leprechauns contains fam)
+		{
+			if(leprechaunValue(fam_weight(my_familiar()),numeric_modifier($item[crumpled felt fedora], 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[hat]], 'meat drop'))
+			{
+				required_equips[$slot[hat]] = $item[crumpled felt fedora];
+			}
+			else 
+			{
+				required_equips[$slot[hat]] = default_equips[$slot[hat]];
+			}
+		}
+		else
+		{
+			required_equips[$slot[hat]] = default_equips[$slot[hat]];
+		}	
+	}
+	if(required_equips[$slot[back]] == $item[none])
+	{
+		required_equips[$slot[back]] = default_equips[$slot[back]];
+	}
+	if(required_equips[$slot[shirt]] == $item[none])
+	{
+		required_equips[$slot[shirt]] = default_equips[$slot[shirt]];
+	}
+	if(required_equips[$slot[pants]] == $item[none])
+	{
+		if(leprechauns contains fam)
+		{
+			if(leprechaunValue(fam_weight(my_familiar()),numeric_modifier($item[repaid diaper], 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[pants]], 'meat drop'))
+			{
+				required_equips[$slot[pants]] = $item[repaid diaper];
+			}
+			else 
+			{
+				required_equips[$slot[pants]] = default_equips[$slot[pants]];
+			}
+		}
+		else
+		{
+			required_equips[$slot[pants]] = default_equips[$slot[pants]];
+		}	
+		
+	}
+
+	if(required_equips[$slot[acc1]] == $item[none])
+	{
+		required_equips[$slot[acc1]] = default_equips[$slot[acc1]];
+	}
+	if(required_equips[$slot[acc2]] == $item[none])
+	{
+		required_equips[$slot[acc2]] = default_equips[$slot[acc2]];
+	}
+	if(required_equips[$slot[acc3]] == $item[none])
+	{
+		required_equips[$slot[acc3]] = default_equips[$slot[acc3]];
+	}
+
+	if(required_equips[$slot[weapon]] == $item[none])
+	{
+
+		if(leprechauns contains fam)
+		{
+			if(leprechaunValue(fam_weight(my_familiar()),numeric_modifier($item[fourth of may cosplay saber], 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[weapon]], 'meat drop'))
+			{
+				required_equips[$slot[weapon]] = $item[fourth of may cosplay saber];
+			}
+			else 
+			{
+				required_equips[$slot[weapon]] = default_equips[$slot[weapon]];
+			}
+		}
+		else
+		{
+			required_equips[$slot[weapon]] = default_equips[$slot[weapon]];
+		}	
+
+	}
+
+	if(required_equips[$slot[off-hand]] == $item[none])
+	{
+		required_equips[$slot[off-hand]] = default_equips[$slot[off-hand]];
+	}
 
 	foreach s in required_equips
 	{
+		if(s == $slot[familiar])
+		{
+				if(fam == $familiar[jill-of-all-trades])
+			{
+				if(!(equipped_item($slot[familiar]) == $item[LED candle]))
+				{
+					equip($slot[familiar], $item[LED candle]);
+				}
+				if(get_property('ledCandleMode') != 'ultraviolet')
+				{
+					cli_execute('ledcandle meat');
+				}
+			}
+			else 
+			{
+				if(fam != $familiar[comma chameleon])
+				{
+					equip($slot[familiar], $item[amulet coin]);
+				}
+			}
+		}
 		equip(s, required_equips[s]);
-	}
-	
-	if(leprechauns contains fam)
-	{
-		if(leprechaunValue(fam_weight(my_familiar()),numeric_modifier($item[crumpled felt fedora], 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[hat]], 'meat drop'))
+		if(s == $slot[shirt] && have_equipped($item[jurassic parka]))
 		{
-			equip($slot[hat], $item[crumpled felt fedora]);
-		}
-		else 
-		{
-			equip($slot[hat], default_equips[$slot[hat]]);
-		}
-	}
-	else
-	{
-		equip($slot[hat], default_equips[$slot[hat]]);
-	}	
-	
-
-	equip($slot[back], $item[Buddy Bjorn]); //Happy medium or Misshapen Animal Skeleton
-	equip($slot[shirt], $item[Jurassic Parka]); //Kachungasaur
-	equip($slot[pants], $item[Pantsgiving]);
-	//equip($slot[pants], $item[repaid diaper]);
-	//equip($slot[pants], $item[pantogram pants]);
-
-	equip($slot[acc1], $item[yamtility belt]);
-	equip($slot[acc2], $item[wormwood wedding ring]);
-	equip($slot[acc3], $item[ring of the skeleton lord]);
-
-	equip($slot[weapon], $item[fourth of may cosplay saber]);
-	//equip($slot[weapon], $item[garbage sticker]);
-	equip($slot[off-hand], $item[latte lovers member's mug]);
-
-	if(fam == $familiar[jill-of-all-trades])
-	{
-		if(!(equipped_item($slot[familiar]) == $item[LED candle]))
-		{
-			equip($slot[familiar], $item[LED candle]);
-		}
-		if(get_property('ledCandleMode') != 'ultraviolet')
-		{
-			cli_execute('ledcandle meat');
-		}
-	}
-	else 
-	{
-		if(fam != $familiar[comma chameleon])
-		{
-			equip($slot[familiar], $item[amulet coin]);
+			if(get_property('parkaMode') != 'kachungasaur')
+			{
+				cli_execute('parka kachungasaur');
+			}
 		}
 	}
 	
