@@ -484,10 +484,9 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	
 	if(leprechauns contains fam)
 	{
-		if(leprechaunValue(fam_weight(my_familiar()),numeric_modifer(it, 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[hat]], 'meat drop'))
+		if(leprechaunValue(fam_weight(my_familiar()),numeric_modifer($items[crumpled felt fedora], 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[hat]], 'meat drop'))
 		{
-			equip($slot[hat], $items[crumpled felt fedora]);
-			break;
+			equip($slot[hat], $item[crumpled felt fedora]);
 		}
 		else 
 		{
