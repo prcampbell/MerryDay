@@ -1,5 +1,45 @@
 script md_outfit;
 
+float eval(string expr, float[string] vars) {
+   buffer b;
+   matcher m = create_matcher( "\\b[a-z_][a-zA-Z0-9_]*\\b", expr );
+   while (m.find()) {
+      string var = m.group(0);
+      if (vars contains var) {
+         m.append_replacement(b, vars[var].to_string());
+      }
+
+   }
+   m.append_tail(b);
+   return expression_eval(b.to_string());
+}
+
+float leprechaun(int weight)
+{
+	float[string] v;
+	v["weight"] = weight;
+	return eval('(220*weight)^0.5+(2*weight)-6', v);
+}
+
+float leprechaunValue(int weight, int modifier, familiar lep)
+{
+	if(lep == $familiar[hobo monkey])
+	{
+		weight = weight * 1.25;
+	}
+	if(lep == $familiar[jill-of-all-trades])
+	{
+		weight = weight * 1.5;
+	}
+	if(lep == $familiar[robortender])
+	{
+		weight = weight * 2;
+	}
+
+	return leprechaun(modifier + weight) - leprechaun(weight);
+}
+
+print(leprechaun(50).to_string());
 
 record bjorn_data
 {
