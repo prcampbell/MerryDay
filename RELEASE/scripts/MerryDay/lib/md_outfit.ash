@@ -454,6 +454,11 @@ void construct_free_outfit()
 	construct_free_outfit(nothing);   
 }
 
+int fam_weight( familiar fam ) 
+{
+   return ( familiar_weight(fam) + weight_adjustment() );
+}
+
 void construct_meat_outfit(item[slot] required_equips, familiar fam)
 {
 	item[slot] default_equips;
@@ -479,7 +484,7 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	
 	if(leprechauns contains fam)
 	{
-		if(leprechaunValue(my_familiar().weight,numeric_modifer(it, 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[hat]], 'meat drop'))
+		if(leprechaunValue(fam_weight(my_familiar()),numeric_modifer(it, 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[hat]], 'meat drop'))
 		{
 			equip($slot[hat], $items[crumpled felt fedora]);
 			break;
