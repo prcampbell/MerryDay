@@ -1,6 +1,6 @@
 script md_outfit;
 
-	boolean[familiar] leprechauns = $familiars[leprechaun, mini kiwi, jill-of-all-trades, hobo monkey, robortender];
+boolean[familiar] leprechauns = $familiars[leprechaun, mini kiwi, jill-of-all-trades, hobo monkey, robortender];
 
 
 float eval(string expr, float[string] vars) {
@@ -29,18 +29,23 @@ float leprechaunValue(int weight, int mod, familiar lep)
 	if(lep == $familiar[hobo monkey])
 	{
 		weight = weight * 1.25;
+		mod = mod * 1.25;
 	}
 	if(lep == $familiar[jill-of-all-trades])
 	{
 		weight = weight * 1.5;
+		mod = mod * 1.5;
 	}
 	if(lep == $familiar[robortender])
 	{
 		weight = weight * 2;
+		mod = mod * 2;
 	}
 
 	return leprechaun(mod + weight) - leprechaun(weight);
 }
+
+leprechaunValue(49, 10, $familiar[robortender]);
 
 
 record bjorn_data
