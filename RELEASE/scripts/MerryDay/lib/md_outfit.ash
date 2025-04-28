@@ -1,5 +1,8 @@
 script md_outfit;
 
+	boolean[familiar] leprechauns = $familiars[leprechaun, mini kiwi, jill-of-all-trades, hobo monkey, robortender];
+
+
 float eval(string expr, float[string] vars) {
    buffer b;
    matcher m = create_matcher( "\\b[a-z_][a-zA-Z0-9_]*\\b", expr );
@@ -39,7 +42,6 @@ float leprechaunValue(int weight, int mod, familiar lep)
 	return leprechaun(mod + weight) - leprechaun(weight);
 }
 
-print(leprechaun(50).to_string());
 
 record bjorn_data
 {
@@ -454,10 +456,45 @@ void construct_free_outfit()
 
 void construct_meat_outfit(item[slot] required_equips, familiar fam)
 {
+	item[slot] default_equips;
+
+	default_equips[$slot[hat]] = $item[apriling band helmet];
+	default_equips[$slot[back]] = $item[Buddy Bjorn];
+	default_equips[$slot[shirt]] = $item[Jurassic Parka];
+	default_equips[$slot[pants]] = $item[Pantsgiving];
+
+	default_equips[$slot[weapon]] = $item[garbage sticker];
+	default_equips[$slot[off-hand]] = $item[latte lovers member's mug];
+
+	default_equips[$slot[acc1]] = $item[yamtility belt];
+	default_equips[$slot[acc2]] = $item[wormwood wedding ring];
+	default_equips[$slot[acc3]] = $item[ring of the skeleton lord];
+
 	use_familiar(fam);
 
-	equip($slot[hat], $item[apriling band helmet]);
-	//equip($slot[hat], $item[crumpled felt fedora]);
+	foreach(s in required_equips)
+	{
+		equip(s, required_equips[s]);
+	}
+	
+	if(leprechauns contains fam)
+	{
+		if(leprechaunValue(my_familiar().weight,numeric_modifer(it, 'familiar weight'),fam) > numeric_modifier(default_equips[$slot[hat]], 'meat drop'))
+		{
+			equip($slot[hat], $items[crumpled felt fedora]);
+			break;
+		}
+		else 
+		{
+			equip($slot[hat], default_equips[$slot[hat]]);
+		}
+	}
+	else
+	{
+		equip($slot[hat], default_equips[$slot[hat]]);
+	}	
+	
+
 	equip($slot[back], $item[Buddy Bjorn]); //Happy medium or Misshapen Animal Skeleton
 	equip($slot[shirt], $item[Jurassic Parka]); //Kachungasaur
 	equip($slot[pants], $item[Pantsgiving]);
