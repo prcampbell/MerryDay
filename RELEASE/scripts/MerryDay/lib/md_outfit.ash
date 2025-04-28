@@ -472,7 +472,7 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 
 	use_familiar(fam);
 
-	foreach(s in required_equips)
+	foreach s in required_equips
 	{
 		equip(s, required_equips[s]);
 	}
