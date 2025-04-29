@@ -34,7 +34,7 @@ void main()
     {
         cli_execute('terminal educate digitize.edu');
     }
-    construct_free_outfit($familiar[chest mimic]);
+    construct_free_outfit(required_equips, $familiar[chest mimic]);
     set_auto_attack('MimicEggs');
     witchess_run();
     set_auto_attack(0);

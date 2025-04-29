@@ -1,5 +1,6 @@
 import md_iotm2022.ash;
 import md_outfit.ash;
+import md_diet.ash;
 
 void RemoveCurrencies() 
 {
@@ -36,6 +37,22 @@ void main()
         {
             cli_execute('numberology ' + numberwang.to_string());
         }        
+    }
+    
+    if(my_fullness() == fullness_limit() - 1)
+    {
+        if(have_effect($effect[Kicked in the Sinuses]) < my_adventures())
+        {
+            eatWithHelper($item[jumping horseradish]);
+        }
+        else if(item_amount($item[glass of raw eggs]) > 0)
+        {
+            eatWithHelper($item[glass of raw eggs]);
+        }
+        else if(item_amount($item[meteoreo]) > 0)
+        {
+            eatWithHelper($item[meteoreo]);
+        }
     }
  
     if(item_amount($item[autumn-aton]) > 0 && autobotTurnsForQuest() < my_adventures())
