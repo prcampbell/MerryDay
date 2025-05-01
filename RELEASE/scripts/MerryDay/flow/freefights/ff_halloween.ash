@@ -33,7 +33,7 @@ import md_outfit.ash;
 
 boolean halloween_available()
 {
-    return !get_property('_mapToACandyRichBlockUsed').to_boolean();
+    return get_property('_mapToACandyRichBlockUsed').to_boolean();
 }
 
 boolean halloween_map_use()
@@ -175,5 +175,5 @@ void main()
     }
     item[slot] needs;
     needs[$slot[hat]] = $item[witch hat];
-    construct_free_outfit($familiar[chest mimic]);
+    construct_free_outfit(needs, $familiar[chest mimic]);
 }
