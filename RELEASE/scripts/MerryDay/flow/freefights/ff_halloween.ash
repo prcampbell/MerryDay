@@ -1,3 +1,6 @@
+script ff_halloween
+import md_outfit.ash;
+
 /*
 
 1000 meat -- chocolate covered ping-pong ball (Trainbot Trappings)
@@ -26,6 +29,7 @@
 4748 meat -- porcelain candy dish (Ceramic Suit)
 
 */
+
 
 boolean halloween_available()
 {
@@ -162,4 +166,7 @@ void main()
     {
         halloween_map_use();
     }
+    item[slot] needs;
+    needs[$slot[hat]] = $item[witch hat];
+    construct_free_outfit($familiar[chest mimic]);
 }
