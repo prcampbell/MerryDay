@@ -47,7 +47,7 @@ boolean halloween_map_use()
 boolean halloween_outfit()
 {
     //We should check what we want to grab here
-    equip($slot[hat], $item[])
+    equip($slot[hat], $item[]);
 }
 
 void do_house(string advstring, int i)
@@ -112,7 +112,7 @@ boolean treat_run()
 {
 
 
-
+/*
     //This is how to do combats
     string advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");
     matcher housematch;
@@ -154,9 +154,14 @@ boolean treat_run()
         }
         advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");        
     }
-
-
+*/
+    return false;
         
+}
+
+boolean trick_run()
+{
+    return false;
 }
 
 
