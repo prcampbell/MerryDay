@@ -54,6 +54,14 @@ void main()
             eatWithHelper($item[meteoreo]);
         }
     }
+
+    if(my_inebriety() < inebriety_limit())
+    {
+        if(get_property('familiarSweat').to_int() > 155)
+        {
+            drink(1, $item[stillsuit distillate]);
+        }
+    }
  
     if(item_amount($item[autumn-aton]) > 0 && autobotTurnsForQuest() < my_adventures())
     {
@@ -78,43 +86,6 @@ void main()
         put_closet(item_amount($item[bowling ball]), $item[bowling ball]);
     }
 
-    
-    /*
-    use_familiar(ChooseFamiliar());
-    equip($slot[weapon], $item[june cleaver]);
-    equip($slot[off-hand], $item[deft pirate hook]);
-    equip($slot[hat], $item[hardened slime hat]);
-    if(get_property('_batWingsFreeFights').to_int() < 5)
-        equip($slot[back], $item[bat wings]);
-    else
-        equip($slot[back], $item[buddy bjorn]);
-
-    if(have_effect($effect[everything looks yellow]) == 0)
-        {
-            equip($slot[shirt], $item[jurassic parka]);
-            cli_execute('parka acid');
-        }
-    else
-        equip($slot[shirt], $item[hodgman's disgusting technicolor overcoat]);
-    
-    if(get_property('_pantsgivingCount').to_int() < 50)
-        equip($slot[pants], $item[Pantsgiving]);
-    else if(get_property('_stinkyCheeseCount').to_int() < 100)
-        equip($slot[pants], $item[stinky cheese diaper]);
-    else if(get_property('sweat').to_int() < 75)
-        equip($slot[pants], $item[designer sweatpants]);
-    else
-        equip($slot[pants], $item[hardened slime pants]);    
-
-    if(have_effect($effect[everything looks red]) == 0)
-        equip($slot[acc1], $item[everfull dart holster]);
-    else 
-        equip($slot[acc1], $item[mafia thumb ring]);
-    equip($slot[acc2], $item[retrospecs]);
-    equip($slot[acc3], $item[lucky gold ring]);   
-
-    cli_execute('autoattack BasicAscend');
-    */
 }
 
 
