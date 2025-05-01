@@ -52,6 +52,7 @@ boolean halloween_outfit()
 
 void do_house(string advstring, int i)
 {
+    /*
     if (advstring.contains_text("whichhouse="+i+">"))
     {
         advstring = visit_url("choice.php?whichchoice=804&pwd="+my_hash()+"&option=3&whichhouse="+i);
@@ -66,7 +67,7 @@ void do_house(string advstring, int i)
         {
             advstring = visit_url("choice.php?whichchoice=806&pwd="+my_hash()+"&option=2");
             print("House #"+(i+1)+" is the star house! Grabbed huge candy bowl.","blue");
-            totalcandies["huge bowl of candy"] += 1;
+            //totalcandies["huge bowl of candy"] += 1;
         }
         else if (advstring.contains_text("You're fighting"))
         {
@@ -96,7 +97,7 @@ void do_house(string advstring, int i)
         }
         foreach c in candies
         {
-            totalcandies[c.to_string()] += candies[c];
+            //totalcandies[c.to_string()] += candies[c];
             print("Looted "+((candies[c]!=1)?candies[c].to_string()+" ":"")+c+" from house #"+(i+1)+".",kandykolor);
             if (!revisit_block)
                 is_candy[c.to_string()] = true;
@@ -106,6 +107,7 @@ void do_house(string advstring, int i)
     }
     else
         print("House #"+(i+1)+" has already been looted.","green");
+        */
 }
 
 boolean treat_run()
