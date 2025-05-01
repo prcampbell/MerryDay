@@ -213,7 +213,7 @@ boolean pgb_free_run()
     print('Pirates of the Garbage Barge, 1 turn only', 'green');
     set_auto_attack('BasicAscend');
     
-    construct_free_outfit(chooseFamiliar(), needs);
+    construct_free_outfit(needs, chooseFamiliar());
     return adv1($location[Pirates of the Garbage Barges], -1, '');
 }
 
