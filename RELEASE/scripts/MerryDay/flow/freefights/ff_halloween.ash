@@ -39,7 +39,7 @@ boolean halloween_available()
 boolean halloween_map_use()
 {
     if(item_amount($item[map to a candy-rich block]) > 1 && !get_property('_mapToACandyRichBlockUsed').to_boolean())
-        use(1, $item[map to a candy-rich block]);
+        return use(1, $item[map to a candy-rich block]);
     else
         return false;
 }
@@ -47,7 +47,7 @@ boolean halloween_map_use()
 boolean halloween_outfit()
 {
     //We should check what we want to grab here
-    equip($slot[hat], $item[]);
+    return equip($slot[hat], $item[witch hat]);
 }
 
 void do_house(string advstring, int i)
