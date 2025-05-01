@@ -197,6 +197,26 @@ boolean barf_run()
     return adv1($location[Barf Mountain], -1, '');
 }
 
+boolean pgb_free_run()
+{
+    item[slot] needs;
+    if(have_effect($effect[Everything Looks Red]) == 0)
+    {
+        needs[$slot[acc3]] = $item[Everfull Dart Holster];
+    }
+    if(have_effect($effect[Everything Looks Yellow]) == 0)
+    {
+        needs[$slot[shirt]] = $item[Jurassic Parka];
+        if(get_property('parkaMode') != 'dilophosaur')
+                cli_execute('parka dilophosaur');
+    }
+    print('Pirates of the Garbage Barge, 1 turn only', 'green');
+    set_auto_attack('BasicAscend');
+    
+    construct_free_outfit(chooseFamiliar(), needs);
+    return adv1($location[Pirates of the Garbage Barges], -1, '');
+}
+
 void main()
 {
     get_dinsey_access();
