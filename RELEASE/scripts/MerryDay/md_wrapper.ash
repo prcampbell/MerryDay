@@ -27,6 +27,7 @@ import md_spacegate.ash;
 
 
 
+
 void main() 
 {
   cli_execute('refresh all');
@@ -112,10 +113,15 @@ void main()
       profsausage_run();
   }
 
+//Let's grab some costumes
   while(eaglebrick_can())
   {
     construct_free_outfit();
     eaglebrick_run();
+  }
+  while(available_amount($item[li'l pirate costume] == 0)
+  {
+    pgb_free_run();
   }
 
   while(melf_can())
