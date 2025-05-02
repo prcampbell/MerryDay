@@ -39,7 +39,10 @@ boolean halloween_available()
 boolean halloween_map_use()
 {
     if(item_amount($item[map to a candy-rich block]) > 1 && !get_property('_mapToACandyRichBlockUsed').to_boolean())
-        return use(1, $item[map to a candy-rich block]);
+        set_property('choiceAdventure804', '2');
+        use(1, $item[map to a candy-rich block]);
+        set_property('choiceAdventure804', '');
+        return true;
     else
         return false;
 }
@@ -47,81 +50,54 @@ boolean halloween_map_use()
 boolean halloween_outfit()
 {
     //We should check what we want to grab here
-    return equip($slot[hat], $item[witch hat]);
+    return false;
 }
 
-void do_house(string advstring, int i)
-{
-    /*
-    if (advstring.contains_text("whichhouse="+i+">"))
-    {
-        advstring = visit_url("choice.php?whichchoice=804&pwd="+my_hash()+"&option=3&whichhouse="+i);
-        
-        if (advstring.contains_text("You can't go Trick-or-Treating without a costume!"))
-            abort("You need a costume to trick-or-treat! Any normal outfit (Bugbear Costume, Mining Gear, etc.) counts as a costume."+((outfitted)?" Make sure your \"trick\" and \"treat\" outfits have costumes.":""));
-        
 
-        boolean revisit_block = true;
-        int[item] candies;
-        if (advstring.contains_text("A Fun-Size Dilemma"))
-        {
-            advstring = visit_url("choice.php?whichchoice=806&pwd="+my_hash()+"&option=2");
-            print("House #"+(i+1)+" is the star house! Grabbed huge candy bowl.","blue");
-            //totalcandies["huge bowl of candy"] += 1;
-        }
-        else if (advstring.contains_text("You're fighting"))
-        {
-            if (advstring.contains_text("paulblart.gif") || advstring.contains_text("tooold.gif") || advstring.contains_text("vandalkid.gif"))
-            {
-                kandykolor = "orange";
-                print("Battle! House #"+(i+1)+" contains "+get_monster(advstring)+".","orange");
-                advstring = run_combat();
-                post_combat_junk();
-                if (contains_text(advstring,"You lose. You slink away, dejected and defeated."))
-                    print("You're getting beaten up! Maybe you should change your CCS?");
-                else
-                    candies = extract_items(advstring);
-            }
-            else
-            {
-                if (advstring.contains_text("All-Hallow's Steve"))
-                    abort("Encountered Steve, the hallowed boss! You'd better fight this guy yourself.");
-                else
-                    abort("Unidentified monster!");
-            }
-        }
-        else
-        {
-            revisit_block = false;
-            candies = extract_items(advstring);
-        }
-        foreach c in candies
-        {
-            //totalcandies[c.to_string()] += candies[c];
-            print("Looted "+((candies[c]!=1)?candies[c].to_string()+" ":"")+c+" from house #"+(i+1)+".",kandykolor);
-            if (!revisit_block)
-                is_candy[c.to_string()] = true;
-        }
-        if (revisit_block)
-            advstring = trick_page();
-    }
-    else
-        print("House #"+(i+1)+" has already been looted.","green");
-        */
-}
 
 boolean treat_run()
 {
+    string advstring;
+    string block = get_property('_trickOrTreatBlock');
+    string[int] blockMap;
+    item[slot] needs;
 
-
-/*
-    //This is how to do combats
-    string advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");
-    matcher housematch;
-    for i from 0 to 11
+    advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");
+ 
+    for i from 0 to length(block) -1
     {
-        housematch = create_matcher("whichhouse="+i+">[^>]*?house_d", advstring);
-        if (advstring.contains_text("whichhouse="+i+">") && find(housematch))
+        blockmap[i] = char_at(block, i);
+        if(blockmap[i] == 'L')
+        {
+            advstring = visit_url("choice.php?whichchoice=804&pwd="+my_hash()+"&option=3&whichhouse="+i);
+            if (advstring.contains_text("A Fun-Size Dilemma"))
+			{
+				advstring = visit_url("choice.php?whichchoice=806&pwd="+my_hash()+"&option=2");
+				print("House #"+(i+1)+" is the star house! Grabbed huge candy bowl.","blue");
+			}
+            advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");
+        }
+    }
+    
+    return true;        
+}
+
+boolean trick_run()
+{
+    string advstring;
+    string block = get_property('_trickOrTreatBlock');
+    string[int] blockMap;
+    item[slot] needs;
+    needs[$slot[hat]] = $item[witch hat];
+    construct_free_outfit(needs, $familiar[chest mimic]);
+    set_auto_attack('StasisFight');
+
+    advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");
+ 
+    for i from 0 to length(block) -1
+    {
+        blockmap[i] = char_at(block, i);
+        if(blockmap[i] == 'D')
         {
             advstring = visit_url("choice.php?whichchoice=804&pwd="+my_hash()+"&option=3&whichhouse="+i);
             if (advstring.contains_text("paulblart.gif") || advstring.contains_text("tooold.gif") || advstring.contains_text("vandalkid.gif"))
@@ -133,37 +109,13 @@ boolean treat_run()
             }
             else
             {
-                abort("Uh oh!");
+                abort("Uh oh! Met something unexpected!");
             }
             advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");
-        }      
-    }
-
-    //This is how to do treats
-    use_familiar($familiar[trick-or-treating tot]);
-    cli_execute('outfit Ceramic Suit');
-    string advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");
-    for i from 0 to 11
-    {
-        if (advstring.contains_text("whichhouse="+i+">"))
-        {
-            advstring = visit_url("choice.php?whichchoice=804&pwd="+my_hash()+"&option=3&whichhouse="+i);
-            if (advstring.contains_text("A Fun-Size Dilemma"))
-			{
-				advstring = visit_url("choice.php?whichchoice=806&pwd="+my_hash()+"&option=2");
-				print("House #"+(i+1)+" is the star house! Grabbed huge candy bowl.","blue");
-			}
         }
-        advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");        
     }
-*/
-    return false;
-        
-}
-
-boolean trick_run()
-{
-    return false;
+    set_auto_attack(0);
+    return true;
 }
 
 
@@ -172,8 +124,7 @@ void main()
     if(!halloween_available())
     {
         halloween_map_use();
+        trick_run();
     }
-    item[slot] needs;
-    needs[$slot[hat]] = $item[witch hat];
-    construct_free_outfit(needs, $familiar[chest mimic]);
+    
 }
