@@ -214,6 +214,11 @@ void bustGhost()
 		construct_free_outfit(needs);
 		(!adv1(ghostLocation, -1, "skill Shadow Noodles; while hasskill Shoot Ghost; skill Shoot Ghost; if hasskill Trap Ghost; skill Trap Ghost; endif; endwhile;"));
 		
+		if($monsters[The Headless Horseman, The ghost of Ebenoozer Screege, The ghost of Lord Montague Spookyraven, The ghost of Waldo the Carpathian, 	The Icewoman, The ghost of Jim Unfortunato, the ghost of Sam McGee, Emily Koops\, a spooky lime, the ghost of Monsieur Baguelle, The ghost of Vanillica "Trashblossom" Gorton, the ghost of Oily McBindle, boneless blobghost, The ghost of Richard Cockingham, The Headless Horseman] contains get_property('lastEncounter').to_monster()
+			&& get_property('nextParanormalActivity').to_int() - total_turns_played() < 50)
+		{
+			set_property('nextParanormalActivity', total_turns_played() + 50);
+		}
 	}
 }
 
