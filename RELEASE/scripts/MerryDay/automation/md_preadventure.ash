@@ -32,7 +32,6 @@ void main()
     {
         int numberwang = 69;
         int[int] numberology = reverse_numberology();
-        print(numberology[numberwang], 'green');
         if (numberology contains numberwang) 
         {
             cli_execute('numberology ' + numberwang.to_string());
