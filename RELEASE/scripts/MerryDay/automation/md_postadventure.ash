@@ -134,41 +134,9 @@ void bustGhost()
 {
 	if(to_location(get_property("ghostLocation")) == $location[none])
 		return;
-	buffer stun() 
-	{
-		buffer stun;
-		void addstun(skill sk) {
-			if(sk != $skill[none] && have_skill(sk)) {
-				stun.append("if hasskill ");
-				stun.append(to_int(sk));
-				stun.append("; skill ");
-				stun.append(to_int(sk));
-				stun.append("; endif; ");
-			}
-		}
-		void addstun(item it) {
-			if(it != $item[none] && available_amount(it) > 0) {
-				stun.append("if hascombatitem ");
-				stun.append(to_int(it));
-				stun.append("; use ");
-				stun.append(to_int(it));
-				stun.append("; endif; ");
-			}
-		}
-		foreach sk in $skills[Summon Love Gnats, Mind Bullets]
-			addstun(sk);
-		addstun(stun_skill());
-		if(length(stun) == 0)
-			addstun($skill[Shadow Noodles]);
-		foreach it in $items[chloroform rag, gas balloon, floorboard cruft]
-			if(length(stun) == 0)
-				addstun(it);
-		return stun.insert(0, "skill Shoot Ghost; "); // Inserting because something goes wrong when stun is first? This attack gets ignored!
-	}
+	
 	SaveSetup();
     set_auto_attack(0);
-	item acc3;
-	familiar fam;
 	location ghostLocation = to_location(get_property("ghostLocation"));
 	if(my_inebriety() <= inebriety_limit() 
 		&& to_boolean(get_property("kingLiberated")) 
@@ -212,7 +180,9 @@ void bustGhost()
 		
 		needs[$slot[back]] = $item[protonic accelerator pack];
 		construct_free_outfit(needs);
-		(!adv1(ghostLocation, -1, "skill Shadow Noodles; while hasskill Shoot Ghost; skill Shoot Ghost; if hasskill Trap Ghost; skill Trap Ghost; endif; endwhile;"));
+
+		
+		(!adv1(ghostLocation, -1, "if !monstername The Headless Horseman || !monstername The ghost of Ebenoozer Screege ||	!monstername The ghost of Lord Montague Spookyraven || !monstername The ghost of Waldo the Carpathian || !monstername The Icewoman ||!monstername The ghost of Jim Unfortunato || !monstername the ghost of Sam McGee ||!monstername Emily Koops\, a spooky lime || !monstername the ghost of Monsieur Baguelle ||!monstername The ghost of Vanillica \"Trashblossom\" Gorton || !monstername the ghost of Oily McBindle, boneless blobghost || !monstername The ghost of Richard Cockingham || !monstername The Headless Horseman use divine champagne popper endif; skill Shadow Noodles; while hasskill Shoot Ghost; skill Shoot Ghost; if hasskill Trap Ghost; skill Trap Ghost; endif; endwhile;"));
 		
 		if($monsters[The Headless Horseman, The ghost of Ebenoozer Screege, The ghost of Lord Montague Spookyraven, The ghost of Waldo the Carpathian, 	The Icewoman, The ghost of Jim Unfortunato, the ghost of Sam McGee, Emily Koops\, a spooky lime, the ghost of Monsieur Baguelle, The ghost of Vanillica "Trashblossom" Gorton, the ghost of Oily McBindle, boneless blobghost, The ghost of Richard Cockingham, The Headless Horseman] contains get_property('lastEncounter').to_monster()
 			&& get_property('nextParanormalActivity').to_int() - total_turns_played() < 50)
@@ -240,8 +210,6 @@ void BrickoPrime()
 			use( 1, $item[BRICKO Ooze] );
 			location ghostLocation = to_location(get_property("ghostLocation"));
 			if  ( ghostLocation == $location[none] )
-				//cli_execute("/timer 51 Ghost!");
-			//else	
 				set_property("nextParanormalActivity", get_property("nextParanormalActivity").to_int() + 50);
 			set_auto_attack(0);
 		}
