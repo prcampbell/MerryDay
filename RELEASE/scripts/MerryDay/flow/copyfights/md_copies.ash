@@ -65,7 +65,7 @@ boolean spinner_can(monster goal)
 
 boolean spinner_run(monster goal)
 {
-
+    print('Timespinning!', 'purple');
 //Actually do the thing:
     string[int] pages;
     pages[0] = "inv_use.php?pwd=&which=3&whichitem=9104";
@@ -177,6 +177,10 @@ void roach_run()
     {
         use_familiar($familiar[jill-of-all-trades]);
         maximize('meat drop, equip powerful glove, equip latte lover',false);
+        if(have_effect($effect[everything looks purple]) == 0)
+        {
+            equip($slot[off-hand],$item[Roman Candelabra]);
+        }
         adv1($location[noob cave], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
@@ -193,6 +197,10 @@ void roach_run()
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 8)
     {
         maximize('meat drop, equip latte lover',false);
+        if(have_effect($effect[everything looks purple]) == 0)
+        {
+            equip($slot[off-hand],$item[Roman Candelabra]);
+        }
         adv1($location[noob cave], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
@@ -209,6 +217,10 @@ void roach_run()
     {
         use_familiar($familiar[jill-of-all-trades]);
         maximize('meat drop, equip latte lover, equip backup camera',false);
+        if(have_effect($effect[everything looks purple]) == 0)
+        {
+            equip($slot[off-hand],$item[Roman Candelabra]);
+        }
         adv1($location[the dire warren], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
@@ -225,6 +237,10 @@ void roach_run()
     {
         use_familiar($familiar[jill-of-all-trades]);
         maximize('meat drop, equip latte lover, equip backup camera',false);
+        if(have_effect($effect[everything looks purple]) == 0)
+        {
+            equip($slot[off-hand],$item[Roman Candelabra]);
+        }
         adv1($location[noob cave], -1, '');
     }
 
