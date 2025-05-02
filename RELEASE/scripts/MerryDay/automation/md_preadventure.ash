@@ -59,7 +59,7 @@ void main()
     {
         if(get_property('familiarSweat').to_int() > 155)
         {
-            drink(1, $item[stillsuit distillate]);
+           cli_execute('drink stillsuit distillate');
         }
     }
  
