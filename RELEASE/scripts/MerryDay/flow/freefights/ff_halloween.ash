@@ -39,10 +39,13 @@ boolean halloween_available()
 boolean halloween_map_use()
 {
     if(item_amount($item[map to a candy-rich block]) > 1 && !get_property('_mapToACandyRichBlockUsed').to_boolean())
+    {
         set_property('choiceAdventure804', '2');
         use(1, $item[map to a candy-rich block]);
         set_property('choiceAdventure804', '');
         return true;
+    }
+        
     else
         return false;
 }
