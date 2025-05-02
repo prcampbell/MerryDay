@@ -119,7 +119,7 @@ void main()
     construct_free_outfit();
     eaglebrick_run();
   }
-  while(available_amount($item[li'l pirate costume] == 0)
+  while(available_amount($item[li'l pirate costume]) == 0)
   {
     pgb_free_run();
   }
