@@ -5,6 +5,12 @@ void main ( int choiceID, string whichpage )
 {
 	switch (choiceID) 
     {
+		case 673: /*Encounter: Putting Off is Off-Putting
+					choice 1: Look Under a Pile of Junk (very overdue library book, then skip adventure)
+					choice 2: Roll in a Pile of Junk (Trash-Wrapped)
+					choice 3: Get out of this Junk (skip adventure) */
+				run_choice(1);			
+			break;
 		case 788: /*Encounter: Life is like a Cherry of Bowls
 					choice 1: Let's roll (stats)
 					choice 6: Let's don't (skip adventure)*/
