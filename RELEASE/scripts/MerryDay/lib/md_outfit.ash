@@ -238,7 +238,7 @@ void construct_free_outfit(item[slot] required_equips)
 
 	//free outfits prioritize charging equipment
 
-//back
+	//back
 	if(required_equips[$slot[back]] != $item[none])
 	{
 		equip($slot[back], required_equips[$slot[back]]);
@@ -257,7 +257,7 @@ void construct_free_outfit(item[slot] required_equips)
         bjornify_familiar(get_best_bjorn());    
     }
 
-//hat
+	//hat
 	if(required_equips[$slot[hat]] != $item[none])
 	{
 		equip($slot[hat], required_equips[$slot[hat]]);
@@ -314,15 +314,18 @@ void construct_free_outfit(item[slot] required_equips)
 	}
 	
 	//off-hand
-
-	if(required_equips[$slot[off-hand]] != $item[none] && can_equip(required_equips[$slot[off-hand]]))
+	if(weapon_hands(equipped_item($slot[weapon])) == 1)
 	{
-		equip($slot[off-hand], required_equips[$slot[off-hand]]);
+		if(required_equips[$slot[off-hand]] != $item[none] && can_equip(required_equips[$slot[off-hand]]))
+		{
+			equip($slot[off-hand], required_equips[$slot[off-hand]]);
+		}
+		else
+		{
+			equip($slot[off-hand], $item[Kol Con 13 snowglobe]);
+		}
 	}
-	else
-	{
-		equip($slot[off-hand], $item[Kol Con 13 snowglobe]);
-	}
+	
     
 	//accessories
 	if(required_equips[$slot[acc1]] != $item[none] 
@@ -567,7 +570,7 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 
 	}
 
-	if(required_equips[$slot[off-hand]] == $item[none])
+	if(required_equips[$slot[off-hand]] == $item[none] && weapon_hands(required_equips[$slot[weapon]]) == 1)	
 	{
 		required_equips[$slot[off-hand]] = default_equips[$slot[off-hand]];
 	}
@@ -576,7 +579,7 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	{
 		if(s == $slot[familiar])
 		{
-				if(fam == $familiar[jill-of-all-trades])
+			if(fam == $familiar[jill-of-all-trades])
 			{
 				if(!(equipped_item($slot[familiar]) == $item[LED candle]))
 				{
@@ -595,6 +598,7 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 				}
 			}
 		}
+		
 		equip(s, required_equips[s]);
 		if(s ==  $slot[hat] && have_equipped($item[crown of thrones]))
 		{
