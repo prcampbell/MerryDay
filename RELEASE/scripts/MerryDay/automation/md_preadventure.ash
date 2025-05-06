@@ -79,8 +79,7 @@ void main()
         restore_mp(200);
     }
 
-    if(my_location() == $location[the hidden bowling alley] 
-        && item_amount($item[bowling ball]) > 0)
+    if(item_amount($item[bowling ball]) > 0)
     {
         put_closet(item_amount($item[bowling ball]), $item[bowling ball]);
     }
