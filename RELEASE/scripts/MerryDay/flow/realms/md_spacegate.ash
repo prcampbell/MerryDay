@@ -7,9 +7,19 @@ boolean spacegate_can()
 
 string spacegate_dial()
 {
+    /**/
     if(get_property('_spacegateCoordinates') == '')
     {
-        cli_execute('spacegate destination GRIMACE');
+        if(item_amount($item[primitive alien totem]) == 0)
+            cli_execute('spacegate destination GRIMACE');
+        if(item_amount($item[primitive alien spear]) == 0)
+            cli_execute('spacegate destination COMRADE');
+        if(item_amount($item[primitive alien blowgun]) == 0)
+            cli_execute('spacegate destination DECEIVE');
+        if(item_amount($item[primitive alien loincloth]) == 0)
+            cli_execute('spacegate destination MANATEE');
+        if(item_amount($item[primitive alien necklace]) == 0)
+            cli_execute('spacegate destination CTHULHU');
     }
     return get_property('_spacegateCoordinates');
 }
