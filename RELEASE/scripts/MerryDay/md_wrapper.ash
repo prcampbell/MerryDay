@@ -50,7 +50,7 @@ void main()
   dinsey();
   dailyItems();
   dailyEffects();
-  yachting();
+
 
   if($effect[Jingle Jangle Jingle].have_effect() < 600)
   {
@@ -82,10 +82,6 @@ void main()
   if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
     cli_execute('uneffect Mojomuscular Melody');
 
-  /*To hell with Garbo's diet.*/
-  //fillSpleen();
-  //fillInitialStomach();
-  //fillInitialLiver();
   dailyFamiliarBuffs();
   dailyMeatBuffs();
   dailyItemBuffs();
@@ -234,19 +230,44 @@ void main()
 
   crabs_run();
   Sailing();
-if(roach_can())
-    {
-        roach_run();
-    }
-crabs_run();
+  if(roach_can())
+  {
+      roach_run();
+  }
+  crabs_run();
   Sailing();
-storm_run();
+  storm_run();
+
+  if(get_property('_mimicEggsObtained').to_int() < 11 && get_property('_sourceTerminalDigitizeUses').to_int() < 3)
+  {
+    item[slot] required_equips;
+    required_equips[$slot[off-hand]] = $item[roman candelabra];
+    if(get_property('sourceTerminalEducate1') != 'digitize.edu'
+        && get_property('sourceTerminalEducate2') != 'digitize.edu')
+    {
+        cli_execute('terminal educate digitize.edu');
+    }
+    construct_free_outfit(required_equips, $familiar[chest mimic]);
+    set_auto_attack('MimicEggs');
+    witchess_run();
+    set_auto_attack(0);
+  }
+
+
+	set_property('afterAdventureScript', 'md_postadventure.ash');
+
+  int x;
+  for x from 0 to 100 by 1 
+  {
+    barf_run();
+  }
 
   if(spacegate_can())
   {
       spacegate_init();
       spacegate_run(); 
   }
+  yachting();
 
 /*
 
