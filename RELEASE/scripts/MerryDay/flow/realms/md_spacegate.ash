@@ -26,7 +26,25 @@ string spacegate_dial()
 
 boolean spacegate_gear(string chevrons)
 {
-    cli_execute('acquire geological sample kit; acquire exo-servo leg braces');
+    switch(chevrons)
+    {
+        case 'GRIMACE':
+        cli_execute('acquire geological sample kit; acquire exo-servo leg braces');
+        break;
+        case 'COMRADE':
+        cli_execute('acquire geological sample kit; acquire exo-servo leg braces');
+        break;
+        case 'DECEIVE':
+        cli_execute('');
+        break;
+        case 'MANATEE':
+        cli_execute('');
+        break;
+        case 'CTHULHU':
+        cli_execute('');
+        break;
+    }
+    
     return true;
 }
 
