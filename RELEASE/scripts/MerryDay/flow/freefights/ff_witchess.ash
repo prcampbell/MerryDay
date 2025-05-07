@@ -22,7 +22,7 @@ boolean witchess_run(int piece)
 boolean witchess_run()
 {
     //default to fighting a knight
-    return witchess_run(1936);
+    return witchess_run(wKnight);
 }
 
 void main()
