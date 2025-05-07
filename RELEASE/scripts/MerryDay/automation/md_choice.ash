@@ -87,7 +87,15 @@ void main ( int choiceID, string whichpage )
 				{run_choice(1);
 					
 				}
-
+		case 1256: /* 			Encounter: Wide Open Spaces
+					choice 1: Break off some bits (acquire some alien rock samples)
+					choice 2: Take a core sample (acquire some more alien rock samples (with geology kit))*/
+				if(have_equipped($item[geological sample kit]))
+					run_choice(2);
+				else
+				{run_choice(1);
+					
+				}
 		case 1340:	/* Is There A Doctor In The House?
 					1: accept quest
 					2: decline quest
