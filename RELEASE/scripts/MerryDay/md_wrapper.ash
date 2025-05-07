@@ -19,6 +19,7 @@ import ff_rifts;
 import ff_shadowbricks;
 import ff_speakeasy;
 import ff_sandworm.ash;
+import ff_witchess.ash;
 import md_pirates.ash;
 import md_copies.ash;
 import md_yacht.ash;
