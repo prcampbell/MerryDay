@@ -268,7 +268,7 @@ void main()
       spacegate_run(); 
   }
   yachting();
-
+  cli_execute('CONSUME ALL');
   while(my_adventures() > 0)
   {
     barf_run();
