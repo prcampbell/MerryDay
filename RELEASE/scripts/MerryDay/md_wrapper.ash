@@ -269,9 +269,11 @@ void main()
   }
   yachting();
 
-/*
+  while(my_adventures() > 0)
+  {
+    barf_run();
+  }
 
-  cli_execute('garbo quick');
   endDay();
-*/
+
 }
