@@ -2,6 +2,23 @@ import md_iotm2022.ash;
 import md_outfit.ash;
 import md_diet.ash;
 
+familiar fam = $familiar[none];
+item fameq = $item[none];
+familiar throne = $familiar[none];
+familiar bjorn = $familiar[none];
+item[slot] equipment;
+int autoAttack, turnsPlayed, clan;
+boolean SetupSaved = FALSE;
+string aa;	
+string afterAdventureScript;
+string beforeAdventureScript;
+string sourceTerminalEducate1;
+string sourceTerminalEducate2;
+location lastLocation;
+string questLog = "questlog.php?which=1";
+string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
+string parka;
+
 void SaveSetup() 
 {
 	if (!SetupSaved) 
