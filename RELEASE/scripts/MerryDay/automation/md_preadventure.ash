@@ -202,6 +202,10 @@ void moodUp()
 
 void main()
 {
+    if(item_amount(get_property('doctorBagQuestItem').to_item()) == 0)
+    {
+        cli_execute('acquire 1 ' + get_property('doctorBagQuestItem'));
+    }
     if(get_property("_universeCalculated").to_int() < min(3, get_property("skillLevel144").to_int()))
     {
         int numberwang = 69;
