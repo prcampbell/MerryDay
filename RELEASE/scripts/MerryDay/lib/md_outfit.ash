@@ -489,6 +489,29 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 	default_equips[$slot[acc3]] = $item[ring of the skeleton lord];
 
 	use_familiar(fam);
+
+	if(get_property('_pantsgivingFullness').to_int() < 1 
+		&& my_fullness() == fullness_limit() 
+		&& get_property('_pantsgivingCount').to_int() >= 5)
+	{
+		if(required_equips[$slot[pants]] == $item[none])
+			required_equips[$slot[pants]] == $item[pantsgiving];
+	}
+	if(get_property('_pantsgivingFullness').to_int() < 2 
+		&& my_fullness() == fullness_limit() 
+		&& get_property('_pantsgivingCount').to_int() >= 50)
+	{
+		if(required_equips[$slot[pants]] == $item[none])
+			required_equips[$slot[pants]] == $item[pantsgiving];
+	}
+	if(get_property('_pantsgivingFullness').to_int() < 3 
+		&& my_fullness() == fullness_limit() 
+		&& get_property('_pantsgivingCount').to_int() >= 500)
+	{
+		if(required_equips[$slot[pants]] == $item[none])
+			required_equips[$slot[pants]] == $item[pantsgiving];
+	}
+
 	
 	if(required_equips[$slot[hat]] == $item[none])
 	{
