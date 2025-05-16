@@ -118,9 +118,10 @@ void RemoveCurrencies()
 
 void moodUp()
 {
-    SaveSetup();
+    
     if(have_effect($effect[leash of linguini]) < my_adventures() && my_mp() > 4)
     {
+        SaveSetup();
         item[slot] required_equips;
         required_equips[$slot[off-hand]] = $item[Wand of Oscus];
         required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
@@ -131,6 +132,7 @@ void moodUp()
     }
     if(have_effect($effect[empathy]) < my_adventures() && my_mp() > 7)
     {
+        SaveSetup();
         item[slot] required_equips;
         required_equips[$slot[off-hand]] = $item[Wand of Oscus];
         required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
@@ -141,6 +143,7 @@ void moodUp()
     }
     if(have_effect($effect[Ruthlessly Efficient]) < my_adventures() && my_mp() > 7)
     {
+        SaveSetup();
         item[slot] required_equips;
         required_equips[$slot[off-hand]] = $item[Wand of Oscus];
         required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
@@ -151,6 +154,7 @@ void moodUp()
     }
     if(have_effect($effect[Disco Leer]) < my_adventures() && my_mp() > 7)
     {
+        SaveSetup();
         item[slot] required_equips;
         required_equips[$slot[off-hand]] = $item[Wand of Oscus];
         required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
@@ -161,6 +165,7 @@ void moodUp()
     }
     if(have_effect($effect[Thoughtful Empathy]) < my_adventures() && my_mp() > 7)
     {
+        SaveSetup();
         item[slot] required_equips;
         required_equips[$slot[off-hand]] = $item[Wand of Oscus];
         required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
@@ -172,6 +177,7 @@ void moodUp()
     }
     if(have_effect($effect[Curiosity of Br'er Tarrypin]) < my_adventures() && my_mp() > 7)
     {
+        SaveSetup();
         item[slot] required_equips;
         required_equips[$slot[off-hand]] = $item[Wand of Oscus];
         required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
