@@ -139,7 +139,6 @@ void moodUp()
         construct_free_outfit(required_equips);
         use_skill(1, $skill[empathy of the newt]);
     }
-    import md_outfit;
     if(have_effect($effect[Thoughtful Empathy]) < my_adventures() && my_mp() > 7)
     {
         item[slot] required_equips;
@@ -218,7 +217,7 @@ void main()
             }
             else if($items[shadow fluid, shadow glass, shadow nectar] contains get_property('rufusDesiredItems').to_item())
             {
-                adv1($location[Shadow Rift (The Beanstalk)], -1, 'use divine champagne popper;');
+                adv1($location[Shadow Rift (Somewhere Over the Beanstalk)], -1, 'use divine champagne popper;');
             }
             else if($items[shadow sausage, shadow bread, shadow fluid] contains get_property('rufusDesiredItems').to_item())
             {
