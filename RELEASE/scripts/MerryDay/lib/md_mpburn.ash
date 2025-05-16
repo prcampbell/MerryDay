@@ -63,8 +63,6 @@ void mpBuff()
 	ensure_effect($effect[Big]);
 	ensure_song($effect[The Magical Mojomuscular Melody]);
 	ensure_song($effect[Stevedave's Shanty of Superiority]); //'
-
-	
   
 }
 
@@ -104,16 +102,6 @@ void ClanShower()
 		if ( mpRestored < my_maxmp()-my_mp() ) 
 		{
 			cli_execute("shower hot");
-
-			//240 MP
-			use_skill(60, $skill[Leash of Linguini]);
-			//120 MP
-			use_skill(60, $skill[Disco Leer]);
-			//120 MP
-			use_skill(60, $skill[Ruthless Efficiency]);
-			//120 MP
-			use_skill(60, $skill[Curiosity of Br'er Tarrypin]);
-
 			LibramBurn();
 		}
 	}

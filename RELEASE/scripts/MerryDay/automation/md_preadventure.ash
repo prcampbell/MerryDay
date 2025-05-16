@@ -139,6 +139,26 @@ void moodUp()
         construct_free_outfit(required_equips);
         use_skill(1, $skill[empathy of the newt]);
     }
+    if(have_effect($effect[Ruthlessly Efficient]) < my_adventures() && my_mp() > 7)
+    {
+        item[slot] required_equips;
+        required_equips[$slot[off-hand]] = $item[Wand of Oscus];
+        required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
+        required_equips[$slot[acc1]] = $item[Oscus's pelt];
+        required_equips[$slot[acc2]] = $item[Brimstone Bracelet];
+        construct_free_outfit(required_equips);
+        use_skill(1, $skill[Ruthless Efficiency]);
+    }
+    if(have_effect($effect[Disco Leer]) < my_adventures() && my_mp() > 7)
+    {
+        item[slot] required_equips;
+        required_equips[$slot[off-hand]] = $item[Wand of Oscus];
+        required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
+        required_equips[$slot[acc1]] = $item[Oscus's pelt];
+        required_equips[$slot[acc2]] = $item[Brimstone Bracelet];
+        construct_free_outfit(required_equips);
+        use_skill(1, $skill[Disco Leer]);
+    }
     if(have_effect($effect[Thoughtful Empathy]) < my_adventures() && my_mp() > 7)
     {
         item[slot] required_equips;
@@ -150,6 +170,27 @@ void moodUp()
         construct_free_outfit(required_equips, $familiar[left-hand man]);
         use_skill(1, $skill[empathy of the newt]);
     }
+    if(have_effect($effect[Curiosity of Br'er Tarrypin]) < my_adventures() && my_mp() > 7)
+    {
+        item[slot] required_equips;
+        required_equips[$slot[off-hand]] = $item[Wand of Oscus];
+        required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
+        required_equips[$slot[acc1]] = $item[Oscus's pelt];
+        required_equips[$slot[acc2]] = $item[Brimstone Bracelet];
+        construct_free_outfit(required_equips);
+        use_skill(1, $skill[Curiosity of Br'er Tarrypin]);
+    }
+    if(have_effect($effect[Pasta Eyeball]) < my_adventures() && my_mp() > 200 && my_class() != $class[pastamancer])
+    {
+        item[slot] required_equips;
+        required_equips[$slot[off-hand]] = $item[Wand of Oscus];
+        required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
+        required_equips[$slot[acc1]] = $item[Oscus's pelt];
+        required_equips[$slot[acc2]] = $item[Brimstone Bracelet];
+        construct_free_outfit(required_equips);
+        use_skill(1, $skill[Bind Lasagmbie]);
+    }
+
     if(have_effect($effect[Blood Bond]) < my_adventures() && my_hp() > 30)
     {
         use_skill(1, $skill[Blood Bond]);
