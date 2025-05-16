@@ -180,6 +180,7 @@ void moodUp()
         construct_free_outfit(required_equips);
         use_skill(1, $skill[Curiosity of Br'er Tarrypin]);
     }
+    /*
     if(have_effect($effect[Pasta Eyeball]) < my_adventures() && my_mp() > 200 && my_class() != $class[pastamancer])
     {
         item[slot] required_equips;
@@ -189,7 +190,7 @@ void moodUp()
         required_equips[$slot[acc2]] = $item[Brimstone Bracelet];
         construct_free_outfit(required_equips);
         use_skill(1, $skill[Bind Lasagmbie]);
-    }
+    }*/
 
     if(have_effect($effect[Blood Bond]) < my_adventures() && my_hp() > 30)
     {
