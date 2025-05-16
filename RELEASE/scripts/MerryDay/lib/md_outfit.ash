@@ -495,21 +495,21 @@ void construct_meat_outfit(item[slot] required_equips, familiar fam)
 		&& get_property('_pantsgivingCount').to_int() >= 5)
 	{
 		if(required_equips[$slot[pants]] == $item[none])
-			required_equips[$slot[pants]] == $item[pantsgiving];
+			required_equips[$slot[pants]] = $item[pantsgiving];
 	}
 	if(get_property('_pantsgivingFullness').to_int() < 2 
 		&& my_fullness() == fullness_limit() 
 		&& get_property('_pantsgivingCount').to_int() >= 50)
 	{
 		if(required_equips[$slot[pants]] == $item[none])
-			required_equips[$slot[pants]] == $item[pantsgiving];
+			required_equips[$slot[pants]] = $item[pantsgiving];
 	}
 	if(get_property('_pantsgivingFullness').to_int() < 3 
 		&& my_fullness() == fullness_limit() 
 		&& get_property('_pantsgivingCount').to_int() >= 500)
 	{
 		if(required_equips[$slot[pants]] == $item[none])
-			required_equips[$slot[pants]] == $item[pantsgiving];
+			required_equips[$slot[pants]] = $item[pantsgiving];
 	}
 
 	
