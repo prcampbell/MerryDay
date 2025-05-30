@@ -514,24 +514,50 @@ void purple()
 {
 	if(have_effect($effect[everything looks purple]) == 0)
 	{
-		foreach m in $monsters[witchess knight, witchess bishop, sausage goblin]
+		if(get_property('_MerryWitchessFights').to_int() < 5)
 		{
-			if(c2t_megg_eggs()[m] > 0)
+			item[slot] needs;
+			SaveSetup();	
+			needs[$slot[off-hand]] = $item[roman candelabra];
+			cli_execute('autoattack BasicAscend;');
+			if(get_property('sourceTerminalEducate1') != 'digitize.edu'
+				&& get_property('sourceTerminalEducate2') != 'digitize.edu')
 			{
-				item[slot] needs;
-				
-				SaveSetup();	
-				needs[$slot[off-hand]] = $item[roman candelabra];
-				cli_execute('autoattack BasicAscend;');
-				construct_free_outfit(needs); 
-				c2t_megg_fight(m);
-				HandleChains();
-				set_auto_attack(0); 
+				cli_execute('terminal educate digitize.edu');
 			}
-			break;
+			if($familiar[chest mimic].experience > 50)
+			{
+				construct_free_outfit(needs, $familiar[chest mimic]);
+    			set_auto_attack('MimicEggs');
+			}
+			else 
+			{
+				cli_execute('autoattack BasicAscend;');
+				use_familiar(chooseFamiliar());
+				construct_free_outfit(needs); 
+			}
+			witchess_run();
+			HandleChains();
+			set_auto_attack(0); 
 		}
-		
-		
+		else 
+		{
+			foreach m in $monsters[witchess knight, witchess bishop, sausage goblin]
+			{
+				if(c2t_megg_eggs()[m] > 0)
+				{
+					item[slot] needs;
+					SaveSetup();	
+					needs[$slot[off-hand]] = $item[roman candelabra];
+					cli_execute('autoattack BasicAscend;');
+					construct_free_outfit(needs); 
+					c2t_megg_fight(m);
+					HandleChains();
+					set_auto_attack(0); 
+				}
+				break;
+			}			
+		}
 	}
 }
 

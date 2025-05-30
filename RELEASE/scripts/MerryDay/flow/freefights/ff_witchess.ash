@@ -16,6 +16,7 @@ boolean witchess_run(int piece)
     run_choice(1);
     visit_url("choice.php?option=1&pwd="+my_hash()+"&whichchoice=1182&piece="+piece.to_string(), false);
     run_combat();
+    set_property('_MerryWitchessFights', get_property('_MerryWitchessFights').to_int() + 1);
     return true;
 }
 
