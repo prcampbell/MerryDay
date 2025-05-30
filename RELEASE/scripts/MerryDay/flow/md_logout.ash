@@ -17,7 +17,7 @@ void endDay()
 	}
 	
 	foreach it in $items[pixellated moneybag, stolen meatpouch, solid gold jewel, ancient vinyl coin purse, duct tape wallet, old coin purse, old leather wallet, pixel coin, shiny stones, Gathered Meat-Clip, black pension check] 
-  {
+  	{
 		if (it.item_amount() > 0) use(it.item_amount(), it);
 	}
 /*
@@ -60,6 +60,11 @@ void endDay()
 		}
 		run_choice(1); 
 		run_choice(8); 
+	}
+
+	if(my_garden_type() != 'thanksgarden')
+	{
+		use(1, $item[packet of thanksgarden seeds]);
 	}
 
   cli_execute("keeping-tabs; keeping-tabs smash;");
