@@ -5,6 +5,9 @@ void main ( int choiceID, string whichpage )
 {
 	switch (choiceID) 
     {
+case 675 :
+run_choice(1);
+break;
 		case 673: /*Encounter: Putting Off is Off-Putting
 					choice 1: Look Under a Pile of Junk (very overdue library book, then skip adventure)
 					choice 2: Roll in a Pile of Junk (Trash-Wrapped)
