@@ -224,7 +224,32 @@ void main()
         {
             switchClan(tmp);
         }
-            
+    }
+    if(item_amount($item[yellow rocket]) == 0)
+    {
+        int tmp = get_clan_id();
+        if(tmp != VIPClan)
+        {
+            switchClan(VIPClan);
+        }
+        buy(1, $item[blue rocket]);
+        if(get_clan_id() != tmp)
+        {
+            switchClan(tmp);
+        }
+    }
+    if(item_amount($item[red rocket]) == 0)
+    {
+        int tmp = get_clan_id();
+        if(tmp != VIPClan)
+        {
+            switchClan(VIPClan);
+        }
+        buy(1, $item[blue rocket]);
+        if(get_clan_id() != tmp)
+        {
+            switchClan(tmp);
+        }
     }
     if(get_property("_universeCalculated").to_int() < min(3, get_property("skillLevel144").to_int()))
     {
