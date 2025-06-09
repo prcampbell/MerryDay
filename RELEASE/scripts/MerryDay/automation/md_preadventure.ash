@@ -1,6 +1,7 @@
 import md_iotm2022.ash;
 import md_outfit.ash;
 import md_diet.ash;
+import library.ash;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
