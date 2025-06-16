@@ -134,6 +134,14 @@ void main()
       melf_run();
       set_auto_attack(0);
   }
+  if(!halloween_available())
+  {
+      halloween_map_use();
+  }
+  if(halloween_available())
+  {
+      trick_run();
+  }
 
   // Regular free fights start here
 
@@ -228,7 +236,7 @@ void main()
     embezzlers_run();
 
 
-
+  
   crabs_run();
   Sailing();
   if(roach_can())
@@ -265,7 +273,10 @@ void main()
   if(spacegate_can())
   {
       spacegate_init();
-      spacegate_run(); 
+      while(get_property('_spacegateTurnsLeft').to_int() > 0)
+      {
+          spacegate_run();
+      }
   }
   yachting();
   abort();
