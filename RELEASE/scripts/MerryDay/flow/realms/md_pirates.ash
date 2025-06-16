@@ -53,6 +53,18 @@ void keepStatsLow()
         // While the buffed stat is greater than 100
         while (my_buffedstat(st) > 100) 
         {
+            if(check_effect($effect[Song of Bravado]))
+            {
+                use_skill($skill[Song of Sauce]);
+                if(my_buffedstat(st) <= 100)
+                    break;
+            }
+            if(check_effect($effect[Stevedore's Shanty of Superiority]))
+            {
+                cli_execute("shrug " + $effect[Stevedore's Shanty of Superiority]);
+                if(my_buffedstat(st) <= 100)
+                    break;
+            }
             if (!check_effect($effect[Mush-Mouth]) && mall_price($item[Fun-Guy spore]) < 5000) 
             {
                 retrieve_item(1, $item[Fun-Guy spore]);
