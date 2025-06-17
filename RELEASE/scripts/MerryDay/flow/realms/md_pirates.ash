@@ -59,9 +59,9 @@ void keepStatsLow()
                 if(my_buffedstat(st) <= 100)
                     break;
             }
-            if(check_effect($effect[Stevedore's Shanty of Superiority]))
+            if(check_effect($effect[Stevedave's Shanty of Superiority]))
             {
-                cli_execute("shrug " + $effect[Stevedore's Shanty of Superiority]);
+                cli_execute("shrug " + $effect[Stevedave's Shanty of Superiority]);
                 if(my_buffedstat(st) <= 100)
                     break;
             }
