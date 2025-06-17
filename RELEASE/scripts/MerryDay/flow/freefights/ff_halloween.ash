@@ -128,7 +128,7 @@ void main()
     {
         halloween_map_use();
     }
-    if(!halloween_available())
+    if(halloween_available())
     {
         trick_run();
     }
