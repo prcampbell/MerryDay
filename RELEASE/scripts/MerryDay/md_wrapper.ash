@@ -281,7 +281,10 @@ void main()
       }
   }
   yachting();
-  abort();
+  while(my_spleen_use() < spleen_limit())
+  {
+    cli_execute('synthesize greed');
+  }
   cli_execute('CONSUME ALL');
   while(my_adventures() > 0)
   {
