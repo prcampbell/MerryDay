@@ -27,6 +27,14 @@ break;
 					choice 6: Exit through the gift shop (skip adventure)*/
 				run_choice(6);			
 			break;
+		case 876: /*Encounter: One Simple Nightstand
+					Manual control requested for choice #876
+					choice 1: Check the top drawer (old leather wallet)
+					choice 2: Check the bottom drawer (muscle substats)
+					choice 3: Use a ghost key (muscle substats (with ghost key))
+					choice 6: Ignore it (skip)*/
+				run_choice(6);			
+			break;
 		case 884: /*Encounter: Chasin' Babies
 					choice 1: Try the poppet
 					choice 2: Try the rocking horse
