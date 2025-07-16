@@ -16,7 +16,7 @@ boolean hasDinseyQuest()
             if (contains_text(text,qName))
             {
                 set_property('_merryDinseyQuest', qName);
-                return TRUE;
+                return true;
             }
                 
         }
@@ -174,7 +174,7 @@ string get_quest()
         run_choice( 6 );
         return parseDinseyQuest();
     }
-
+    print("No acceptable Dinsey Quest", "blue");
     // Leave the Kiosk
     run_choice( 6 );
 
