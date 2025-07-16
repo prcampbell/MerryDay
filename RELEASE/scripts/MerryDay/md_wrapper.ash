@@ -28,7 +28,14 @@ import md_dinsey.ash;
 import md_spacegate.ash;
 
 
-
+boolean day_over()
+{
+  return 
+    my_fullness() >= fullness_limit()
+    && my_inebriety() >= inebriety_limit()
+    && my_spleen_use() >= spleen_limit()
+    && my_adventures() == 0
+}
 
 
 void main() 
@@ -285,12 +292,16 @@ void main()
   {
     cli_execute('synthesize greed');
   }
-  cli_execute('CONSUME ALL');
+
   while(my_adventures() > 0)
   {
     barf_run();
   }
 
-  endDay();
+  if(day_over())
+  {
+    endDay();
+  }
+  
 
 }
