@@ -41,6 +41,7 @@ string parseDinseyQuest()
             if (contains_text(text,qName))
                 output = qName;
         }
+        set_property('_merryDinseyQuest', output);
         return output;
     }
 	return get_property('_merryDinseyQuest');
