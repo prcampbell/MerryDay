@@ -5,7 +5,7 @@ import md_familiars;
 
 location constructRift(string container)
 {
-    to_location("Shadow Rift (" + container + ")");
+    return to_location("Shadow Rift (" + container + ")");
 }
 
 location get_rift(string container)
