@@ -2,6 +2,7 @@ import md_iotm2022.ash;
 import md_outfit.ash;
 import md_diet.ash;
 import md_library.ash;
+import ff_rifts.ash;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
@@ -289,62 +290,11 @@ void main()
     if(item_amount($item[autumn-aton]) > 0 && autobotTurnsForQuest() < my_adventures())
     {
 
-        if(item_amount(get_property('rufusDesiredItems').to_item()) < 3)
+        if(item_amount(get_property('rufusDesiredItems').to_item()) < 3
+            && get_rift(get_property('shadowRiftIngress')) != riftIngressByItem(get_property('rufusDesiredItems').to_item()))
         {
-            if($items[shadow ice, shadow fluid, shadow glass] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (The 8-Bit Realm)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow sausage, shadow brick, shadow sinew] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (The Ancient Buried Pyramid)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow brick, shadow sinew, shadow nectar] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (The Hidden City)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow bread, shadow brick, shadow stick] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (The Misspelled Cemetary)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow fluid, shadow glass, shadow nectar] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (Somewhere Over the Beanstalk)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow sausage, shadow bread, shadow fluid] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (The Castle in the Clouds in the Sky)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow flame, shadow fluid, shadow sinew] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (Desert Beach)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow flame, shadow nectar, shadow stick] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (The Distant Woods)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow bread, shadow ice, shadow venom] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (Forest Village)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow skin, shadow ice, shadow stick] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (Mt. McLargeHuge)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow sausage, shadow skin, shadow venom] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (The Nearby Plains)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow skin, shadow bread, shadow glass] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (The Right Side of the Tracks)], -1, 'use divine champagne popper;');
-            }
-            else if($items[shadow sausage, shadow flame, shadow venom] contains get_property('rufusDesiredItems').to_item())
-            {
-                adv1($location[Shadow Rift (Spookyraven Manor Third Floor)], -1, 'use divine champagne popper;');
-            }
+            adv1(riftIngressByItem(get_property('rufusDesiredItems').to_item()), -1, 'use divine champagne popper;');
         }
-
         cli_execute('fallguy send Shadow Rift');
     }
     if(have_effect($effect[beaten up]) > 0)

@@ -23,7 +23,7 @@ location get_rift(string container)
             loc =  constructRift("Mt. McLargeHuge"); 
             break;       
         case "beanstalk" :
-            return constructRift("Somewhere Over the Beanstalk");
+            loc =  constructRift("Somewhere Over the Beanstalk");
             break;
         case "loc = " :
             loc =  constructRift("Spookyraven Manor Third Floor");
