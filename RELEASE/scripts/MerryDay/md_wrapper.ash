@@ -34,7 +34,7 @@ boolean day_over()
     my_fullness() >= fullness_limit()
     && my_inebriety() >= inebriety_limit()
     && my_spleen_use() >= spleen_limit()
-    && my_adventures() == 0
+    && my_adventures() == 0;
 }
 
 
