@@ -156,7 +156,7 @@ string get_quest()
         run_choice( 6 );
         return parseDinseyQuest();
     }
-    m = create_matcher( "<b>Sexism Reduction/b>.*?name=option value=(.)>", page );
+    m = create_matcher( "<b>Sexism Reduction</b>.*?name=option value=(.)>", page );
     if ( m.find() ) 
     {
         // Accept the job
