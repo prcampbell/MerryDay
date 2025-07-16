@@ -76,15 +76,13 @@ void main()
     && !get_property('_aug15Cast').to_boolean()
     && !get_property("_aprilShower").to_boolean()
     && get_property("sidequestNunsCompleted")=="fratboy" && get_property("nunsVisits").to_int() < 3
-    && get_property("_sausagesEaten").to_int() < 23 && available_amount($item[magical sausage casing]) > 0
   )
   {
     mpBuff();
     Aug15(); 
     PYEC();
     ClanShower();
-    FratNuns();
-    Sausages();    
+    FratNuns();  
   }
 
   GingerLatte();

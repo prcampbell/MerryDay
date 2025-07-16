@@ -121,16 +121,29 @@ void FratNuns()
 			break;
 	}
 }
+
+boolean OneSausage()
+{
+	mpRestored = 1000;
+	if ( mpRestored < my_maxmp()-my_mp() ) 
+	{
+		cli_execute("make magic sausage; eat magic sausage");
+		LibramBurn();
+		return true;
+	}
+	else 
+	{
+		return false;
+	}
+}
  
 void Sausages() 
 {
 	while ( get_property("_sausagesEaten").to_int() < 23 && available_amount($item[magical sausage casing]) > 0) 
 	{
-		mpRestored = 1000;
-		if ( mpRestored < my_maxmp()-my_mp() ) 
+		if(OneSausage())
 		{
-			cli_execute("make magic sausage; eat magic sausage");
-			LibramBurn();
+			continue;
 		}
 		else
 			break;
