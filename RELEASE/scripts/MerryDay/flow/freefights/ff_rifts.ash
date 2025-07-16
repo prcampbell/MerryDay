@@ -10,37 +10,54 @@ location constructRift(string container)
 
 location get_rift(string container)
 {
+    location loc;
     switch(container) 
     {
         case "desertbeach" :
-            return constructRift("Desert Beach");
+            loc = constructRift("Desert Beach");
+            break;
         case "forestvillage" :
-            return constructRift("Forest Village");
+            loc =  constructRift("Forest Village");
+            break;
         case "mclargehuge" :
-            return constructRift("Mt. McLargeHuge");        
+            loc =  constructRift("Mt. McLargeHuge"); 
+            break;       
         case "beanstalk" :
             return constructRift("Somewhere Over the Beanstalk");
-        case "manor3" :
-            return constructRift("Spookyraven Manor Third Floor");
+            break;
+        case "loc = " :
+            loc =  constructRift("Spookyraven Manor Third Floor");
+            break;
         case "8bit" : 
-            return constructRift("The 8-Bit Realm");
+            loc =  constructRift("The 8-Bit Realm");
+            break;
         case "pyramid" :
-            return constructRift("The Ancient Buried Pyramid");
+            loc =  constructRift("The Ancient Buried Pyramid");
+            break;
         case "giantcastle" :
-            return constructRift("The Castle in the Clouds in the Sky");
+            loc =  constructRift("The Castle in the Clouds in the Sky");
+            break;
         case "woods" :
-            return constructRift("The Distant Woods");
+            loc =  constructRift("The Distant Woods");
+            break;
         case "hiddencity" :
-            return constructRift("The Hidden City");
+            loc =  constructRift("The Hidden City");
+            break;
         case "cemetery" :
-            return constructRift("The Misspelled Cemetary");
+            loc =  constructRift("The Misspelled Cemetary");
+            break;
         case "plains" :
-            return constructRift("The Nearby Plains");
+            loc =  constructRift("The Nearby Plains");
+            break;
         case "town_right" :
-            return constructRift("The Right Side of the Tracks");
+            loc =  constructRift("The Right Side of the Tracks");
+            break;
         case "" :
         abort('Cannot construct a proper Shadow Rift');
+        
+            break;
     }
+    return loc;
 }
 
 location riftIngressByItem(item it)
