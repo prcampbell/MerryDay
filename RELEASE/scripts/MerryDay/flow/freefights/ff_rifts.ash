@@ -3,6 +3,45 @@ script ff_rifts;
 import md_outfit;
 import md_familiars;
 
+location constructRift(string container)
+{
+    to_location("Shadow Rift (" + container + ")");
+}
+
+location get_rift(string container)
+{
+    switch(container) 
+    {
+        case "desertbeach" :
+            return constructRift("Desert Beach");
+        case "forestvillage" :
+            return constructRift("Forest Village");
+        case "mclargehuge" :
+            return constructRift("Mt. McLargeHuge");        
+        case "beanstalk" :
+            return constructRift("Somewhere Over the Beanstalk");
+        case "manor3" :
+            return constructRift("Spookyraven Manor Third Floor");
+        case "8bit" : 
+            return constructRift("The 8-Bit Realm");
+        case "pyramid" :
+            return constructRift("The Ancient Buried Pyramid");
+        case "giantcastle" :
+            return constructRift("The Castle in the Clouds in the Sky");
+        case "woods" :
+            return constructRift("The Distant Woods");
+        case "hiddencity" :
+            return constructRift("The Hidden City");
+        case "cemetery" :
+            return constructRift("The Misspelled Cemetary");
+        case "plains" :
+            return constructRift("The Nearby Plains");
+        case "town_right" :
+            return constructRift("The Right Side of the Tracks");
+        case "" :
+        abort('Cannot construct a proper Shadow Rift');
+    }
+}
 
 location riftIngressByItem(item it)
 {
@@ -60,8 +99,12 @@ location riftIngressByItem(item it)
     }
     else 
     {
-        return $location[Shadow Rift (The Nearby Plains)];
+        return $location[Shadow Rift (The Misspelled Cemetary)];
     }
+}
+location riftIngress()
+{
+    return riftIngressByItem($item[shadow brick]);
 }
 
 boolean shadowrifts_can()
@@ -131,4 +174,21 @@ void main()
         shadowwaters_run();
 }
 
+/*
+static ShadowRift[] allRifts = {
+    // These are sorted by container name. Not that it matters.
+    makeShadowRift("desertbeach", "Desert Beach", "flame", "fluid", "sinew"),
+    makeShadowRift("forestvillage", "Forest Village", "bread", "ice", "venom"),
+    makeShadowRift("mclargehuge", "Mt. McLargeHuge", "skin", "ice", "stick"),
+    makeShadowRift("beanstalk", "Somewhere Over the Beanstalk", "fluid", "glass", "nectar"),
+    makeShadowRift("manor3", "Spookyraven Manor Third Floor", "sausage", "flame", "venom"),
+    makeShadowRift("8bit", "The 8-Bit Realm", "ice", "fluid", "glass"),
+    makeShadowRift("pyramid", "The Ancient Buried Pyramid", "sausage", "brick", "sinew"),
+    makeShadowRift("giantcastle", "The Castle in the Clouds in the Sky", "sausage", "bread", "fluid"),
+    makeShadowRift("woods", "The Distant Woods", "flame", "nectar", "stick"),
+    makeShadowRift("hiddencity", "The Hidden City", "brick", "sinew", "nectar"),
+    makeShadowRift("cemetery", "The Misspelled Cemetary", "bread", "brick", "stick"),
+    makeShadowRift("plains", "The Nearby Plains", "sausage", "skin", "venom"),
+    makeShadowRift("town_right", "The Right Side of the Tracks", "skin", "bread", "glass"),
+};*/
 
