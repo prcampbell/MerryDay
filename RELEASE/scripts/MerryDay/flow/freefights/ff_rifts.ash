@@ -60,7 +60,7 @@ location riftIngressByItem(item it)
     }
     else 
     {
-        return $location[Shadow Rift (The Nearby Plains)]
+        return $location[Shadow Rift (The Nearby Plains)];
     }
 }
 
