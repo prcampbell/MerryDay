@@ -272,7 +272,7 @@ void main()
 
 	set_property('afterAdventureScript', 'md_postadventure.ash');
 
-  for x from 0 to 100 by 1 
+  for x from 0 to 20 by 1 
   {
     barf_run();
   }

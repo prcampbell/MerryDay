@@ -622,6 +622,70 @@ void bullseye()
 	}
 }
 
+void acid()
+{
+	if(have_effect($effect[everything looks yellow]) == 0)
+	{
+		location target = defaultTargetLocation();
+		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
+		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
+		location ghostLocation = to_location(get_property("ghostLocation"));
+
+		SaveSetup();
+		cli_execute('autoattack 0');
+
+		item[slot] needs;
+		needs[$slot[shirt]] = $item[jurassic parka];
+
+		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
+		{
+			target = doctorLocation;
+		}
+		else if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
+		{
+			target = guzzlrLocation;
+		}
+		else if(hasDinseyQuest())
+		{
+			if(parseDinseyQuest() == 'Social Justice Adventurer I')
+			{
+				target = $location[Pirates of the Garbage Barges];
+			}
+			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
+			{
+				target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
+			}
+			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
+			{
+				needs[$slot[hat]] = $item[Dinsey mascot mask];
+				target = $location[The Toxic Teacups];
+			}
+			else if(parseDinseyQuest() == 'Teach a Man to Fish Trash')
+			{
+				needs[$slot[weapon]] = $item[trash net];
+				target = $location[Pirates of the Garbage Barges];
+			}
+					
+		}
+
+		use_familiar(chooseFamiliar());
+		construct_free_outfit(needs);
+		if(get_property('parkaMode') != 'dilophosaur')
+		{
+			cli_execute('parka dilophosaur');
+		}
+		set_auto_attack('BasicAscend');
+		(!adv1(target, -1, ''));
+		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+		{
+			visit_url(kiosk);
+			
+			run_choice( 3 );
+			run_choice( 6 );
+		}
+	}
+}
+
 void main() 
 {
 
@@ -643,6 +707,7 @@ void main()
 			voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
 			kramco();
 			tatters();
+			acid();
 			bullseye();
 			purple();
 			brickoPrime();
