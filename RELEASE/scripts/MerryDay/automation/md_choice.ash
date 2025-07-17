@@ -57,6 +57,16 @@ break;
 					choice 6: Do nothing*/
 				run_choice(6);			
 			break;
+		case 1061: /*Encounter: Heart of Madness
+					choice 1: Try to get the office door open (try to enter office)
+					choice 2: Check out the bagel machine (bagel machine)
+					choice 3: Check out the popular machine (popular machine)
+					choice 4: Dig through the recipe books (learn recipe)
+					choice 5: Take a deep breath and embrace the madness (gain mysticality stats)
+					choice 6: Opt out of the madness (skip adventure)*/
+				run_choice(6);			
+			break;
+
 		case 1062: /*Encounter: Lots of Options
 					choice 2: Check out the shopping carts (acquire food)
 					choice 3: Look through the cardboard boxes (acquire drinks)
