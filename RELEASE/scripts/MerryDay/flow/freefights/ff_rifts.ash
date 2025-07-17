@@ -152,7 +152,7 @@ boolean rifts_run()
     }
     if(get_property('rufusQuestType') == 'items')
     {
-        if( && item_amount(get_property('rufusQuestTarget').to_item()) <= 3)
+        if(item_amount(get_property('rufusQuestTarget').to_item()) <= 3)
         {
             buy(3, get_property('rufusQuestTarget').to_item());
         }
