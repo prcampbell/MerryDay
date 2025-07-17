@@ -53,7 +53,7 @@ location get_rift(string container)
             loc =  constructRift("The Right Side of the Tracks");
             break;
         case "" :
-        abort('Cannot construct a proper Shadow Rift');
+            abort('Cannot construct a proper Shadow Rift');
         
             break;
     }
@@ -150,8 +150,12 @@ boolean rifts_run()
     {
         use(1, $item[closed-circuit pay phone]);
     }
-    if(get_property('rufusQuestType') == 'items' && item_amount(get_property('rufusQuestTarget').to_item()) >= 3)
+    if(get_property('rufusQuestType') == 'items')
     {
+        if( && item_amount(get_property('rufusQuestTarget').to_item()) <= 3)
+        {
+            buy(3, get_property('rufusQuestTarget').to_item());
+        }
         use(1, $item[closed-circuit pay phone]);
     }
     if(get_property('encountersUntilSRChoice').to_int() == 0)
