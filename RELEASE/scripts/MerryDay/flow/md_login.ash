@@ -66,12 +66,16 @@ void startDay()
 		visit_url("place.php?whichplace=sea_oldman&action=oldman_oldman",false);
 
 	switchClan(VIPClan);
-	
-	if(!get_property('_milkOfMagnesiumUsed').to_boolean() &&
-		!get_property('_spaghettiBreakfastEaten').to_boolean()
+	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
+		use_skill(1,$skill[canticle of carboloading]);
+
+	if(!get_property('_spaghettiBreakfastEaten').to_boolean()
 		&& item_amount($item[spaghetti breakfast]) > 1)
 	{
-		use(1, $item[milk of magnesium]);
+		if(item_amount($item[munchies pill]) > 0)
+		{
+			eat(1, $item[munchies pill]);
+		}
 		eat(1, $item[spaghetti breakfast]);
 	}
 	if(!get_property('breakfastCompleted').to_boolean())
@@ -85,9 +89,6 @@ void startDay()
 		}
 	}
 	
-	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
-		use_skill(1,$skill[canticle of carboloading]);
-
 	if(!get_property('_chateauDeskHarvested').to_boolean())
 	{
 		visit_url("place.php?whichplace=chateau&action=chateau_desk1", false);
@@ -135,11 +136,8 @@ void startDay()
 		}
 		*/
 
-		//cli_execute("call briefcase unlock");
-		//cli_execute("call briefcase collect");
-
-
-
+		cli_execute("call briefcase unlock");
+		cli_execute("call briefcase collect");
 	}
 
 
