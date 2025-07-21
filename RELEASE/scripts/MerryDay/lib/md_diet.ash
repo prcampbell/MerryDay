@@ -41,6 +41,7 @@ mallsearch "Special Seasoning"
 
 */
 
+
 boolean eatWithHelper(item it)
 {
     if(my_fullness() + it.fullness > fullness_limit())
@@ -87,26 +88,162 @@ boolean eatWithHelper(item it)
         cli_execute('acquire 1 milk of magnesium');
         use(1, $item[milk of magnesium]);
     }
+    if(!get_property('_fudgeSporkUsed').to_boolean())
+    {
+        eat(1, $item[fudge spork]);
+    }
     return eat(1, it);
 }
 
 
-boolean fillInitialStomach()
+
+
+boolean fillSpleen()
 {
-    //Making sure we eat our breakfast, and get the +meat buffs we want.
-    if(my_fullness() != 0)
+    if(my_spleen_use() == spleen_limit())
     {
         return false;
     }
+    if(my_spleen_use() > 0)
+        return false;
+    
+    if(item_amount($item[body spradium]) > 0 && spleen_limit()-my_spleen_use() >= 1)
+    {
+        chew(1, $item[body spradium]);
+    }
+    if(item_amount($item[beggin' cologne]) > 0 && spleen_limit()-my_spleen_use() >= 1)
+    {
+        chew(1, $item[beggin' cologne]);
+    }
+    if(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 600)
+    {
+        cli_execute('synthesize greed');
+    }
+    /*
+    cli_execute('acquire 3 mojo filter; use 3 mojo filter;');
+    if(shop_amount($item[transdermal smoke patch]) > 2)
+    {
+        refresh_shop(); 
+        take_shop(3, $item[transdermal smoke patch]);
+    }
+    if(item_amount($item[transdermal smoke patch]) > 0)
+    {
+        while(my_spleen_use() < spleen_limit() && item_amount($item[transdermal smoke patch]) > 0)
+        {
+            chew(1, $item[transdermal smoke patch]);
+        }
+    }
+    */
+    return true;
+}
+
+boolean consumeOther(item it, int expectedAdv, string prop)
+{
+    if(mall_price(it) < expectedAdv * get_property('valueOfAdventure').to_int())
+    {
+       if(!get_property(prop).to_boolean() 
+            && (item_amount(it) > 0 || buy(1, it)))
+        {
+            return use(1, it);
+        } 
+    }
+    return false;    
+}
+
+boolean consumeOther(item it, int expectedAdv, string prop, int num)
+{
+    if(mall_price(it) < expectedAdv * get_property('valueOfAdventure').to_int())
+    {
+       if(get_property(prop).to_int() < num 
+            && (item_amount(it) > 0 || buy(1, it)))
+        {
+            return use(1, it);
+        } 
+    }
+    return false;    
+}
+
+void diet_run()
+{
+    consumeOther($item[extra time], 5, '_extraTimeUsed', 1);
+    consumeOther($item[extra time], 3, '_extraTimeUsed', 2);
+    consumeOther($item[essential tofu], 5, '_essentialTofuUsed');
+
+    switch(my_class())
+    {
+        case $class[seal clubber] : 
+            consumeOther($item[chocolate seal-clubbing club], 3, '_chocolatesUsed', 1);
+            break;
+        case $class[turtle tamer] : 
+            consumeOther($item[chocolate turtle totem], 3, '_chocolatesUsed', 1);
+            break;
+        case $class[pastamancer] : 
+            consumeOther($item[chocolate pasta spoon], 3, '_chocolatesUsed', 1);
+            break;
+        case $class[sauceror] : 
+            consumeOther($item[chocolate saucepan], 3, '_chocolatesUsed', 1);
+            break;
+        case $class[accordion thief] : 
+            consumeOther($item[chocolate stolen accordion], 3, '_chocolatesUsed', 1);
+            break;
+        case $class[disco bandit] : 
+            consumeOther($item[chocolate disco ball], 3, '_chocolatesUsed', 1);
+            break;
+        
+    }
+    switch(my_class())
+    {
+        case $class[seal clubber] : 
+            consumeOther($item[chocolate seal-clubbing club], 2, '_chocolatesUsed', 2);
+            break;
+        case $class[turtle tamer] : 
+            consumeOther($item[chocolate turtle totem], 2, '_chocolatesUsed', 2);
+            break;
+        case $class[pastamancer] : 
+            consumeOther($item[chocolate pasta spoon], 2, '_chocolatesUsed', 2);
+            break;
+        case $class[sauceror] : 
+            consumeOther($item[chocolate saucepan], 2, '_chocolatesUsed', 2);
+            break;
+        case $class[accordion thief] : 
+            consumeOther($item[chocolate stolen accordion], 2, '_chocolatesUsed', 2);
+            break;
+        case $class[disco bandit] : 
+            consumeOther($item[chocolate disco ball], 2, '_chocolatesUsed', 2);
+            break;
+        
+    }
+    consumeOther($item[LOV Extraterrestrial chocolate], 3,'_loveChocolatesUsed', 1);
+    
+
+    /*Spleen*/
+    if(my_spleen_use() == spleen_limit()
+        && get_property('currentMojoFilters').to_int() < 3)
+    {
+        use(3-get_property('currentMojoFilters').to_int(), $item[mojo filter]);
+        while (my_spleen_use() < spleen_limit()
+                && item_amount($item[transdermal smoke patch]) > 0)
+        {
+            chew(1, $item[transdermal smoke patch]);
+        }
+    }
+    /*Stomach*/
+    while(my_fullness() < fullness_limit())
+    {
+        eatWithHelper($item[jumping horseradish]);
+    }
+}
+
+diet_run();
+
+
+boolean fillInitialStomach()
+{
     if(item_amount($item[whet stone]) > 1)
     {
         use(1, $item[whet stone]);
     }
     
-    cli_execute('acquire 1 milk of magnesium');
-    use(1, $item[milk of magnesium]);
-    eat(1, $item[spaghetti breakfast]);
-
     if(item_amount($item[blueberry muffin]) > 0)
     {
         eat(1, $item[blueberry muffin]);
@@ -188,46 +325,6 @@ boolean fillInitialLiver()
     return true;
 }
 
-boolean fillSpleen()
-{
-    if(my_spleen_use() == spleen_limit())
-    {
-        return false;
-    }
-    if(my_spleen_use() > 0)
-        return false;
-    
-    if(item_amount($item[body spradium]) > 0 && spleen_limit()-my_spleen_use() >= 1)
-    {
-        chew(1, $item[body spradium]);
-    }
-    if(item_amount($item[beggin' cologne]) > 0 && spleen_limit()-my_spleen_use() >= 1)
-    {
-        chew(1, $item[beggin' cologne]);
-    }
-    if(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 600)
-    {
-        cli_execute('synthesize greed');
-    }
-    /*
-    cli_execute('acquire 3 mojo filter; use 3 mojo filter;');
-    if(shop_amount($item[transdermal smoke patch]) > 2)
-    {
-        refresh_shop(); 
-        take_shop(3, $item[transdermal smoke patch]);
-    }
-    if(item_amount($item[transdermal smoke patch]) > 0)
-    {
-        while(my_spleen_use() < spleen_limit() && item_amount($item[transdermal smoke patch]) > 0)
-        {
-            chew(1, $item[transdermal smoke patch]);
-        }
-    }
-    */
-    return true;
-}
-
-
 void main()
 {
     fillSpleen();
@@ -237,12 +334,7 @@ void main()
 
 
 /*
-use 1 LOV Extraterrestrial Chocolate
 
-use 1 chocolate seal-clubbing club
-use 1 chocolate seal-clubbing club
-
-use 1 essential tofu
 
 > ===== SHOTGLASS DIET =====
 
@@ -267,6 +359,39 @@ drink 1 splendid martini
 
 
 To consider:
+
+
+Your ideal diet: 
+acquire 3 mojo filter; 
+acquire 1 fudge spork; 
+acquire 3 transdermal smoke patch; 
+acquire 1 Doc Clock's thyme cocktail; 
+acquire 1 Universal Seasoning; 
+acquire 12 Eye and a Twist; 
+acquire 2 Pete's rich ricotta; 
+acquire 6 roasted vegetable focaccia; 
+acquire 1 extra time; 
+checkpoint; 
+cast 2 The Ode to Booze; 
+equip tuxedo shirt; 
+eat fudge spork; 
+use Universal Seasoning; 
+eat roasted vegetable focaccia; 
+eat 4 roasted vegetable focaccia; 
+eat Pete's rich ricotta; 
+drink Doc Clock's thyme cocktail; 
+drink 9 Eye and a Twist; 
+use 3 mojo filter; 
+use essential tofu; 
+cast 3 Sweat Out Some Booze; 
+cast Aug. 16th: Roller Coaster Day!; 
+chew 3 transdermal smoke patch; 
+eat roasted vegetable focaccia; 
+eat Pete's rich ricotta; 
+drink 3 Eye and a Twist; 
+use 2 chocolate seal-clubbing club; 
+use extra time; 
+familiar Jill-of-All-Trades; outfit checkpoint;
 
 Spaghetti Breakfast
 if(shop_amount($item[ambitious turkey] > 0) {refresh_shop(); take_shop(1, $item[ambitious turkey])}

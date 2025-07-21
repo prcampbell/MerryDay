@@ -293,6 +293,7 @@ void main()
 
   while(my_adventures() > 0)
   {
+    diet_run();
     barf_run();
   }
 

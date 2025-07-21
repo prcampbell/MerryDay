@@ -74,7 +74,7 @@ void startDay()
 	{
 		if(item_amount($item[munchies pill]) > 0)
 		{
-			eat(1, $item[munchies pill]);
+			use(1, $item[munchies pill]);
 		}
 		eat(1, $item[spaghetti breakfast]);
 	}
