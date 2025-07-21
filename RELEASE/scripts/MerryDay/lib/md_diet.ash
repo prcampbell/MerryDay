@@ -234,7 +234,7 @@ void diet_run()
     }
 }
 
-diet_run();
+
 
 
 boolean fillInitialStomach()
