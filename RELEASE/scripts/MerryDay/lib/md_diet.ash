@@ -227,11 +227,7 @@ void diet_run()
             chew(1, $item[transdermal smoke patch]);
         }
     }
-    /*Stomach*/
-    while(my_fullness() < fullness_limit())
-    {
-        eatWithHelper($item[jumping horseradish]);
-    }
+
 }
 
 
