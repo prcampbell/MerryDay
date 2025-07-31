@@ -80,8 +80,13 @@ void ensure_effect(effect ef)
     ensure_effect(ef, 1);
 }
 
+
+
+boolean[effect] song_slot_1 = $effects[];
+boolean[effect] song_slot_2 = $effects[];
+
 boolean[effect] song_slot_3 = $effects[Power Ballad of the Arrowsmith, The Magical Mojomuscular Melody, The Moxious Madrigal, Ode to Booze, Jackasses' Symphony of Destruction];
-boolean[effect] song_slot_4 = $effects[Carlweather's Cantata of Confrontation, The Sonata of Sneakiness, Polka of Plenty];
+boolean[effect] song_slot_4 = $effects[Carlweather's Cantata of Confrontation, The Sonata of Sneakiness, Polka of Plenty, Stevedave's Shanty of Superiority];
 void open_song_slot(effect song) 
 {
     if(have_effect(song) == 0)

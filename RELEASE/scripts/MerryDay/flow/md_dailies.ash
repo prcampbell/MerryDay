@@ -92,6 +92,11 @@ void dailyMeatBuffs()
     if(get_property('_monkeyPawWishesUsed').to_int() == 0 && my_inebriety() < 10 && have_effect($effect[refined palate]) == 0)
     {
         cli_execute('monkeypaw effect Refined Palate');
+        while(my_inebriety() < 10)
+        {
+            ensure_song($effect[ode to booze]);
+            drink(1, $item[sacramento wine]);
+        }
     }
     else
     {
