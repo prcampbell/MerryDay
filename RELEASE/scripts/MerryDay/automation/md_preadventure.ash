@@ -332,7 +332,7 @@ void main()
         && get_property('_sausagesEaten').to_int() < 23
         && make_sausage())
     {
-        eat(1, $item[magical sausage])
+        eat(1, $item[magical sausage]);
     }
     if(my_mp() < 200)
     {
