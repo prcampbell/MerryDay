@@ -170,12 +170,14 @@ void main()
   }
   while(leaves_can())
   {
-    set_auto_attack('StasisFight');
+    if(get_auto_attack() == 0)
+      set_auto_attack('StasisFight');
     familiarDrops();
     construct_free_outfit();
     equip($slot[pants], $item[tearaway pants]);
     leaves_run();
-    set_auto_attack(0);
+    if(!leaves_can())
+      set_auto_attack(0);
   }
   if(lobster_can())
   {
@@ -187,8 +189,11 @@ void main()
   while(nep_free_turn_can())
   {
     set_auto_attack('StasisFight');
-    familiarDrops();
-    construct_free_outfit();
+    if(get_property('redSnapperPhylum').to_phylum() != $phylum[dude])
+    {
+      cli_execute('snapper dude');
+    }
+    construct_free_outfit($familiar[red-nosed snapper]);
     nep_free_turn_run();
     set_auto_attack(0);  
   }
@@ -202,9 +207,16 @@ void main()
   }
   while(pygmy_can())
   {
-    use_familiar($familiar[mini-hipster]);
     set_auto_attack('StasisFight');
-    construct_free_outfit();
+    if(get_property('redSnapperPhylum').to_phylum() == $phylum[dude]
+      && item_amount($item[human musk] == 0))
+    {
+      construct_free_outfit($familiar[red-nosed snapper]);
+    }
+    else 
+    {
+      construct_free_outfit($familiar[mini-hipster]);
+    }
     pygmy_run();
     set_auto_attack(0);
   }

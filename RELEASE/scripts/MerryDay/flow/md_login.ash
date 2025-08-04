@@ -116,6 +116,10 @@ void startDay()
 		run_choice(1); 
 		run_choice(8); 
 	}
+	if(item_amount($item[human musk]) == 0)
+	{
+		cli_execute('acquire 1 human musk');
+	}
 
 
 	if ( can_interact() ) 
