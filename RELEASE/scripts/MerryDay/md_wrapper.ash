@@ -209,7 +209,7 @@ void main()
   {
     set_auto_attack('StasisFight');
     if(get_property('redSnapperPhylum').to_phylum() == $phylum[dude]
-      && item_amount($item[human musk] == 0))
+      && item_amount($item[human musk]) == 0)
     {
       construct_free_outfit($familiar[red-nosed snapper]);
     }
