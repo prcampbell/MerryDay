@@ -207,6 +207,20 @@ void moodUp()
 
 }
 
+boolean make_sausage()
+{
+    if(item_amount($item[magical sausage-casing]) > 0
+        && get_property('_sausagesMade').to_int() < 23)
+    {
+        return create(1, $item[magical sausage]);
+    }
+    if(item_amount($item[magical sausage]) > 0)
+    {
+        return true;
+    }
+    return false;
+}
+
 
 void main()
 {
@@ -313,6 +327,12 @@ void main()
     if(my_hp() < my_maxhp())
     {
         restore_hp(my_maxhp());
+    }
+    if(my_mp() < 200 
+        && get_property('_sausagesEaten').to_int() < 23
+        && make_sausage())
+    {
+        eat(1, $item[magical sausage])
     }
     if(my_mp() < 200)
     {
