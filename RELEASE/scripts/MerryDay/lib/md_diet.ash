@@ -1,3 +1,4 @@
+script md_diet;
 /*
 use 1 LOV Extraterrestrial Chocolate
 You gain 3 Adventures
