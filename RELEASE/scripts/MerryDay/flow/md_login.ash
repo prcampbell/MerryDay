@@ -1,6 +1,7 @@
 import md_library;
 import md_iotm2019;
 import md_iotm2020;
+import md_diet;
 int gnome() 
 {
 	// Ensure that you have body parts with the following priority. Otherwise snag the kgnee
@@ -76,7 +77,7 @@ void startDay()
 		{
 			use(1, $item[munchies pill]);
 		}
-		eat(1, $item[spaghetti breakfast]);
+		eatWithHelper(1, $item[spaghetti breakfast]);
 	}
 	if(!get_property('breakfastCompleted').to_boolean())
 	{
