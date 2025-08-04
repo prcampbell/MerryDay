@@ -1,11 +1,11 @@
 script ff_speakeasy;
 
-boolean ff_speakeasy_can()
+boolean speakeasy_can()
 {
     return get_property('_speakeasyFreeFights').to_int() < 3;
 }
 
-boolean ff_speakeasy_run()
+boolean speakeasy_run()
 {
     if(item_amount($item[government per-diem]) > 0 && get_property('_speakeasyFreeFights').to_int() < 3)
         use(1, $item[government per-diem]);
