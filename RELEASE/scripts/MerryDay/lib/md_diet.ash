@@ -97,6 +97,14 @@ boolean eatWithHelper(item it)
     return eat(1, it);
 }
 
+boolean eatWithHelper(int num, item it)
+{
+    for x from 0 to num 
+    {
+        eatWithHelper(it);
+    }
+}
+
 
 
 
