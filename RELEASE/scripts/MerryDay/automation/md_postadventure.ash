@@ -285,6 +285,7 @@ void voteMonster()
 			visit_url(kiosk);
 			run_choice( 3 );
 			run_choice( 6 );
+			set_property('_merryDinseyQuest', '');
 		}
 	}
 	
@@ -425,6 +426,7 @@ void digitizeMonster()
 			visit_url(kiosk);
 			run_choice( 3 );
 			run_choice( 6 );
+			set_property('_merryDinseyQuest', '');
 		}
 	}
 }
@@ -483,6 +485,7 @@ void kramco()
 			visit_url(kiosk);
 			run_choice( 3 );
 			run_choice( 6 );
+			set_property('_merryDinseyQuest', '');
 		}
 	}
 }

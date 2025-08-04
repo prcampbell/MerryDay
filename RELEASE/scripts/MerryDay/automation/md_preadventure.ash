@@ -204,7 +204,7 @@ void moodUp()
     {
         use_skill(1, $skill[Blood Bond]);
     }
-    RestoreSetup();
+
 }
 
 
@@ -285,6 +285,14 @@ void main()
         {
            cli_execute('drink stillsuit distillate');
         }
+        if(my_inebriety() > 1 
+            && get_property('_sweatOutSomeBoozeUsed').to_int() < 3
+            && get_property('sweat').to_int() >= 25)
+        {
+            SaveSetup();
+            equip($slot[pants], $item[designer sweatpants]);
+            use_skill(1, $skill[sweat out some booze]);
+        }
     }
  
     if(item_amount($item[autumn-aton]) > 0 && autobotTurnsForQuest() < my_adventures())
@@ -315,6 +323,7 @@ void main()
     {
         put_closet(item_amount($item[bowling ball]), $item[bowling ball]);
     }
+    RestoreSetup();
 
 }
 
