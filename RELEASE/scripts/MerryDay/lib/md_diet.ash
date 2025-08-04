@@ -47,7 +47,7 @@ boolean eatWithHelper(item it)
 {
     if(my_fullness() + it.fullness > fullness_limit())
     {
-        printf('You are too full to eat ' + it.to_string(), 'red');
+        print('You are too full to eat ' + it.to_string(), 'red');
         return false;
     }
     if(item_amount($item[whet stone]) > 1)
