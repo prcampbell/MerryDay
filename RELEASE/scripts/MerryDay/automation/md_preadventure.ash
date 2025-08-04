@@ -209,7 +209,7 @@ void moodUp()
 
 boolean make_sausage()
 {
-    if(item_amount($item[magical sausage-casing]) > 0
+    if(item_amount($item[magical sausage casing]) > 0
         && get_property('_sausagesMade').to_int() < 23)
     {
         return create(1, $item[magical sausage]);
