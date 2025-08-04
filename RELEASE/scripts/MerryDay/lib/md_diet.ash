@@ -103,7 +103,7 @@ boolean eatWithHelper(int num, item it)
     {
         eatWithHelper(it);
     }
-    return true 
+    return true; 
 }
 
 
