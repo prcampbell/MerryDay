@@ -73,7 +73,7 @@ void dailyMeatBuffs()
     {
         cli_execute('terminal enhance meat');
     }
-    if(!get_property('demonSummoned').to_boolean())
+    if(!get_property('demonSummoned').to_boolean() && get_property('questL11Manor') == 'finished')
     {
         cli_execute('summon 2');
     }
