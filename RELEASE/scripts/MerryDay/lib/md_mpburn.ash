@@ -1,4 +1,5 @@
 script md_mpBurn
+import md_outfit;
 import Librams.ash
 import md_library;
 import md_iotm2019;
@@ -152,6 +153,7 @@ void Sausages()
 
 boolean GingerLatte()
 {
+	item[slot] required_equips;
 	if(get_property("_gingerbreadCityTurns") >= 5)
 		return false;
 	if(get_property("_gingerbreadCityTurns") == 0 && get_property("_latteRefillsUsed") != 0)
@@ -165,8 +167,8 @@ boolean GingerLatte()
 	{
 		return false;
 	}
-	use_familiar($familiar[Blavious Kloop]);
-	equip($slot[off-hand], $item[latte lovers member's mug]);
+	required_equips[$slot[off-hand]] = $item[latte lovers member's mug];
+	construct_free_outfit(required_equips, $familiar[Blavious Kloop]);
 
 	set_property('choiceAdventure1215', '1');
 	set_property('choiceAdventure1204', '1');
@@ -176,7 +178,7 @@ boolean GingerLatte()
 		visit_url('adventure.php?snarfblat=477');
 		run_choice(1);
 	}
-	while(to_int(get_property("_gingerbreadCityTurns")) < 5)
+	while(to_int(get_property("_gingerbreadCityTurns")) < 5 && !get_property('_latteBanishUsed').to_boolean())
 	{
 		adv1($location[Gingerbread Train Station], -1, 'skill gulp latte; skill throw latte;');
 		cli_execute('Librams; latte refill cajun rawhide carrot');
