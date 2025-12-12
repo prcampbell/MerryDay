@@ -238,6 +238,18 @@ void diet_run()
             chew(1, $item[transdermal smoke patch]);
         }
     }
+    if(my_spleen_use() < spleen_limit())
+    {
+        chew(1, $item[transdermal smoke patch]);
+    }
+    /*Stomach*/
+
+    if(my_fullness() < fullness_limit() && item_amount($item[jumping horseradish]) > 0)
+    {
+        eatWithHelper($item[jumping horseradish]);
+    }
+
+    /*Liver*/
 
 }
 
