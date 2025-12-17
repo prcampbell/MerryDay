@@ -33,6 +33,11 @@ boolean familiarDrops()
     {
         return use_familiar($familiar[cornbeefadon]) && equip($slot[familiar], $item[toy cupid bow]);
     }
+    foreach f in $familiars[Skeleton of Crimbo Past]
+    {
+        if ( have_familiar(f) && f.drops_today < 100 )
+            return use_familiar(f);
+    }
     foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
     {
         if ( have_familiar(f) && f.drops_today < 1 )
