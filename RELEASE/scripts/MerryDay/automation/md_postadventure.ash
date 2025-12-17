@@ -176,11 +176,9 @@ void bustGhost()
 				}
 				break;
 		}	
-
-		use_familiar(chooseFamiliar());
 		
 		needs[$slot[back]] = $item[protonic accelerator pack];
-		construct_free_outfit(needs);
+		construct_free_outfit(needs, chooseFamiliar());
 
 		
 		(!adv1(ghostLocation, -1, "if !monstername The Headless Horseman || !monstername The ghost of Ebenoozer Screege ||	!monstername The ghost of Lord Montague Spookyraven || !monstername The ghost of Waldo the Carpathian || !monstername The Icewoman ||!monstername The ghost of Jim Unfortunato || !monstername the ghost of Sam McGee ||!monstername Emily Koops\, a spooky lime || !monstername the ghost of Monsieur Baguelle ||!monstername The ghost of Vanillica \"Trashblossom\" Gorton || !monstername the ghost of Oily McBindle, boneless blobghost || !monstername The ghost of Richard Cockingham || !monstername The Headless Horseman use divine champagne popper endif; skill Shadow Noodles; while hasskill Shoot Ghost; skill Shoot Ghost; if hasskill Trap Ghost; skill Trap Ghost; endif; endwhile;"));
@@ -202,11 +200,10 @@ void BrickoPrime()
 		{
 			SaveSetup();
 			set_auto_attack(1);
-			
-			use_familiar(chooseFamiliar());
+
 			item[slot] needs;
 			needs[$slot[back]] = $item[protonic accelerator pack];
-			construct_free_outfit(needs);
+			construct_free_outfit(needs, chooseFamiliar());
 			
 			use( 1, $item[BRICKO Ooze] );
 			location ghostLocation = to_location(get_property("ghostLocation"));
@@ -275,8 +272,7 @@ void voteMonster()
 			}
 		}
 
-		use_familiar(chooseFamiliar());
-		construct_free_outfit(needs);
+		construct_free_outfit(needs, chooseFamiliar());
 		print('Trying to fight vote monster in' + target.to_string());
 		(!adv1(target, -1, macro));
 		
@@ -417,8 +413,7 @@ void digitizeMonster()
 			target = doctorLocation;
 		}
 		
-		use_familiar(familiarChoice);
-		construct_free_outfit(needs);
+		construct_free_outfit(needs, familiarChoice);
 		(!adv1(target, -1, macro));
 
 		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
@@ -476,8 +471,7 @@ void kramco()
 			}
 		}
 
-		use_familiar(chooseFamiliar());
-		construct_free_outfit(needs);
+		construct_free_outfit(needs, chooseFamiliar());
 		(!adv1(target, -1, macro));
 
 		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
@@ -537,8 +531,7 @@ void purple()
 			else 
 			{
 				cli_execute('autoattack BasicAscend;');
-				use_familiar(chooseFamiliar());
-				construct_free_outfit(needs); 
+				construct_free_outfit(needs, chooseFamiliar()); 
 			}
 			witchess_run();
 			HandleChains();
@@ -612,8 +605,7 @@ void bullseye()
 					
 		}
 
-		use_familiar(chooseFamiliar());
-		construct_free_outfit(needs);
+		construct_free_outfit(needs, chooseFamiliar());
 		(!adv1(target, -1, macro));
 		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
 		{
@@ -671,8 +663,7 @@ void acid()
 					
 		}
 
-		use_familiar(chooseFamiliar());
-		construct_free_outfit(needs);
+		construct_free_outfit(needs, chooseFamiliar());
 		if(get_property('parkaMode') != 'dilophosaur')
 		{
 			cli_execute('parka dilophosaur');
