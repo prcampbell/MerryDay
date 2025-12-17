@@ -193,8 +193,8 @@ familiar get_best_bjorn()
 
 familiar ChooseFamiliar()
 {
-	if(have_familiar($familiar[skeleton of crimbo past]) && f.drops_today < 100)
-		return $familiar[skeleton of crimbo past]
+	if(have_familiar($familiar[skeleton of crimbo past]) && $familiar[skeleton of crimbo past].drops_today < 100)
+		return $familiar[skeleton of crimbo past];
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 1 )
 				return f;
