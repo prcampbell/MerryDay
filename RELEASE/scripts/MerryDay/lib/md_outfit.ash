@@ -435,7 +435,7 @@ void construct_free_outfit(item[slot] required_equips, familiar fam)
 	use_familiar(fam);
 	if(fam == $familiar[cornbeefadon])
 	{
-		required_equips[$slot[familiar]] = $item[tiny cupid bow];
+		required_equips[$slot[familiar]] = $item[toy cupid bow];
 	}
 	//use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
 
