@@ -186,8 +186,7 @@ void main()
     while(shadowrifts_can())
     {
         set_auto_attack('StasisFight');
-        familiarDrops();
-        construct_free_outfit();
+        construct_free_outfit(chooseFamiliar());
         rifts_run(); 
         set_auto_attack(0);
     }

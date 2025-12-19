@@ -191,6 +191,22 @@ familiar get_best_bjorn()
 	return get_best_bjorn_data().fam;
 }
 
+boolean have_amuletcoin()
+{
+    if(item_amount($item[amulet coin]) != 0)
+    {
+        return true;
+    }
+    foreach f in $familiars[]
+    {
+        if(have_familiar(f) && familiar_equipped_equipment(f) == $item[amulet coin])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 familiar ChooseFamiliar()
 {
 	if(!have_amuletcoin())
@@ -421,6 +437,7 @@ void construct_free_outfit(item[slot] required_equips, familiar fam)
 	{
 		required_equips[$slot[familiar]] = $item[tiny cupid bow];
 	}
+	//use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
 
 	if(should_grow(fam))
 	{

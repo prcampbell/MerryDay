@@ -10,66 +10,6 @@ import ff_speakeasy;
 import ff_zeppelin;
 import ff_moleman;
 
-boolean have_amuletcoin()
-{
-    if(item_amount($item[amulet coin]) != 0)
-    {
-        return true;
-    }
-    foreach f in $familiars[]
-    {
-        if(have_familiar(f) && familiar_equipped_equipment(f) == $item[amulet coin])
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
-
-boolean familiarDrops()
-{
-    if(!have_amuletcoin())
-    {
-        return use_familiar($familiar[cornbeefadon]) && equip($slot[familiar], $item[toy cupid bow]);
-    }
-    foreach f in $familiars[Skeleton of Crimbo Past]
-    {
-        if ( have_familiar(f) && f.drops_today < 100 )
-            return use_familiar(f);
-    }
-    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
-    {
-        if ( have_familiar(f) && f.drops_today < 1 )
-            return use_familiar(f);
-        else if(get_property('_catBurglarCharge').to_int() < 10)
-            return use_familiar($familiar[cat burglar]) && equip($item[burglar/sleep mask]);
-        else if(get_property('camelSpit').to_int() < 100)
-            return use_familiar($familiar[Melodramedary]) && equip($item[dromedary drinking helmet]);
-    }
-    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
-    {
-        if ( have_familiar(f) && f.drops_today < 2 )
-            return use_familiar(f);
-    }
-    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
-    {
-        if ( have_familiar(f) && f.drops_today < 3 )
-            return use_familiar(f);
-    }
-    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
-    {
-        if ( have_familiar(f) && f.drops_today < 4 )
-            return use_familiar(f);
-    }
-    foreach f in $familiars[Li'l Xenomorph, Fist Turkey, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop]
-    {
-        if ( have_familiar(f) && f.drops_today < f.drops_limit )
-            return use_familiar(f);
-    }
-    return use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
-}
-
 boolean familiarToFatten()
 {
     if($familiar[frumious bandersnatch].experience < 400)
@@ -87,10 +27,6 @@ boolean familiarToFatten()
     else if($familiar[grey goose].experience < 400)
     {
         return use_familiar($familiar[grey goose]);
-    }
-    else if(!have_amuletcoin())
-    {
-        return use_familiar($familiar[cornbeefadon]) && equip($slot[familiar], $item[toy cupid bow]);
     }
     return false;
 } 
