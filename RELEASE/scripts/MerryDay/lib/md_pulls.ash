@@ -73,6 +73,7 @@ safe_pull($item[SpinMaster&trade; lathe]);
 safe_pull($item[closed-circuit pay phone]);
 safe_pull($item[2002 MR. Store Catalog]);
 safe_pull($item[bittycar meatcar]);
+take_storage(storage_amount($item[source essence]), $item[source essence]);
 
 
 //Gardens
