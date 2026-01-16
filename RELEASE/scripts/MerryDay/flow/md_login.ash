@@ -51,18 +51,7 @@ void startDay()
 	{
 		buyRaffle(11);
 	}
-	
-	if(available_amount($item[can of rain-doh]) > 0)
-	{
-		use(1, $item[can of rain-doh]);
-	}
 
-	if(!get_property('moonTuned').to_boolean() && my_sign() != "Wombat")
-	{
-		cli_execute('spoon wombat');
-	}
-	if ( available_amount($item[raffle prize box]) > 0)
-		use(available_amount($item[raffle prize box]),$item[raffle prize box]);
 	if ( my_level() > 10 && get_property("questS01OldGuy") == "unstarted" )
 		visit_url("place.php?whichplace=sea_oldman&action=oldman_oldman",false);
 
@@ -70,29 +59,10 @@ void startDay()
 	if (have_skill($skill[canticle of carboloading]) && !get_property("_carboLoaded").to_boolean() )
 		use_skill(1,$skill[canticle of carboloading]);
 
-	if(!get_property('_spaghettiBreakfastEaten').to_boolean()
-		&& item_amount($item[spaghetti breakfast]) > 1)
-	{
-		if(item_amount($item[munchies pill]) > 0)
-		{
-			use(1, $item[munchies pill]);
-		}
-		eatWithHelper(1, $item[spaghetti breakfast]);
-	}
 	if(!get_property('breakfastCompleted').to_boolean())
 	{
 		cli_execute("breakfast");
-		if(have_familiar($familiar[Reagnimated Gnome])) 
-		{
-			use_familiar($familiar[Reagnimated Gnome]);
-			visit_url("arena.php");
-			visit_url("choice.php?pwd&whichchoice=597&option="+gnome());
-		}
-	}
-	
-	if(!get_property('_chateauDeskHarvested').to_boolean())
-	{
-		visit_url("place.php?whichplace=chateau&action=chateau_desk1", false);
+		
 	}
 
 	if (item_amount($item[earthenware muffin tin]) > 0 ||
@@ -116,10 +86,7 @@ void startDay()
 		run_choice(1); 
 		run_choice(8); 
 	}
-	if(item_amount($item[human musk]) == 0)
-	{
-		cli_execute('acquire 1 human musk');
-	}
+
 
 
 	if ( can_interact() ) 
@@ -140,9 +107,45 @@ void startDay()
 			}
 		}
 		*/
-
+		if ( available_amount($item[raffle prize box]) > 0)
+			use(available_amount($item[raffle prize box]),$item[raffle prize box]);
+		if(!get_property('moonTuned').to_boolean() && my_sign() != "Wombat")
+		{
+			cli_execute('spoon wombat');
+		}
+		if(!get_property('_spaghettiBreakfastEaten').to_boolean()
+		&& item_amount($item[spaghetti breakfast]) > 1)
+		{
+			if(item_amount($item[munchies pill]) > 0)
+			{
+				use(1, $item[munchies pill]);
+			}
+			eatWithHelper(1, $item[spaghetti breakfast]);
+		}
+		if(item_amount($item[human musk]) == 0)
+		{
+			cli_execute('acquire 1 human musk');
+		}
 		cli_execute("call briefcase unlock");
 		cli_execute("call briefcase collect");
+		if(!get_property('_gnomePart').to_boolean())
+		{
+			if(have_familiar($familiar[Reagnimated Gnome])) 
+			{
+				use_familiar($familiar[Reagnimated Gnome]);
+				visit_url("arena.php");
+				visit_url("choice.php?pwd&whichchoice=597&option="+gnome());
+			}
+		}
+
+		if(!get_property('_chateauDeskHarvested').to_boolean())
+		{
+			visit_url("place.php?whichplace=chateau&action=chateau_desk1", false);
+		}
+		if(available_amount($item[can of rain-doh]) > 0)
+		{
+			use(1, $item[can of rain-doh]);
+		}
 	}
 
 
