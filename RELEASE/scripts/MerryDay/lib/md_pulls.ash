@@ -6,6 +6,7 @@ boolean safe_pull(item it)
     return false;
 }
 
+cli_execute('pull * meat');
 safe_pull($item[mayflower bouquet]);
 safe_pull($item[mayfly bait necklace]);
 safe_pull($item[haiku katana]);
