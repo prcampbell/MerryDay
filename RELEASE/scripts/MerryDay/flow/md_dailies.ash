@@ -268,11 +268,6 @@ void dailyItems()
     {
         cli_execute("coinmaster buy bacon print screen button");
     }
-    if(!get_property('_internetGallonOfMilkBought').to_boolean() && $item[BACON].item_amount() > 100)
-    {
-        cli_execute("coinmaster buy bacon gallon of milk");
-    }
-
 
     /*Get Guzzlr cocktail set*/
     if(get_property('_guzzlrPlatinumDeliveries') == 0
@@ -390,7 +385,7 @@ void dailyItems()
     {
         if($familiar[Grey Goose].experience < 400)
         {
-            use_familiar($familiar[Pocket Professor]);
+            use_familiar($familiar[Grey Goose]);
         }
         else if($familiar[Chest Mimic].experience < 550)
         {
@@ -408,10 +403,6 @@ void dailyItems()
         cli_execute('leaves day shortener');
     }
 
-    if(!get_property('_leafDayShortenerCrafted').to_boolean() && item_amount($item[inflammable leaf]) > 222)
-    {
-        cli_execute('leaves day shortener');
-    }
     while(get_property('_leafLassosCrafted').to_int() < 3 && item_amount($item[inflammable leaf]) > 69)
     {
         cli_execute('leaves lit leaf lasso');
