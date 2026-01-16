@@ -40,48 +40,18 @@ boolean day_over()
 
 void main(string command) 
 {
+  boolean free = false;
   string [int] commands = command.to_lower_case().split_string("\\s+");
   for(int i = 0; i < commands.count(); ++i)
 	{
 		switch(commands[i])
 		{
+      case "free":
+        free = true;
 			case "help":
-				print("CONSUME.ash Commands:", "blue");
-				print("ALL - Fill all organs, for real.");
-				print("SIM - Present a diet that would fill you up, but don't execute it.");
-				print("NIGHTCAP - Fill all organs and then overdrink. Can be combined with SIM.");
-				print("ALLOWLIFETIMELIMITED - Allows once/life items like legend pizzas.");
-				print("ORGANS X Y Z - Set the amount of each organ to fill. X Y and " +
-					"Z should be numbers corresponding to stomache, liver, and spleen " +
-					"respectively. Note that if you set these above your max, CONSUME " +
-					"may behave oddly.");
-				print("NOMEAT - Ignore CONSUME.BASEMEAT for this run.");
-				print("VALUE X - Treat valueOfAdventure as X for this run.");
-				print("VALUEPVP X - Treat CONSUME.PVPVAL as X for this run.");
-				print("VALUEDRIP X - Treat CONSUME.DRIPVAL as X for this run.");
-				print("REFRESH - Check mall prices for consumables again this run (WILL CHECK TWICE IF USED ON FIRST RUN OF THE DAY).");
-				print("CONSUME.ash Settings:", "blue");
-				print('You can change these settings by typing "set SETTING=VALUE" in the gCLI.');
-				print("valueOfAdventure - Technically a mafia property, not a CONSUME property, " +
-					"but it is listed here because it is highly relevant to CONSUME. " +
-					"Set this to however much meat you make in an adventure at the end of " +
-					"the day (after brief buffs like meat.enh and A View to Some Meat wear off). " +
-					"Or, more broadly, however much meat you consider an adventure to be worth.");
-				print("CONSUME.BASEMEAT - The base meat of the area you are meatfarmings. " +
-					"If you aren't meatfarming, leave this unset or set to 0. If you are farming " +
-					"Barf Mountain, this should be 250, or 275 if you own and use a Songboom.");
-				print("CONSUME.PVPVAL - Like valueOfAdventure, but for PvP fights. Leave unset or " +
-					"at 0 if you do not wish for your diet to consider fitegen consumables, or even " +
-					"give hybrid items like shot of kardashian gin favorable treatment.");
-				print("CONSUME.DRIPVAL - Like valueOfAdventure, but for Drippy Juice provided by " +
-					"the consumable. Set this (possibly fairly high) if you want to load your gullet " +
-					"with drippy goodness so you can explore The Drip. Recommended however that you " +
-					"instead use the VALUEDRIP argument, so you don't forget you have it set and end " +
-					"up building up drippy juice in a brief aftercore stint that you don't want to " +
-					"drip in. Also note that if this is high enough to consider caviar, you will " +
-					"probably bump in to autoBuyPriceLimit.");
-				print("CONSUME.ALLOWLIFETIMELIMITED - If set to true, will act like ALLOWLIFETIMELIMITED" +
-					"was passed as an argument every time.");
+				print("md_wrapper.ash Commands:", "blue");
+				print("free - use no adventures, don't open dinsey.");
+				
 				return;
 			default:
 				print('Unknown command "' + commands[i] + '"', "red");
@@ -105,7 +75,7 @@ void main(string command)
 
 
   */
-
+abort();
   startDay();
   print('Day Started', 'green');
   dinsey();
