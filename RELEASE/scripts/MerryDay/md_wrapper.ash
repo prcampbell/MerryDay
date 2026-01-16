@@ -48,6 +48,7 @@ void main(string command)
 		{
       case "free":
         free = true;
+        break;
 			case "help":
 				print("md_wrapper.ash Commands:", "blue");
 				print("free - use no adventures, don't open dinsey.");
@@ -75,10 +76,13 @@ void main(string command)
 
 
   */
-abort();
+
   startDay();
   print('Day Started', 'green');
-  dinsey();
+  if(!free)
+    dinsey();
+  abort();
+  
   dailyItems();
   dailyEffects();
 
