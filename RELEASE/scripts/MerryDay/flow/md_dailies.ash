@@ -314,7 +314,10 @@ void dailyItems()
     if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Ancestral Recall')) { cli_execute('cheat Ancestral Recall');}
     if(get_property('_deckCardsDrawn').to_int() < 15 && !contains_text('_deckCardsSeen', 'Gift Card')) { cli_execute('cheat Gift Card');}
 
-    while(get_property('_sourceTerminalExtrudes').to_int() < 3) { cli_execute('terminal extrude booze.ext'); }
+    while(get_property('_sourceTerminalExtrudes').to_int() < 3 && item_amount($item[source essence]) > 10) 
+    { 
+        cli_execute('terminal extrude booze.ext'); 
+    }
     if(get_property('_clipartSummons').to_int() < 1)
     {
         cli_execute('make box of familiar jacks');
