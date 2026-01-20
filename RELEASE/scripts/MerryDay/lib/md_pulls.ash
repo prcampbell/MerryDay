@@ -6,6 +6,14 @@ boolean safe_pull(item it)
     return false;
 }
 
+boolean safe_pull(int num, item it)
+{
+  if(item_amount(it) < num && storage_amount(it) > num)
+    return take_storage(num, it);
+  else 
+    return false;
+}
+
 
 
 void main()
