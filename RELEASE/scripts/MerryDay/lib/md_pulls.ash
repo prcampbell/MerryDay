@@ -2,8 +2,12 @@ boolean safe_pull(item it)
 {
   if(item_amount(it) == 0 && storage_amount(it) > 0)
     return take_storage(1, it);
-  else 
+  else
+  {
+    print('Could not find ' + it.to_string(), 'orange');
     return false;
+  } 
+    
 }
 
 boolean safe_pull(int num, item it)
@@ -11,7 +15,10 @@ boolean safe_pull(int num, item it)
   if(item_amount(it) < num && storage_amount(it) > num)
     return take_storage(num, it);
   else 
+  {
+    print('Could not find ' + it.to_string(), 'orange');
     return false;
+  } 
 }
 
 
