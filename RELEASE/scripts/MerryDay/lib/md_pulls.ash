@@ -80,6 +80,15 @@ void pull_equipment()
   safe_pull($item[cincho de mayo ]);
   safe_pull($item[august scepter]);
   safe_pull($item[candy cane sword cane]);
+
+  //organ adds
+  safe_pull($item[devilbone greaves]);
+  safe_pull($item[devilbone corset]);
+  safe_pull($item[devilbone rosary]);
+
+  safe_pull($item[angelbone dice]);
+  safe_pull($item[angelbone totem]);
+  safe_pull($item[angelbone chopsticks]);
 }
 
 void pull_misc()
@@ -101,8 +110,22 @@ void pull_misc()
   safe_pull($item[closed-circuit pay phone]);
   safe_pull($item[2002 MR. Store Catalog]);
   safe_pull($item[bittycar meatcar]);
-  take_storage(storage_amount($item[source essence]), $item[source essence]);
+  
+  safe_pull($item[replica bat-oomerang]);
+  safe_pull($item[tiny plastic ChibiBuddy&trade;]);
+  
+}
 
+void pull_ingredients()
+{
+  take_storage(storage_amount($item[twinkly wad]), $item[twinkly wad]);
+  take_storage(storage_amount($item[hot wad]), $item[hot wad]);
+  take_storage(storage_amount($item[cold wad]), $item[cold wad]);
+  take_storage(storage_amount($item[sleaze wad]), $item[sleaze wad]);
+  take_storage(storage_amount($item[stench wad]), $item[stench wad]);
+  take_storage(storage_amount($item[spooky wad]), $item[spooky wad]);
+
+  take_storage(storage_amount($item[source essence]), $item[source essence]);
 }
 
 void pull_gardens()
@@ -140,3 +163,13 @@ void main()
 {
    pull_all();
 }
+
+if (monsterid 1622 || monsterid 1965);
+if hasskill Sing Along;skill Sing Along;endif;
+if hasskill Curse of Weaksauce;
+  skill Curse of Weaksauce;
+endif;
+if hasskill Pocket Crumbs;
+  skill Pocket Crumbs;
+endif;
+  if hasskill 7273;skill 7273;endif;if hasskill Micrometeorite;skill Micrometeorite;endif;if hascombatitem Time-Spinner;use Time-Spinner;endif;if hascombatitem Rain-Doh indigo cup;use Rain-Doh indigo cup;endif;if hascombatitem Rain-Doh blue balls;use Rain-Doh blue balls;endif;while !pastround 3 && !hppercentbelow 25;use seal tooth;endwhile;while !pastround 24 && !hppercentbelow 25 && !missed 1 && !snarfblat 567;attack;endwhile;if hasskill Saucegeyser;skill Saucegeyser;repeat hasskill Saucegeyser;endif;if hasskill Weapon of the Pastalord;skill Weapon of the Pastalord;repeat hasskill Weapon of the Pastalord;endif;if hasskill Cannelloni Cannon;skill Cannelloni Cannon;repeat hasskill Cannelloni Cannon;endif;if hasskill Wave of Sauce;skill Wave of Sauce;repeat hasskill Wave of Sauce;endif;if hasskill Saucestorm;skill Saucestorm;repeat hasskill Saucestorm;endif;if !monsterelement cold;if hasskill Northern Explosion;skill Northern Explosion;repeat hasskill Northern Explosion;endif;endif;if hasskill 1005;skill 1005;repeat hasskill 1005;endif;attack;repeat;endif;if (monsterid 231 || monsterid 348 || monsterid 229 || monsterid 274 || monsterid 232 || monsterid 230 || monsterid 617 || monsterid 425 || monsterid 1422 || monsterid 1966 || monsterid 371 || monsterid 1534 || monsterid 392);abort;endif;if hasskill Sing Along;skill Sing Along;endif;if hascombatitem replica bat-oomerang;use replica bat-oomerang;endif;
