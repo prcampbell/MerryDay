@@ -4,7 +4,8 @@ boolean safe_pull(item it)
     return take_storage(1, it);
   else
   {
-    print('Could not find ' + it.to_string(), 'orange');
+    if(item_amount(it) == 0)
+      print('Could not find ' + it.to_string(), 'orange');
     return false;
   } 
     
@@ -16,7 +17,8 @@ boolean safe_pull(int num, item it)
     return take_storage(num, it);
   else 
   {
-    print('Could not find ' + it.to_string(), 'orange');
+    if(item_amount(it) == 0)
+      print('Could not find ' + it.to_string(), 'orange');
     return false;
   } 
 }
@@ -59,7 +61,7 @@ void pull_equipment()
   safe_pull($item[eight days a week pill keeper]);
   safe_pull($item[powerful glove]);
   safe_pull($item[Guzzlr tablet]);
-  safe_pull($item[bag of iunion stones]);
+  safe_pull($item[iunion crown]);
   safe_pull($item[cargo cultist shorts]);
   safe_pull($item[unwrapped knock-off retro superhero cape]);
   safe_pull($item[miniature crystal ball]);
@@ -86,7 +88,7 @@ void pull_misc()
 
   safe_pull($item[deck of every card]);
   safe_pull($item[mumming trunk]);
-  safe_pull($item[pantogram]);
+  safe_pull($item[portable pantogram]);
   safe_pull($item[genie bottle]);
   safe_pull($item[can of rain-doh]);
   use(1, $item[can of rain-doh]);
