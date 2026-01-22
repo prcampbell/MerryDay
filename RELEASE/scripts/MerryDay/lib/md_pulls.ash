@@ -126,11 +126,17 @@ void pull_sheds()
   safe_pull(1, $item[portable mayo clinic]);
 }
 
-void main()
+void pull_all()
 {
+  cli_execute('refresh storage');
   pull_meat();
   pull_equipment();
   pull_misc();
   pull_gardens();
-  pull_sheds();  
+  pull_sheds(); 
+}
+
+void main()
+{
+   pull_all();
 }
