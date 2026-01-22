@@ -65,7 +65,7 @@ void pull_equipment()
   safe_pull($item[cargo cultist shorts]);
   safe_pull($item[unwrapped knock-off retro superhero cape]);
   safe_pull($item[miniature crystal ball]);
-  safe_pull($item[power seed]);
+  safe_pull($item[potted power plant]);
   safe_pull($item[backup camera]);
   safe_pull($item[familiar scrapbook]);
   safe_pull($item[industrial fire extinguisher]);
