@@ -21,11 +21,14 @@ boolean safe_pull(int num, item it)
   } 
 }
 
-
-
-void main()
+void pull_meat()
 {
   cli_execute('pull * meat');
+}
+
+void pull_equipment()
+{
+  //iotm
   safe_pull($item[mayflower bouquet]);
   safe_pull($item[mayfly bait necklace]);
   safe_pull($item[haiku katana]);
@@ -75,8 +78,11 @@ void main()
   safe_pull($item[cincho de mayo ]);
   safe_pull($item[august scepter]);
   safe_pull($item[candy cane sword cane]);
+}
 
-  //Misc
+void pull_misc()
+{
+//Misc
 
   safe_pull($item[deck of every card]);
   safe_pull($item[mumming trunk]);
@@ -95,15 +101,20 @@ void main()
   safe_pull($item[bittycar meatcar]);
   take_storage(storage_amount($item[source essence]), $item[source essence]);
 
+}
 
-  //Gardens
+void pull_gardens()
+{
   safe_pull(1, $item[packet of mushroom spores]);
   safe_pull(1, $item[packet of rock seeds]);
   safe_pull(1, $item[packet of pumpkin seeds]);
   safe_pull(1, $item[packet of tall grass seeds]);
   safe_pull(1, $item[packet of thanksgarden seeds]);
   safe_pull(1, $item[Peppermint Pip Packet]);
-  //Sheds
+}
+
+void pull_sheds()
+{
   safe_pull(1, $item[diabolic pizza cube]);
   safe_pull(1, $item[cold medicine cabinet]);
   safe_pull(1, $item[model train set]);
@@ -111,4 +122,13 @@ void main()
   safe_pull(1, $item[cold medicine cabinet]);
   safe_pull(1, $item[little geneticist DNA-Splicing Lab]);
   safe_pull(1, $item[portable mayo clinic]);
+}
+
+void main()
+{
+  pull_meat();
+  pull_equipment();
+  pull_misc();
+  pull_gardens();
+  pull_sheds();  
 }
