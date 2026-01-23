@@ -1,19 +1,20 @@
-boolean safe_pull(item it)
-{
-  if(item_amount(it) == 0 && storage_amount(it) > 0)
-    return take_storage(1, it);
-  else
-  {
-    if(item_amount(it) == 0)
-      print('Could not find ' + it.to_string(), 'orange');
-    return false;
-  } 
-    
-}
+
 
 boolean safe_pull(int num, item it)
 {
-  if(item_amount(it) < num && storage_amount(it) > num)
+
+  if($items[stinky cheeese eye, stinky cheese diaper].contains(it))
+  {
+    foreach(thing in $items[stinky cheeese eye, stinky cheese diaper])
+    {
+      if(storage_amount(thing) >= num)
+      {
+        it = thing;
+        break;
+      }
+    }
+  }
+  if(item_amount(it) < num && storage_amount(it) >= num)
     return take_storage(num, it);
   else 
   {
@@ -21,6 +22,11 @@ boolean safe_pull(int num, item it)
       print('Could not find ' + it.to_string(), 'orange');
     return false;
   } 
+}
+
+boolean safe_pull(item it)
+{
+  safe_pull(1, it);
 }
 
 void pull_meat()
