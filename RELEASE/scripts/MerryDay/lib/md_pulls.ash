@@ -26,7 +26,7 @@ boolean safe_pull(int num, item it)
 
 boolean safe_pull(item it)
 {
-  safe_pull(1, it);
+  return safe_pull(1, it);
 }
 
 void pull_meat()
