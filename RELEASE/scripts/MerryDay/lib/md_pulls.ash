@@ -5,7 +5,7 @@ boolean safe_pull(int num, item it)
 
   if($items[stinky cheese eye, stinky cheese diaper] contains it)
   {
-    foreach(thing in $items[stinky cheese eye, stinky cheese diaper])
+    foreach thing in $items[stinky cheese eye, stinky cheese diaper]
     {
       if(storage_amount(thing) >= num)
       {
