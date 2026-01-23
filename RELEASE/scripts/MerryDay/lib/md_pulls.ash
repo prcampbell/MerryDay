@@ -3,10 +3,20 @@
 boolean safe_pull(int num, item it)
 {
 
-  if($items[stinky cheese eye, stinky cheese diaper] contains it)
+  if($items[stinky cheese eye, stinky cheese diaper, stinky cheese sword, stinky cheese wheel, staff of queso escusado] contains it)
   {
-    foreach thing in $items[stinky cheese eye, stinky cheese diaper]
+    foreach thing in $items[stinky cheese eye, stinky cheese diaper, stinky cheese sword, stinky cheese wheel, staff of queso escusado]
     {
+      if(storage_amount(thing) >= num)
+      {
+        it = thing;
+        break;
+      }
+    }
+  }
+  if($items[spooky putty sheet, spooky putty snake, spooky putty mitre, spooky putty leotard, spooky putty ball] contains it)
+  {
+    foreach thing in $items[spooky putty sheet, spooky putty snake, spooky putty mitre, spooky putty leotard, spooky putty ball]
       if(storage_amount(thing) >= num)
       {
         it = thing;
@@ -44,7 +54,6 @@ void pull_equipment()
   safe_pull($item[bag o' Tricks]);
   safe_pull($item[moveable feast]);
   safe_pull($item[stinky cheese eye]);
-  safe_pull($item[stinky cheese diaper]);
   safe_pull($item[crown of thrones]);
   safe_pull($item[juju mojo mask]);
   safe_pull($item[greatest american pants]);
