@@ -16,7 +16,7 @@ boolean safe_pull(int num, item it)
   }
   if($items[spooky putty sheet, spooky putty snake, spooky putty mitre, spooky putty leotard, spooky putty ball] contains it)
   {
-    foreach thing in $items[spooky putty sheet, spooky putty snake, spooky putty mitre, spooky putty leotard, spooky putty ball]
+    foreach thing in $items[spooky putty sheet, spooky putty monster, spooky putty snake, spooky putty mitre, spooky putty leotard, spooky putty ball]
     {
       if(storage_amount(thing) >= num)
       {
