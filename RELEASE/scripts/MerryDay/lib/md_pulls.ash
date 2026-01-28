@@ -17,6 +17,7 @@ boolean safe_pull(int num, item it)
   if($items[spooky putty sheet, spooky putty snake, spooky putty mitre, spooky putty leotard, spooky putty ball] contains it)
   {
     foreach thing in $items[spooky putty sheet, spooky putty snake, spooky putty mitre, spooky putty leotard, spooky putty ball]
+    {
       if(storage_amount(thing) >= num)
       {
         it = thing;
@@ -141,6 +142,8 @@ void pull_ingredients()
   take_storage(storage_amount($item[spooky wad]), $item[spooky wad]);
 
   take_storage(storage_amount($item[source essence]), $item[source essence]);
+  take_storage(storage_amount($item[inflammable leaf]), $item[inflammable leaf]);
+  take_storage(storage_amount($item[lime]), $item[lime]);
 }
 
 void pull_gardens()
