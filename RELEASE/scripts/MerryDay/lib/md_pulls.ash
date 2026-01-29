@@ -148,12 +148,19 @@ void pull_ingredients()
 
 void pull_gardens()
 {
-  safe_pull(1, $item[packet of mushroom spores]);
-  safe_pull(1, $item[packet of rock seeds]);
-  safe_pull(1, $item[packet of pumpkin seeds]);
-  safe_pull(1, $item[packet of tall grass seeds]);
-  safe_pull(1, $item[packet of thanksgarden seeds]);
-  safe_pull(1, $item[Peppermint Pip Packet]);
+  //pumpkin, peppermint, skeleton, beer, winter, thanksgarden, grass or mushroom
+  if(!(my_garden_type() == "mushroom"))
+    safe_pull(1, $item[packet of mushroom spores]);
+  if(!(my_garden_type() == "rock"))
+    safe_pull(1, $item[packet of rock seeds]);
+  if(!(my_garden_type() == "pumpkin"))
+    safe_pull(1, $item[packet of pumpkin seeds]);
+  if(!(my_garden_type() == "grass"))
+    safe_pull(1, $item[packet of tall grass seeds]);
+  if(!(my_garden_type() == "thanksgarden"))
+    safe_pull(1, $item[packet of thanksgarden seeds]);
+  if(!(my_garden_type() == "peppermint"))
+    safe_pull(1, $item[Peppermint Pip Packet]);
 }
 
 void pull_sheds()
