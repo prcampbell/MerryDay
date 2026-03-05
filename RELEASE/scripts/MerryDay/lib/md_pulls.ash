@@ -181,7 +181,8 @@ void pull_all()
   pull_equipment();
   pull_misc();
   pull_gardens();
-  pull_sheds(); 
+  pull_sheds();
+  pull_ingredients(); 
 }
 
 void main()
