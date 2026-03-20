@@ -144,6 +144,16 @@ void pull_ingredients()
   take_storage(storage_amount($item[source essence]), $item[source essence]);
   take_storage(storage_amount($item[inflammable leaf]), $item[inflammable leaf]);
   take_storage(storage_amount($item[lime]), $item[lime]);
+
+  take_storage(storage_amount($item[Abstraction: Thought]), $item[Abstraction: Thought]);
+  take_storage(storage_amount($item[Abstraction: Action]), $item[Abstraction: Action]);
+  take_storage(storage_amount($item[Abstraction: Sensation]), $item[Abstraction: Sensation]);
+
+  take_storage(storage_amount($item[divine champagne popper]), $item[divine champagne popper]);
+  take_storage(storage_amount($item[Mayor Ghost's scissors]), $item[Mayor Ghost's scissors]);
+  take_storage(storage_amount($item[little red book]), $item[little red book]);
+  take_storage(storage_amount($item[nasty-smelling moss]), $item[nasty-smelling moss]);
+  
 }
 
 void pull_gardens()
