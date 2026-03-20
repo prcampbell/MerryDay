@@ -104,8 +104,12 @@ void RestoreSetup()
 			if (equipped_item(eqSlot) != equipment[eqSlot])
 				equip(eqSlot, equipment[eqSlot]);
 		}
-		if(have_equipped($item[jurassic parka]) && get_property('parkaMode') != parka)
-			cli_execute('parka '+ parka);
+		if(get_property('parkaMode') != '')
+		{
+			if(have_equipped($item[jurassic parka]) && get_property('parkaMode') != parka)
+				cli_execute('parka '+ parka);
+		}
+		
 
 		if (throne != my_enthroned_familiar()) 
 			enthrone_familiar( throne );

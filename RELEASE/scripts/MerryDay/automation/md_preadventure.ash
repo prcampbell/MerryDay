@@ -83,8 +83,11 @@ void RestoreSetup()
 			if (equipped_item(eqSlot) != equipment[eqSlot])
 				equip(eqSlot, equipment[eqSlot]);
 		}
-		if(have_equipped($item[jurassic parka]) && get_property('parkaMode') != parka)
-			cli_execute('parka '+ parka);
+		if(get_property('parkaMode') != '')
+		{
+			if(have_equipped($item[jurassic parka]) && get_property('parkaMode') != parka)
+				cli_execute('parka '+ parka);
+		}
 
 		if (throne != my_enthroned_familiar()) 
 			enthrone_familiar( throne );
@@ -320,6 +323,7 @@ void main()
         if(get_property('shadowRiftIngress') =='')
         {
             adv1(riftIngress(), -1, 'use divine champagne popper;');
+            adv1($location[Shadow Rift (The Ancient Buried Pyramid)], -1, 'use divine champagne popper;');
         }
         cli_execute('fallguy send Shadow Rift');
     }
