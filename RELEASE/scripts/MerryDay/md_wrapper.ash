@@ -79,11 +79,13 @@ void main(string command)
 
   startDay();
   print('Day Started', 'green');
+  print('Grabbing Daily Items', 'green');
+  dailyItems();
   if(!free)
     dinsey();
   abort();
   
-  dailyItems();
+
   dailyEffects();
 
 
