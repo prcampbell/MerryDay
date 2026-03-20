@@ -248,7 +248,7 @@ void main()
         {
             switchClan(VIPClan);
         }
-        buy(1, $item[blue rocket]);
+        buy(1, $item[yellow rocket]);
         if(get_clan_id() != tmp)
         {
             switchClan(tmp);
@@ -261,7 +261,7 @@ void main()
         {
             switchClan(VIPClan);
         }
-        buy(1, $item[blue rocket]);
+        buy(1, $item[red rocket]);
         if(get_clan_id() != tmp)
         {
             switchClan(tmp);
