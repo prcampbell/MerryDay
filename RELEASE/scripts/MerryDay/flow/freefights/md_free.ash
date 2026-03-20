@@ -12,7 +12,7 @@ void merry_auto_attack()
 {
     //Stasis Fight
     if(get_auto_attack() != 99204675)
-        set_auto_attack(99204675);
+        set_auto_attack('StasisFight');
 }
 
 void main()
