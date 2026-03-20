@@ -5,8 +5,8 @@ import ff_leaves;
 import ff_lobster;
 import ff_nep;
 import ff_speakeasy;
-import ff_pygmy;
-import ff_
+import ff_drunks;
+import ff_rifts;
 
 void merry_auto_attack()
 {
@@ -19,26 +19,26 @@ void main()
 {
     if(tentacle_skill_fight_can())
   {
-    merry_auto_attack()
+    merry_auto_attack();
     construct_free_outfit(chooseFamiliar());
     tentacle_skill_fight_run();
   }
   if(tentacle_fight_can())
   {
-    merry_auto_attack()
+    merry_auto_attack();
     construct_free_outfit(chooseFamiliar());
     tentacle_fight_run();
   }
   while(leaves_can())
   {
-    merry_auto_attack()
+    merry_auto_attack();
     construct_free_outfit(chooseFamiliar());
     equip($slot[pants], $item[tearaway pants]);
     leaves_run();
   }
   if(lobster_can())
   {
-    merry_auto_attack()
+    merry_auto_attack();
     construct_free_outfit();
     lobster_run();
   }
@@ -74,7 +74,7 @@ void main()
   }
   while(shadowrifts_can())
   {
-      merry_auto_attack()
+      merry_auto_attack();
       construct_free_outfit(chooseFamiliar());
       rifts_run();
   }
