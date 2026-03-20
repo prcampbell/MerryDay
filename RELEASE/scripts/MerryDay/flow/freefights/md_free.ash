@@ -17,7 +17,7 @@ void merry_auto_attack()
 
 void main()
 {
-    if(tentacle_skill_fight_can())
+  if(tentacle_skill_fight_can())
   {
     merry_auto_attack();
     construct_free_outfit(chooseFamiliar());
@@ -44,7 +44,7 @@ void main()
   }
   while(nep_free_turn_can())
   {
-    merry_auto_attack()
+    merry_auto_attack();
     if(get_property('redSnapperPhylum').to_phylum() != $phylum[dude])
     {
       cli_execute('snapper dude');
@@ -54,13 +54,13 @@ void main()
   }
   while(speakeasy_can())
   {
-    merry_auto_attack()
+    merry_auto_attack();
     construct_free_outfit(chooseFamiliar());
     speakeasy_run();  
   }
   while(pygmy_can())
   {
-    merry_auto_attack()
+    merry_auto_attack();
     if(get_property('redSnapperPhylum').to_phylum() == $phylum[dude]
       && item_amount($item[human musk]) == 0)
     {
@@ -80,11 +80,11 @@ void main()
   }
   if(shadowwaters_can())
   {
-          shadowwaters_run();
+    shadowwaters_run();
   }
 
     
-set_auto_attack(0);
+  set_auto_attack(0);
 /*
   while(gap_can())
       gap_run();
