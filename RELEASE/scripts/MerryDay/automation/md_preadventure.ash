@@ -317,6 +317,10 @@ void main()
         {
             adv1(riftIngressByItem(get_property('rufusDesiredItems').to_item()), -1, 'use divine champagne popper;');
         }
+        if(get_property('shadowRiftIngress') =='')
+        {
+            adv1(riftIngress(), -1, 'use divine champagne popper;');
+        }
         cli_execute('fallguy send Shadow Rift');
     }
     if(have_effect($effect[beaten up]) > 0)
