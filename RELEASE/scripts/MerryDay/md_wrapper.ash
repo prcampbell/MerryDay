@@ -132,17 +132,7 @@ void main(string command)
       set_auto_attack(0);    
   }
 
-  if(smokepatches_can())
-    smokepatches();
-  if(saber_can())
-      saber_run();
 
-  if(thesis_can())
-    thesis_run();
-  if(profsausage_can())
-  {
-      profsausage_run();
-  }
 
 //Let's grab some costumes
   while(eaglebrick_can())
@@ -179,96 +169,7 @@ void main(string command)
 
   // Regular free fights start here
 
-  if(tentacle_skill_fight_can())
-  {
-    set_auto_attack('StasisFight');
-    construct_free_outfit(chooseFamiliar());
-    tentacle_skill_fight_run();
-    set_auto_attack(0);
-  }
-  if(tentacle_fight_can())
-  {
-    set_auto_attack('StasisFight');
-    construct_free_outfit(chooseFamiliar());
-    tentacle_fight_run();
-    set_auto_attack(0);
-  }
-  while(leaves_can())
-  {
-    if(get_auto_attack() == 0)
-      set_auto_attack('StasisFight');
-    construct_free_outfit(chooseFamiliar());
-    equip($slot[pants], $item[tearaway pants]);
-    leaves_run();
-    if(!leaves_can())
-      set_auto_attack(0);
-  }
-  if(lobster_can())
-  {
-    set_auto_attack('StasisFight');
-    construct_free_outfit();
-    lobster_run();
-    set_auto_attack(0);
-  }
-  while(nep_free_turn_can())
-  {
-    set_auto_attack('StasisFight');
-    if(get_property('redSnapperPhylum').to_phylum() != $phylum[dude])
-    {
-      cli_execute('snapper dude');
-    }
-    construct_free_outfit($familiar[red-nosed snapper]);
-    nep_free_turn_run();
-    set_auto_attack(0);  
-  }
-  while(speakeasy_can())
-  {
-    set_auto_attack('StasisFight');
-    construct_free_outfit(chooseFamiliar());
-    speakeasy_run();
-    set_auto_attack(0);  
-  }
-  while(pygmy_can())
-  {
-    set_auto_attack('StasisFight');
-    if(get_property('redSnapperPhylum').to_phylum() == $phylum[dude]
-      && item_amount($item[human musk]) == 0)
-    {
-      construct_free_outfit($familiar[red-nosed snapper]);
-    }
-    else 
-    {
-      construct_free_outfit($familiar[mini-hipster]);
-    }
-    pygmy_run();
-    set_auto_attack(0);
-  }
-  while(shadowrifts_can())
-  {
-      set_auto_attack('StasisFight');
-      construct_free_outfit(chooseFamiliar());
-      rifts_run(); 
-      set_auto_attack(0);
-  }
-  if(shadowwaters_can())
-      shadowwaters_run();
-
-  while(gap_can())
-      gap_run();
-  while(gingerbread_bander_can())
-      gingerbread_bander_run();
-  while(doctor_bander_can())
-      doctor_bander_run();
-  if(fungi_bander_can())
-  {
-    maximize('familiar weight, equip tearaway pants', false);
-    while(fungi_bander_can())
-        fungi_bander_run();   
-  }
-  if(sandworm_can())
-	{
-		Sandworm();
-	}    
+  
   cli_execute('combo');
 
 /*We start running adventures here*/

@@ -129,6 +129,7 @@ void pull_misc()
   
   safe_pull($item[replica bat-oomerang]);
   safe_pull($item[tiny plastic ChibiBuddy&trade;]);
+  safe_pull($item[lucky gold ring]);
   
 }
 
@@ -153,7 +154,7 @@ void pull_ingredients()
   take_storage(storage_amount($item[Mayor Ghost's scissors]), $item[Mayor Ghost's scissors]);
   take_storage(storage_amount($item[little red book]), $item[little red book]);
   take_storage(storage_amount($item[nasty-smelling moss]), $item[nasty-smelling moss]);
-  
+
 }
 
 void pull_gardens()
