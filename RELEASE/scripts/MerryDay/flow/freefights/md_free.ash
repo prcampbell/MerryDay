@@ -15,9 +15,9 @@ void merry_auto_attack()
         set_auto_attack('StasisFight');
 }
 
-void main()
+void fights_run()
 {
-  if(tentacle_skill_fight_can())
+if(tentacle_skill_fight_can())
   {
     merry_auto_attack();
     construct_free_outfit(chooseFamiliar());
@@ -82,9 +82,15 @@ void main()
   {
     shadowwaters_run();
   }
+  set_auto_attack(0);
+}
+
+void main()
+{
+  
 
     
-  set_auto_attack(0);
+  fights_run();
 /*
   while(gap_can())
       gap_run();
