@@ -130,6 +130,7 @@ void pull_misc()
   safe_pull($item[replica bat-oomerang]);
   safe_pull($item[tiny plastic ChibiBuddy&trade;]);
   safe_pull($item[lucky gold ring]);
+  safe_pull($item[LED candle]);
   
 }
 
