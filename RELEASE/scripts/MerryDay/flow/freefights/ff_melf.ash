@@ -8,7 +8,10 @@ boolean melf_can()
 
 boolean melf_run()
 {
-    use_familiar($familiar[Machine Elf]);
+    if(my_familiar() != $familiar[Machine Elf])
+    {
+        use_familiar($familiar[Machine Elf]);
+    }
     if (get_property('encountersUntilDMTChoice') == 0 && get_property('knownAscensions') > get_property('lastDMTDuplication')) 
     {
         //Karma Schwarma - 7797

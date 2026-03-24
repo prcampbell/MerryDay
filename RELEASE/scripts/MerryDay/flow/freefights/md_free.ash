@@ -17,6 +17,16 @@ void merry_auto_attack()
 
 void fights_run()
 {
+  while(melf_can())
+  {
+      merry_auto_attack();
+      construct_free_outfit($familiar[Machine Elf]);
+      if(equipped_item($slot[back]) == $item[buddy bjorn])
+        bjornify_familiar($familiar[warbear drone]);
+      if(equipped_item($slot[hat]) == $item[crown of thrones])
+        enthrone_familiar($familiar[adorable seal larva]);
+      melf_run();
+  }
 if(tentacle_skill_fight_can())
   {
     merry_auto_attack();
