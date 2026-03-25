@@ -17,6 +17,16 @@ void merry_auto_attack()
 
 void fights_run()
 {
+  while(shadowrifts_can())
+  {
+      merry_auto_attack();
+      construct_free_outfit(chooseFamiliar());
+      rifts_run();
+  }
+  if(shadowwaters_can())
+  {
+    shadowwaters_run();
+  }
   while(melf_can())
   {
       merry_auto_attack();
@@ -82,16 +92,7 @@ if(tentacle_skill_fight_can())
     }
     pygmy_run();
   }
-  while(shadowrifts_can())
-  {
-      merry_auto_attack();
-      construct_free_outfit(chooseFamiliar());
-      rifts_run();
-  }
-  if(shadowwaters_can())
-  {
-    shadowwaters_run();
-  }
+
   set_auto_attack(0);
 }
 
