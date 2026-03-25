@@ -8,6 +8,7 @@ import ff_speakeasy;
 import ff_drunks;
 import ff_rifts;
 import ff_melf;
+import ff_halloween;
 
 void merry_auto_attack()
 {
@@ -93,6 +94,7 @@ if(tentacle_skill_fight_can())
     }
     pygmy_run();
   }
+  halloween_run();
 
   set_auto_attack(0);
 }
