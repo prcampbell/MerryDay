@@ -131,6 +131,7 @@ void pull_misc()
   safe_pull($item[tiny plastic ChibiBuddy&trade;]);
   safe_pull($item[lucky gold ring]);
   safe_pull($item[LED candle]);
+  safe_pull(storage_amount($item[map to a candy-rich block]), $item[map to a candy-rich block]);
   
 }
 
