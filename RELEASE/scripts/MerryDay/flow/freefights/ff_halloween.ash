@@ -52,7 +52,17 @@ boolean halloween_map_use()
 
 boolean halloween_outfit()
 {
-    //We should check what we want to grab here
+    //Put on the ceramic suit until we see if have the legendary regalia
+    if(
+        equip($slot[hat], $item[porcelain porkpie]) &&
+        equip($slot[back], $item[porcelain pelerine]) &&
+        equip($slot[weapon], $item[porcelain police baton]) &&
+        equip($slot[off-hand], $item[porcelain pepper mill]) &&
+        equip($slot[pants], $item[porcelain plus-fours]) &&
+        equip($slot[off-hand], $item[porcelain phantom mask]) &&
+        use_familiar($familiar[trick-or-treating tot])
+    )
+        return true;
     return false;
 }
 
@@ -121,8 +131,7 @@ boolean trick_run()
     return true;
 }
 
-
-void main()
+void halloween_run()
 {
     if(!halloween_available())
     {
@@ -132,5 +141,15 @@ void main()
     {
         trick_run();
     }
+    if(halloween_available() && halloween_outfit())
+    {
+        treat_run();
+    }
+}
+
+
+void main()
+{
+    halloween_run();
     
 }
