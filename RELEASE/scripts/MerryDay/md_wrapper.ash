@@ -81,12 +81,15 @@ void main(string command)
   print('Day Started', 'green');
   print('Grabbing Daily Items', 'green');
   dailyItems();
+  dailyEffects();
+  unlockLatte();
+  fights_run();
   if(!free)
     dinsey();
   abort();
   
 
-  dailyEffects();
+  
 
 
   if($effect[Jingle Jangle Jingle].have_effect() < 600)
@@ -145,19 +148,7 @@ void main(string command)
     pgb_free_run();
   }
 
-  while(melf_can())
-  {
-      set_auto_attack('StasisFight');
-      construct_free_outfit();
-      //don't runthings we need to track
-      if(equipped_item($slot[back]) == $item[buddy bjorn])
-        bjornify_familiar($familiar[warbear drone]);
-      if(equipped_item($slot[hat]) == $item[crown of thrones])
-        enthrone_familiar($familiar[warbear drone]);
-      
-      melf_run();
-      set_auto_attack(0);
-  }
+
   if(!halloween_available())
   {
       halloween_map_use();
