@@ -99,6 +99,7 @@ void RestoreSetup()
 		{
 			if(available_amount(equipment[eqSlot]) == 0 && equipment[eqSlot] != $item[none])
 			{
+				print('trying to fold ' + equipment[eqSlot].to_string() + ' for slot ' + eqSlot.to_string(), "yellow");
 				cli_execute('fold ' + equipment[eqSlot].to_string());
 			}
 			if (equipped_item(eqSlot) != equipment[eqSlot])
