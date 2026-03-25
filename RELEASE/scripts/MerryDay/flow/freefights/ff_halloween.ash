@@ -59,7 +59,7 @@ boolean halloween_outfit()
         equip($slot[weapon], $item[porcelain police baton]) &&
         equip($slot[off-hand], $item[porcelain pepper mill]) &&
         equip($slot[pants], $item[porcelain plus-fours]) &&
-        equip($slot[off-hand], $item[porcelain phantom mask]) &&
+        equip($slot[acc1], $item[porcelain phantom mask]) &&
         use_familiar($familiar[trick-or-treating tot])
     )
         return true;
