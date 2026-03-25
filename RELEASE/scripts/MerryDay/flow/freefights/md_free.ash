@@ -7,6 +7,7 @@ import ff_nep;
 import ff_speakeasy;
 import ff_drunks;
 import ff_rifts;
+import ff_melf;
 
 void merry_auto_attack()
 {
