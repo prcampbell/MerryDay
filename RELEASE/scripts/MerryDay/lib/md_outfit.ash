@@ -213,11 +213,18 @@ familiar ChooseFamiliar()
     {
         return $familiar[cornbeefadon];
     }
-	if(have_familiar($familiar[skeleton of crimbo past]) && $familiar[skeleton of crimbo past].drops_today < 100)
-		return $familiar[skeleton of crimbo past];
+	foreach f in $familiars[frumious bandersnatch, grey goose, chest mimic, pocket professor]
+	{
+		if(f.experience < 400)
+		{
+			return f;
+		}
+	}
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 1 )
 				return f;
+	if(have_familiar($familiar[skeleton of crimbo past]) && $familiar[skeleton of crimbo past].drops_today < 100)
+		return $familiar[skeleton of crimbo past];
     foreach f in $familiars[Li'l Xenomorph, Baby Sandworm, Rogue Program,  Astral Badger, Green Pixie, Llama lama, Blavious Kloop, Fist Turkey]
 			if ( have_familiar(f) && f.drops_today < 2 )
 				return f;
@@ -490,11 +497,12 @@ void construct_free_outfit(phylum phy)
 		case $phylum[plant]:
 			required_equips[$slot[pants]] = $item[tearaway pants];
 			break;
-		case $phylum[dude]:
-			fam = $familiar[red-nosed snapper];
-			break;
 		default:
 			break;
+	}
+	if(get_property('redSnapperPhylum').to_phylum() == phy)
+	{
+		fam = $familiar[red-nosed snapper];
 	}
 	if(fam == $familiar[none])
 	{
