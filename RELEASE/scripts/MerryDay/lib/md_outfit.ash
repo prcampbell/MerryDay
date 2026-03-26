@@ -420,7 +420,7 @@ void construct_free_outfit(item[slot] required_equips)
 
 boolean should_grow(familiar fam)
 {
-	if($familiars[chest mimic, grey goose, pocket professor] contains fam)
+	if($familiars[chest mimic, grey goose, pocket professor] contains fam && fam.experience < 400)
 	{
 		return true;
 	}
@@ -479,6 +479,28 @@ void construct_free_outfit(familiar fam)
 {
 	item[slot] nothing;
 	construct_free_outfit(nothing, fam);   
+}
+
+void construct_free_outfit(phylum phy)
+{
+	familiar fam;
+	item[slot] required_equips;
+	switch(phy)
+	{
+		case $phylum[plant]:
+			required_equips[$slot[pants]] = $item[tearaway pants];
+			break;
+		case $phylum[dude]:
+			fam = $familiar[red-nosed snapper];
+			break;
+		default:
+			break;
+	}
+	if(fam == $familiar[none])
+	{
+		fam = chooseFamiliar();
+	}
+	construct_free_outfit(required_equips, fam);
 }
 
 void construct_free_outfit()
