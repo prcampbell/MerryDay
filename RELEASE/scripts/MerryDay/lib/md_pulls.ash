@@ -132,7 +132,7 @@ void pull_misc()
   safe_pull($item[lucky gold ring]);
   safe_pull($item[LED candle]);
   safe_pull(storage_amount($item[map to a candy-rich block]), $item[map to a candy-rich block]);
-  
+  safe_pull($item[f3d0r4]);
 }
 
 void pull_ingredients()
