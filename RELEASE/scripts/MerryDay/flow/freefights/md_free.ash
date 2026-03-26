@@ -101,6 +101,12 @@ if(tentacle_skill_fight_can())
     pygmy_run();
   }
   halloween_run();
+  if(glitch_reward_fight_can())
+  {
+    merry_auto_attack();
+    construct_free_outfit(chooseFamiliar());
+    glitch_reward_fight_run();
+  }
 
   set_auto_attack(0);
 }
