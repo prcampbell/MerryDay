@@ -1,5 +1,6 @@
 
 script ff_pirates;
+import md_library;
 
 /*
 //Swift Clipper
