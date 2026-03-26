@@ -1,4 +1,6 @@
 
+script ff_pirates;
+
 /*
 //Swift Clipper
 choiceAdventure1349 => 4

@@ -9,6 +9,7 @@ import ff_drunks;
 import ff_rifts;
 import ff_melf;
 import ff_halloween;
+import ff_shadowbricks;
 
 void merry_auto_attack()
 {
@@ -19,6 +20,11 @@ void merry_auto_attack()
 
 void fights_run()
 {
+  while(eaglebrick_can())
+  {
+    construct_free_outfit($familiar[patriotic eagle]);
+    eaglebrick_run();
+  }
   while(shadowrifts_can())
   {
       merry_auto_attack();
