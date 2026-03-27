@@ -79,7 +79,22 @@ void main(string command)
 
   startDay();
   print('Day Started', 'green');
-  print('Grabbing Daily Items', 'green');
+  if(
+    !to_boolean(get_property("expressCardUsed"))
+    && !get_property('_aug15Cast').to_boolean()
+    && !get_property("_aprilShower").to_boolean()
+    && get_property("sidequestNunsCompleted")=="fratboy" && get_property("nunsVisits").to_int() < 3
+  )
+  {
+    mpBuff();
+    Aug15(); 
+    PYEC();
+    ClanShower();
+    FratNuns();
+    if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
+      cli_execute('uneffect Mojomuscular Melody');  
+  }
+
   dailyItems();
   dailyEffects();
   unlockLatte();
@@ -102,23 +117,7 @@ void main(string command)
 
  
 
-  if(
-    !to_boolean(get_property("expressCardUsed"))
-    && !get_property('_aug15Cast').to_boolean()
-    && !get_property("_aprilShower").to_boolean()
-    && get_property("sidequestNunsCompleted")=="fratboy" && get_property("nunsVisits").to_int() < 3
-  )
-  {
-    mpBuff();
-    Aug15(); 
-    PYEC();
-    ClanShower();
-    FratNuns();  
-  }
 
-
-  if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
-    cli_execute('uneffect Mojomuscular Melody');
 
 
   dailyMeatBuffs();
@@ -134,17 +133,6 @@ void main(string command)
       moleman_run();
       set_auto_attack(0);    
   }
-
-
-
-//Let's grab some costumes
-
-
-
-
-  // Regular free fights start here
-
-  
 
 
 /*We start running adventures here*/
