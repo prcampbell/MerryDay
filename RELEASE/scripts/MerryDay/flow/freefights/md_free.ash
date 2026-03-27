@@ -11,6 +11,9 @@ import ff_melf;
 import ff_halloween;
 import ff_shadowbricks;
 import ff_yacht;
+import ff_bander;
+import md_mpburn;
+import md_dailies;
 
 void merry_auto_attack()
 {
@@ -19,8 +22,24 @@ void merry_auto_attack()
         set_auto_attack('StasisFight');
 }
 
+void freeruns_run()
+{
+    dailyFamiliarBuffs();
+    GingerLatte();
+    while(gap_can())
+        gap_run();
+    while(gingerbread_bander_can())
+        gingerbread_bander_run();
+    while(doctor_bander_can())
+        doctor_bander_run();
+    maximize('familiar weight -tie, equip tearaway pants', false);
+    while(fungi_bander_can())
+        fungi_bander_run();
+}
+
 void fights_run()
 {
+
   while(eaglebrick_can())
   {
     construct_free_outfit($familiar[patriotic eagle]);

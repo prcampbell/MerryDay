@@ -83,23 +83,24 @@ void main(string command)
   dailyItems();
   dailyEffects();
   unlockLatte();
+  dailyFamiliarBuffs();
+  freeruns_run();
   fights_run();
   if(!free)
-    dinsey();
-  abort();
-  
-
-  
-
-
-  if($effect[Jingle Jangle Jingle].have_effect() < 600)
   {
-    cli_execute("csend to buffy || 600 Empathy 600 Jingle Bells 600 Polka 600 Fat Leon");
+    dinsey();
+    pirates_init();
+    Sailing();
+    windy_crabs_run();
+    while(available_amount($item[li'l pirate costume]) == 0)
+    {
+      pgb_free_run();
+    }
   }
-  unlockLatte();
-  pirates_init();
-  Sailing();
-  windy_crabs_run();
+    
+  abort();
+
+ 
 
   if(
     !to_boolean(get_property("expressCardUsed"))
@@ -115,12 +116,11 @@ void main(string command)
     FratNuns();  
   }
 
-  GingerLatte();
 
   if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
     cli_execute('uneffect Mojomuscular Melody');
 
-  dailyFamiliarBuffs();
+
   dailyMeatBuffs();
   dailyItemBuffs();
   if(familiars_should())
@@ -138,30 +138,14 @@ void main(string command)
 
 
 //Let's grab some costumes
-  while(eaglebrick_can())
-  {
-    construct_free_outfit();
-    eaglebrick_run();
-  }
-  while(available_amount($item[li'l pirate costume]) == 0)
-  {
-    pgb_free_run();
-  }
 
 
-  if(!halloween_available())
-  {
-      halloween_map_use();
-  }
-  if(halloween_available())
-  {
-      trick_run();
-  }
+
 
   // Regular free fights start here
 
   
-  cli_execute('combo');
+
 
 /*We start running adventures here*/
   

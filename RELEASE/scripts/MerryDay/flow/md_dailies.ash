@@ -208,6 +208,38 @@ void dailyEffects()
 
 }
 
+void dailyFamiliarBuffs()
+{
+    if(!get_property('_madTeaParty').to_boolean() )
+    {
+        cli_execute('hatter 6');
+    }
+    if(!get_property('friarsBlessingReceived').to_boolean())
+    {
+        cli_execute('friars blessing familiar');
+    }
+    if(!get_property('_defectiveTokenUsed').to_boolean() && $item[defective game grid token].item_amount() > 0)
+    {
+        use(1, $item[defective game grid token]);
+    }
+    if(!get_property('_clanFortuneBuffUsed').to_boolean())
+    {
+        cli_execute('fortune buff familiar');
+    }
+    maximize('familiar exp', false);
+    if(item_amount($item[deviled candy egg]) > 0 && have_effect($effect[candied devil]) == 0)
+    {
+        use(1, $item[deviled candy egg]);
+    }
+    if(item_amount($item[pulled blue taffy]) > 4 && have_effect($effect[blue swayed]) < 50)
+    {
+        while(have_effect($effect[blue swayed]) < 50)
+        {
+            use(1, $item[pulled blue taffy]);
+        }
+    }
+}
+
 void gravitate() 
 {
     while(have_skill($skill[Rainbow Gravitation]) 

@@ -64,6 +64,7 @@ boolean fungi_bander_run()
 
 void main()
 {
+    GingerLatte();
     while(gap_can())
         gap_run();
     while(gingerbread_bander_can())
