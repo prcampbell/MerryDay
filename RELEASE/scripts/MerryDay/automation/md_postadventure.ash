@@ -1,6 +1,7 @@
 import c2t_megg.ash;
 import md_outfit.ash;
 import ff_witchess.ash;
+import ff_sausages;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
@@ -452,9 +453,6 @@ void kramco()
 		item[slot] needs;
 		
 		SaveSetup();
-		
-		needs[$slot[off-hand]] = $item[Kramco Sausage-o-Matic&trade;];
-		
 		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
 		{
 			target = doctorLocation;
@@ -463,29 +461,47 @@ void kramco()
 		{
 			target = guzzlrLocation;
 		}
-		else if(hasDinseyQuest())
-		{ 
-			if(parseDinseyQuest() == 'Social Justice Adventurer I')
-				target = $location[Pirates of the Garbage Barges];
-			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
-				target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
-			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
-			{
-				needs[$slot[hat]] = $item[Dinsey mascot mask];
-				target = $location[The Toxic Teacups];
-			}
+		if(thesis_can())
+		{
+			macro = 'skill 7316;';
+			use_familiar($familiar[pocket professor]);
+			maximize('mus, equip kramco', false);
 		}
+		else 
+		{
+			needs[$slot[off-hand]] = $item[Kramco Sausage-o-Matic&trade;];
+			
+			if(hasDinseyQuest())
+			{ 
+				if(parseDinseyQuest() == 'Social Justice Adventurer I')
+					target = $location[Pirates of the Garbage Barges];
+				else if(parseDinseyQuest() == 'Social Justice Adventurer II')
+					target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
+				else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
+				{
+					needs[$slot[hat]] = $item[Dinsey mascot mask];
+					target = $location[The Toxic Teacups];
+				}
+			}
 
-		construct_free_outfit(needs, chooseFamiliar());
+			construct_free_outfit(needs, chooseFamiliar());
+			
+		}
 		(!adv1(target, -1, macro));
 
-		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+		if(hasDinseyQuest())
 		{
-			visit_url(kiosk);
-			run_choice( 3 );
-			run_choice( 6 );
-			set_property('_merryDinseyQuest', '');
+			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+			{
+				visit_url(kiosk);
+				run_choice( 3 );
+				run_choice( 6 );
+				set_property('_merryDinseyQuest', '');
+			}	
 		}
+		
+		
+		
 	}
 }
 
