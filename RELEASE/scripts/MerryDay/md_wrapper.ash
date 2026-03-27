@@ -98,9 +98,11 @@ void main(string command)
   dailyItems();
   dailyEffects();
   unlockLatte();
-  dailyFamiliarBuffs();
+  dailyFamiliarExpBuffs();
   freeruns_run();
   fights_run();
+  if(embezzlers_can())
+    embezzlers_run();
   if(!free)
   {
     dinsey();
@@ -136,12 +138,7 @@ void main(string command)
 
 
 /*We start running adventures here*/
-  
-  if(embezzlers_can())
-    embezzlers_run();
-
-
-  
+    
   crabs_run();
   Sailing();
   if(roach_can())
