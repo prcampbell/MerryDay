@@ -10,6 +10,7 @@ import ff_rifts;
 import ff_melf;
 import ff_halloween;
 import ff_shadowbricks;
+import ff_yacht;
 
 void merry_auto_attack()
 {
@@ -24,6 +25,10 @@ void fights_run()
   {
     construct_free_outfit($familiar[patriotic eagle]);
     eaglebrick_run();
+  }
+  if(saber_can())
+  {
+      saber_run();
   }
   while(shadowrifts_can())
   {
@@ -45,7 +50,7 @@ void fights_run()
         enthrone_familiar($familiar[adorable seal larva]);
       melf_run();
   }
-if(tentacle_skill_fight_can())
+  if(tentacle_skill_fight_can())
   {
     merry_auto_attack();
     construct_free_outfit(chooseFamiliar());

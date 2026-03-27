@@ -448,7 +448,7 @@ void dailyItems()
     {
         use(1, $item[bittycar meatcar]);
     }
-
+      cli_execute('combo');
     set_auto_attack(0);
 }
 

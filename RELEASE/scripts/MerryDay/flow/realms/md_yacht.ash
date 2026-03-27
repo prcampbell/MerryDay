@@ -223,6 +223,51 @@ void yachting()
     print('You cannot do yacht anymore','red');
 }
 
+boolean saber_can()
+{
+    return get_property('_saberForceUses').to_int() < 5;
+}
+
+void saber_run()
+{
+    set_property('battleAction', 'custom combat script');
+    equip($slot[weapon], $item[Fourth of May Cosplay Saber]);
+    set_auto_attack('UseTheForce');
+    if(get_property('choiceAdventure1387').to_int() != 3)
+        set_property('choiceAdventure1387', '3');
+
+    while(get_property('_saberForceUses').to_int() < 5)
+    {
+        while(get_property('_monstersMapped').to_int() < 3 && !get_property('mappingMonsters').to_boolean())
+        {
+            buffer buf;
+            use_skill(1,$skill[Map the Monsters]);
+
+            buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
+            if(buf.contains_text("Nothing Could Be Finer"))
+                buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
+            
+            visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
+            if(handling_choice())
+                run_choice(3);
+
+            set_property('mappingMonsters', 'false');
+        }
+        if(get_property('mappingMonsters').to_boolean())
+        {
+            visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
+            if(handling_choice())
+                run_choice(3);
+        }
+        else 
+        {
+            adv1($location[Sloppy Seconds Diner]  , -1, '');
+        }    
+    }
+    set_auto_attack(0);
+    set_property('mappingMonsters', 'false');
+}
+
 void main()
 {
     yachting();
