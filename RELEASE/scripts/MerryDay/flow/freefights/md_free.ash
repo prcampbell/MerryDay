@@ -10,7 +10,7 @@ import ff_rifts;
 import ff_melf;
 import ff_halloween;
 import ff_shadowbricks;
-import ff_yacht;
+import md_yacht;
 import ff_bander;
 import md_mpburn;
 import md_dailies;
