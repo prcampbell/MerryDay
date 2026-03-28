@@ -196,7 +196,7 @@ void dailyEffects()
 
 }
 
-void dailyFamiliarBuffs()
+void dailyFamiliarExpBuffs()
 {
     if(!get_property('_madTeaParty').to_boolean() )
     {
