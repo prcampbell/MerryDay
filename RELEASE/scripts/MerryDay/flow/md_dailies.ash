@@ -148,18 +148,6 @@ void dailyMeatBuffs()
     }
 }
 
-void dailyFamiliarBuffs()
-{
-    if(!get_property('friarsBlessingReceived').to_boolean())
-    {
-        cli_execute('friars blessing familiar');
-    }
-    if(!get_property('_defectiveTokenUsed').to_boolean() && $item[defective game grid token].item_amount() > 0)
-    {
-        use(1, $item[defective game grid token]);
-    }
-}
-
 void dailyItemBuffs()
 {
 if(!get_property('_legendaryBeat').to_boolean() && $item[The Legendary Beat].item_amount() > 0)
