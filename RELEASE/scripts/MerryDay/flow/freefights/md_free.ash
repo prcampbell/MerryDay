@@ -24,7 +24,7 @@ void merry_auto_attack()
 
 void freeruns_run()
 {
-    dailyFamiliarBuffs();
+
     GingerLatte();
     while(gap_can())
         gap_run();
