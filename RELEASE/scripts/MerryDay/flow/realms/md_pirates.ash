@@ -133,13 +133,19 @@ void keepStatsLow()
                     numeric_modifier(ef, "meat drop") <= 0 &&
                     numeric_modifier(ef, "familiar weight") == 0 &&
                     numeric_modifier(ef, "smithsness") == 0 
-                    // && numeric_modifier(ef, "item drop") == 0
+                    && numeric_modifier(ef, "item drop") == 0
                     ) 
                 {
+                    print("Removing " + ef + " to reduce " + st, "blue");
                     cli_execute("shrug " + ef);
                     if(my_buffedstat(st) <= 100)
                         break;
                 }
+            }
+            if(my_buffedstat(st) > 100)
+            {
+                print("Could not reduce " + st + " below 100, current value: " + my_buffedstat(st), "red");
+                break;
             }
         }
     }
