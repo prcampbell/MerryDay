@@ -129,6 +129,18 @@ void keepStatsLow()
             // Remove effects that affect the stat negatively
             foreach ef in my_effects() 
             {
+                if (numeric_modifier(ef, st.to_string() + ' Percent') > 0 &&
+                    numeric_modifier(ef, "meat drop") <= 0 &&
+                    numeric_modifier(ef, "familiar weight") == 0 &&
+                    numeric_modifier(ef, "smithsness") == 0 
+                    && numeric_modifier(ef, "item drop") == 0
+                    ) 
+                {
+                    print("Removing " + ef + " to reduce " + st, "blue");
+                    cli_execute("shrug " + ef);
+                    if(my_buffedstat(st) <= 100)
+                        break;
+                }
                 if (numeric_modifier(ef, st.to_string()) > 0 &&
                     numeric_modifier(ef, "meat drop") <= 0 &&
                     numeric_modifier(ef, "familiar weight") == 0 &&
