@@ -14,6 +14,7 @@ import md_yacht;
 import ff_bander;
 import md_mpburn;
 import md_dailies;
+import ff_free;
 
 void merry_auto_attack()
 {
@@ -131,6 +132,15 @@ void fights_run()
     construct_free_outfit(chooseFamiliar());
     glitch_reward_fight_run();
   }
+  if(moleman_can())
+  {
+      construct_free_outfit($familiar[grey goose]);
+      set_auto_attack('DroneStasis');
+      moleman_run();
+      set_auto_attack(0);    
+  }
+  if(smokepatches_can())
+      smokepatches();
 
   set_auto_attack(0);
 }
