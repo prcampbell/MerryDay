@@ -20,11 +20,7 @@ boolean[monster] peridotManuallyDesiredMonsters()
 
 void peridotChoiceHandler(int choice, string page)
 {
-	if(!auto_havePeridot())
-	{
-		run_choice(2); //should never get here but might as well mitigate
-	}
-	
+
 	monster popChoice;
 	location loc = my_location();
 	matcher mons = create_matcher("bandersnatch\" value=\"(\\d+)", page);
@@ -41,20 +37,14 @@ void peridotChoiceHandler(int choice, string page)
 			bestmon = i;
 			break; // if we've got a force desired monster, don't bother with the rankings any more
 		}
-		if(zoneRank(monOpts[i], loc) <= zoneRank(monOpts[bestmon], loc)) 
-		{
-			bestmon = i;
-		}
 		i += 1;
 	}
 	popChoice = monOpts[bestmon];
 	if(popChoice.to_int() == 0) //still nothing found so just peace out
 	{
-		handleTracker($item[Peridot of Peril], loc.to_string(), "Peace out", "auto_mapperidot");
 		run_choice(2); //if no match is found, hit the exit choice
 		return;
 	}
-	handleTracker($item[Peridot of Peril], loc.to_string(), popChoice.to_string(),"auto_mapperidot");
 	run_choice(1, "bandersnatch=" + popChoice.to_int());
 	return;
 }
