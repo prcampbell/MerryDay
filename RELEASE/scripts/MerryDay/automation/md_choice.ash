@@ -1,9 +1,8 @@
-script merryChoice.ash
+script merryChoice
 
- 
-void main ( int choiceID, string whichpage ) 
+void main ( int choice, string page ) 
 {
-	switch (choiceID) 
+	switch (choice) 
     {
 case 675 :
 run_choice(1);
