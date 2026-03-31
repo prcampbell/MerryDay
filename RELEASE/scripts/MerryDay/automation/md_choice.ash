@@ -511,6 +511,9 @@ choice 2: Flee it!
 					*/
 					run_choice(6);
 					break;
+		case 1557:  // Peering Through Your Peridot (Peridot of Peril zone monster selection choice)
+			peridotChoiceHandler(choice, page);
+			break;
 
 											
 		case -1:	/* <choice adventure name>
