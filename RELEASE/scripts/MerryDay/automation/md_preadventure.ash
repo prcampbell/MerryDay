@@ -74,17 +74,17 @@ void RestoreSetup()
 					
 		}
 		cli_execute('outfit birthday suit');
-		foreach eqSlot in $slots[]
+		foreach eqSlot in $slots[hat,weapon,off-hand,back,shirt,pants,acc1,acc2,acc3,familiar]
 		{
 			
 			if (equipped_item(eqSlot) != equipment[eqSlot])
-{
-if(available_amount(equipment[eqSlot]) == 0 && equipment[eqSlot] != $item[none])
-			{
-				cli_execute('fold ' + equipment[eqSlot].to_string());
-			}
-equip(eqSlot, equipment[eqSlot]);
-}
+            {
+                if(available_amount(equipment[eqSlot]) == 0 && equipment[eqSlot] != $item[none])
+                {
+                    cli_execute('fold ' + equipment[eqSlot].to_string());
+                }
+                equip(eqSlot, equipment[eqSlot]);
+            }
 				
 		}
 		if(get_property('parkaMode') != '')
