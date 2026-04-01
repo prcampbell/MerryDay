@@ -15,6 +15,7 @@ import ff_bander;
 import md_mpburn;
 import md_dailies;
 import ff_free;
+import ff_sandworm;
 
 void merry_auto_attack()
 {
@@ -141,6 +142,10 @@ void fights_run()
   }
   if(smokepatches_can())
       smokepatches();
+  if(sandworm_can())
+  {
+    Sandworm();
+  }  
 
   set_auto_attack(0);
 }
