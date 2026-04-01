@@ -49,6 +49,9 @@ void main(string command)
       case "free":
         free = true;
         break;
+      case "garbage":
+        free = false;
+        break;
 			case "help":
 				print("md_wrapper.ash Commands:", "blue");
 				print("free - use no adventures, don't open dinsey.");
