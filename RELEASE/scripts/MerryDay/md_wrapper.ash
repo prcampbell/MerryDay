@@ -97,14 +97,15 @@ void main(string command)
 
   dailyItems();
   dailyEffects();
+ 
+  dailyItemBuffs();
   unlockLatte();
   dailyFamiliarExpBuffs();
   freeruns_run();
   fights_run();
-  if(embezzlers_can())
-    embezzlers_run();
   if(!free)
   {
+
     dinsey();
     pirates_init();
     Sailing();
@@ -112,6 +113,11 @@ void main(string command)
     while(available_amount($item[li'l pirate costume]) == 0)
     {
       pgb_free_run();
+    }
+    dailyMeatBuffs();
+    if(embezzlers_can())
+    {
+      embezzlers_run();
     }
   }
     
@@ -122,8 +128,7 @@ void main(string command)
 
 
 
-  dailyMeatBuffs();
-  dailyItemBuffs();
+
   if(familiars_should())
     familiars_run();
   
