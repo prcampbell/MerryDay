@@ -243,6 +243,8 @@ void saber_run()
             print('Using the Force to get peril location 403', 'blue');
             equip($slot[acc1], $item[peridot of peril]);
             adv1($location[Sloppy Seconds Diner]  , -1, '');
+            if(handling_choice())
+                run_choice(3);
         }
         while(get_property('_monstersMapped').to_int() < 3 && !get_property('mappingMonsters').to_boolean())
         {
