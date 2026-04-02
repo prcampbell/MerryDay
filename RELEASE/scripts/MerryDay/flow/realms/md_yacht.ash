@@ -232,13 +232,18 @@ void saber_run()
 {
     set_property('battleAction', 'custom combat script');
     equip($slot[weapon], $item[Fourth of May Cosplay Saber]);
-    equip($slot[acc1], $item[peridot of peril]);
     set_auto_attack('UseTheForce');
     if(get_property('choiceAdventure1387').to_int() != 3)
         set_property('choiceAdventure1387', '3');
 
     while(get_property('_saberForceUses').to_int() < 5)
     {
+        if(!get_property('_perilLocations').contains_text('403'))
+        {
+            print('Using the Force to get peril location 403', 'blue');
+            equip($slot[acc1], $item[peridot of peril]);
+            adv1($location[Sloppy Seconds Diner]  , -1, '');
+        }
         while(get_property('_monstersMapped').to_int() < 3 && !get_property('mappingMonsters').to_boolean())
         {
             buffer buf;
