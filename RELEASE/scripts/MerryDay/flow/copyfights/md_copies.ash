@@ -173,10 +173,11 @@ void roach_run()
         spinner_run($monster[cockroach]);
     }
 
+    use_familiar($familiar[jill-of-all-trades]);
+    maximize('meat drop, equip powerful glove, equip latte lover, -equip backup camera',false);
+        
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_powerfulGloveBatteryPowerUsed').to_int() < 100)
     {
-        use_familiar($familiar[jill-of-all-trades]);
-        maximize('meat drop, equip powerful glove, equip latte lover',false);
         if(have_effect($effect[everything looks purple]) == 0)
         {
             equip($slot[off-hand],$item[Roman Candelabra]);
@@ -194,9 +195,9 @@ void roach_run()
     }
     
     //We save 2 for orb dancing later
+    maximize('meat drop, equip latte lover, -equip backup camera',false);
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 8)
     {
-        maximize('meat drop, equip latte lover',false);
         if(have_effect($effect[everything looks purple]) == 0)
         {
             equip($slot[off-hand],$item[Roman Candelabra]);
@@ -213,10 +214,10 @@ void roach_run()
         orb_run($monster[cockroach]);
     }    
 
+    use_familiar($familiar[jill-of-all-trades]);
+    maximize('meat drop, equip latte lover, equip backup camera',false);
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
     {
-        use_familiar($familiar[jill-of-all-trades]);
-        maximize('meat drop, equip latte lover, equip backup camera',false);
         if(have_effect($effect[everything looks purple]) == 0)
         {
             equip($slot[off-hand],$item[Roman Candelabra]);
@@ -231,12 +232,13 @@ void roach_run()
     if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
     {
         orb_run($monster[cockroach]);
-    }     
+    }
 
+    use_familiar($familiar[jill-of-all-trades]);
+    maximize('meat drop, equip latte lover, equip backup camera',false);
+    
     while(get_property('lastCopyableMonster') == 'cockroach' && get_property('_backUpUses').to_int() < 11)
-    {
-        use_familiar($familiar[jill-of-all-trades]);
-        maximize('meat drop, equip latte lover, equip backup camera',false);
+    {    
         if(have_effect($effect[everything looks purple]) == 0)
         {
             equip($slot[off-hand],$item[Roman Candelabra]);
