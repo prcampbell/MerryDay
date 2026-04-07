@@ -250,6 +250,8 @@ void saber_run()
             visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
             if(handling_choice())
                 run_choice(3);
+            if(get_property('_saberForceUses').to_int() >= 5)
+                break;
         }
         while(get_property('_monstersMapped').to_int() < 3 && !get_property('mappingMonsters').to_boolean())
         {
@@ -265,16 +267,22 @@ void saber_run()
                 run_choice(3);
 
             set_property('mappingMonsters', 'false');
+            if(get_property('_saberForceUses').to_int() >= 5)
+                break;
         }
         if(get_property('mappingMonsters').to_boolean())
         {
             visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
             if(handling_choice())
                 run_choice(3);
+            if(get_property('_saberForceUses').to_int() >= 5)
+                break;
         }
         else 
         {
             adv1($location[Sloppy Seconds Diner]  , -1, '');
+            if(get_property('_saberForceUses').to_int() >= 5)
+                break;
         }    
     }
     set_auto_attack(0);
