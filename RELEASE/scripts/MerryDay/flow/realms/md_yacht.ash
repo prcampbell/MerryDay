@@ -240,9 +240,14 @@ void saber_run()
     {
         if(!get_property('_perilLocations').contains_text('403'))
         {
+            buffer buf;
             print('Using the Force to get peril location 403', 'blue');
             equip($slot[acc1], $item[peridot of peril]);
-            adv1($location[Sloppy Seconds Diner]  , -1, '');
+            buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
+            if(buf.contains_text("Nothing Could Be Finer"))
+                buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
+            
+            visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
             if(handling_choice())
                 run_choice(3);
         }
