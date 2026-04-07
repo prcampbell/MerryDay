@@ -122,6 +122,12 @@ void main(string command)
     {
       embezzlers_run();
     }
+    crabs_run();
+    Sailing();
+    if(roach_can())
+    {
+        roach_run();
+    }
   }
     
   abort();
@@ -146,13 +152,7 @@ void main(string command)
 
 
 /*We start running adventures here*/
-    
-  crabs_run();
-  Sailing();
-  if(roach_can())
-  {
-      roach_run();
-  }
+
   crabs_run();
   Sailing();
   storm_run();
