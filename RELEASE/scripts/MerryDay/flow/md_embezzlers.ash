@@ -156,7 +156,7 @@ boolean sax_run()
 
 boolean hotdog_can()
 {
-    return item_amount($item[tattered scrap of paper]) > 25 && get_clan_id() == 84165;
+    return item_amount($item[tattered scrap of paper]) > 25 && get_clan_id() == VIPClan;
 }
 
 boolean hotdog_run()
