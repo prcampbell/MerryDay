@@ -735,8 +735,13 @@ void construct_meat_outfit(familiar fam, location loc)
 	construct_meat_outfit(required_equips, fam);
 }
 
+void construct_meat_outfit(item[slot] required_equips)
+{
+	construct_meat_outfit(required_equips, meat_familiar());
+}
+
 void construct_meat_outfit()
 {
 	item[slot] required_equips;
-	construct_meat_outfit(required_equips, chooseFamiliar());
+	construct_meat_outfit(required_equips, meat_familiar());
 }
