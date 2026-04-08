@@ -148,23 +148,6 @@ void main(string command)
     
   abort();
 
- 
-
-
-
-
-
-  if(familiars_should())
-    familiars_run();
-  
-  if(moleman_can())
-  {
-      use_familiar($familiar[grey goose]);
-      maximize('familiar exp', false);
-      set_auto_attack('DroneStasis');
-      moleman_run();
-      set_auto_attack(0);    
-  }
 
 
 /*We start running adventures here*/
