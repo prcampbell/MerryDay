@@ -563,7 +563,7 @@ void purple()
 		}
 		else 
 		{
-			foreach m in $monsters[witchess knight, witchess bishop, sausage goblin]
+			foreach m in $monsters[cockroach, witchess bishop, witchess knight,  sausage goblin]
 			{
 				if(c2t_megg_eggs()[m] > 0)
 				{
@@ -571,7 +571,14 @@ void purple()
 					SaveSetup();	
 					needs[$slot[off-hand]] = $item[roman candelabra];
 					cli_execute('autoattack BasicAscend;');
-					construct_free_outfit(needs); 
+					if(m == $monster[cockroach])
+					{
+						construct_meat_outfit(needs);
+					}
+					else 
+					{
+						construct_free_outfit(needs);
+					}
 					c2t_megg_fight(m);
 					HandleChains();
 					set_auto_attack(0); 
