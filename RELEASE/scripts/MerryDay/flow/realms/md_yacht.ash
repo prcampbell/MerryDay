@@ -247,7 +247,8 @@ void saber_run()
             if(buf.contains_text("Nothing Could Be Finer"))
                 buf = visit_url($location[Sloppy Seconds Diner].to_url(),false,true);
             
-            visit_url("choice.php?pwd&whichchoice=1435&option=1&heyscriptswhatsupwinkwink="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
+            visit_url("choice.php?pwd&whichchoice=1557&option=1&bandersnatch="+$monster[Sloppy Seconds Sundae].to_int(),true,true);
+            
             if(handling_choice())
                 run_choice(3);
             if(get_property('_saberForceUses').to_int() >= 5)
