@@ -475,7 +475,6 @@ void kramco()
 			use_familiar($familiar[pocket professor]);
 			maximize('mus, equip kramco', false);
 			set_auto_attack(0);
-			construct_free_outfit(needs, $familiar[pocket professor]);
 		}
 		else 
 		{
