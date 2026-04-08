@@ -141,7 +141,6 @@ void bustGhost()
 {
 	if(to_location(get_property("ghostLocation")) == $location[none])
 		return;
-	
 	SaveSetup();
     set_auto_attack(0);
 	location ghostLocation = to_location(get_property("ghostLocation"));
@@ -186,7 +185,7 @@ void bustGhost()
 		needs[$slot[back]] = $item[protonic accelerator pack];
 		construct_free_outfit(needs, chooseFamiliar());
 
-		
+		print("Busting ghost in " + ghostLocation.to_string(), "blue");
 		(!adv1(ghostLocation, -1, "if !monstername The Headless Horseman || !monstername The ghost of Ebenoozer Screege ||	!monstername The ghost of Lord Montague Spookyraven || !monstername The ghost of Waldo the Carpathian || !monstername The Icewoman ||!monstername The ghost of Jim Unfortunato || !monstername the ghost of Sam McGee ||!monstername Emily Koops\, a spooky lime || !monstername the ghost of Monsieur Baguelle ||!monstername The ghost of Vanillica \"Trashblossom\" Gorton || !monstername the ghost of Oily McBindle, boneless blobghost || !monstername The ghost of Richard Cockingham || !monstername The Headless Horseman use divine champagne popper endif; skill Shadow Noodles; while hasskill Shoot Ghost; skill Shoot Ghost; if hasskill Trap Ghost; skill Trap Ghost; endif; endwhile;"));
 		
 		if($monsters[The Headless Horseman, The ghost of Ebenoozer Screege, The ghost of Lord Montague Spookyraven, The ghost of Waldo the Carpathian, 	The Icewoman, The ghost of Jim Unfortunato, the ghost of Sam McGee, Emily Koops\, a spooky lime, the ghost of Monsieur Baguelle, The ghost of Vanillica "Trashblossom" Gorton, the ghost of Oily McBindle, boneless blobghost, The ghost of Richard Cockingham, The Headless Horseman] contains get_property('lastEncounter').to_monster()
@@ -200,7 +199,9 @@ void bustGhost()
 void BrickoPrime() 
 {
 	location ghostLocation = to_location(get_property("ghostLocation"));
-	if (to_boolean(get_property("kingLiberated")) && ghostLocation == $location[none] && total_turns_played() > get_property("nextParanormalActivity").to_int() ) 
+	if (to_boolean(get_property("kingLiberated")) 
+		&& ghostLocation == $location[none] 
+		&& total_turns_played() > get_property("nextParanormalActivity").to_int() ) 
 	{
 		if (get_property("_brickoFights").to_int()<10) 
 		{
@@ -210,7 +211,7 @@ void BrickoPrime()
 			item[slot] needs;
 			needs[$slot[back]] = $item[protonic accelerator pack];
 			construct_free_outfit(needs, chooseFamiliar());
-			
+			print("Priming the ghost with a BRICKO Ooze", "blue");
 			use( 1, $item[BRICKO Ooze] );
 			location ghostLocation = to_location(get_property("ghostLocation"));
 			if  ( ghostLocation == $location[none] )
@@ -279,7 +280,7 @@ void voteMonster()
 		}
 
 		construct_free_outfit(needs, chooseFamiliar());
-		print('Trying to fight vote monster in' + target.to_string());
+		print('Trying to fight vote monster in' + target.to_string(), 'blue');
 		(!adv1(target, -1, macro));
 		
 		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
@@ -420,6 +421,7 @@ void digitizeMonster()
 		}
 		
 		construct_free_outfit(needs, familiarChoice);
+		print('Trying to fight digitize monster in' + target.to_string(), 'blue');
 		(!adv1(target, -1, macro));
 
 		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
@@ -487,6 +489,7 @@ void kramco()
 			construct_free_outfit(needs, chooseFamiliar());
 			
 		}
+		print('Trying to fight sausage monster in' + target.to_string(), 'blue');
 		(!adv1(target, -1, macro));
 
 		if(hasDinseyQuest())
@@ -690,6 +693,7 @@ void acid()
 			cli_execute('parka dilophosaur');
 		}
 		set_auto_attack('BasicAscend');
+		print('Spitting Acid at a monster in ' + target.to_string(), 'blue');
 		(!adv1(target, -1, ''));
 		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
 		{
