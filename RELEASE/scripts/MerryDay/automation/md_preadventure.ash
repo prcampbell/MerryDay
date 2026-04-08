@@ -125,10 +125,10 @@ void RemoveCurrencies()
 
 }
 
-void moodUp()
+
+void moodUp(int adv)
 {
-    
-    if(have_effect($effect[leash of linguini]) < my_adventures() && my_mp() > 4)
+    if(have_effect($effect[leash of linguini]) < adv && my_mp() > 4)
     {
         SaveSetup();
         item[slot] required_equips;
@@ -139,7 +139,7 @@ void moodUp()
         construct_free_outfit(required_equips);
         use_skill(1, $skill[leash of linguini]);
     }
-    if(have_effect($effect[empathy]) < my_adventures() && my_mp() > 7)
+    if(have_effect($effect[empathy]) < adv && my_mp() > 7)
     {
         SaveSetup();
         item[slot] required_equips;
@@ -150,7 +150,7 @@ void moodUp()
         construct_free_outfit(required_equips);
         use_skill(1, $skill[empathy of the newt]);
     }
-    if(have_effect($effect[Ruthlessly Efficient]) < my_adventures() && my_mp() > 7)
+    if(have_effect($effect[Ruthlessly Efficient]) < adv && my_mp() > 7)
     {
         SaveSetup();
         item[slot] required_equips;
@@ -161,7 +161,7 @@ void moodUp()
         construct_free_outfit(required_equips);
         use_skill(1, $skill[Ruthless Efficiency]);
     }
-    if(have_effect($effect[Disco Leer]) < my_adventures() && my_mp() > 7)
+    if(have_effect($effect[Disco Leer]) < adv && my_mp() > 7)
     {
         SaveSetup();
         item[slot] required_equips;
@@ -172,7 +172,7 @@ void moodUp()
         construct_free_outfit(required_equips);
         use_skill(1, $skill[Disco Leer]);
     }
-    if(have_effect($effect[Thoughtful Empathy]) < my_adventures() && my_mp() > 7)
+    if(have_effect($effect[Thoughtful Empathy]) < adv && my_mp() > 7)
     {
         SaveSetup();
         item[slot] required_equips;
@@ -184,7 +184,7 @@ void moodUp()
         construct_free_outfit(required_equips, $familiar[left-hand man]);
         use_skill(1, $skill[empathy of the newt]);
     }
-    if(have_effect($effect[Curiosity of Br'er Tarrypin]) < my_adventures() && my_mp() > 7)
+    if(have_effect($effect[Curiosity of Br'er Tarrypin]) < adv && my_mp() > 7)
     {
         SaveSetup();
         item[slot] required_equips;
@@ -195,23 +195,27 @@ void moodUp()
         construct_free_outfit(required_equips);
         use_skill(1, $skill[Curiosity of Br'er Tarrypin]);
     }
-    /*
-    if(have_effect($effect[Pasta Eyeball]) < my_adventures() && my_mp() > 200 && my_class() != $class[pastamancer])
+    if(have_effect($effect[Only Dogs Love a Drunken Sailor]) < adv && my_mp() > 22)
     {
+        SaveSetup();
         item[slot] required_equips;
         required_equips[$slot[off-hand]] = $item[Wand of Oscus];
         required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
         required_equips[$slot[acc1]] = $item[Oscus's pelt];
         required_equips[$slot[acc2]] = $item[Brimstone Bracelet];
         construct_free_outfit(required_equips);
-        use_skill(1, $skill[Bind Lasagmbie]);
-    }*/
-
-    if(have_effect($effect[Blood Bond]) < my_adventures() && my_hp() > 30)
-    {
-        use_skill(1, $skill[Blood Bond]);
+        use_skill(1, $skill[Only Dogs Love a Drunken Sailor]);
     }
 
+    if(have_effect($effect[Blood Bond]) < adv && my_hp() > 30)
+    {
+        use_skill(1, $skill[Blood Bond]);
+    }    
+}
+
+void moodUp()
+{
+    moodUp(my_adventures());
 }
 
 boolean make_sausage()
