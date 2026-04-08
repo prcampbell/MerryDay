@@ -168,6 +168,7 @@ boolean GingerLatte()
 		return false;
 	}
 	required_equips[$slot[off-hand]] = $item[latte lovers member's mug];
+	required_equips[$slot[weapon]] = $item[fourth of may cosplay saber];
 	construct_free_outfit(required_equips, $familiar[Blavious Kloop]);
 
 	set_property('choiceAdventure1215', '1');
