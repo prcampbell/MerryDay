@@ -13,7 +13,7 @@ void mpBuff()
 { 
 	use_familiar($familiar[left-hand man]);
 
-	maximize('mp, outfit vile vagrant, equip brimstone bracelet, switch left-hand man', false);
+	maximize(MPMaximizerString, false);
 	//Slotless All Stats
 	//Telescope
 	if (get_campground() contains $item[discount telescope warehouse gift certificate] 
@@ -185,6 +185,28 @@ boolean GingerLatte()
 		cli_execute('Librams; latte refill cajun rawhide carrot');
 	}
 	return true;
+}
+
+void moodUp(int adv, skill check, effect buff)
+{
+
+    int numCasts = (adv - have_effect(buff)) / turns_per_cast(check);
+    if(have_effect(buff) < adv && my_mp() >= mp_cost(check)*numCasts)
+    {
+        item[slot] required_equips;
+        familiar fam = $familiar[none];
+        required_equips[$slot[off-hand]] = $item[Wand of Oscus];
+        required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
+        required_equips[$slot[acc1]] = $item[Oscus's pelt];
+        required_equips[$slot[acc2]] = $item[Brimstone Bracelet];
+        if(buff == $effect[Thoughtful Empathy])
+        {
+            fam = $familiar[left-hand man];
+            required_equips[$slot[familiar]] = $item[April Shower Thoughts Shield];
+        }
+        construct_free_outfit(required_equips, fam);
+        use_skill(numCasts, check);
+    }
 }
 
 /* 

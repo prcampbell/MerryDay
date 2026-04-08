@@ -94,6 +94,22 @@ void main(string command)
     PYEC();
     ClanShower();
     FratNuns();
+
+
+
+
+    if(my_mp() > 200)
+    {
+      moodUp(650, $skill[Only Dogs Love a Drunken Sailor], $effect[Only Dogs Love a Drunken Sailor]);
+      moodUp(650, $skill[Ruthless Efficiency], $effect[Ruthlessly Efficient]);
+      moodUp(650, $skill[Disco Leer], $effect[Disco Leer]);
+      moodUp(650, $skill[empathy of the newt], $effect[Empathy]);
+      moodUp(650, $skill[Curiosity of Br'er Tarrypin], $effect[Curiosity of Br'er Tarrypin]);
+      moodUp(650, $skill[leash of linguini], $effect[leash of linguini]);
+      moodUp(650, $skill[empathy of the newt], $effect[Thoughtful Empathy]);
+    }
+
+
     if($effect[The Magical Mojomuscular Melody].have_effect() > 0)
       cli_execute('uneffect Mojomuscular Melody');  
   }
