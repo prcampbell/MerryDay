@@ -118,10 +118,6 @@ void dailyMeatBuffs()
     {
         cli_execute('monkeypaw effect Frosty');
     }
-    if(get_property('_monkeyPawWishesUsed').to_int() == 4)
-    {
-        cli_execute('monkeypaw effect Braaaaaains');
-    }
     if(!get_property('_portableSteamUnitUsed').to_boolean())
     {
         use(1, $item[portable steam unit]);
