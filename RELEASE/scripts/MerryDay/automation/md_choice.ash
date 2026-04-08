@@ -5,9 +5,24 @@ void main ( int choice, string page )
 {
 	switch (choice) 
     {
-case 675 :
-run_choice(1);
-break;
+		case 675 :
+		run_choice(1);
+		break;
+		case 669: /*Encounter: The Fast and the Furry-ous
+					choice 3: Get out of this Junk (skip adventure) */
+				run_choice(3);			
+			break;
+		case 671: /*Encounter: Out in the Open Source
+					choice 1: Check out the Dumbwaiter (With massive dumbbell, open Ground Floor, otherwise skip adventure)
+					choice 2: Mess with the Computer Equipment (200 Mysticality substats)
+					choice 3: Check the Neckbeard's Giant Cargo Shorts (O'RLY manual, open sauce)
+					choice 4: Crawl through the Heating Vent (Fitness Choice) */
+				run_choice(1);			
+			break;
+		case 672: /*Encounter: There's No Ability Like Possibility
+					choice 3: Get out of this Junk (skip adventure) */
+				run_choice(3);			
+			break;
 		case 673: /*Encounter: Putting Off is Off-Putting
 					choice 1: Look Under a Pile of Junk (very overdue library book, then skip adventure)
 					choice 2: Roll in a Pile of Junk (Trash-Wrapped)
