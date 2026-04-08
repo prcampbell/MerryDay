@@ -384,10 +384,10 @@ void digitizeMonster()
 		SaveSetup();
 
 		location target = defaultTargetLocation();
-		string macro = 'skill saucegeyser;';
+		string macro = '';
 
 		item[slot] needs;
-
+		set_auto_attack('BasicBarf');
 		if(hasDinseyQuest())
 		{
 			if(parseDinseyQuest() == 'Social Justice Adventurer I')
@@ -419,11 +419,16 @@ void digitizeMonster()
 			}
 			target = doctorLocation;
 		}
-		
+		if(get_property('sourceTerminalEducate1') != 'digitize.edu'
+        && get_property('sourceTerminalEducate2') != 'digitize.edu')
+		{
+			cli_execute('terminal educate digitize.edu');
+		}
 		construct_free_outfit(needs, familiarChoice);
 		print('Trying to fight digitize monster in' + target.to_string(), 'blue');
 		(!adv1(target, -1, macro));
-
+		cli_execute('terminal educate extract.edu');
+		cli_execute('terminal educate turbo.edu');
 		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
 		{
 			visit_url(kiosk);
@@ -453,6 +458,7 @@ void kramco()
 		location target = defaultTargetLocation();
 		string macro = 'skill saucegeyser;';
 		item[slot] needs;
+		needs[$slot[off-hand]] = $item[Kramco Sausage-o-Matic&trade;];
 		
 		SaveSetup();
 		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
@@ -468,11 +474,11 @@ void kramco()
 			macro = 'skill 7316;';
 			use_familiar($familiar[pocket professor]);
 			maximize('mus, equip kramco', false);
+			set_auto_attack(0);
+			construct_free_outfit(needs, $familiar[pocket professor]);
 		}
 		else 
 		{
-			needs[$slot[off-hand]] = $item[Kramco Sausage-o-Matic&trade;];
-			
 			if(hasDinseyQuest())
 			{ 
 				if(parseDinseyQuest() == 'Social Justice Adventurer I')
@@ -485,7 +491,6 @@ void kramco()
 					target = $location[The Toxic Teacups];
 				}
 			}
-
 			construct_free_outfit(needs, chooseFamiliar());
 			
 		}
