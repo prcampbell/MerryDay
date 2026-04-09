@@ -39,6 +39,7 @@ void SaveSetup()
         beforeAdventureScript = get_property("betweenBattleScript");
         set_property("betweenBattleScript", "");
 		afterAdventureScript = get_property("afterAdventureScript"); 
+        print('Saved afteradventure script as: ' + afterAdventureScript, 'green');
 		set_property("afterAdventureScript", ""); //Note Awkward workaround: required to stop nested calls of the after Adventure script (as would otherwise happen after any of the adv1() calls in the script). The nesting messes up the restoration of the setup
 		SetupSaved = TRUE; //To prevent overriding the first saved setup, in case multiple of the functions in the script get called in succession (like picking a bricko fight and then busting a ghost). 
 //Specifically done at the end, because Restoring a partial setup can get kinda messy (folder holder slots are in $slots[], as I found out the hard way after wondering for a while why my folder holder would randomly be empty every once in a while).
