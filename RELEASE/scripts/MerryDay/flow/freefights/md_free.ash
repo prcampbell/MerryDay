@@ -163,26 +163,6 @@ void fights_run()
 
 void main()
 {
-  
-
-    
+  freeruns_run();
   fights_run();
-/*
-  while(gap_can())
-      gap_run();
-  while(gingerbread_bander_can())
-      gingerbread_bander_run();
-  while(doctor_bander_can())
-      doctor_bander_run();
-  if(fungi_bander_can())
-  {
-    maximize('familiar weight, equip tearaway pants', false);
-    while(fungi_bander_can())
-        fungi_bander_run();   
-  }
-  if(sandworm_can())
-	{
-		Sandworm();
-	}    
-*/
 }
