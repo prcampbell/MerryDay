@@ -478,14 +478,6 @@ void kramco()
 
 			target = guzzlrLocation;
 		}
-		if(thesis_can())
-		{
-			print('Trying to deliver our thesis', 'blue');
-			macro = 'skill 7316;';
-			use_familiar($familiar[pocket professor]);
-			maximize('mus, equip kramco', false);
-			set_auto_attack(0);
-		}
 		else 
 		{
 			if(hasDinseyQuest())
@@ -504,6 +496,14 @@ void kramco()
 			}
 			construct_free_outfit(needs, chooseFamiliar());
 			
+		}
+		if(thesis_can())
+		{
+			print('Trying to deliver our thesis', 'blue');
+			macro = 'skill 7316;';
+			use_familiar($familiar[pocket professor]);
+			maximize('mus, equip kramco', false);
+			set_auto_attack(0);
 		}
 		print('Trying to fight sausage monster in' + target.to_string(), 'blue');
 		(!adv1(target, -1, macro));
