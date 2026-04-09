@@ -194,6 +194,7 @@ location wandererLocation()
 	{
 		return defaultTargetLocation();
 	}
+	return defaultTargetLocation();
 }
 
 item[slot] locationNeeds(location loc)
