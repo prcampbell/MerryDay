@@ -150,20 +150,6 @@ void mobiusChoiceHandler(int choice, string page)
 		}
 	}
 
-	// we've done everything we care about, find a loop
-	if (canEat($item[Susie's cupcake])) {
-		pos = "Steal a cupcake from young Susie";
-		if (choiceMap contains pos) {
-			mobiusChoice(pos);
-			return;
-		}
-		pos = "Bake Susie a cupcake";
-		if (choiceMap contains pos) {
-			mobiusChoice(pos);
-			return;
-		}
-	}
-
 	// meat is normally useful
 	pos = "Borrow meat from your future";
 	if (choiceMap contains pos) {
