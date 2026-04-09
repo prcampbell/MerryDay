@@ -3,7 +3,7 @@ import md_outfit.ash;
 import md_diet.ash;
 import md_library.ash;
 import ff_rifts.ash;
-import md_library.ash;
+
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
