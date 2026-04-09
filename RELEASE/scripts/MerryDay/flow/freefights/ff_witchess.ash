@@ -8,7 +8,7 @@ int wBishop = 1942;
 
 boolean witchess_can()
 {
-    return get_campground() contains $item[Witchess Set] && get_property("_witchessFights").to_int() < 5;
+    return get_campground() contains $item[Witchess Set] && get_property("_MerryWitchessFights").to_int() < 5;
 }
 
 boolean witchess_run(monster piece)
