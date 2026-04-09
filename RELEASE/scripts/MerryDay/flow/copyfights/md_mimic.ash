@@ -6,7 +6,9 @@ import md_library.ash;
 
 boolean mimic_can()
 {
-    return get_property('_mimicEggsObtained').to_int() < 11 && witchess_can();
+    return get_property('_mimicEggsObtained').to_int() < 11
+            && $familiar[chest mimic].experience >= 50
+            && witchess_can();
 }
 
 void mimic_run()
@@ -34,7 +36,9 @@ void mimic_run()
 
 boolean mimic_can(monster it)
 {
-    return c2t_megg_eggs()[it] > 0;
+    return c2t_megg_eggs()[it] > 0
+            && get_property('_mimicEggsObtained').to_int() < 11
+            && $familiar[chest mimic].experience >= 50;
 }
 
 void mimic_run(monster it)
