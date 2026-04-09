@@ -173,21 +173,21 @@ location wandererLocation()
 		print('Wandering in Dinsey', 'blue');
 		if(parseDinseyQuest() == 'Social Justice Adventurer I')
 		{
-			target = $location[Pirates of the Garbage Barges];
+			return $location[Pirates of the Garbage Barges];
 		}
 			
 		else if(parseDinseyQuest() == 'Social Justice Adventurer II')
 		{
-			target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
+			return $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
 		}
 			
 		else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
 		{
-			target = $location[The Toxic Teacups];
+			return $location[The Toxic Teacups];
 		}
 		else if(parseDinseyQuest() == 'Teach a Man to Fish Trash')
 		{
-			target = $location[Pirates of the Garbage Barges];
+			return $location[Pirates of the Garbage Barges];
 		}
 	}
 	else
@@ -311,6 +311,7 @@ void voteMonster()
 {
 	if(get_property("_voteFreeFights") < 3 && (total_turns_played() % 11) == 1 && get_property("lastVoteMonsterTurn") < total_turns_played())
 	{
+		item votedSticker = to_item("&quot;I Voted!&quot; sticker");
 		location target = defaultTargetLocation();
 		string macro = 'skill saucegeyser;';
 		item[slot] needs;
