@@ -37,7 +37,7 @@ boolean mimic_can(monster it)
     return c2t_megg_eggs()[it] > 0;
 }
 
-boolean mimic_run(monster it)
+void mimic_run(monster it)
 {
     if(c2t_megg_eggs()[it] > 0)
     {
