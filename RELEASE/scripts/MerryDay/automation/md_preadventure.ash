@@ -75,7 +75,7 @@ void RestoreSetup()
 					
 		}
 		cli_execute('outfit birthday suit');
-		foreach eqSlot in $slots[hat,weapon,off-hand,back,shirt,pants,acc1,acc2,acc3,familiar]
+		foreach eqSlot in $slots[hat,weapon,off-hand,back,shirt,pants,acc1,acc2,acc3]
 		{
 			
 			if (equipped_item(eqSlot) != equipment[eqSlot])
