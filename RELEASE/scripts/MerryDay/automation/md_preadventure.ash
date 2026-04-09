@@ -50,7 +50,7 @@ void RestoreSetup()
 	if (SetupSaved) 
 	{
 		print("Restoring setup ... ", "green");
-		set_property("afterAdventureScript", afterAdventureScript);
+		set_property("afterAdventureScript", 'md_postadventure.ash');
         set_property("betweenBattleScript", beforeAdventureScript);
 		if (aa != get_auto_attack())
         {   
