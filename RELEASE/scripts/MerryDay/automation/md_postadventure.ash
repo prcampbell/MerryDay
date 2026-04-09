@@ -1,7 +1,7 @@
 import c2t_megg.ash;
 import md_outfit.ash;
 import ff_witchess.ash;
-import ff_sausages;
+import md_pockeprofessor.ash;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
