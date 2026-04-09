@@ -8,22 +8,18 @@ void yacht_outfit()
 {
     equip($slot[hat], $item[Apriling band helmet]);
 
-    equip($slot[weapon], $item[garbage sticker]);
+    equip($slot[weapon], $item[angelbone totem]);
     equip($slot[off-hand], $item[latte lovers member's mug]);
 
     equip($slot[back], $item[elf guard scuba tank]);
-    equip($slot[shirt], $item[jurassic parka]);
-    if(get_property('parkaMode') != 'kachungasaur')
-    {
-        cli_execute('parka meat');
-    }
-    equip($slot[pants], $item[repaid diaper]);
+    equip($slot[shirt], $item[devilbone corset]);
+    equip($slot[pants], $item[devilbone greaves]);
 
-    equip($slot[acc1], $item[yamtility belt]);
-    equip($slot[acc2], $item[wormwood wedding ring]);
-    equip($slot[acc3], $item[anemoney clip]);
+    equip($slot[acc1], $item[angelbone chopsticks]);
+    equip($slot[acc2], $item[angelbone dice]);
+    equip($slot[acc3], $item[devilbone rosary]);
 
-    equip($slot[familiar], $item[pet anemone]);
+    equip($slot[familiar], $item[amulet coin]);
     
 }
 
