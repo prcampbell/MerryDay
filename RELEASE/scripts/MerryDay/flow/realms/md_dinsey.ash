@@ -199,6 +199,11 @@ void barf_auto_attack()
 boolean barf_run()
 {
     print('Barf Mountain, 1 turn only', 'green');
+    if(get_property('betweenBattleScript') != 'md_preadventure.ash')
+		set_property('betweenBattleScript', 'md_preadventure.ash');
+
+	if(get_property('afterAdventureScript') != '')
+		set_property('afterAdventureScript', 'md_postadventure.ash');
     barf_auto_attack();
     construct_meat_outfit(meat_familiar(), $location[Barf Mountain]);
     return adv1($location[Barf Mountain], -1, '');
