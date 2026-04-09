@@ -44,6 +44,20 @@ string parseDinseyQuest()
 	return output;
 }
 
+void kiosk_run()
+{
+	if(get_property('_merryDinseyQuest') != ''	)
+	{
+		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+		{
+			visit_url(kiosk);
+			run_choice( 3 );
+			run_choice( 6 );
+			set_property('_merryDinseyQuest', '');
+		}	
+	}
+}
+
 void SaveSetup() 
 {
 	if (!SetupSaved) 
@@ -136,6 +150,67 @@ location defaultTargetLocation()
 			{
 				return $location[The Haunted Kitchen];
 			}
+}
+
+location wandererLocation()
+{
+	location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
+	location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
+	location ghostLocation = to_location(get_property("ghostLocation"));
+	
+	if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
+	{
+		print('Wandering in doctor location', 'blue');
+		return doctorLocation;
+	}
+	else if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation) && guzzlrLocation.wanderers)
+	{
+		print('Wandering in guzzlr location', 'blue');
+		return guzzlrLocation;
+	}
+	else if(hasDinseyQuest())
+	{
+		print('Wandering in Dinsey', 'blue');
+		if(parseDinseyQuest() == 'Social Justice Adventurer I')
+		{
+			target = $location[Pirates of the Garbage Barges];
+		}
+			
+		else if(parseDinseyQuest() == 'Social Justice Adventurer II')
+		{
+			target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
+		}
+			
+		else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
+		{
+			target = $location[The Toxic Teacups];
+		}
+		else if(parseDinseyQuest() == 'Teach a Man to Fish Trash')
+		{
+			target = $location[Pirates of the Garbage Barges];
+		}
+	}
+	else
+	{
+		return defaultTargetLocation();
+	}
+}
+
+item[slot] locationNeeds(location loc)
+{
+	item[slot] needs;
+	switch(loc)
+	{
+		case $location[Pirates of the Garbage Barges]:
+			needs[$slot[weapon]] = $item[trash net];
+			break;
+		case $location[The Toxic Teacups]:
+			needs[$slot[hat]] = $item[Dinsey mascot mask];
+			break;
+		default:
+			break;
+	}
+	return needs;
 }
 
 void bustGhost() 
@@ -236,64 +311,18 @@ void voteMonster()
 {
 	if(get_property("_voteFreeFights") < 3 && (total_turns_played() % 11) == 1 && get_property("lastVoteMonsterTurn") < total_turns_played())
 	{
-		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
-		item votedSticker = to_item("&quot;I Voted!&quot; sticker");
-		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
-		location ghostLocation = to_location(get_property("ghostLocation"));
-	
 		location target = defaultTargetLocation();
 		string macro = 'skill saucegeyser;';
-
 		item[slot] needs;
-		needs[$slot[acc3]] = votedSticker;	
+			
 		SaveSetup();
-		print('Trying to fight vote monster in' + target.to_string(), 'blue');
-		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation != $location[The Dire Warren])
-		{
-			print('Wandering in doctor location', 'blue');
-			target = doctorLocation;
-		}
-		else if(guzzlrLocation != $location[none] && can_adventure(guzzlrLocation))
-		{
-			print('Wandering in guzzlr location', 'blue');
-			target = guzzlrLocation;
-		}
-		else if(hasDinseyQuest())
-		{
-			print('Wandering in Dinsey', 'blue');
-			if(parseDinseyQuest() == 'Social Justice Adventurer I')
-			{
-				target = $location[Pirates of the Garbage Barges];
-			}
-				
-			else if(parseDinseyQuest() == 'Social Justice Adventurer II')
-			{
-				target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
-			}
-				
-			else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
-			{
-				needs[$slot[hat]] = $item[Dinsey mascot mask];
-				target = $location[The Toxic Teacups];
-			}
-			else if(parseDinseyQuest() == 'Teach a Man to Fish Trash')
-			{
-				needs[$slot[weapon]] = $item[trash net];
-				target = $location[Pirates of the Garbage Barges];
-			}
-		}
-
+		print('Trying to fight vote monster', 'blue');
+		target = wandererLocation();
+		needs = locationNeeds(target);
+		needs[$slot[acc3]] = votedSticker;
 		construct_free_outfit(needs, chooseFamiliar());
-		
 		(!adv1(target, -1, macro));
-		
-		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
-		{
-			visit_url(kiosk);
-			run_choice( 3 );
-			run_choice( 6 );
-			set_property('_merryDinseyQuest', '');
-		}
+		kiosk_run();
 	}
 	
 }
