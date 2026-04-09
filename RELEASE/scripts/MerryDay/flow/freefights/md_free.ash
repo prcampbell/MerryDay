@@ -53,6 +53,19 @@ void fights_run()
   {
       saber_run();
   }
+  if(moleman_can())
+  {
+      construct_free_outfit($familiar[grey goose]);
+      set_auto_attack('DroneStasis');
+      moleman_run();
+      set_auto_attack(0);    
+  }
+  if(smokepatches_can())
+    smokepatches();
+  if(sandworm_can())
+  {
+    Sandworm();
+  }
   if(LOV_can())
   {
     merry_auto_attack();
@@ -84,23 +97,22 @@ void fights_run()
   if(tentacle_skill_fight_can())
   {
     merry_auto_attack();
-    construct_free_outfit(chooseFamiliar());
+    construct_free_outfit();
     tentacle_skill_fight_run();
   }
   if(tentacle_fight_can())
   {
     merry_auto_attack();
-    construct_free_outfit(chooseFamiliar());
+    construct_free_outfit();
     tentacle_fight_run();
   }
   while(leaves_can())
   {
     merry_auto_attack();
-    construct_free_outfit(chooseFamiliar());
-    equip($slot[pants], $item[tearaway pants]);
+    construct_free_outfit($phylum[plant]);
     leaves_run();
   }
-  if(lobster_can())
+  while(lobster_can())
   {
     merry_auto_attack();
     construct_free_outfit();
@@ -143,19 +155,8 @@ void fights_run()
     construct_free_outfit(chooseFamiliar());
     glitch_reward_fight_run();
   }
-  if(moleman_can())
-  {
-      construct_free_outfit($familiar[grey goose]);
-      set_auto_attack('DroneStasis');
-      moleman_run();
-      set_auto_attack(0);    
-  }
-  if(smokepatches_can())
-      smokepatches();
-  if(sandworm_can())
-  {
-    Sandworm();
-  }  
+
+  
 
   set_auto_attack(0);
 }

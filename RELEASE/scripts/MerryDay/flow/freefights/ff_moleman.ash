@@ -9,16 +9,3 @@ boolean moleman_run()
 {
     return use(1, $item[molehill mountain]);
 }
-
-void main()
-{
-    if(moleman_can())
-    {
-        use_familiar($familiar[grey goose]);
-        maximize('familiar exp', false);
-        set_auto_attack('DroneStasis');
-        moleman_run();
-        set_auto_attack(0);    
-    }
-    
-}
