@@ -1,5 +1,6 @@
 import md_library;
 import md_outfit;
+import md_Librams.ash;
 import ff_tentacle;
 import ff_leaves;
 import ff_lobster;
@@ -16,6 +17,7 @@ import md_mpburn;
 import md_dailies;
 import ff_free;
 import ff_sandworm;
+import ff_lov;
 
 void merry_auto_attack()
 {
@@ -51,6 +53,13 @@ void fights_run()
   {
       saber_run();
   }
+  if(LOV_can())
+  {
+    merry_auto_attack();
+    construct_free_outfit();
+    LOV_run();
+    LibramBurn(false);
+  }
   while(shadowrifts_can())
   {
       merry_auto_attack();
@@ -71,6 +80,7 @@ void fights_run()
         enthrone_familiar($familiar[adorable seal larva]);
       melf_run();
   }
+  
   if(tentacle_skill_fight_can())
   {
     merry_auto_attack();

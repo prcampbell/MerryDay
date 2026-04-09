@@ -1,6 +1,6 @@
 script Librams;
 
-int minMP = 0;
+int minMP = 200;
 
 int averageValue ( boolean [item] itemList );
 int coinmasterValue (item it);
