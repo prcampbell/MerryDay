@@ -27,7 +27,7 @@ import md_yacht.ash;
 import md_dinsey.ash;
 import md_spacegate.ash;
 import md_pocketprofessor.ash;
-
+import md_mimic.ash;
 
 boolean day_over()
 {
