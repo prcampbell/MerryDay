@@ -2,6 +2,7 @@ import c2t_megg.ash;
 import md_outfit.ash;
 import ff_witchess.ash;
 import md_pockeprofessor.ash;
+import md_library.ash;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
@@ -512,13 +513,7 @@ void kramco()
 	}
 }
 
-void HandleChains() 
-{
-	while ( in_multi_fight() )
-		run_combat();
-	while ( choice_follows_fight() )
-		run_choice(-1);
-}
+
 
 void tatters()
 {

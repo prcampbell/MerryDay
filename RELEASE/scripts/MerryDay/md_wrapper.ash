@@ -149,6 +149,16 @@ void main(string command)
     {
         prof_run($monster[cockroach]);
     }
+    if(mimic_can($monster[cockroach]))
+    {
+        mimic_run($monster[cockroach]);
+    }
+    while(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 500)
+    {
+      cli_execute('synthesize greed');
+    }
+    cli_execute('CONSUME ALL');
+    set_property('afterAdventureScript', 'md_postadventure.ash');
   }
     
   abort();
@@ -161,10 +171,6 @@ void main(string command)
   Sailing();
   storm_run();
 
-
-
-
-	set_property('afterAdventureScript', 'md_postadventure.ash');
 
   for x from 0 to 20 by 1 
   {
@@ -180,10 +186,7 @@ void main(string command)
       }
   }
   yachting();
-  while(my_spleen_use() < spleen_limit())
-  {
-    cli_execute('synthesize greed');
-  }
+
 
   while(my_adventures() > 0)
   {
