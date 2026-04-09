@@ -1,7 +1,7 @@
 import c2t_megg.ash;
 import md_outfit.ash;
 import ff_witchess.ash;
-import md_pockeprofessor.ash;
+import md_pocketprofessor.ash;
 import md_library.ash;
 
 familiar fam = $familiar[none];
