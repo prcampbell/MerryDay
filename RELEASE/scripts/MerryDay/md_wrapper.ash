@@ -161,20 +161,7 @@ void main(string command)
   Sailing();
   storm_run();
 
-  if(get_property('_mimicEggsObtained').to_int() < 11 && get_property('_sourceTerminalDigitizeUses').to_int() < 3)
-  {
-    item[slot] required_equips;
-    required_equips[$slot[off-hand]] = $item[roman candelabra];
-    if(get_property('sourceTerminalEducate1') != 'digitize.edu'
-        && get_property('sourceTerminalEducate2') != 'digitize.edu')
-    {
-        cli_execute('terminal educate digitize.edu');
-    }
-    construct_free_outfit(required_equips, $familiar[chest mimic]);
-    set_auto_attack('MimicEggs');
-    witchess_run();
-    set_auto_attack(0);
-  }
+
 
 
 	set_property('afterAdventureScript', 'md_postadventure.ash');
