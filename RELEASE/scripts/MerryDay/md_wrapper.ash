@@ -26,6 +26,7 @@ import md_copies.ash;
 import md_yacht.ash;
 import md_dinsey.ash;
 import md_spacegate.ash;
+import md_pocketprofessor.ash;
 
 
 boolean day_over()
@@ -143,6 +144,10 @@ void main(string command)
     if(roach_can())
     {
         roach_run();
+    }
+    if(prof_can($monster[cockroach]))
+    {
+        prof_run($monster[cockroach]);
     }
   }
     
