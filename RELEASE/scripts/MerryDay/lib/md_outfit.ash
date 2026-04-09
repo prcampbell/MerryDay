@@ -439,7 +439,7 @@ void construct_free_outfit(item[slot] required_equips, familiar fam)
 	{
 		equip($slot[acc2], required_equips[$slot[acc2]]);
 	}
-	if(get_property('_stinkyCheeseCount').to_int() < 100)
+	else if(get_property('_stinkyCheeseCount').to_int() < 100)
     {
         if(available_amount($item[stinky cheese eye]) == 0)
         cli_execute('fold stinky cheese eye');
