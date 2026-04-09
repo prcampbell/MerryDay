@@ -1,6 +1,8 @@
 script md_mimic;
+import c2t_megg.ash;
 import md_outfit;
 import ff_witchess;
+import md_library.ash;
 
 boolean mimic_can()
 {
@@ -32,12 +34,31 @@ void mimic_run()
 
 boolean mimic_can(monster it)
 {
-    return false;
+    return c2t_megg_eggs()[it] > 0;
 }
 
 boolean mimic_run(monster it)
 {
-
+    if(c2t_megg_eggs()[it] > 0)
+    {
+        item[slot] required_equips;
+        if(have_effect($effect[Everything Looks Purple]) == 0)
+        {
+            required_equips[$slot[off-hand]] = $item[roman candelabra];
+        }
+        set_auto_attack('MimicEggs');
+        if(it == $monster[cockroach])
+        {
+            construct_meat_outfit(required_equips, $familiar[chest mimic]);
+        }
+        else 
+        {
+            construct_free_outfit(required_equips, $familiar[chest mimic]);
+        }
+        c2t_megg_fight(it);
+        HandleChains();
+        set_auto_attack(0); 
+    }
 }
 
 void main()
