@@ -190,10 +190,16 @@ void dinsey()
     set_property('_merryDinseyQuest',get_quest());
 }
 
+void barf_auto_attack()
+{
+    if(get_auto_attack() != 99184996)
+        set_auto_attack('BasicBarf');
+}
+
 boolean barf_run()
 {
     print('Barf Mountain, 1 turn only', 'green');
-    set_auto_attack('BasicBarf');
+    barf_auto_attack();
     construct_meat_outfit(meat_familiar(), $location[Barf Mountain]);
     return adv1($location[Barf Mountain], -1, '');
 }
