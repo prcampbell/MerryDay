@@ -66,3 +66,116 @@ boolean haveUsedPeridot(location loc)
 {
 	return haveUsedPeridot(loc.to_int());
 }
+
+void mobiusChoiceHandler(int choice, string page)
+{
+
+	string[int] choices = available_choice_options();
+	int[string] choiceMap;
+	foreach idx, text in choices
+	{
+		choiceMap[text] = idx;
+	}
+
+	void mobiusChoice(string opt) {
+			int num = choiceMap[opt];
+			run_choice(num);
+	}
+
+	string pos;
+
+
+	// we want to get +15 paradoxicity for more time cops and the 13-paradoxicity +item effect
+	// in a single day, we'll hit the NC maybe 9 times
+	// we can't guarantee we'll be able to use the effects, but the items are good
+	// taking the long odds would be good if we can definitely remove the effect / handle the HP loss
+
+	// first clock per day gives 3 adventures, second gives 2
+	if (get_property("_clocksUsed").to_int() < 2) {
+		pos = "Go back and set an alarm";
+		if (choiceMap contains pos) 
+        {
+			mobiusChoice(pos);
+			if(item_amount($item[clock]) > 0)
+			{
+				use(1, $item[clock]);
+			}
+			return;
+		}
+		// gives +15 myst, +30 MP: rarely useful but sets up the clock
+		pos = "Go back and take a 20-year-long nap";
+		if (choiceMap contains pos) {
+			mobiusChoice(pos);
+			return;
+		}
+	}
+
+	// 100 turns of +5 fam xp is worth refreshing
+	if (have_effect($effect[Lifted by your Bootstraps]) == 0) {
+		pos = "Let yourself get lifted up by your bootstraps";
+		if (choiceMap contains pos) {
+			mobiusChoice(pos);
+			return;
+		}
+	}
+
+	if (my_paradoxicity() < 15) {
+		// take paradox-increasing options without negative effects in approximate utility order
+		// some would have been taken earlier, so taking them here implies they're less useful
+		foreach str in $strings[
+			Stop your arch-nemesis as a baby,
+			Borrow meat from your future,
+			Hey\, free gun!,
+			Shoot yourself in the foot,
+			Mind your own business,
+			Lift yourself up by your bootstraps,
+			Draw a goatee on yourself,
+			Go for a nature walk,
+			Steal a cupcake from young Susie,
+			Plant some trees and harvest them in the future,
+			Borrow a cup of sugar from yourself,
+			Steal a club from the past,
+			Go back and take a 20-year-long nap,
+			Plant some seeds in the distant past,
+			Go back and write a best-seller.,
+			Defend yourself,
+			Play Schroedinger's Prank on yourself,
+			Peek in on your future,
+			Give your past self investment tips,
+		] {
+			if (choiceMap contains str) {
+				mobiusChoice(str);
+				return;
+			}
+		}
+	}
+
+	// we've done everything we care about, find a loop
+	if (canEat($item[Susie's cupcake])) {
+		pos = "Steal a cupcake from young Susie";
+		if (choiceMap contains pos) {
+			mobiusChoice(pos);
+			return;
+		}
+		pos = "Bake Susie a cupcake";
+		if (choiceMap contains pos) {
+			mobiusChoice(pos);
+			return;
+		}
+	}
+
+	// meat is normally useful
+	pos = "Borrow meat from your future";
+	if (choiceMap contains pos) {
+		mobiusChoice(pos);
+		return;
+	}
+	pos = "Repay yourself in the past";
+	if (choiceMap contains pos) {
+		mobiusChoice(pos);
+		return;
+	}
+
+	run_choice(1);
+	return;
+}

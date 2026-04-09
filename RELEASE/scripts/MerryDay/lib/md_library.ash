@@ -124,3 +124,11 @@ boolean buyRaffle(int ticket_qty)
 		cli_execute("raffle " + (ticket_qty-available_amount($item[raffle ticket])) + (can_interact() ? " inventory": " storage"));
 	return(available_amount($item[raffle ticket]) >= ticket_qty);
 }
+
+void HandleChains() 
+{
+	while ( in_multi_fight() )
+		run_combat();
+	while ( choice_follows_fight() )
+		run_choice(-1);
+}
