@@ -4,7 +4,8 @@ import md_outfit;
 
 boolean fax_can()
 {
-    return !get_property('_photocopyUsed').to_boolean() && get_property('camelSpit').to_int() >= 100;
+    return !get_property('_photocopyUsed').to_boolean() 
+        && get_property('camelSpit').to_int() >= 100;
 }
 
 boolean fax_run()
