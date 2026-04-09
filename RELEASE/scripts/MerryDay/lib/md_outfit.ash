@@ -261,8 +261,60 @@ familiar meat_familiar()
 	return $familiar[mini kiwi];
 }
 
-void construct_free_outfit(item[slot] required_equips)
+boolean should_grow(familiar fam)
 {
+	if($familiars[chest mimic, grey goose, pocket professor] contains fam && fam.experience < 400)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void construct_free_outfit(item[slot] required_equips, familiar fam)
+{
+	use_familiar(fam);
+	if(fam == $familiar[cornbeefadon])
+	{
+		required_equips[$slot[familiar]] = $item[toy cupid bow];
+	}
+	//use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
+
+	if(should_grow(fam))
+	{
+		//These are familiars we want to fatten up, so add familiar exp to required_equips
+		if(required_equips[$slot[hat]] == $item[none])
+		{
+			required_equips[$slot[hat]] = $item[giant yellow hat];
+		}
+		if(required_equips[$slot[weapon]] == $item[none])
+		{
+			required_equips[$slot[weapon]] = $item[yule hatchet];
+		}
+		if(required_equips[$slot[off-hand]] == $item[none])
+		{
+			required_equips[$slot[off-hand]] = $item[familiar scrapbook];
+		}
+		if(required_equips[$slot[acc1]] == $item[none])
+		{
+			required_equips[$slot[acc1]] = $item[messenger bag rna];
+		}
+		if(required_equips[$slot[acc2]] == $item[none])
+		{
+			required_equips[$slot[acc2]] = $item[teacher's pen];
+		}
+		if(required_equips[$slot[acc3]] == $item[none])
+		{
+			required_equips[$slot[acc3]] = $item[teacher's pen];
+		}
+		if(required_equips[$slot[familiar]] == $item[none])
+		{
+			required_equips[$slot[familiar]] = $item[toy cupid bow];
+		}
+
+	}
 	location ghostLocation = to_location(get_property("ghostLocation"));
 
 	//free outfits prioritize charging equipment
@@ -421,71 +473,18 @@ void construct_free_outfit(item[slot] required_equips)
 	{
 		equip($slot[familiar], $item[gnomish housemaid's kgnee]);
 	}
-	
-
-}
-
-boolean should_grow(familiar fam)
-{
-	if($familiars[chest mimic, grey goose, pocket professor] contains fam && fam.experience < 400)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-void construct_free_outfit(item[slot] required_equips, familiar fam)
-{
-	use_familiar(fam);
-	if(fam == $familiar[cornbeefadon])
-	{
-		required_equips[$slot[familiar]] = $item[toy cupid bow];
-	}
-	//use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
-
-	if(should_grow(fam))
-	{
-		//These are familiars we want to fatten up, so add familiar exp to required_equips
-		if(required_equips[$slot[hat]] == $item[none])
-		{
-			required_equips[$slot[hat]] = $item[giant yellow hat];
-		}
-		if(required_equips[$slot[weapon]] == $item[none])
-		{
-			required_equips[$slot[weapon]] = $item[yule hatchet];
-		}
-		if(required_equips[$slot[off-hand]] == $item[none])
-		{
-			required_equips[$slot[off-hand]] = $item[familiar scrapbook];
-		}
-		if(required_equips[$slot[acc1]] == $item[none])
-		{
-			required_equips[$slot[acc1]] = $item[messenger bag rna];
-		}
-		if(required_equips[$slot[acc2]] == $item[none])
-		{
-			required_equips[$slot[acc2]] = $item[teacher's pen];
-		}
-		if(required_equips[$slot[acc3]] == $item[none])
-		{
-			required_equips[$slot[acc3]] = $item[teacher's pen];
-		}
-		if(required_equips[$slot[familiar]] == $item[none])
-		{
-			required_equips[$slot[familiar]] = $item[toy cupid bow];
-		}
-
-	}
-	construct_free_outfit(required_equips);
 }
 
 void construct_free_outfit(familiar fam)
 {
 	item[slot] nothing;
 	construct_free_outfit(nothing, fam);   
+}
+
+void construct_free_outfit(item[slot] required_equips)
+{
+	familiar fam = ChooseFamiliar();
+	construct_free_outfit(required_equips, fam);
 }
 
 void construct_free_outfit(phylum phy)
