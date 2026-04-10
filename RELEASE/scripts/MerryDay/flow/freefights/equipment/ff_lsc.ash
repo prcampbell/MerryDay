@@ -1,4 +1,4 @@
-script ff_lcs;
+script ff_lsc;
 
 import md_outfit;
 import md_library.ash;

@@ -19,7 +19,7 @@ import ff_smokepatches;
 import ff_sandworm;
 import ff_lov;
 import ff_sheriff;
-import ff_lcs;
+import ff_lsc;
 import ff_bcz;
 
 location defaultTargetLocation()
