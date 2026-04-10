@@ -37,12 +37,12 @@ boolean get_sheriff()
 boolean sheriff_run()
 {
     print('Free Fight: Sheriff','blue');
-    location target = wandererLocation()
+    location target = wandererLocation();
     item[slot] sheriff_equips = LocationNeeds(target);
     string macro = 'skill 7532;';
-    if(sheriff_equips[weapon] != $item[none]
-        && sheriff_equips[acc1] != $item[none]
-        && sheriff_equips[acc2] != $item[none])
+    if(sheriff_equips[$slot[weapon]] != $item[none]
+        && sheriff_equips[$slot[acc1]] != $item[none]
+        && sheriff_equips[$slot[acc2]] != $item[none])
     {
         target = defaultTargetLocation();
     }
@@ -53,7 +53,7 @@ boolean sheriff_run()
     get_sheriff();
     construct_free_outfit(sheriff_equips);
 
-    adv1(target, -1, macro);
+    return adv1(target, -1, macro);
 }
 
 void main()
