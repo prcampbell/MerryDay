@@ -162,6 +162,10 @@ boolean yacht_seal()
             || get_property('_spikolodonSpikeUses').to_int() < 5)
             )
     {
+        if(get_property('noncombatForcerActive').to_boolean())
+        {
+            abort('You have a noncombat forcer active, but didn''t force a noncombat');
+        }
         set_auto_attack('BasicBarf');
         if(get_property('_mcHugeLargeAvalancheUses').to_int() < 3)
         {
@@ -185,7 +189,8 @@ boolean yacht_seal()
         }
         if(yacht_can())
             yacht_run();
-        
+        if(yacht_double_can())
+            yacht_double_run();
     }
 
     return true;
