@@ -165,6 +165,7 @@ boolean hotdog_run()
     visit_url('clan_viplounge.php?preaction=eathotdog&whichdog=-102');
     if(have_effect($effect[Lucky!]) > 0)
     {
+        set_property('_merryEaten', get_property('_merryEaten') + 'Optimal Hot Dog (VIP);');
         return adv1($location[Cobb's Knob Treasury], -1, '');
     }
     else
@@ -201,8 +202,18 @@ boolean embezzlers_run()
         sax_run();
     if(pillkeeper_can())
         pillkeeper_run();
+    int tmp = get_clan_id();
+    if(tmp != VIPClan)
+    {
+        switchClan(VIPClan);
+    }
     if(hotdog_can())
         hotdog_run();
+    if(get_clan_id() != tmp)
+    {
+        switchClan(tmp);
+    }   
+    
     set_auto_attack(0);
     return true;
 }
