@@ -2,7 +2,7 @@ script ff_lsc;
 
 import md_outfit;
 import md_library.ash;
-import md_free.ash;
+
 
 boolean lcs_can()
 {

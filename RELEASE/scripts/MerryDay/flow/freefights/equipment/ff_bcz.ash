@@ -2,7 +2,7 @@ script ff_bcz;
 
 import md_outfit;
 import md_library.ash;
-import md_free.ash;
+
 
 boolean bcz_can()
 {
