@@ -18,8 +18,7 @@ string beforeAdventureScript;
 string sourceTerminalEducate1;
 string sourceTerminalEducate2;
 location lastLocation;
-string questLog = "questlog.php?which=1";
-string kiosk = "place.php?whichplace=airport_stench&action=airport3_kiosk";
+
 string parka;
 
 void SaveSetup() 
@@ -401,7 +400,7 @@ void kramco()
 		print('Wanderer : Sausage Goblin', 'blue');
 		location target = wandererLocation();
 		string macro = 'skill saucegeyser;';
-		item[slot] needs = locationNeeds(target);;
+		item[slot] needs = locationNeeds(target);
 		needs[$slot[off-hand]] = $item[Kramco Sausage-o-Matic&trade;];
 		
 		if(thesis_can())
