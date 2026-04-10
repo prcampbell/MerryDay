@@ -10,9 +10,9 @@ boolean sheriff_can()
 
 boolean get_sheriff()
 {
-    if(item_amount($item[sheriff badge]) == 1 
-        && item_amount($item[sheriff pistol]) == 1
-        && item_amount($item[sheriff moustache]) == 1)
+    if(available_amount($item[sheriff badge]) == 1 
+        && available_amount($item[sheriff pistol]) == 1
+        && available_amount($item[sheriff moustache]) == 1)
     {
         return true;
     }
@@ -29,9 +29,9 @@ boolean get_sheriff()
     }
 
     switchClan(tmp);
-    return item_amount($item[sheriff badge]) == 1 
-        && item_amount($item[sheriff pistol]) == 1
-        && item_amount($item[sheriff moustache]) == 1;
+    return available_amount($item[sheriff badge]) == 1 
+        && available_amount($item[sheriff pistol]) == 1
+        && available_amount($item[sheriff moustache]) == 1;
 }
 
 boolean sheriff_run()
