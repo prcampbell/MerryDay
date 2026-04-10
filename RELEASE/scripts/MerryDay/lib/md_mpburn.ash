@@ -199,7 +199,7 @@ void moodUp(int adv, skill check, effect buff)
         required_equips[$slot[pants]] = $item[Oscus's dumpster waders];
         required_equips[$slot[acc1]] = $item[Oscus's pelt];
         required_equips[$slot[acc2]] = $item[Brimstone Bracelet];
-        if(buff == $effect[Thoughtful Empathy])
+        if($effects[Thoughtful Empathy, Leash of Linguini] contains buff)
         {
             fam = $familiar[left-hand man];
             required_equips[$slot[familiar]] = $item[April Shower Thoughts Shield];
