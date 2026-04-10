@@ -47,6 +47,20 @@ string parseDinseyQuest()
 	return get_property('_merryDinseyQuest');
 }
 
+void kiosk_run()
+{
+	if(get_property('_merryDinseyQuest') != ''	)
+	{
+		if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
+		{
+			visit_url(kiosk);
+			run_choice( 3 );
+			run_choice( 6 );
+			set_property('_merryDinseyQuest', '');
+		}	
+	}
+}
+
 
 boolean has_dinsey_access()
 {
