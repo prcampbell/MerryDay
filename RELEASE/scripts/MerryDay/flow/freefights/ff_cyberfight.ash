@@ -2,7 +2,7 @@ script ff_cyberfight;
 
 boolean cyberfight_can()
 {
-    return get_property("_cyberFreeFights").to_int() < 10
+    return get_property("_cyberFreeFights").to_int() < 10;
 }
 
 boolean cyberfight_run()
