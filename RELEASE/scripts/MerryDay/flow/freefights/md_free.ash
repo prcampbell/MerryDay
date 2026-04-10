@@ -18,6 +18,7 @@ import md_dailies;
 import ff_free;
 import ff_sandworm;
 import ff_lov;
+import ff_sheriff;
 
 location defaultTargetLocation()
 {
@@ -231,6 +232,10 @@ void fights_run()
     construct_free_outfit(chooseFamiliar());
     glitch_reward_fight_run();
   }
+  while(sheriff_can())
+  {
+      sheriff_run();
+  } 
 
   
 
