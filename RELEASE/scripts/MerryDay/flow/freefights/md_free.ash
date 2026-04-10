@@ -15,10 +15,12 @@ import md_yacht;
 import ff_bander;
 import md_mpburn;
 import md_dailies;
-import ff_free;
+import ff_smokepatches;
 import ff_sandworm;
 import ff_lov;
 import ff_sheriff;
+import ff_lcs;
+import ff_bcz;
 
 location defaultTargetLocation()
 {
@@ -235,7 +237,16 @@ void fights_run()
   while(sheriff_can())
   {
       sheriff_run();
-  } 
+  }
+  while(lcs_can())
+  {
+      lcs_run();
+  }
+  while(bcz_can())
+  {
+    bcz_run(); 
+  }
+    
 
   
 
