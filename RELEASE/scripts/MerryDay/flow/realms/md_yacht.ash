@@ -164,7 +164,7 @@ boolean yacht_seal()
     {
         if(get_property('noncombatForcerActive').to_boolean())
         {
-            abort('You have a noncombat forcer active, but didn''t force a noncombat');
+            abort('You have a noncombat forcer active and started the loop again');
         }
         set_auto_attack('BasicBarf');
         if(get_property('_mcHugeLargeAvalancheUses').to_int() < 3)
