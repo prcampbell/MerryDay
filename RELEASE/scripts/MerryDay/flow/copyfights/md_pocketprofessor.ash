@@ -8,7 +8,7 @@ boolean thesis_run()
     set_auto_attack('Thesis');
     use_familiar($familiar[pocket professor]);
     maximize('mus, equip kramco', false);
-    adv1($location[noob cave], -1, 'skill 7316;');
+    adv1($location[noob cave], -1, '');
     set_auto_attack(0);
     return true;
 }

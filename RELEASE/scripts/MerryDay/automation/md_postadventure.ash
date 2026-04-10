@@ -489,45 +489,12 @@ void kramco()
 {
 	if (KramcoUp())
 	{
-		location guzzlrLocation = to_location(get_property("guzzlrQuestLocation"));
-		location doctorLocation = to_location(get_property("doctorBagQuestLocation"));
-		location ghostLocation = to_location(get_property("ghostLocation"));
-		location target = defaultTargetLocation();
+		location target = wandererLocation();
 		string macro = 'skill saucegeyser;';
-		item[slot] needs;
+		item[slot] needs = locationNeeds(target);;
 		needs[$slot[off-hand]] = $item[Kramco Sausage-o-Matic&trade;];
 		
 		SaveSetup();
-		if(doctorLocation != $location[none] && can_adventure(doctorLocation) && doctorLocation.wanderers)
-		{
-			print('Wandering in doctor location', 'blue');
-			target = doctorLocation;
-		}
-		else if(guzzlrLocation != $location[none]  && can_adventure(guzzlrLocation))
-		{
-			print('Wandering in guzzlr location', 'blue');
-
-			target = guzzlrLocation;
-		}
-		else 
-		{
-			if(hasDinseyQuest())
-			{ 
-				print('Wandering in Dinsey', 'blue');
-
-				if(parseDinseyQuest() == 'Social Justice Adventurer I')
-					target = $location[Pirates of the Garbage Barges];
-				else if(parseDinseyQuest() == 'Social Justice Adventurer II')
-					target = $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
-				else if(parseDinseyQuest() == 'Whistling Zippity-Doo-Dah')
-				{
-					needs[$slot[hat]] = $item[Dinsey mascot mask];
-					target = $location[The Toxic Teacups];
-				}
-			}
-			construct_free_outfit(needs, chooseFamiliar());
-			
-		}
 		if(thesis_can())
 		{
 			print('Trying to deliver our thesis', 'blue');
@@ -536,21 +503,14 @@ void kramco()
 			maximize('mus, equip kramco', false);
 			set_auto_attack(0);
 		}
+		else 
+		{
+			construct_free_outfit(needs);
+		}
 		print('Trying to fight sausage monster in' + target.to_string(), 'blue');
 		(!adv1(target, -1, macro));
 
-		if(hasDinseyQuest())
-		{
-			if(contains_text(visit_url(questlog),"<b>Kiosk</b>"))
-			{
-				visit_url(kiosk);
-				run_choice( 3 );
-				run_choice( 6 );
-				set_property('_merryDinseyQuest', '');
-			}	
-		}
-		
-		
+		kiosk_run();
 		
 	}
 }
