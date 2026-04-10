@@ -3,7 +3,8 @@ script md_outfit;
 boolean[familiar] leprechauns = $familiars[leprechaun, mini kiwi, jill-of-all-trades, hobo monkey, robortender];
 
 
-float eval(string expr, float[string] vars) {
+float eval(string expr, float[string] vars) 
+{
    buffer b;
    matcher m = create_matcher( "\\b[a-z_][a-zA-Z0-9_]*\\b", expr );
    while (m.find()) {
