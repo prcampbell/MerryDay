@@ -80,14 +80,18 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
     if(have_effect($effect[Kicked in the Sinuses]) == 0 && item_amount($item[jumping horseradish]) > 0 && my_fullness() < fullness_limit())
     {
         eat(1, $item[jumping horseradish]);
+        set_property('_merryEaten', get_property('_merryEaten') + 'Jumping Horseradish;');
     }
     if(have_effect($effect[Inspired Chef]) == 0 && (item_amount($item[boris's bread]) > 0 || item_amount($item[yeast of boris]) > 1) && my_fullness() < fullness_limit())
     {
         eat(1, $item[boris's bread]);
+        set_property('_merryEaten', get_property('_merryEaten') + 'Boris\'s Bread;');
     }
     if(have_effect($effect[all blued up]) == 0 && item_amount($item[blueberry muffin]) > 0 && my_fullness() < fullness_limit())
     {
         eat(1, $item[blueberry muffin]);
+        set_property('_merryEaten', get_property('_merryEaten') + 'Blueberry Muffin;');
+
     }
 
     if(have_effect($effect[Synthesis: Greed]) == 0 && my_spleen_use() < spleen_limit())
@@ -103,16 +107,19 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
     {
         ensure_song($effect[Ode to Booze]);
         drink(1, $item[bottle of Greedy Dog]);
+        set_property('_merryEaten', get_property('_merryEaten') + 'Bottle of Greedy Dog;');
     }
     if(item_amount($item[ambitious turkey]) > 0 && my_inebriety() < inebriety_limit() - 1)
     {
         ensure_song($effect[Ode to Booze]);
         drink(1, $item[ambitious turkey]);
+        set_property('_merryEaten', get_property('_merryEaten') + 'Ambitious Turkey;');
     }
     if(item_amount($item[high-end ginger wine]) > 0 && my_inebriety() < inebriety_limit() - 2)
     {
         ensure_song($effect[Ode to Booze]);
         drink(1, $item[high-end ginger wine]);
+        set_property('_merryEaten', get_property('_merryEaten') + 'High-End Ginger Wine;');
     }
 
     if ((item_amount($item[dirt julep]) > 0 || 
@@ -123,6 +130,8 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
         create( 1, $item[dirt julep]);
         ensure_song($effect[Ode to Booze]);
         drink(1, $item[dirt julep]);
+        set_property('_merryEaten', get_property('_merryEaten') + 'Dirt Julep;');
+
     }
 
 }
