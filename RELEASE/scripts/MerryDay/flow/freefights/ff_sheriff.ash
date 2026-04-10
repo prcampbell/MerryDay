@@ -53,6 +53,9 @@ boolean sheriff_run()
     get_sheriff();
     construct_free_outfit(sheriff_equips);
 
+    if(get_auto_attack() != 0)
+        set_auto_attack(0);
+
     return adv1(target, -1, macro);
 }
 
