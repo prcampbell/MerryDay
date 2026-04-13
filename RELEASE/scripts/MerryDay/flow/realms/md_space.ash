@@ -62,7 +62,7 @@ boolean grimacemap_can()
 {
     return !get_property('_aprilShowerNorthernExplosion').to_boolean() 
         && get_property('_sourceTerminalDuplicateUses').to_int() == 0
-        && !get_property('_photocopyUsed')
+        && !get_property('_photocopyUsed').to_boolean();
 }
 
 void grimacemap_run()
@@ -77,8 +77,8 @@ void grimacemap_run()
     {
         cli_execute('terminal educate duplicate.edu');
     }
-    abort ('Need a macro for the survivor fight');
+    set_auto_attack('DramaticShower');
     use(1, $item[photocopied monster]);
     cli_execute('terminal educate extract.edu');
 	cli_execute('terminal educate turbo.edu');
-}
+} 
