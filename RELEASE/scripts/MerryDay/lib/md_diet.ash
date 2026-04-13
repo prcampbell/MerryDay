@@ -94,7 +94,7 @@ boolean eatWithHelper(item it)
     {
         eat(1, $item[fudge spork]);
     }
-    set_property('_merryEaten', get_property('_merryEaten').to_int() + it + ';');
+    set_property('_merryEaten', get_property('_merryEaten') + it + ';');
     return eat(1, it);
 }
 
