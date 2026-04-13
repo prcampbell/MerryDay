@@ -29,6 +29,10 @@ void main ( int choice, string page )
 					choice 3: Get out of this Junk (skip adventure) */
 				run_choice(1);			
 			break;
+		case 787: /*Encounter: Fire When Ready
+				choice 6: Back off (skip adventure)*/
+			run_choice(6);			
+		break;
 		case 788: /*Encounter: Life is like a Cherry of Bowls
 					choice 1: Let's roll (stats)
 					choice 6: Let's don't (skip adventure)*/

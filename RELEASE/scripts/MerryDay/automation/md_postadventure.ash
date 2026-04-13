@@ -401,6 +401,21 @@ void purple()
 	}
 }
 
+void beige()
+{
+	if(have_effect($effect[everything looks beige]) == 0)
+	{
+		SaveSetup();
+		print('Parachuting a liana', 'blue');
+		item[slot] needs;
+		needs[$slot[weapon]] = $item[muculent machete];
+		construct_free_outfit(needs);
+		adv1($location[An Overgrown Shrine (Southeast)], -1, '');
+		visit_url('inventory.php?action=parachute');
+		visit_url('choice.php?whichchoice=1543&monid=1426&option=1');
+	}
+}
+
 void bullseye()
 {
 	if(have_effect($effect[everything looks red]) == 0)
