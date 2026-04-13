@@ -477,6 +477,7 @@ void main()
 			acid();
 			bullseye();
 			purple();
+			beige();
 			brickoPrime();
 			bustGhost(); //Basically Bales function, but with though with similar outfit switching
 		}
