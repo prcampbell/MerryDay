@@ -458,33 +458,38 @@ void acid()
 
 void main() 
 {
+	if(my_fullness() <= fullness_limit()
+    && my_inebriety() <= inebriety_limit()
+    && my_spleen_use() <= spleen_limit())
+	{
+		try {
+			if ( can_interact() && my_inebriety() <= inebriety_limit() && my_familiar() != $familiar[stooper])
+			{		
+				lightsOut(); //Handles the lights out Quest
+				digitizeMonster(); //Picks up digitize wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
+				//Lubes the tube
+				if(get_property('_merryDinseyQuest') == 'Super Luber' && get_property('dinseyRollercoasterNext').to_boolean())
+				{
 
-	try {
-		if ( can_interact() && my_inebriety() <= inebriety_limit() && my_familiar() != $familiar[stooper])
-		{		
-			lightsOut(); //Handles the lights out Quest
-			digitizeMonster(); //Picks up digitize wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
-			//Lubes the tube
-			if(get_property('_merryDinseyQuest') == 'Super Luber' && get_property('dinseyRollercoasterNext').to_boolean())
-			{
-
-				equip($slot[acc3], $item[lube-shoes]);
-				(!adv1($location[Barf Mountain]));
+					equip($slot[acc3], $item[lube-shoes]);
+					(!adv1($location[Barf Mountain]));
+				}
+				voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
+				kramco();
+				tatters();
+				acid();
+				bullseye();
+				purple();
+				beige();
+				brickoPrime();
+				bustGhost(); //Basically Bales function, but with though with similar outfit switching
 			}
-			voteMonster(); //Picks up free Vote wanderers in helpful zones. Will equip a protopack if the timing is just right, to save the brickofight.
-			kramco();
-			tatters();
-			acid();
-			bullseye();
-			purple();
-			beige();
-			brickoPrime();
-			bustGhost(); //Basically Bales function, but with though with similar outfit switching
-		}
-	} 
-	finally 
-	{ 
-		HandleChains();
-		RestoreSetup(); 
+		} 
+		finally 
+		{ 
+			HandleChains();
+			RestoreSetup(); 
+		}	
 	}
+	
 }
