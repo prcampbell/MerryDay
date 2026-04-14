@@ -141,6 +141,10 @@ void main(string command)
     }
     crabs_run();
     Sailing();
+    while(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 500)
+    {
+      cli_execute('synthesize greed');
+    }
     if(roach_can())
     {
         roach_run();
@@ -153,10 +157,7 @@ void main(string command)
     {
         mimic_run($monster[cockroach]);
     }
-    while(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 500)
-    {
-      cli_execute('synthesize greed');
-    }
+
     cli_execute('CONSUME ALL');
     set_property('afterAdventureScript', 'md_postadventure.ash');
   }
