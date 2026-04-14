@@ -77,30 +77,31 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
             use_skill(1, $skill[Seek out a Bird]);
         }
     }
-    if(have_effect($effect[Kicked in the Sinuses]) == 0 && item_amount($item[jumping horseradish]) > 0 && my_fullness() < fullness_limit())
+    if(have_effect($effect[Kicked in the Sinuses]) <= numberOfEmbezzlers && item_amount($item[jumping horseradish]) > 0 && my_fullness() < fullness_limit())
     {
         eat(1, $item[jumping horseradish]);
         set_property('_merryEaten', get_property('_merryEaten') + 'Jumping Horseradish;');
     }
-    if(have_effect($effect[Inspired Chef]) == 0 && (item_amount($item[boris's bread]) > 0 || item_amount($item[yeast of boris]) > 1) && my_fullness() < fullness_limit())
+    if(have_effect($effect[Inspired Chef]) <= numberOfEmbezzlers && (item_amount($item[boris's bread]) > 0 || item_amount($item[yeast of boris]) > 1) && my_fullness() < fullness_limit())
     {
         eat(1, $item[boris's bread]);
         set_property('_merryEaten', get_property('_merryEaten') + 'Boris\'s Bread;');
     }
-    if(have_effect($effect[all blued up]) == 0 && item_amount($item[blueberry muffin]) > 0 && my_fullness() < fullness_limit())
+    if(have_effect($effect[all blued up]) <= numberOfEmbezzlers && item_amount($item[blueberry muffin]) > 0 && my_fullness() < fullness_limit())
     {
         eat(1, $item[blueberry muffin]);
         set_property('_merryEaten', get_property('_merryEaten') + 'Blueberry Muffin;');
 
     }
 
-    if(have_effect($effect[Synthesis: Greed]) == 0 && my_spleen_use() < spleen_limit())
+    if(have_effect($effect[Synthesis: Greed]) <= numberOfEmbezzlers && my_spleen_use() < spleen_limit())
     {
         cli_execute('synthesize greed');
     }
-    if(have_effect($effect[boxing day glow]) == 0 && item_amount($item[body spradium]) > 0 && my_spleen_use() < spleen_limit())
+    if(have_effect($effect[boxing day glow]) <= numberOfEmbezzlers && item_amount($item[body spradium]) > 0 && my_spleen_use() < spleen_limit())
     {
         chew(1, $item[body spradium]);
+        set_property('_merryEaten', get_property('_merryEaten') + 'body spradium;');
     }
 
     if(item_amount($item[bottle of Greedy Dog]) > 0 && my_inebriety() < inebriety_limit() - 3)
