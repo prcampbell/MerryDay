@@ -128,6 +128,12 @@ void main(string command)
 
     dinsey();
     pirates_init();
+    while(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 500)
+    {
+      cli_execute('synthesize greed');
+    }
+    cli_execute('CONSUME ALL');
+
     Sailing();
     windy_crabs_run();
     while(available_amount($item[li'l pirate costume]) == 0)
@@ -141,10 +147,7 @@ void main(string command)
     }
     crabs_run();
     Sailing();
-    while(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 500)
-    {
-      cli_execute('synthesize greed');
-    }
+
     if(roach_can())
     {
         roach_run();
@@ -157,8 +160,9 @@ void main(string command)
     {
         mimic_run($monster[cockroach]);
     }
+    crabs_run();
 
-    cli_execute('CONSUME ALL');
+    
     set_property('afterAdventureScript', 'md_postadventure.ash');
   }
     
@@ -168,7 +172,7 @@ void main(string command)
 
 /*We start running adventures here*/
 
-  crabs_run();
+  
   Sailing();
   storm_run();
 
