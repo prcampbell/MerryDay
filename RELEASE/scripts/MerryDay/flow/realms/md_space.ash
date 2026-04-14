@@ -1,4 +1,5 @@
 script md_space;
+import md_outfit;
 
 boolean grimace_can()
 {
@@ -9,9 +10,9 @@ boolean grimace_can()
 
 boolean grimace_do()
 {
-    equip($slot[shirt], item[jurassic parka]);
+    equip($slot[shirt], $item[jurassic parka]);
     cli_execute('parka acid; terminal educate duplicate.edu');
-
+    return false;
     //fax in a survivor and zap them
 }
 
@@ -56,7 +57,7 @@ void pills_run()
     }
 }
 
-import md_outfit;
+
 
 boolean grimacemap_can()
 {
