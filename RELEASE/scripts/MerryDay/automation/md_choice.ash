@@ -518,7 +518,12 @@ choice 2: Flee it!
 					else
 						run_choice(2);
 					break;
-
+		case 1566:	/* Encounter: Summon a Wave
+					choice 1: Do it
+					choice 2: Wait, maybe later					
+					*/
+						run_choice(1);
+					break;
 		case 919:	/* Encounter: Break Time!
 					choice 1: Plunder the cash register (get Beach Bucks)
 					choice 2: Turn up the freezer (+15ML on Sundaes)

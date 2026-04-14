@@ -424,8 +424,9 @@ void bullseye()
 		print('Wanderer : Bullseye', 'blue');
 		location target = wandererLocation();
 		item[slot] needs = locationNeeds(target);
-		string macro = 'skill Darts: Aim for the Bullseye;';
-		
+		string macro = 'skill Darts: Aim for the Bullseye;item divine champagne popper;';
+		set_auto_attack('BasicAscend');
+
 		needs[$slot[acc3]] = $item[Everfull Dart Holster];
 		construct_free_outfit(needs);
 		
