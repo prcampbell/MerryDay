@@ -346,7 +346,7 @@ void main()
     {
         restore_hp(my_maxhp());
     }
-    if(my_mp() < 200 
+    if(my_mp() < 200 && my_mp() < my_maxmp()
         && get_property('_sausagesEaten').to_int() < 23
         && make_sausage())
     {
