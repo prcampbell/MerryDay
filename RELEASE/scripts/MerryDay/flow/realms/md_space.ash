@@ -2,9 +2,9 @@ script md_space;
 
 boolean grimace_can()
 {
-    return has_effect($effect[Everything Looks Yellow]) == 0 
+    return have_effect($effect[Everything Looks Yellow]) == 0 
         && get_property('_sourceTerminalDuplicateUses').to_int() == 0
-        && !get_property('_photocopyUsed')
+        && !get_property('_photocopyUsed').to_boolean();
 }
 
 boolean grimace_do()
