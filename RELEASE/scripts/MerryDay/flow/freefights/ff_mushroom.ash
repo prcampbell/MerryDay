@@ -27,7 +27,7 @@ void mushroom_run()
                 use(1, $item[packet of pumpkin seeds]);
                 break;
             case "peppermint":
-                use(1, $item[packet of peppermint pips]);
+                use(1, $item[Peppermint Pip packet]);
                 break;
             case "rock":
                 use(1, $item[packet of rock seeds]);
@@ -50,7 +50,11 @@ choice 1: Fertilize the mushroom
 choice 2: Pick the mushroom
 Click here to continue in the relay browser.
 
-
-construct_free_outfit($phylum[plant]);
+if(mushroom_can())
+{
+    merry_auto_attack();
+    construct_free_outfit($phylum[plant]);
+    mushroom_run();
+}
 
 */
