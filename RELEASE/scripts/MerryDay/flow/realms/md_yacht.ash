@@ -4,8 +4,9 @@ import md_library.ash;
 import md_mpburn;
 import md_outfit.ash;
 
-void yacht_outfit()
+void yacht_outfit(familiar fam = $familiar[urchin urchin])
 {
+    use_familiar(fam);
     equip($slot[hat], $item[Apriling band helmet]);
 
     equip($slot[weapon], $item[angelbone totem]);
@@ -62,7 +63,7 @@ boolean fishy_get()
 
 boolean yacht_can()
 {
-    return nc_can() && (have_effect($effect[fishy]) > 0 || fishy_can());
+    return nc_can() && (have_effect($effect[fishy]) > 0 || fishy_get());
 }
 
 boolean yacht_double_can()
@@ -115,24 +116,9 @@ boolean yacht_double_run()
 
 boolean yacht_run()
 {   
-    if(yacht_can())
-    {
-        fishy_get();
-        if(have_effect($effect[fishy]) == 0)
-        {
-            return false;
-        }
-
-        if(force_nc())
-        {
-            use_familiar($familiar[urchin urchin]);
-            yacht_outfit();
-            return adv1($location[the sunken party yacht], -1, '');
-        }        
-    }
-
-    return false;
-
+    cli_execute('gain 1000 meat');
+    yacht_outfit();
+    return adv1($location[the sunken party yacht], -1, '');
 }
 
 boolean yacht_seal()
@@ -176,7 +162,7 @@ boolean yacht_seal()
             construct_free_outfit(required_equips, $familiar[chest mimic]);
             use(1, $item[figurine of a wretched-looking seal]);
         }
-        if(get_property('_spikolodonSpikeUses').to_int() < 5)
+        else if(get_property('_spikolodonSpikeUses').to_int() < 5)
         {
             print('NC Forced with Spikes', 'blue');
             item[slot] required_equips;
@@ -224,6 +210,38 @@ void yachting()
         yacht_double_run();
 
     print('You cannot do yacht anymore','red');
+}
+
+boolean drunken_yacht()
+{
+    yacht_outfit();
+    if(my_fullness() < fullness_limit())
+    {
+        eatWithHelper(1, $item[boris's bread]);
+    }
+    if(my_fullness() < fullness_limit())
+    {
+        eatWithHelper(1, $item[jumping horseradish]);
+    }
+    if(item_amount($item[spacegate research]) > 50 && my_inebriety() + 2 <= inebriety_limit())
+    {
+        buy($coinmaster[spacegate fabrication facility], 1, $item[Centauri fish wine]);
+        ensure_song($effect[ode to booze]);
+        drink(1, $item[Centauri fish wine]);
+    }
+    while(yacht_can())
+    {
+        if(force_nc())
+            yacht_run();
+        else 
+        {
+            print('Could not force NC, trying to seal club', 'red');
+            break;
+        }
+    }
+    yacht_seal();
+    while(yacht_stench_can())
+        yacht_stench_run();
 }
 
 boolean saber_can()
