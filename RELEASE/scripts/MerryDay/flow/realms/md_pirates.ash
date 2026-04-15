@@ -220,7 +220,7 @@ boolean crabs_run()
     return false;
 }
 
-boolean trash_run(boolean empire = false)
+boolean trash_run(boolean empire)
 {
     set_auto_attack('BackupMeat');
     use_familiar($familiar[Trick-or-Treating Tot]);
@@ -238,6 +238,11 @@ boolean trash_run(boolean empire = false)
     }
         
     return false;
+}
+
+boolean trash_run()
+{
+    return trash_run(false);
 }
 
 

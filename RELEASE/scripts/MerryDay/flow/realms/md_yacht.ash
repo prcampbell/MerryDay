@@ -4,7 +4,7 @@ import md_library.ash;
 import md_mpburn;
 import md_outfit.ash;
 
-void yacht_outfit(familiar fam = $familiar[urchin urchin])
+void yacht_outfit(familiar fam)
 {
     use_familiar(fam);
     equip($slot[hat], $item[Apriling band helmet]);
@@ -22,6 +22,11 @@ void yacht_outfit(familiar fam = $familiar[urchin urchin])
 
     equip($slot[familiar], $item[amulet coin]);
     
+}
+
+void yacht_outfit()
+{
+    yacht_outfit($familiar[urchin urchin]);
 }
 
 boolean fishy_can()
