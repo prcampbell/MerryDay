@@ -274,14 +274,45 @@ boolean should_grow(familiar fam)
 	}
 }
 
-void construct_free_outfit(item[slot] required_equips, familiar fam)
+void construct_free_outfit(Item[slot] required_equips, familiar fam, phylum phy)
 {
-	use_familiar(fam);
-	if(fam == $familiar[cornbeefadon])
+	switch(phy)
 	{
-		required_equips[$slot[familiar]] = $item[toy cupid bow];
+		case $phylum[plant]:
+			if(required_equips[$slot[pants]] == $item[none])
+				required_equips[$slot[pants]] = $item[tearaway pants];
+			break;
+		default:
+			break;
 	}
-	//use_familiar($familiar[Obtuse Angel]) && equip($slot[familiar], $item[quake of arrows]);
+	if(fam == $familiar[none])
+	{
+		fam = ChooseFamiliar();
+	}
+	if(get_property('redSnapperPhylum').to_phylum() == phy 
+		&& fam != $familiar[none])
+	{
+		fam = $familiar[red-nosed snapper];
+	}
+	use_familiar(fam);
+	if(required_equips[$slot[familiar]] == $item[none])
+	{
+		switch(fam)
+		{
+			case $familiar[cornbeefadon]:
+				if(!have_amuletcoin())
+				{
+					required_equips[$slot[familiar]] = $item[toy cupid bow];
+				}
+				break;
+			case $familiar[skeleton of crimbo past]:
+				required_equips[$slot[familiar]] = $item[small peppermint-flavored sugar walking crook];
+				break;
+			default:
+				break;
+		}
+	}
+
 
 	if(should_grow(fam))
 	{
@@ -475,6 +506,11 @@ void construct_free_outfit(item[slot] required_equips, familiar fam)
 		equip($slot[familiar], $item[gnomish housemaid's kgnee]);
 	}
 }
+void construct_free_outfit(item[slot] required_equips, familiar fam)
+{
+	phylum nothing;
+	construct_free_outfit(required_equips, fam, nothing);
+}
 
 void construct_free_outfit(familiar fam)
 {
@@ -490,25 +526,9 @@ void construct_free_outfit(item[slot] required_equips)
 
 void construct_free_outfit(phylum phy)
 {
-	familiar fam;
+	familiar fam = $familiar[none];
 	item[slot] required_equips;
-	switch(phy)
-	{
-		case $phylum[plant]:
-			required_equips[$slot[pants]] = $item[tearaway pants];
-			break;
-		default:
-			break;
-	}
-	if(get_property('redSnapperPhylum').to_phylum() == phy)
-	{
-		fam = $familiar[red-nosed snapper];
-	}
-	if(fam == $familiar[none])
-	{
-		fam = chooseFamiliar();
-	}
-	construct_free_outfit(required_equips, fam);
+	construct_free_outfit(required_equips, fam, phy);
 }
 
 void construct_free_outfit()
