@@ -156,7 +156,6 @@ void main(string command)
     {
       cli_execute('synthesize greed');
     }
-    cli_execute('CONSUME ALL');
     dailyMeatBuffs();
     if(embezzlers_can())
     {
@@ -178,7 +177,7 @@ void main(string command)
         mimic_run($monster[cockroach]);
     }
     crabs_run();
-
+    cli_execute('CONSUME ALL');
     set_property('afterAdventureScript', 'md_postadventure.ash');
     while(my_adventures() > reserve_advs())
     {
