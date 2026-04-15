@@ -143,19 +143,18 @@ void main(string command)
   {
 
     dinsey();
-    pirates_init();
+    sail_to_crab();
+    while(available_amount($item[li'l pirate costume]) == 0)
+    {
+      pgb_free_run();
+    }
     while(my_spleen_use() < spleen_limit() && have_effect($effect[Synthesis: Greed]) < 500)
     {
       cli_execute('synthesize greed');
     }
     cli_execute('CONSUME ALL');
 
-    Sailing();
-    windy_crabs_run();
-    while(available_amount($item[li'l pirate costume]) == 0)
-    {
-      pgb_free_run();
-    }
+
     dailyMeatBuffs();
     if(embezzlers_can())
     {
@@ -163,6 +162,7 @@ void main(string command)
     }
     crabs_run();
     Sailing();
+    trash_run();
 
     if(roach_can())
     {
@@ -178,7 +178,6 @@ void main(string command)
     }
     crabs_run();
 
-    
     set_property('afterAdventureScript', 'md_postadventure.ash');
     while(my_adventures() > reserve_advs())
     {

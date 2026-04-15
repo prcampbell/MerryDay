@@ -220,6 +220,29 @@ boolean crabs_run()
     return false;
 }
 
+boolean trash_run(boolean empire = false)
+{
+    set_auto_attack('BackupMeat');
+    use_familiar($familiar[Trick-or-Treating Tot]);
+    maximize('meat drop, equip piraterealm eyepatch, equip latte lovers member mug, -equip backup camera', false);
+    while(get_property('_pirateRealmIslandMonstersDefeated').to_int() < 4
+        && get_property('_lastPirateRealmIsland') == 'Trash Island')
+    {
+        keepStatsLow();
+        adv1($location[PirateRealm Island], -1, "");
+    }
+    if(empire && get_property("_questPirateRealm") == "step10")
+    {
+        keepStatsLow();
+        adv1($location[PirateRealm Island], -1, ""); 
+    }
+        
+    return false;
+}
+
+
+
+
 boolean storm_run()
 {
     set_auto_attack(0);
@@ -260,6 +283,13 @@ void Sailing()
         adv1($location[Sailing the PirateRealm Seas], -1, "");
     }
             
+}
+
+void sail_to_crab()
+{
+    pirates_init();
+    Sailing();
+    windy_crabs_run();
 }
 
 void main()
