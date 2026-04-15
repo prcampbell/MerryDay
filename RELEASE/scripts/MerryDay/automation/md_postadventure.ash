@@ -459,9 +459,15 @@ void acid()
 
 void main() 
 {
-	if(my_fullness() <= fullness_limit()
+	if((my_fullness() <= fullness_limit()
     && my_inebriety() <= inebriety_limit()
-    && my_spleen_use() <= spleen_limit())
+    && my_spleen_use() <= spleen_limit()) 
+	|| (have_equipped($item[angelbone totem])
+		|| have_equipped($item[angelbone chopsticks])
+		|| have_equipped($item[angelbone dice])
+		|| have_equipped($item[devilbone corset])
+		|| have_equipped($item[devilbone greaves]
+		|| have_equipped($item[devilbone rosary])
 	{
 		try {
 			if ( can_interact() && my_inebriety() <= inebriety_limit() && my_familiar() != $familiar[stooper])
