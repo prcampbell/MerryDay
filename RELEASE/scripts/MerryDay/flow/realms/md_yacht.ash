@@ -217,7 +217,7 @@ void yachting()
     print('You cannot do yacht anymore','red');
 }
 
-boolean drunken_yacht()
+void drunken_yacht()
 {
     yacht_outfit();
     if(my_fullness() < fullness_limit())
