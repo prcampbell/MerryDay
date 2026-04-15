@@ -21,6 +21,7 @@ import ff_lov;
 import ff_sheriff;
 import ff_lsc;
 import ff_bcz;
+import ff_mushroom;
 
 void merry_auto_attack()
 {
