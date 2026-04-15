@@ -99,6 +99,12 @@ void main(string command)
 
   startDay();
   print('Day Started', 'green');
+
+  if(!free)
+  {
+    sail_to_crab();
+  }
+
   if(
     !to_boolean(get_property("expressCardUsed"))
     && !get_property('_aug15Cast').to_boolean()
@@ -141,9 +147,7 @@ void main(string command)
   fights_run();
   if(!free)
   {
-
-    dinsey();
-    sail_to_crab();
+    dinsey(); 
     while(available_amount($item[li'l pirate costume]) == 0)
     {
       pgb_free_run();
@@ -153,8 +157,6 @@ void main(string command)
       cli_execute('synthesize greed');
     }
     cli_execute('CONSUME ALL');
-
-
     dailyMeatBuffs();
     if(embezzlers_can())
     {
