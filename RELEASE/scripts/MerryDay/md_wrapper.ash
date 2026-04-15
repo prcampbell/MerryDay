@@ -28,6 +28,7 @@ import md_dinsey.ash;
 import md_spacegate.ash;
 import md_pocketprofessor.ash;
 import md_mimic.ash;
+import md_space.ash;
 
 boolean day_over()
 {
@@ -36,6 +37,21 @@ boolean day_over()
     && my_inebriety() >= inebriety_limit()
     && my_spleen_use() >= spleen_limit()
     && my_adventures() == 0;
+}
+
+int reserve_advs()
+{
+  int advs = 0;
+  if(grimacemap_can())
+  {
+    advs += 1;
+  }
+  if(get_property('_questPirateRealm') == "step11")
+  {
+    advs += 17;
+  }
+
+  return advs;
 }
 
 
@@ -164,6 +180,11 @@ void main(string command)
 
     
     set_property('afterAdventureScript', 'md_postadventure.ash');
+    while(my_adventures() > reserve_advs())
+    {
+      diet_run();
+      barf_run();
+    }
   }
     
   abort();
@@ -193,11 +214,7 @@ void main(string command)
   yachting();
 
 
-  while(my_adventures() > 0)
-  {
-    diet_run();
-    barf_run();
-  }
+
 
   if(day_over())
   {
