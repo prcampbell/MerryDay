@@ -198,7 +198,10 @@ item[slot] locationNeeds(location loc)
 	switch(loc)
 	{
 		case $location[Pirates of the Garbage Barges]:
-			needs[$slot[weapon]] = $item[trash net];
+			if(get_property('_merryDinseyQuest') == 'Teach a Man to Fish Trash')
+			{
+				needs[$slot[weapon]] = $item[trash net];
+			}
 			break;
 		case $location[The Toxic Teacups]:
 			needs[$slot[hat]] = $item[Dinsey mascot mask];
