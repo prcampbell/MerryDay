@@ -159,7 +159,7 @@ void roach_run()
         angel_run();
 
 /*adv.php to set Romantic Counter*/
-
+    trash_run();
     maximize('meat drop, equip backup camera, equip latte lover',false);
 /*burn Romantic Delay */
     while(putty_can())

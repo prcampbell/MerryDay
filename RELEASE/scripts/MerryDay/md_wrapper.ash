@@ -162,7 +162,6 @@ void main(string command)
     }
     crabs_run();
     Sailing();
-    trash_run();
 
     if(roach_can())
     {
