@@ -176,7 +176,6 @@ void main(string command)
     {
         mimic_run($monster[cockroach]);
     }
-    crabs_run();
     cli_execute('CONSUME ALL');
     set_property('afterAdventureScript', 'md_postadventure.ash');
     while(my_adventures() > reserve_advs())
@@ -184,6 +183,7 @@ void main(string command)
       diet_run();
       barf_run();
     }
+    pirate_cleanup();
   }
     
   abort();
@@ -211,7 +211,7 @@ void main(string command)
       }
   }
   yachting();
-
+  
 
 
 

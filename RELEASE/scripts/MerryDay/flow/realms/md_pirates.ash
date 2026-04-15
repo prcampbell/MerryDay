@@ -297,6 +297,13 @@ void sail_to_crab()
     windy_crabs_run();
 }
 
+void pirate_cleanup()
+{
+    trash_run(true);
+    Sailing();
+    storm_run();
+}
+
 void main()
 {
     pirates_init();
