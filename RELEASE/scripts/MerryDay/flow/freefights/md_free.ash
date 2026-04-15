@@ -116,6 +116,12 @@ void fights_run()
     construct_free_outfit($phylum[plant]);
     leaves_run();
   }
+  if(mushroom_can())
+  {
+      merry_auto_attack();
+      construct_free_outfit($phylum[plant]);
+      mushroom_run();
+  }
   while(lobster_can())
   {
     merry_auto_attack();
