@@ -90,6 +90,10 @@ boolean force_nc()
         while(total_free_rests() > get_property('timesRested').to_int() && get_property('_cinchUsed').to_int() > 40)
         {
             LibramBurn();
+            if(my_mp() == my_maxmp())
+            {
+                cast($skill[Empathy of the Newt]);
+            }
             cli_execute('rest free');
         }
         return true;
