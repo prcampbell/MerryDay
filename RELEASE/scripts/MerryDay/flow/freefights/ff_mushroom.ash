@@ -39,22 +39,3 @@ void mushroom_run()
         
     }
 }
-
-/*
-
-[1765] Your Mushroom Garden
-Preference lastEncounter changed from Is There A Doctor In The House? to The Mushy Center
-Encounter: The Mushy Center
-Unsupported choice adventure #1410
-choice 1: Fertilize the mushroom
-choice 2: Pick the mushroom
-Click here to continue in the relay browser.
-
-if(mushroom_can())
-{
-    merry_auto_attack();
-    construct_free_outfit($phylum[plant]);
-    mushroom_run();
-}
-
-*/
