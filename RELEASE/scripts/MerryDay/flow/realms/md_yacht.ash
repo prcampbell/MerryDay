@@ -125,8 +125,8 @@ boolean yacht_double_run()
 
 boolean yacht_run()
 {   
-    cli_execute('gain 1000 meat');
     yacht_outfit();
+    cli_execute('gain 1000 meat');
     return adv1($location[the sunken party yacht], -1, '');
 }
 
