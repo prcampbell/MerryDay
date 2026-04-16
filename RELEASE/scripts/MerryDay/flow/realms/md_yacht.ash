@@ -92,7 +92,7 @@ boolean force_nc()
             LibramBurn();
             if(my_mp() == my_maxmp())
             {
-                cast($skill[Empathy of the Newt]);
+                use_skill(1, $skill[Empathy of the Newt]);
             }
             cli_execute('rest free');
         }
