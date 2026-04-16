@@ -467,7 +467,7 @@ void main()
 		|| have_equipped($item[angelbone dice])
 		|| have_equipped($item[devilbone corset])
 		|| have_equipped($item[devilbone greaves])
-		|| have_equipped($item[devilbone rosary]))
+		|| have_equipped($item[devilbone rosary])))
 	{
 		try {
 			if ( can_interact() && my_inebriety() <= inebriety_limit() && my_familiar() != $familiar[stooper])
