@@ -524,7 +524,7 @@ void construct_free_outfit(item[slot] required_equips)
 	construct_free_outfit(required_equips, fam, $phylum[none]);
 }
 
-void construct_free_outfit(item[slot] required_equips, $phylum phy)
+void construct_free_outfit(item[slot] required_equips, phylum phy)
 {
 	familiar fam = ChooseFamiliar();
 	construct_free_outfit(required_equips, fam, phy)
