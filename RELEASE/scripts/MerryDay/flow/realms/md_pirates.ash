@@ -257,7 +257,7 @@ boolean storm_run()
     {
         if(my_adventures() == 0)
         {
-            abort("Out of adventures, cannot continue storm!", "red");
+            abort("Out of adventures, cannot continue storm!");
             return false;
         }
         keepStatsLow();
@@ -291,7 +291,7 @@ void Sailing()
     {
         if(my_adventures() == 0)
         {
-            abort("Out of adventures, cannot continue sailing!", "red");
+            abort("Out of adventures, cannot continue sailing!");
             return;
         }
         keepStatsLow();
