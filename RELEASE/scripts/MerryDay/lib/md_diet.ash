@@ -50,6 +50,10 @@ boolean eatWithHelper(item it)
         print('You are too full to eat ' + it.to_string(), 'red');
         return false;
     }
+    if(item_amount($item[munchies pill]) > 0 && it == $item[spaghetti breakfast])
+    {
+        use(1, $item[munchies pill]);
+    }
     if(item_amount($item[whet stone]) > 1)
     {
         use(1, $item[whet stone]);
@@ -94,7 +98,7 @@ boolean eatWithHelper(item it)
     {
         eat(1, $item[fudge spork]);
     }
-    set_property('_merryEaten', get_property('_merryEaten') + it + ';');
+    set_property('_merryEaten', get_property('_merryEaten') + it.to_string() + ';');
     return eat(1, it);
 }
 

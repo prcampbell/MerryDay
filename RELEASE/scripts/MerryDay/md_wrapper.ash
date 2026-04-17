@@ -41,7 +41,7 @@ boolean day_over()
 
 int reserve_advs()
 {
-  int advs = 0;
+  int advs = 2;
   if(grimacemap_can())
   {
     advs += 1;
@@ -184,6 +184,8 @@ void main(string command)
       barf_run();
     }
     pirate_cleanup();
+    if(grimacemap_can()) 
+      grimacemap_run();
   }
     
   abort();

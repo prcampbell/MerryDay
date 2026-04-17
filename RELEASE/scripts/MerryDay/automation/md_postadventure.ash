@@ -459,7 +459,7 @@ void acid()
 
 void main() 
 {
-	if(my_adventures() > 0 && my_fullness() <= fullness_limit()
+	if((my_adventures() > 0 && my_fullness() <= fullness_limit()
     && my_inebriety() <= inebriety_limit()
     && my_spleen_use() <= spleen_limit()) 
 	|| (have_equipped($item[angelbone totem])

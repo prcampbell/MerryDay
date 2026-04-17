@@ -113,15 +113,6 @@ void startDay()
 		{
 			cli_execute('spoon wombat');
 		}
-		if(!get_property('_spaghettiBreakfastEaten').to_boolean()
-		&& item_amount($item[spaghetti breakfast]) > 1)
-		{
-			if(item_amount($item[munchies pill]) > 0)
-			{
-				use(1, $item[munchies pill]);
-			}
-			eatWithHelper(1, $item[spaghetti breakfast]);
-		}
 		if(item_amount($item[human musk]) == 0)
 		{
 			cli_execute('acquire 1 human musk');
