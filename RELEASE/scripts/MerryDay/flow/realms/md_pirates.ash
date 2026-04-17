@@ -255,6 +255,11 @@ boolean storm_run()
     maximize('item drop, equip piraterealm eyepatch, -equip broken champagne', false);
     while(get_property('_questPirateRealm') == 'step14')
     {
+        if(my_adventures() == 0)
+        {
+            abort("Out of adventures, cannot continue storm!", "red");
+            return false;
+        }
         keepStatsLow();
         adv1($location[PirateRealm Island], -1, "use shadow brick;");
     }
@@ -284,6 +289,11 @@ void Sailing()
             || get_property("_questPirateRealm") == "step12"
             || get_property("_questPirateRealm") == "step13"))
     {
+        if(my_adventures() == 0)
+        {
+            abort("Out of adventures, cannot continue sailing!", "red");
+            return;
+        }
         keepStatsLow();
         adv1($location[Sailing the PirateRealm Seas], -1, "");
     }

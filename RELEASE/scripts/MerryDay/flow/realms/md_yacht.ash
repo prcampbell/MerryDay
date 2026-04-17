@@ -168,7 +168,7 @@ boolean yacht_seal()
             item[slot] required_equips;
             required_equips[$slot[weapon]] = $item[seal-clubbing club];
             required_equips[$slot[acc3]] = $item[McHugeLarge left ski];
-            construct_free_outfit(required_equips, $familiar[chest mimic]);
+            construct_free_outfit(required_equips, $phylum[horror]);
             use(1, $item[figurine of a wretched-looking seal]);
         }
         else if(get_property('_spikolodonSpikeUses').to_int() < 5)
@@ -177,7 +177,7 @@ boolean yacht_seal()
             item[slot] required_equips;
             required_equips[$slot[weapon]] = $item[seal-clubbing club];
             required_equips[$slot[shirt]] = $item[jurassic parka];
-            construct_free_outfit(required_equips, $familiar[chest mimic]);
+            construct_free_outfit(required_equips, $phylum[horror]);
             if(get_property('parkaMode') != 'spikolodon')
                 cli_execute('parka spikolodon');
             use(1, $item[figurine of a wretched-looking seal]);

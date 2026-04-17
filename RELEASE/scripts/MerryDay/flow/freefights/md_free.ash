@@ -22,6 +22,7 @@ import ff_sheriff;
 import ff_lsc;
 import ff_bcz;
 import ff_mushroom;
+import ff_cyberfight;
 
 void merry_auto_attack()
 {
@@ -98,18 +99,7 @@ void fights_run()
       melf_run();
   }
   
-  if(tentacle_skill_fight_can())
-  {
-    merry_auto_attack();
-    construct_free_outfit();
-    tentacle_skill_fight_run();
-  }
-  if(tentacle_fight_can())
-  {
-    merry_auto_attack();
-    construct_free_outfit();
-    tentacle_fight_run();
-  }
+
   while(leaves_can())
   {
     merry_auto_attack();
@@ -177,11 +167,35 @@ void fights_run()
   {
     bcz_run(); 
   }
-    
-
-  
-
   set_auto_attack(0);
+}
+
+void endofday_run()
+{
+  if(get_property('redSnapperPhylum').to_phylum() != $phylum[horror])
+    {
+      cli_execute('snapper horror');
+    }
+  if(tentacle_skill_fight_can())
+  {
+    merry_auto_attack();
+    construct_free_outfit($phylum[horror]);
+    tentacle_skill_fight_run();
+  }
+  if(tentacle_fight_can())
+  {
+    merry_auto_attack();
+    construct_free_outfit($phylum[horror]);
+    tentacle_fight_run();
+  }
+  flood_cyber();
+  while(cyberfight_can())
+  {
+    construct_free_outfit();
+    cyberfight_run();
+  }
+  set_auto_attack(0);
+  
 }
 
 void main()
