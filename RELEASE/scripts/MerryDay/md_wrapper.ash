@@ -46,7 +46,7 @@ int reserve_advs()
   {
     advs += 1;
   }
-  if(get_property('_questPirateRealm') == "step11")
+  if(get_property('_lastPirateRealmIsland') == "Trash Island")
   {
     advs += 17;
   }
