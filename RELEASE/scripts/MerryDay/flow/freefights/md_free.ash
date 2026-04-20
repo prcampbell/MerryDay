@@ -123,15 +123,16 @@ void fights_run()
     merry_auto_attack();
     if(get_property('redSnapperPhylum').to_phylum() != $phylum[dude])
     {
+      use_familiar($familiar[red-nosed snapper]);
       cli_execute('snapper dude');
     }
-    construct_free_outfit($familiar[red-nosed snapper]);
+    construct_free_outfit($phylum[dude]);
     nep_free_turn_run();  
   }
   while(speakeasy_can())
   {
     merry_auto_attack();
-    construct_free_outfit(chooseFamiliar());
+    construct_free_outfit();
     speakeasy_run();  
   }
   while(pygmy_can())
@@ -152,7 +153,7 @@ void fights_run()
   if(glitch_reward_fight_can())
   {
     merry_auto_attack();
-    construct_free_outfit(chooseFamiliar());
+    construct_free_outfit();
     glitch_reward_fight_run();
   }
   while(sheriff_can())
@@ -173,9 +174,10 @@ void fights_run()
 void endofday_run()
 {
   if(get_property('redSnapperPhylum').to_phylum() != $phylum[horror])
-    {
-      cli_execute('snapper horror');
-    }
+  {
+    use_familiar($familiar[red-nosed snapper]);
+    cli_execute('snapper horror');
+  }
   if(tentacle_skill_fight_can())
   {
     merry_auto_attack();

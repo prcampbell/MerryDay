@@ -102,7 +102,7 @@ boolean trick_run()
     string[int] blockMap;
     item[slot] needs;
     needs[$slot[hat]] = $item[witch hat];
-    construct_free_outfit(needs, $familiar[chest mimic]);
+    construct_free_outfit(needs, $phylum[dude]);
     set_auto_attack('StasisFight');
 
     advstring = visit_url("place.php?whichplace=town&action=town_trickortreat");
