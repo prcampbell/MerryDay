@@ -126,6 +126,7 @@ void pull_misc()
   safe_pull($item[closed-circuit pay phone]);
   safe_pull($item[2002 MR. Store Catalog]);
   safe_pull($item[bittycar meatcar]);
+  safe_pull($item[potato alarm clock]);
   
   safe_pull($item[replica bat-oomerang]);
   safe_pull($item[tiny plastic ChibiBuddy&trade;]);
