@@ -2,7 +2,8 @@ script ff_spade;
 
 boolean spade_can()
 {
-    return get_property('_archSpadeDigs').to_int() < 11;
+    return get_property('_archSpadeDigs').to_int() < 11
+        && $locations[The VERY Unquiet Garves, The Haunted Kitchen] contains get_property('lastAdventure').to_location();
 }
 
 boolean spade_run()
@@ -13,9 +14,3 @@ boolean spade_run()
     return true;
 }
 
-while(spade_can())
-{
-    merry_auto_attack();
-    construct_free_outfit($familiar[skeleton of crimbo past]);
-    spade_run();
-}
