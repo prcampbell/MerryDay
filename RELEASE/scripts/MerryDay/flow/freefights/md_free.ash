@@ -198,6 +198,7 @@ void endofday_run()
   }
   set_auto_attack(0);
   
+  
 }
 
 void main()

@@ -285,14 +285,15 @@ void construct_free_outfit(Item[slot] required_equips, familiar fam, phylum phy)
 		default:
 			break;
 	}
-	if(fam == $familiar[none])
-	{
-		fam = ChooseFamiliar();
-	}
+
 	if(get_property('redSnapperPhylum').to_phylum() == phy 
 		&& fam != $familiar[none])
 	{
 		fam = $familiar[red-nosed snapper];
+	}
+	if(fam == $familiar[none])
+	{
+		fam = ChooseFamiliar();
 	}
 	use_familiar(fam);
 	if(required_equips[$slot[familiar]] == $item[none])
