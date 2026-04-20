@@ -353,9 +353,11 @@ void tatters()
 		SaveSetup();
 		print('Tatter Farming', 'blue');
 		cli_execute('autoattack tatterfarm; familiar xo skeleton;');
-		equip($slot[back], $item[bat wings]);
-		equip($slot[off-hand], $item[tiny black hole]);
-		equip($slot[acc1], $item[spring shoes]);
+		item[slot] needs;
+		needs[$slot[back]] = $item[bat wings];
+		needs[$slot[off-hand]] = $item[tiny black hole];
+		needs[$slot[acc1]] = $item[spring shoes];
+		construct_free_outfit(needs, $familiar[xo skeleton]);
 		adv1($location[The Haunted Library], -1, "");
 	}
 }
