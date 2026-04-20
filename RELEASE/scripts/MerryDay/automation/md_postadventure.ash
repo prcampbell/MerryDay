@@ -4,6 +4,8 @@ import ff_witchess.ash;
 import md_pocketprofessor.ash;
 import md_library.ash;
 import md_dinsey.ash;
+import ff_spade.ash;
+import md_free.ash;
 
 familiar fam = $familiar[none];
 item fameq = $item[none];
@@ -454,6 +456,16 @@ void acid()
 		
 		(!adv1(target, -1, ''));
 		kiosk_run();
+	}
+}
+
+void spade()
+{
+	while(spade_can())
+	{
+		merry_auto_attack();
+		construct_free_outfit($familiar[skeleton of crimbo past]);
+		spade_run();
 	}
 }
 
