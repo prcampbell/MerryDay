@@ -226,11 +226,11 @@ void drunken_yacht()
     yacht_outfit();
     if(my_fullness() < fullness_limit())
     {
-        eatWithHelper(1, $item[boris's bread]);
+        eatWithHelper($item[boris's bread]);
     }
     if(my_fullness() < fullness_limit())
     {
-        eatWithHelper(1, $item[jumping horseradish]);
+        eatWithHelper($item[jumping horseradish]);
     }
     if(item_amount($item[spacegate research]) > 50 && my_inebriety() + 2 <= inebriety_limit())
     {
