@@ -194,7 +194,8 @@ void endofday_run()
   while(cyberfight_can())
   {
     item[slot] needs;
-    needs[slot[weapon]] = $item[monodent of the sea];
+    needs[$slot[weapon]] = $item[monodent of the sea];
+    
     construct_free_outfit(needs);
     cyberfight_run();
   }
