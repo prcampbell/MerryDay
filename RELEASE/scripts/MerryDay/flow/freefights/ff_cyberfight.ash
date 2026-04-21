@@ -20,19 +20,21 @@ boolean cyberfight_run()
 
 void flood_cyber()
 {
-    set_property('betweenBattleScript', '');
-    set_property('afterAdventureScript', '');
-    item[slot] required_equips;     
-    required_equips[$slot[weapon]] = $item[monodent of the sea];     
-    construct_free_outfit(required_equips);
-    if(get_auto_attack() != 0)
-        set_auto_attack(0);
-    if(cyberfight_can())
-        cyberfight_run();
-    use_skill(1, $skill[Sea *dent: Summon a Wave]);
-    if(handling_choice())
-        run_choice(1);
+    if(!get_property('_seadentWaveUsed').to_boolean())
+    {
+        set_property('betweenBattleScript', '');
+        set_property('afterAdventureScript', '');
+        item[slot] required_equips;     
+        required_equips[$slot[weapon]] = $item[monodent of the sea];     
+        construct_free_outfit(required_equips);
+        if(get_auto_attack() != 0)
+            set_auto_attack(0);
+        if(cyberfight_can())
+            cyberfight_run();
+        use_skill(1, $skill[Sea *dent: Summon a Wave]);
+        if(handling_choice())
+            run_choice(1);
+    }
 
-    set_property("battleAction", "attack with weapon");
 }
 
