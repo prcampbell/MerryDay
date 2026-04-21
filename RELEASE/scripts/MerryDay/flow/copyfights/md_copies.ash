@@ -175,13 +175,18 @@ void roach_run()
 
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop, equip powerful glove, equip latte lover, -equip backup camera',false);
-        
+    item[slot] needs;
+    foreach s in $slots[hat, back, shirt, weapon, off-hand, pants, acc1, acc2, acc3, familiar]
+    {
+        needs[s] = equipped_item(s);
+    }    
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_powerfulGloveBatteryPowerUsed').to_int() < 100)
     {
         if(have_effect($effect[everything looks purple]) == 0)
         {
-            equip($slot[off-hand],$item[Roman Candelabra]);
+            needs[$slot[off-hand]] = $item[Roman Candelabra];
         }
+        construct_meat_outfit(needs);
         adv1($location[noob cave], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
@@ -196,12 +201,17 @@ void roach_run()
     
     //We save 2 for orb dancing later
     maximize('meat drop, equip latte lover, -equip backup camera',false);
+    foreach s in $slots[hat, back, shirt, weapon, off-hand, pants, acc1, acc2, acc3, familiar]
+    {
+        needs[s] = equipped_item(s);
+    } 
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1 && get_property('_macrometeoriteUses').to_int() < 8)
     {
         if(have_effect($effect[everything looks purple]) == 0)
         {
-            equip($slot[off-hand],$item[Roman Candelabra]);
+            needs[$slot[off-hand]] = $item[Roman Candelabra];
         }
+        construct_meat_outfit(needs);
         adv1($location[noob cave], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
@@ -216,12 +226,17 @@ void roach_run()
 
     use_familiar($familiar[jill-of-all-trades]);
     maximize('meat drop, equip latte lover, equip backup camera',false);
+    foreach s in $slots[hat, back, shirt, weapon, off-hand, pants, acc1, acc2, acc3, familiar]
+    {
+        needs[s] = equipped_item(s);
+    } 
     while(get_property('_monsterHabitatsFightsLeft').to_int() > 1)
     {
         if(have_effect($effect[everything looks purple]) == 0)
         {
-            equip($slot[off-hand],$item[Roman Candelabra]);
+            needs[$slot[off-hand]] = $item[Roman Candelabra];
         }
+        construct_meat_outfit(needs);
         adv1($location[the dire warren], -1, '');
         if(get_property('_monsterHabitatsFightsLeft').to_int() == 1)
         {
