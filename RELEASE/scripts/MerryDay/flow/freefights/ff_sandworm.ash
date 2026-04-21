@@ -26,21 +26,6 @@ void BuffItems()
 	maximize("item drop, -equip lucky sock",false);
 }
 
-void Bullseye()
-{
-	set_location($location[Friar Ceremony Location]);
-	use_familiar($familiar[Trick-or-Treating Tot]);
-	maximize("item drop, -equip lucky sock,equip everfull dart holster",false);
-	while(have_effect($effect[everything looks red]) == 0)
-	{
-		use( 1, $item[drum machine] );
-		if ( get_property("garbageChampagneCharge")==0 && !get_property("_garbageItemChanged").to_boolean() ) {
-			cli_execute("fold wad of used tape");
-			cli_execute("fold broken champagne bottle");
-		}		
-	}
-}
-
 void ChestXRay() 
 {
 	boolean [item] RequiredItems;
@@ -128,7 +113,6 @@ void Sandworm()
         ) 
 		return;
     BuffItems();
-	Bullseye();
 	ChestXRay();
 	OtherFreeFreeKills();
 }
