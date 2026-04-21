@@ -140,10 +140,12 @@ location defaultTargetLocation()
 				&& my_location().wanderers
 			)
 			{
+				print('Defaulting to current location for wanderer fights', 'blue');
 				return my_location();				
 			}
 			else
 			{
+				print('Defaulting to Haunted Kitchen for wanderer fights', 'blue');
 				return $location[The Haunted Kitchen];
 			}
 }
@@ -155,23 +157,26 @@ location wandererLocation()
 	
 	if(get_property('_merryDinseyQuest') != '')
 	{
-		print('Wandering in Dinsey', 'blue');
 		if(get_property('_merryDinseyQuest') == 'Social Justice Adventurer I')
 		{
+			print('Wandering in Pirates of the Garbage Barges', 'blue');
 			return $location[Pirates of the Garbage Barges];
 		}
 			
 		else if(get_property('_merryDinseyQuest') == 'Social Justice Adventurer II')
 		{
+			print('Wandering in Uncle Gator\'s Country Fun-Time Liquid Waste Sluice', 'blue');
 			return $location[Uncle Gator's Country Fun-Time Liquid Waste Sluice];
 		}
 			
 		else if(get_property('_merryDinseyQuest') == 'Whistling Zippity-Doo-Dah')
 		{
+			print('Wandering in The Toxic Teacups', 'blue');
 			return $location[The Toxic Teacups];
 		}
 		else if(get_property('_merryDinseyQuest') == 'Teach a Man to Fish Trash')
 		{
+			print('Wandering in Pirates of the Garbage Barges', 'blue');
 			return $location[Pirates of the Garbage Barges];
 		}
 	}
