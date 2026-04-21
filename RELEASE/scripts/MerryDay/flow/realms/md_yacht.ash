@@ -3,6 +3,7 @@ script md_yacht;
 import md_library.ash;
 import md_mpburn;
 import md_outfit.ash;
+import md_diet.ash;
 
 void yacht_outfit(familiar fam)
 {
