@@ -193,7 +193,9 @@ void endofday_run()
   flood_cyber();
   while(cyberfight_can())
   {
-    construct_free_outfit();
+    item[slot] needs;
+    needs[slot[weapon]] = $item[monodent of the sea];
+    construct_free_outfit(needs);
     cyberfight_run();
   }
   set_auto_attack(0);
