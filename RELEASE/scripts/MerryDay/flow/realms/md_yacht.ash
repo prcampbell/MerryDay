@@ -95,6 +95,10 @@ boolean force_nc()
             {
                 use_skill(1, $skill[Empathy of the Newt]);
             }
+            if(get_property('_knuckleboneRests').to_int() < 5)
+            {
+                use_familiar($familiar[skeleton of crimbo past]);
+            }
             cli_execute('rest free');
         }
         return true;
