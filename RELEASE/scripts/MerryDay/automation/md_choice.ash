@@ -69,6 +69,13 @@ void main ( int choice, string page )
 					choice 6: Ignore it (skip)*/
 				run_choice(6);			
 			break;
+		case 879: /*Encounter: One Rustic Nightstand
+					choice 1: Check the top drawer (moxie)
+					choice 2: Check the bottom drawer (grouchy restless spirit or empty drawer)
+					choice 3: Investigate the jewelry (enter combat with mistress (1))
+					choice 6: Ignore it (skip)*/
+				run_choice(6);			
+			break;
 		case 880: /*Encounter: One Elegant Nightstand
 					choice 1: Open the single drawer (Lady Spookyraven's finest gown (once only))
 					choice 2: Break a leg (off of the nightstand) (elegant nightstick)
