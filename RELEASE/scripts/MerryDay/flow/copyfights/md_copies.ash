@@ -160,7 +160,7 @@ void roach_run()
 
 /*adv.php to set Romantic Counter*/
     trash_run();
-    maximize('meat drop, equip backup camera, equip latte lover',false);
+    maximize('meat drop, equip backup camera, equip latte lover, switch jill-of-all-trades',false);
 /*burn Romantic Delay */
     while(putty_can())
     {
