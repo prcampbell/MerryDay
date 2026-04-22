@@ -54,6 +54,12 @@ void main ( int choice, string page )
 					choice 6: Ignore it (skip)*/
 				run_choice(6);			
 			break;
+		case 880: /*Encounter: One Elegant Nightstand
+					choice 1: Open the single drawer (Lady Spookyraven's finest gown (once only))
+					choice 2: Break a leg (off of the nightstand) (elegant nightstick)
+					choice 6: Ignore it (skip)*/
+				run_choice(6);			
+			break;
 		case 884: /*Encounter: Chasin' Babies
 					choice 1: Try the poppet
 					choice 2: Try the rocking horse
