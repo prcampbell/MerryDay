@@ -54,6 +54,14 @@ void main ( int choice, string page )
 					choice 6: Ignore it (skip)*/
 				run_choice(6);			
 			break;
+		case 878: /*Encounter: One Ornate Nightstand
+					choice 1: Open the top drawer (small meat boost)
+					choice 2: Open the bottom drawer (mysticality substats)
+					choice 3: Look behind the nightstand (Lord Spookyraven's spectacles)
+					choice 4: Look under the nightstand (disposable instant camera)
+					choice 6: Ignore it (skip)*/
+				run_choice(6);			
+			break;
 		case 880: /*Encounter: One Elegant Nightstand
 					choice 1: Open the single drawer (Lady Spookyraven's finest gown (once only))
 					choice 2: Break a leg (off of the nightstand) (elegant nightstick)
