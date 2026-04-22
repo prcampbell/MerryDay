@@ -54,6 +54,13 @@ void main ( int choice, string page )
 					choice 6: Ignore it (skip)*/
 				run_choice(6);			
 			break;
+		case 877: /*One Mahogany Nightstand
+					choice 1: Check the top drawer (old coin purse or half a memo)
+					choice 2: Check the bottom drawer (take damage)
+					choice 3: Look under the nightstand (quest item)
+					choice 6: Ignore it (skip)*/
+				run_choice(6);			
+			break;
 		case 878: /*Encounter: One Ornate Nightstand
 					choice 1: Open the top drawer (small meat boost)
 					choice 2: Open the bottom drawer (mysticality substats)
