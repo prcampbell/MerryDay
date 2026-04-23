@@ -219,7 +219,7 @@ boolean embezzlers_run()
     embezzler_potions(6, 1000);
     construct_meat_outfit(meat_familiar());
     set_auto_attack('BackupMeat');
-    if(have_effect($effect[Lucky!]) ­> 0)
+    if(have_effect($effect[Lucky!]) > 0)
     {
         adv1($location[Cobb's Knob Treasury], -1, '');
     }
