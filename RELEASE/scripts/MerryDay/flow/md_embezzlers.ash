@@ -70,6 +70,8 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
                 use(1, it);
         }
     }
+
+    //How to find the effect duration item it = $item[jumping horseradish]; numeric_modifier(it, 'effect duration');
     if(contains_text(get_property('_birdOfTheDayMods'), 'Meat Drop') && my_mp() >= 425)
     {
         while(get_property('_birdsSoughtToday') < 6)
@@ -135,6 +137,17 @@ void embezzler_potions(int numberOfEmbezzlers, int meatDrop)
 
     }
 
+}
+
+boolean heartstone_can()
+{
+    return !get_property('_heartstoneLuckUsed').to_boolean();
+}
+
+boolean heartstone_run()
+{
+    use_skill(1, $skill[Heartstone: %luck]);
+    return adv1($location[Cobb's Knob Treasury], -1, '');
 }
 
 boolean august_can()
@@ -206,6 +219,12 @@ boolean embezzlers_run()
     embezzler_potions(6, 1000);
     construct_meat_outfit(meat_familiar());
     set_auto_attack('BackupMeat');
+    if(have_effect($effect[Lucky!]) ­> 0)
+    {
+        adv1($location[Cobb's Knob Treasury], -1, '');
+    }
+    if(heartstone_can())
+        heartstone_run();
     if(august_can())
         august_run();
     while(sax_can())
