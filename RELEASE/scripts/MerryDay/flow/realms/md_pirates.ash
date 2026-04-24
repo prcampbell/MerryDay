@@ -302,9 +302,16 @@ void Sailing()
 
 void sail_to_crab()
 {
-    pirates_init();
-    Sailing();
-    windy_crabs_run();
+    if(get_propert('_lastPirateRealmIsland') != 'Crab Island')
+    {
+        pirates_init();
+        Sailing();
+    }
+
+    if(get_property('_pirateRealmIslandMonstersDefeated').to_int() < 4)
+    {
+        windy_crabs_run();
+    }
 }
 
 void pirate_cleanup()
