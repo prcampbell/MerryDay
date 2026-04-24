@@ -197,6 +197,7 @@ void main(string command)
     {
       eaglebrick_run();
     }
+    bander_run();
     crabs_run();
     Sailing();
 
@@ -224,7 +225,7 @@ void main(string command)
       grimacemap_run();
     endofday_run();
   }
-    
+  bander_run();  
   abort();
 
 

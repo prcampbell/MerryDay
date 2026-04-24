@@ -39,6 +39,10 @@ void freeruns_run()
         gap_run();
     while(gingerbread_bander_can())
         gingerbread_bander_run();
+}
+
+void bander_run()
+{
     while(doctor_bander_can())
         doctor_bander_run();
     maximize('familiar weight -tie, equip tearaway pants', false);

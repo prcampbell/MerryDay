@@ -11,11 +11,12 @@ boolean gap_can()
 
 boolean gap_run()
 {
-    use_familiar($familiar[chocolate lab]);
-    construct_free_outfit();
-    equip($slot[pants], $item[greatest american pants]);
-    equip($slot[familiar], $item[tiny rake]);
-    equip($slot[off-hand], $item[rake]);
+    item[slot] required_equips;
+    required_equips[$slot[pants]] = $item[greatest american pants];
+    required_equips[$slot[off-hand]] = $item[rake];
+    required_equips[$slot[familiar]] = $item[tiny rake];
+    
+    construct_free_outfit(required_equips, $familiar[chocolate lab]);
     return adv1($location[Gingerbread Train Station], -1, "runaway;");
 }
 
