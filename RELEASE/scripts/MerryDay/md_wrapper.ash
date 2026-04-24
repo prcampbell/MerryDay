@@ -222,6 +222,7 @@ void main(string command)
     pirate_cleanup();
     if(grimacemap_can()) 
       grimacemap_run();
+    endofday_run();
   }
     
   abort();
