@@ -49,7 +49,7 @@ void freeruns_run()
 void fights_run()
 {
 
-  while(eaglebrick_can())
+  while(eaglebrick_can() && have_effect($effect[Lucky!]) == 0)
   {
     construct_free_outfit($familiar[patriotic eagle]);
     eaglebrick_run();
@@ -195,7 +195,7 @@ void endofday_run()
   {
     item[slot] needs;
     needs[$slot[weapon]] = $item[monodent of the sea];
-    
+
     construct_free_outfit(needs);
     cyberfight_run();
   }

@@ -157,9 +157,45 @@ void main(string command)
       cli_execute('synthesize greed');
     }
     dailyMeatBuffs();
+    foreach e in $effects[The Moxious Madrigal 
+                , The Magical Mojomuscular Melody
+                , Cletus's Canticle of Celerity
+                , Power Ballad of the Arrowsmith
+                , Jackasses' Symphony of Destruction
+                , Brawnee's Anthem of Absorption
+                , Psalm of Pointiness
+                , Stevedave's Shanty of Superiority
+                , Aloysius' Antiphon of Aptitude
+                , Ode to Booze
+                , The Sonata of Sneakiness
+                , Carlweather's Cantata of Confrontation
+                , Ur-Kel's Aria of Annoyance
+                , Dirge of Dreadfulness
+                , The Ballad of Richie Thingfinder
+                , Benetton's Medley of Diversity
+                , Elron's Explosive Etude
+                , Chorale of Companionship
+                , Prelude of Precision 
+                , Donho's Bubbly Ballad
+                , Cringle's Curative Carol
+                , Inigo's Incantation of Inspiration]
+              {
+              if(have_effect(e) > 0)
+                {
+                  print('Removing ' + e.name + ' for a meat buff', 'blue');
+                  cli_execute('shrug ' + e.name);
+                }
+              }
+              moodUp(650, $skill[The Polka of Plenty], $effect[Polka of Plenty]);
+              moodUp(650, $skill[Fat Leon's Phat Loot Lyric], $effect[Fat Leon's Phat Loot Lyric]);
+              
     if(embezzlers_can())
     {
       embezzlers_run();
+    }
+    if(eaglebrick_can())
+    {
+      eaglebrick_run();
     }
     crabs_run();
     Sailing();
