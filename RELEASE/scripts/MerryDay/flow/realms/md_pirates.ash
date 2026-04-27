@@ -302,7 +302,7 @@ void Sailing()
 
 void sail_to_crab()
 {
-    if(get_propert('_lastPirateRealmIsland') != 'Crab Island')
+    if(get_property('_lastPirateRealmIsland') != 'Crab Island')
     {
         pirates_init();
         Sailing();
