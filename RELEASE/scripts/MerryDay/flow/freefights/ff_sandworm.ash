@@ -124,7 +124,7 @@ boolean sandworm_can()
         cli_execute("fold wad of used tape");
         cli_execute("fold broken champagne bottle");
     }
-	return get_property("garbageChampagneCharge") > 0 && available_amount($item[li'l ninja costume]) >= 0;
+	return get_property("garbageChampagneCharge") > 0 && available_amount($item[li'l ninja costume]) > 0;
 }
 
 void main()
