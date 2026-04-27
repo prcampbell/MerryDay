@@ -197,6 +197,7 @@ void main(string command)
     {
       eaglebrick_run();
     }
+    fights_run();
     bander_run();
     crabs_run();
     Sailing();
