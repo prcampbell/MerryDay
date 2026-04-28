@@ -23,6 +23,7 @@ import ff_lsc;
 import ff_bcz;
 import ff_mushroom;
 import ff_cyberfight;
+import ff_seal;
 
 void merry_auto_attack()
 {
@@ -193,6 +194,14 @@ void endofday_run()
     merry_auto_attack();
     construct_free_outfit($phylum[horror]);
     tentacle_fight_run();
+  }
+  if(seal_can())
+  {
+    merry_auto_attack();
+    item[slot] needs;
+    needs[$slot[weapon]] = $item[seal-clubbing club];
+    construct_free_outfit(needs, $phylum[horror]);
+    seal_run();
   }
   flood_cyber();
   while(cyberfight_can())

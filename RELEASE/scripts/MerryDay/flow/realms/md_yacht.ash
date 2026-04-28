@@ -4,6 +4,7 @@ import md_library.ash;
 import md_mpburn;
 import md_outfit.ash;
 import md_diet.ash;
+import ff_seal.ash;
 
 void yacht_outfit(familiar fam)
 {
@@ -167,16 +168,16 @@ boolean yacht_seal()
             abort('You have a noncombat forcer active and started the loop again');
         }
         set_auto_attack('BasicBarf');
-        if(get_property('_mcHugeLargeAvalancheUses').to_int() < 3)
+        if(get_property('_mcHugeLargeAvalancheUses').to_int() < 3 && seal_can())
         {
             print('NC Forced with Avalanche', 'blue');
             item[slot] required_equips;
             required_equips[$slot[weapon]] = $item[seal-clubbing club];
             required_equips[$slot[acc3]] = $item[McHugeLarge left ski];
             construct_free_outfit(required_equips, $phylum[horror]);
-            use(1, $item[figurine of a wretched-looking seal]);
+            seal_run();
         }
-        else if(get_property('_spikolodonSpikeUses').to_int() < 5)
+        else if(get_property('_spikolodonSpikeUses').to_int() < 5 && seal_can())
         {
             print('NC Forced with Spikes', 'blue');
             item[slot] required_equips;
@@ -185,7 +186,7 @@ boolean yacht_seal()
             construct_free_outfit(required_equips, $phylum[horror]);
             if(get_property('parkaMode') != 'spikolodon')
                 cli_execute('parka spikolodon');
-            use(1, $item[figurine of a wretched-looking seal]);
+            seal_run();
         }
         if(yacht_can())
             yacht_run();
