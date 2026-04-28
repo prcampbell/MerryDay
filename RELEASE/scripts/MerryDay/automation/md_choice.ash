@@ -266,6 +266,21 @@ void main ( int choice, string page )
 							abort("Why are you in the NEP backyard?");	
 					}
 					break;
+		case 1410: /* Encounter: The Mushy Center
+						choice 1: Fertilize the mushroom
+						choice 2: Pick the mushroom
+
+					*/
+					if(get_property('mushroomGardenCropLevel').to_int() == 6
+					{
+						run_choice(1);
+						break;
+					}
+					else 
+					{
+						run_choice(2);
+						break;
+					}
 		case 1497: /* Calling Rufus
 						1: fight the entity
 						2: find the artifact
