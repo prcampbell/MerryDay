@@ -271,7 +271,7 @@ void main ( int choice, string page )
 						choice 2: Pick the mushroom
 
 					*/
-					if(get_property('mushroomGardenCropLevel').to_int() == 6
+					if(get_property('mushroomGardenCropLevel').to_int() == 6)
 					{
 						run_choice(1);
 						break;
