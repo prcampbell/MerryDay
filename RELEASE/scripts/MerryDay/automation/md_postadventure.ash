@@ -113,10 +113,6 @@ void bustGhost()
 		&& to_boolean(get_property("kingLiberated")) 
 		&& ghostLocation != $location[none]) 
 	{ 
-		// If last adventure was getting beaten up, then ABORT! (Last adventure might have been losing to this ghost.)
-		if(run_combat().contains_text("<p>You lose.  You slink away"))
-			abort("Whoa! Not doing well here! Fight this ghost manually!");
-		
 		item[slot] needs;
 
 		switch(ghostLocation) 
