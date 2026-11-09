@@ -9,8 +9,8 @@ float eval(string expr, float[string] vars)
    matcher m = create_matcher( "\\b[a-z_][a-zA-Z0-9_]*\\b", expr );
    while (m.find()) {
       string v = m.group(0);
-      if (vs contains v) {
-         m.append_replacement(b, vs[v].to_string());
+      if (vars contains v) {
+         m.append_replacement(b, vars[v].to_string());
       }
 
    }
