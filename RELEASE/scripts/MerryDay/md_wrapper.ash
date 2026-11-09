@@ -41,7 +41,7 @@ boolean day_over()
 
 int reserve_advs()
 {
-  int advs = 2;
+  int advs = 20;
   if(grimacemap_can())
   {
     advs += 1;
@@ -179,23 +179,19 @@ void main(string command)
                 , Donho's Bubbly Ballad
                 , Cringle's Curative Carol
                 , Inigo's Incantation of Inspiration]
-              {
-              if(have_effect(e) > 0)
-                {
-                  print('Removing ' + e.name + ' for a meat buff', 'blue');
-                  cli_execute('shrug ' + e.name);
-                }
-              }
-              moodUp(650, $skill[The Polka of Plenty], $effect[Polka of Plenty]);
-              moodUp(650, $skill[Fat Leon's Phat Loot Lyric], $effect[Fat Leon's Phat Loot Lyric]);
+    {
+    if(have_effect(e) > 0)
+      {
+        print('Removing ' + e.name + ' for a meat buff', 'blue');
+        cli_execute('shrug ' + e.name);
+      }
+    }
+    moodUp(650, $skill[The Polka of Plenty], $effect[Polka of Plenty]);
+    moodUp(650, $skill[Fat Leon's Phat Loot Lyric], $effect[Fat Leon's Phat Loot Lyric]);
               
     if(embezzlers_can())
     {
       embezzlers_run();
-    }
-    if(eaglebrick_can())
-    {
-      eaglebrick_run();
     }
     fights_run();
     bander_run();
