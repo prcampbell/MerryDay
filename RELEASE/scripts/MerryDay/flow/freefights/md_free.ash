@@ -195,11 +195,11 @@ void endofday_run()
     construct_free_outfit($phylum[horror]);
     tentacle_fight_run();
   }
-  if(seal_can())
+  while(seal_can())
   {
     merry_auto_attack();
     item[slot] needs;
-    needs[$slot[weapon]] = $item[seal-clubbing club];
+    needs[$slot[weapon]] = $item[legendary seal-clubbing club];
     construct_free_outfit(needs, $phylum[horror]);
     seal_run();
   }
