@@ -195,14 +195,6 @@ void endofday_run()
     construct_free_outfit($phylum[horror]);
     tentacle_fight_run();
   }
-  while(seal_can())
-  {
-    merry_auto_attack();
-    item[slot] needs;
-    needs[$slot[weapon]] = $item[legendary seal-clubbing club];
-    construct_free_outfit(needs, $phylum[horror]);
-    seal_run();
-  }
   flood_cyber();
   while(cyberfight_can())
   {
@@ -212,6 +204,16 @@ void endofday_run()
     construct_free_outfit(needs);
     cyberfight_run();
   }
+  /*
+  while(seal_can())
+  {
+    merry_auto_attack();
+    item[slot] needs;
+    needs[$slot[weapon]] = $item[legendary seal-clubbing club];
+    construct_free_outfit(needs, $phylum[horror]);
+    seal_run();
+  }
+  */
   set_auto_attack(0);
   
   
