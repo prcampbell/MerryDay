@@ -41,7 +41,7 @@ boolean day_over()
 
 int reserve_advs()
 {
-  int advs = 20;
+  int advs = 2;
   if(grimacemap_can())
   {
     advs += 1;
@@ -102,6 +102,7 @@ void main(string command)
 
   if(!free)
   {
+    dinsey(); 
     sail_to_crab();
   }
 
@@ -147,7 +148,7 @@ void main(string command)
   fights_run();
   if(!free)
   {
-    dinsey(); 
+
     while(available_amount($item[li'l pirate costume]) == 0)
     {
       pgb_free_run();
@@ -193,6 +194,7 @@ void main(string command)
     {
       embezzlers_run();
     }
+
     fights_run();
     bander_run();
     crabs_run();
@@ -218,6 +220,16 @@ void main(string command)
       barf_run();
     }
     pirate_cleanup();
+    if(spacegate_can())
+    {
+        spacegate_init();
+        while(get_property('_spacegateTurnsLeft').to_int() > 0)
+        {
+            spacegate_run();
+        }
+        
+        spacegate_return(); 
+    }
     if(grimacemap_can()) 
       grimacemap_run();
     endofday_run();
