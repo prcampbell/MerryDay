@@ -567,20 +567,6 @@ choice 2: Flee it!
 					*/
 						run_choice(1);
 					break;
-		case 1596:	/* Encounter: Dig at $location
-					Using 1 Archaeologist's Spade...
-					Manual control requested for choice 1596
-					choice 1: Dig up something from the area
-					choice 2: Dig up something ancient
-					choice 3: Dig up a skeleton
-					choice 4: I'm done digging					
-					*/
-						if(available_choice_options() contains 3)
-							run_choice(3);
-						else
-							run_choice(4);
-					break;
-
 
 		case 919:	/* Encounter: Break Time!
 					choice 1: Plunder the cash register (get Beach Bucks)
