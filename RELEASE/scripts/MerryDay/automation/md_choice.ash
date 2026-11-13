@@ -468,6 +468,16 @@ choice 2: Flee it!
 
 					run_choice(1);
 					break;	
+		case 1431:	/* Encounter: The Calm After the Storm
+					choice 1: Go where there be Steampunk Giants (complete trash quest, unlock HiTS)
+					choice 2: Go where there be Goth Giants (fight goth giant, acquire black candles)
+					choice 3: Go where there be Raver Giants (fight raver, restore hp/mp)
+					choice 4: Go where there be Punk Rock Giants (complete quest w/ mohawk wig, gain ~500 meat)
+					
+					*/
+
+					run_choice(3);
+					break;	
 
 /*June Cleaver Encounters*/
 		case 1467:	/* Encounter: Poetic Justice
